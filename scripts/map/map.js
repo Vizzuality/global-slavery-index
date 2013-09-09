@@ -42,7 +42,9 @@
       cartodb.createLayer(this.map, layerUrl)
         .addTo(this.map)
         .on('done', function(layer) {
+          var sublayer = layer.getSubLayer(1);
 
+          sublayer.infowindow.set('template', $('#infowindow_template').html());
         }).on('error', function() {
           //log the error
         });

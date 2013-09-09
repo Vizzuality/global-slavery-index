@@ -55,6 +55,16 @@
     </div>
   </script>
 
+  <script type="infowindow/html" id="infowindow_template">
+    <div class="cartodb-popup">
+      <div class="cartodb-popup-content-wrapper">
+        <p>{{content.data.name}}</p>
+        <p>{{content.data.slavery_policy_risk}}</p>
+      </div>
+      <div class="cartodb-popup-tip-container"></div>
+    </div>
+  </script>
+
   <!-- TODO: Google Analytics -->
   <!-- script>
     var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
@@ -76,6 +86,7 @@
   <script src="scripts/core/profiler.js"></script>
   <script src="scripts/common/tabs.js"></script>
   <script src="scripts/common/tabpane.js"></script>
+  <script src="scripts/common/infowindow.js"></script>
 
   <script src="scripts/common/nav.js"></script>
   <script src="scripts/map/map.js"></script>

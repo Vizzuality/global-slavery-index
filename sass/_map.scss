@@ -1,3 +1,5 @@
+@import "infowindow-icons/*.png";
+
 .map-wrapper,
 .cartodb-map {
   height: 100%;
@@ -18,4 +20,27 @@ div.cartodb-legend-stack {
   border: 0;
   background: transparent;
   @include box-shadow(none);
+}
+
+div.cartodb-popup {
+  padding: 0;
+  width: auto;
+  background: transparent;
+
+  div.cartodb-popup-tip-container {
+    position: absolute;
+    top: 0; left: -20px;
+    width: 20px;
+    height: 260px;
+    @include infowindow-icons-sprite(left);
+  }
+
+  div.cartodb-popup-content-wrapper {
+    width: 166px;
+    max-width: 166px;
+    height: 236px;
+    padding: 12px;
+    @include infowindow-icons-sprite(right);
+    background-repeat: repeat;
+  }
 }
