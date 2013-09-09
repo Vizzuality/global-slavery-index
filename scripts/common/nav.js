@@ -1,19 +1,19 @@
   /**
-   *  Chart view
+   *  Nav view
    *
    *  Example:
    *
-   *  var chartView = new slavery.Chart({
-   *    el: $('.chart-wrapper')
+   *  var nav = new slavery.Nav({
+   *    el: $('.nav')
    *  });
    */
 
 
-  slavery.Chart = cdb.core.View.extend({
+  slavery.Nav = cdb.core.View.extend({
 
     initialize: function() {
-      // this.template = cdb.templates.getTemplate('chart/views/chart.jst.js');
-      var template = $("#chart-template").html();
+      // this.template = cdb.templates.getTemplate('chart/views/nav.jst.js');
+      var template = $("#nav-template").html();
 
       this.template = new cdb.core.Template({
         template: template

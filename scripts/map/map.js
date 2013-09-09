@@ -14,6 +14,12 @@
 
     initialize: function() {
       // this.template = cdb.templates.getTemplate('map/views/map.jst.js');
+      var template = $("#cartodb-map-template").html();
+
+      this.template = new cdb.core.Template({
+        template: template
+      });
+
       this.render();
 
       this._initViews();
@@ -21,12 +27,6 @@
     },
 
     render: function() {
-      var template = $("#cartodb-map-template").html();
-
-      this.template = new cdb.core.Template({
-        template: template
-      });
-
       this.$el.append(this.template.render());
       return this;
     },

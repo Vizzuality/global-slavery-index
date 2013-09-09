@@ -12,7 +12,18 @@ slavery.Tabs = cdb.core.View.extend({
 
     activate: function(name) {
       this.$('a').removeClass('selected');
-      this.$('a[href$="#'+ ((this.options.slash) ? '/' : '') + name + '"]').addClass('selected');
+
+      var $a = this.$('a[href$="#'+ ((this.options.slash) ? '/' : '') + name + '"]').addClass('selected'),
+          $span = this.$('span.selected');
+
+      // Move selected box
+      var w = $a.outerWidth(),
+          l = $a.position().left;
+
+      $span.animate({
+        width: w,
+        left: l + 2
+      }, 200, 'swing');
     },
 
     desactivate: function(name) {
@@ -42,20 +53,19 @@ slavery.Tabs = cdb.core.View.extend({
     _click: function(e) {
       if (e && this.preventDefault) e.preventDefault();
 
-      var
-      t    = $(e.target).closest('a'),
-      href = t.attr('href');
+      var $t = $(e.target).closest('a'),
+          href = $t.attr('href');
 
-      if (!t.hasClass('disabled') && href) {
+      if (!$t.hasClass('disabled') && href) {
         var name = href.replace('#/', '#').split('#')[1];
         this.trigger('click', name);
       }
     },
 
-    linkToPanel: function(panel) {
+    linkToPane: function(pane) {
       this.preventDefault = true;
-      panel.bind('tabEnabled', this.activate, this);
-      this.bind('click', panel.active, panel);
+      pane.bind('tabEnabled', this.activate, this);
+      this.bind('click', pane.active, pane);
     }
 
 });

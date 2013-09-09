@@ -1,0 +1,5 @@
+$helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+@mixin font($font-style, $font-size, $line-height: 1.4, $font-family: $helvetica) {
+  font: $font-style #{$font-size}/#{$line-height} $font-family;
+}
