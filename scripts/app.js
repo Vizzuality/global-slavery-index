@@ -16,6 +16,7 @@ $(function() {
     },
 
     initialize: function() {
+
     },
 
     chart: function() {
@@ -32,9 +33,7 @@ $(function() {
     el: document.body,
 
     initialize: function() {
-      cdb.config.set(this.options.config);
-
-      this.workViewActive = this.options.config || 'map';
+      this.workViewActive = this.options.workViewActive || 'map';
 
       this._initRouter();
       this._initModels();
@@ -46,7 +45,7 @@ $(function() {
     _initRouter: function() {
       this.router = window.router;
 
-      this.router.bind("change", this.change, this);
+      this.router.bind("change", this.activeView, this);
     },
 
     _initModels: function() {
@@ -75,20 +74,18 @@ $(function() {
       this.addView(this.workView);
 
       this.workView.addTab('map', this.mapTab.render(), { active: false });
-      this.workView.addTab('chart', this.chartTab.render(), { active: false });
-      // this.workView.active(this.workViewActive);
-      this.workView.active('map');
-
-      debugger;
+      this.workView.addTab('chart', this.chartTab, { active: false });
     },
 
     _initBindings: function() {
     },
 
-    change: function(slide) {
-      console.log(slide['type']);
-      // $("header a").removeClass("selected");
-      // $("header ." + name).addClass("selected");
+    activeView: function(pane) {
+      this.workViewActive = pane['type'];
+
+      // map or chart?
+      this.workView.active(this.workViewActive);
+      // this.menu.setActiveWorkView(name);
     }
   });
 
