@@ -1,5 +1,5 @@
 
-cdb.admin.Tabs = cdb.core.View.extend({
+slavery.Tabs = cdb.core.View.extend({
 
     events: {
       'click': '_click'

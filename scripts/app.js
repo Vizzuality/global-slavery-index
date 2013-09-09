@@ -53,16 +53,16 @@ $(function() {
     },
 
     _initViews: function() {
-      this.mapTab = new cdb.admin.Map({
+      this.mapTab = new slavery.Map({
         el: this.$('.map-wrapper')
       });
 
-      this.chartTab = new cdb.admin.Chart({
+      this.chartTab = new slavery.Chart({
         el: this.$('.chart-wrapper')
       });
 
       // Work tabs
-      this.workTabs = new cdb.admin.Tabs({
+      this.workTabs = new slavery.Tabs({
         el: this.$('.switch'),
         slash: true
       });
@@ -78,6 +78,8 @@ $(function() {
       this.workView.addTab('chart', this.chartTab.render(), { active: false });
       // this.workView.active(this.workViewActive);
       this.workView.active('map');
+
+      debugger;
     },
 
     _initBindings: function() {

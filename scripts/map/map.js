@@ -4,13 +4,13 @@
    *
    *  Example:
    *
-   *  var mapView = new cdb.admin.Map({
+   *  var mapView = new slavery.Map({
    *    el:         $('.map-wrapper')
    *  });
    */
 
 
-  cdb.admin.Map = cdb.core.View.extend({
+  slavery.Map = cdb.core.View.extend({
 
     initialize: function() {
       // this.template = cdb.templates.getTemplate('map/views/map.jst.js');
