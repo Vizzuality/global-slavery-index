@@ -73,7 +73,7 @@ $(function() {
 
       this.workTabs = new slavery.Tabs({
         el: this.$('.switch'),
-        slash: true
+        slash: false
       });
       this.addView(this.workTabs);
 

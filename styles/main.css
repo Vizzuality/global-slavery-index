@@ -70,6 +70,24 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 100%;
 }
 
+/* line 8, ../sass/_map.scss */
+.leaflet-container {
+  background: #333;
+}
+
+/* line 13, ../sass/_map.scss */
+div.cartodb-legend-stack {
+  z-index: 1000002;
+  position: absolute;
+  bottom: 0;
+  border-radius: 0;
+  border: 0;
+  background: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
 /* line 10, ../sass/main.scss */
 html,
 body,
@@ -88,9 +106,12 @@ body,
   height: 62px;
   border-top: 1px solid rgba(0, 0, 0, 0.5);
   background: #fff;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
-/* line 25, ../sass/main.scss */
+/* line 26, ../sass/main.scss */
 .switch {
   position: relative;
   float: left;
@@ -103,7 +124,7 @@ body,
   -o-border-radius: 14px;
   border-radius: 14px;
 }
-/* line 33, ../sass/main.scss */
+/* line 34, ../sass/main.scss */
 .switch span {
   position: absolute;
   top: 2px;
@@ -118,16 +139,16 @@ body,
   border-radius: 11px;
   width: 47px;
 }
-/* line 42, ../sass/main.scss */
+/* line 43, ../sass/main.scss */
 .switch ul {
   position: relative;
   z-index: 10;
 }
-/* line 47, ../sass/main.scss */
+/* line 48, ../sass/main.scss */
 .switch li {
   float: left;
 }
-/* line 51, ../sass/main.scss */
+/* line 52, ../sass/main.scss */
 .switch a {
   display: -moz-inline-stack;
   display: inline-block;
@@ -141,7 +162,7 @@ body,
   text-transform: uppercase;
   font: 500 12px/21px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-/* line 59, ../sass/main.scss */
+/* line 60, ../sass/main.scss */
 .switch a.selected {
   color: #fff;
 }

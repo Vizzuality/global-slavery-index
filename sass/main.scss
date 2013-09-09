@@ -20,6 +20,7 @@ body,
   height: 62px;
   border-top: 1px solid rgba(#000, .5);
   background: #fff;
+  @include box-shadow(0 0 3px rgba(#000, .3));
 }
 
 .switch {
