@@ -63,24 +63,17 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 58, infowindow-icons/*.png */
-.infowindow-icons-sprite, div.cartodb-popup div.cartodb-popup-tip-container, div.cartodb-popup div.cartodb-popup-content-wrapper {
-  background: url('/images/infowindow-icons-s75f840ac18.png') no-repeat;
+/* line 66, infowindow-icons/*.png */
+.infowindow-icons-sprite, .infowindow-tip-container, .infowindow-content-wrapper, .infowindow-population, .infowindow-slaved {
+  background: url('/images/infowindow-icons-se0a60fcea5.png') no-repeat;
 }
 
-/* line 4, ../sass/_map.scss */
-.map-wrapper,
-.cartodb-map {
-  height: 100%;
-  width: 100%;
-}
-
-/* line 10, ../sass/_map.scss */
+/* line 14, ../sass/_map.scss */
 .leaflet-container {
   background: #333;
 }
 
-/* line 15, ../sass/_map.scss */
+/* line 19, ../sass/_map.scss */
 div.cartodb-legend-stack {
   z-index: 1000002;
   position: absolute;
@@ -93,40 +86,169 @@ div.cartodb-legend-stack {
   box-shadow: none;
 }
 
-/* line 25, ../sass/_map.scss */
-div.cartodb-popup {
+/* line 29, ../sass/_map.scss */
+.infowindow {
   padding: 0;
   width: auto;
   background: transparent;
 }
-/* line 30, ../sass/_map.scss */
-div.cartodb-popup div.cartodb-popup-tip-container {
-  position: absolute;
-  top: 0;
-  left: -20px;
+
+/* line 35, ../sass/_map.scss */
+.infowindow-tip-container {
+  float: left;
   width: 20px;
   height: 260px;
-  background-position: 0 -262px;
-}
-/* line 38, ../sass/_map.scss */
-div.cartodb-popup div.cartodb-popup-content-wrapper {
-  width: 166px;
-  max-width: 166px;
-  height: 236px;
-  padding: 12px;
-  background-position: 0 0;
-  background-repeat: repeat;
+  background-position: 0 -336px;
 }
 
-/* line 10, ../sass/main.scss */
+/* line 42, ../sass/_map.scss */
+.infowindow-content-wrapper {
+  float: left;
+  width: 191px;
+  max-width: 191px;
+  height: 260px;
+  background-position: 0 -37px;
+}
+
+/* line 50, ../sass/_map.scss */
+.infowindow-title {
+  padding: 20px 5px 20px 10px;
+  color: #444;
+  font: bold 21px/1 "Open Sans";
+}
+
+/* line 56, ../sass/_map.scss */
+.infowindow-risk {
+  margin-left: -7px;
+  width: 193px;
+  max-width: 193px;
+  height: 10px;
+  color: #b10026;
+  border-top: 2px solid #b10026;
+}
+/* line 64, ../sass/_map.scss */
+.infowindow-risk.risk2 {
+  color: #e31a1c;
+  border-top-color: #e31a1c;
+}
+/* line 69, ../sass/_map.scss */
+.infowindow-risk.risk3 {
+  color: #fc4e2a;
+  border-top-color: #fc4e2a;
+}
+/* line 74, ../sass/_map.scss */
+.infowindow-risk.risk4 {
+  color: #fd8d3c;
+  border-top-color: #fd8d3c;
+}
+/* line 79, ../sass/_map.scss */
+.infowindow-risk.risk5 {
+  color: #feb24c;
+  border-top-color: #feb24c;
+}
+/* line 84, ../sass/_map.scss */
+.infowindow-risk.risk6 {
+  color: #fed976;
+  border-top-color: #fed976;
+}
+/* line 89, ../sass/_map.scss */
+.infowindow-risk.risk7 {
+  color: #ffffb2;
+  border-top-color: #ffffb2;
+}
+/* line 94, ../sass/_map.scss */
+.infowindow-risk span {
+  float: right;
+  margin: -9px 13px 0 0;
+  padding: 0 5px;
+  background: #FFF;
+  text-transform: uppercase;
+  font: bold 11px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* line 104, ../sass/_map.scss */
+.total-num {
+  float: right;
+  text-align: right;
+  font: 400 21px/1.2 "Open Sans";
+}
+/* line 109, ../sass/_map.scss */
+.total-num span {
+  display: block;
+  font-size: 10px;
+}
+
+/* line 115, ../sass/_map.scss */
+.infowindow-block {
+  color: #444;
+  margin: 7px 15px 7px 0;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* line 122, ../sass/_map.scss */
+.infowindow-population {
+  background-position: 0 0;
+}
+
+/* line 126, ../sass/_map.scss */
+.infowindow-slaved {
+  color: #F1B14C;
+  background-position: 0 -299px;
+}
+
+/* line 131, ../sass/_map.scss */
+.percent {
+  float: left;
+  background: #FFF;
+  font-size: 11px;
+  padding: 0 5px;
+  margin: 9px 0;
+}
+
+/* line 139, ../sass/_map.scss */
+.more {
+  position: absolute;
+  left: 13px;
+  bottom: 0;
+  border-top: 2px solid #eee;
+  width: 193px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font: bold 12px/48px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+  color: #00A99D !important;
+}
+/* line 150, ../sass/_map.scss */
+.more i {
+  position: absolute;
+  display: block;
+  line-height: 24px;
+  top: -15px;
+  left: 50%;
+  width: 24px;
+  margin-left: -14px;
+  border: 2px solid #eee;
+  background: #fff;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  border-radius: 15px;
+}
+
+/* line 13, ../sass/main.scss */
 html,
 body,
-.wrapper {
+.wrapper,
+.map-wrapper,
+.chart-wrapper,
+.cartodb-map {
   height: 100%;
   width: 100%;
 }
 
-/* line 15, ../sass/main.scss */
+/* line 18, ../sass/main.scss */
 .nav {
   position: absolute;
   z-index: 1000001;
@@ -141,7 +263,7 @@ body,
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
-/* line 26, ../sass/main.scss */
+/* line 29, ../sass/main.scss */
 .switch {
   position: relative;
   float: left;
@@ -154,7 +276,7 @@ body,
   -o-border-radius: 14px;
   border-radius: 14px;
 }
-/* line 34, ../sass/main.scss */
+/* line 37, ../sass/main.scss */
 .switch span {
   position: absolute;
   top: 2px;
@@ -169,16 +291,16 @@ body,
   border-radius: 11px;
   width: 47px;
 }
-/* line 43, ../sass/main.scss */
+/* line 46, ../sass/main.scss */
 .switch ul {
   position: relative;
   z-index: 10;
 }
-/* line 48, ../sass/main.scss */
+/* line 51, ../sass/main.scss */
 .switch li {
   float: left;
 }
-/* line 52, ../sass/main.scss */
+/* line 55, ../sass/main.scss */
 .switch a {
   display: -moz-inline-stack;
   display: inline-block;
@@ -192,7 +314,7 @@ body,
   text-transform: uppercase;
   font: 500 12px/21px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-/* line 60, ../sass/main.scss */
+/* line 63, ../sass/main.scss */
 .switch a.selected {
   color: #fff;
 }

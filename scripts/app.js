@@ -58,7 +58,7 @@ $(function() {
       });
       this.addView(this.workView);
 
-      this.mapTab = new slavery.Map({
+      this.mapTab = new slavery.ui.view.Map({
         el: this.$('.map-wrapper')
       });
 
@@ -67,11 +67,11 @@ $(function() {
       });
 
       // Nav
-      this.nav = new slavery.Nav({
+      this.nav = new slavery.ui.view.Nav({
         el: this.$(".nav")
       });
 
-      this.workTabs = new slavery.Tabs({
+      this.workTabs = new slavery.ui.view.Tabs({
         el: this.$('.switch'),
         slash: false
       });

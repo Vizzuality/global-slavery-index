@@ -1,5 +1,4 @@
-
-slavery.Tabs = cdb.core.View.extend({
+  slavery.ui.view.Tabs = cdb.core.View.extend({
 
     events: {
       'click': '_click'

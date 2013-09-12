@@ -9,7 +9,7 @@
    */
 
 
-  slavery.Nav = cdb.core.View.extend({
+  slavery.ui.view.Nav = cdb.core.View.extend({
 
     initialize: function() {
       // this.template = cdb.templates.getTemplate('chart/views/nav.jst.js');

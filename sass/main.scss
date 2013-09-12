@@ -7,7 +7,10 @@
 
 html,
 body,
-.wrapper {
+.wrapper,
+.map-wrapper,
+.chart-wrapper,
+.cartodb-map {
   height: 100%;
   width: 100%;
 }

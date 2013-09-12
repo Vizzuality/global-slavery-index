@@ -1,10 +1,14 @@
+$risk1: #B10026;
+$risk2: #E31A1C;
+$risk3: #FC4E2A;
+$risk4: #FD8D3C;
+$risk5: #FEB24C;
+$risk6: #FED976;
+$risk7: #FFFFB2;
+
+
 @import "infowindow-icons/*.png";
 
-.map-wrapper,
-.cartodb-map {
-  height: 100%;
-  width: 100%;
-}
 
 // override leaflet.css
 .leaflet-container {
@@ -22,25 +26,136 @@ div.cartodb-legend-stack {
   @include box-shadow(none);
 }
 
-div.cartodb-popup {
+.infowindow {
   padding: 0;
   width: auto;
   background: transparent;
+}
 
-  div.cartodb-popup-tip-container {
-    position: absolute;
-    top: 0; left: -20px;
-    width: 20px;
-    height: 260px;
-    @include infowindow-icons-sprite(left);
+.infowindow-tip-container {
+  float: left;
+  width: 20px;
+  height: 260px;
+  @include infowindow-icons-sprite(left);
+}
+
+.infowindow-content-wrapper {
+  float: left;
+  width: 191px;
+  max-width: 191px;
+  height: 260px;
+  @include infowindow-icons-sprite(right);
+}
+
+.infowindow-title {
+  padding: 20px 5px 20px 10px;
+  color: #444;
+  @include font(bold, 21px, 1, "Open Sans");
+}
+
+.infowindow-risk {
+  margin-left: -7px;
+  width: 193px;
+  max-width: 193px;
+  height: 10px;
+  color: $risk1;
+  border-top: 2px solid $risk1;
+
+  &.risk2 {
+    color: $risk2;
+    border-top-color: $risk2;
   }
 
-  div.cartodb-popup-content-wrapper {
-    width: 166px;
-    max-width: 166px;
-    height: 236px;
-    padding: 12px;
-    @include infowindow-icons-sprite(right);
-    background-repeat: repeat;
+  &.risk3 {
+    color: $risk3;
+    border-top-color: $risk3;
+  }
+
+  &.risk4 {
+    color: $risk4;
+    border-top-color: $risk4;
+  }
+
+  &.risk5 {
+    color: $risk5;
+    border-top-color: $risk5;
+  }
+
+  &.risk6 {
+    color: $risk6;
+    border-top-color: $risk6;
+  }
+
+  &.risk7 {
+    color: $risk7;
+    border-top-color: $risk7;
+  }
+
+  span {
+    float: right;
+    margin: -9px 13px 0 0;
+    padding: 0 5px;
+    background: #FFF;
+    text-transform: uppercase;
+    @include font(bold, 11px);
+  }
+}
+
+.total-num {
+  float: right;
+  text-align: right;
+  @include font(400, 21px, 1.2, 'Open Sans');
+
+  span {
+    display: block;
+    font-size: 10px;
+  }
+}
+
+.infowindow-block {
+  color: #444;
+  margin: 7px 15px 7px 0;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.infowindow-population {
+  @include infowindow-icons-sprite(population);
+}
+
+.infowindow-slaved {
+  color: #F1B14C;
+  @include infowindow-icons-sprite(slavery);
+}
+
+.percent {
+  float: left;
+  background: #FFF;
+  font-size: 11px;
+  padding: 0 5px;
+  margin: 9px 0;
+}
+
+.more {
+  position: absolute;
+  left: 13px; bottom: 0;
+  border-top: 2px solid #eee;
+  width: 193px;
+  text-transform: uppercase;
+  text-decoration: none;
+  @include font(bold, 12px, 48px);
+  text-align: center;
+  color: #00A99D !important; // override leaflet-container
+
+  i {
+    position: absolute;
+    display: block;
+    line-height: 24px;
+    top: -15px; left: 50%;
+    width: 24px;
+    margin-left: -14px;
+    border: 2px solid #eee;
+    background: #fff;
+    @include border-radius(15px);
   }
 }

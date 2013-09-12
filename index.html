@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
     <link rel="stylesheet" href="styles/vendor/leaflet.ie.css" />
   <![endif]-->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="styles/main.css">
 
   <script src="scripts/vendor/modernizr.custom.82536.js"></script>
@@ -56,12 +57,39 @@
   </script>
 
   <script type="infowindow/html" id="infowindow_template">
-    <div class="cartodb-popup">
-      <div class="cartodb-popup-content-wrapper">
-        <p>{{content.data.name}}</p>
-        <p>{{content.data.slavery_policy_risk}}</p>
+    <div class="infowindow">
+      <div class="infowindow-tip-container"></div>
+      <div class="infowindow-content-wrapper">
+        <h1 class="infowindow-title"><%= content.data.country_name %></h1>
+
+        <% if (content.data.slavery_policy_risk <= 100 && content.data.slavery_policy_risk > 75.25) { %>
+          <p class="infowindow-risk risk1"><span>Very high</span></p>
+        <% } else if (content.data.slavery_policy_risk <= 75.25 && content.data.slavery_policy_risk > 75.25) { %>
+          <p class="infowindow-risk risk2"><span>High</span></p>
+        <% } else if (content.data.slavery_policy_risk <= 64.64 && content.data.slavery_policy_risk > 46.96) { %>
+          <p class="infowindow-risk risk3"><span>Moderate high</span></p>
+        <% } else if (content.data.slavery_policy_risk <= 46.96 && content.data.slavery_policy_risk > 36.36) { %>
+          <p class="infowindow-risk risk4"><span>Moderate</span></p>
+        <% } else if (content.data.slavery_policy_risk <= 36.36 && content.data.slavery_policy_risk > 18.68) { %>
+          <p class="infowindow-risk risk5"><span>Moderate low</span></p>
+        <% } else if (content.data.slavery_policy_risk <= 18.68 && content.data.slavery_policy_risk > 0) { %>
+          <p class="infowindow-risk risk6"><span>Low</span></p>
+        <% } else { %>
+          <p class="infowindow-risk risk7"><span>Very low</span></p>
+        <% } %>
+
+        <div class="infowindow-block infowindow-population">
+          <p class="total-num">4,511,488 <span>Estimated population</span></p>
+          <div class="percent"></div>
+        </div>
+
+        <div class="infowindow-block infowindow-slaved">
+          <p class="total-num">51,437 <span>Est. number slaved</span></p>
+          <div class="percent">6%</div>
+        </div>
+
+        <a href="#" class="more"><i>+</i>About this country</a>
       </div>
-      <div class="cartodb-popup-tip-container"></div>
     </div>
   </script>
 
@@ -79,11 +107,11 @@
   <script src="scripts/vendor/d3.min.js"></script>
   <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
 
-  <script>
-    slavery = {};
-  </script>
-
+  <script src="scripts/slavery.js"></script>
   <script src="scripts/core/profiler.js"></script>
+  <!-- models -->
+  <script src="scripts/models/map.js"></script>
+  <!-- views -->
   <script src="scripts/common/tabs.js"></script>
   <script src="scripts/common/tabpane.js"></script>
   <script src="scripts/common/infowindow.js"></script>
