@@ -15,6 +15,7 @@ $risk7: #FFFFB2;
   background: #333;
 }
 
+// legend
 // override cartodb.css
 div.cartodb-legend-stack {
   z-index: 1000002;
@@ -26,6 +27,8 @@ div.cartodb-legend-stack {
   @include box-shadow(none);
 }
 
+// infowindow
+// override cartodb.css
 .infowindow {
   padding: 0;
   width: auto;
@@ -158,4 +161,19 @@ div.cartodb-legend-stack {
     background: #fff;
     @include border-radius(15px);
   }
+}
+
+.panel-wrapper {
+  position: absolute;
+  top: 50px; right: 0;
+  z-index: 10;
+  width: 500px;
+  background: #fff;
+}
+
+.infowindow-wrapper {
+  position: absolute;
+  bottom: 100px; right: 0;
+  z-index: 10;
+  background: #fff;
 }

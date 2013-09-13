@@ -1,21 +1,20 @@
-// override cartodb.js
-cdb.geo.ui.InfowindowModel.prototype.defaults = {
-  latlng: [0, 0],
-  offset: [-10, -93],
-  autoPan: true,
-  content: "",
-  visibility: false,
-  fields: null, // contains the fields displayed in the infowindow
-  template_type: 'underscore'
-};
+// // override cartodb.js
+// cdb.geo.ui.InfowindowModel.prototype.defaults = {
+//   latlng: [0, 0],
+//   offset: [-10, -93],
+//   autoPan: true,
+//   content: "",
+//   visibility: false,
+//   fields: null // contains the fields displayed in the infowindow
+// };
 
-cdb.geo.ui.Infowindow = cdb.geo.ui.Infowindow.extend({
+slavery.ui.view.Infowindow = cdb.geo.ui.Infowindow.extend({
   events: cdb.core.View.extendEvents({
-    'click .more': 'goToCountry',
+    'click .more': 'changeCountry',
     'mousemove': 'killEvent'
   }),
 
-  goToCountry: function(e) {
+  changeCountry: function(e) {
     e.preventDefault();
     e.stopPropagation();
 
@@ -27,6 +26,7 @@ cdb.geo.ui.Infowindow = cdb.geo.ui.Infowindow.extend({
    *  Render infowindow content
    */
   render: function() {
+    var self = this;
 
     if(this.template) {
 
@@ -56,7 +56,6 @@ cdb.geo.ui.Infowindow = cdb.geo.ui.Infowindow.extend({
       // Hello jscrollpane hacks!
       // It needs some time to initialize, if not it doesn't render properly the fields
       // Check the height of the content + the header if exists
-      var self = this;
       setTimeout(function() {
         var actual_height = self.$el.find(".cartodb-popup-content").outerHeight() + self.$el.find(".cartodb-popup-header").outerHeight();
         if (self.minHeightToScroll <= actual_height)
@@ -72,8 +71,30 @@ cdb.geo.ui.Infowindow = cdb.geo.ui.Infowindow.extend({
       // If the template is 'cover-enabled', load the cover
       this._loadCover();
     }
-
     return this;
+  },
+
+  // show: function (no_pan) {
+  //   var self = this;
+
+
+  //   if (this.model.get("visibility")) {
+  //     self.$el.css({ left: -5000 });
+  //     self._update(no_pan);
+  //   }
+  // },
+
+  _update: function (no_pan) {
+    if(!this.isHidden()) {
+      var delay = 0;
+
+      if (!no_pan) {
+        var delay = this.adjustPan();
+      }
+
+      this._updatePosition();
+      this._animateIn(delay);
+    }
   },
 
   /**

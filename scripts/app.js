@@ -15,10 +15,6 @@ $(function() {
       'chart/':         'chart'
     },
 
-    initialize: function() {
-
-    },
-
     chart: function() {
       this.trigger('change', { type: 'chart'}, this);
     },
@@ -36,19 +32,13 @@ $(function() {
       this.workViewActive = this.options.workViewActive || 'map';
 
       this._initRouter();
-      this._initModels();
       this._initViews();
-      // this._createLoader();
-      this._initBindings();
     },
 
     _initRouter: function() {
       this.router = window.router;
 
       this.router.bind("change", this.activeView, this);
-    },
-
-    _initModels: function() {
     },
 
     _initViews: function() {
@@ -81,9 +71,6 @@ $(function() {
       this.workView.addTab('chart', this.chartTab, { active: false });
 
       this.workTabs.linkToPane(this.workView);
-    },
-
-    _initBindings: function() {
     },
 
     activeView: function(pane) {

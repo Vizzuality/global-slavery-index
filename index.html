@@ -32,7 +32,10 @@
 </head>
 <body>
   <div id="wrapper" class="wrapper">
-    <div class="map-wrapper"></div>
+    <div class="map-wrapper">
+      <div class="infowindow-wrapper"></div>
+      <div class="panel-wrapper"></div>
+    </div>
     <div class="chart-wrapper"></div>
     <nav class="nav"></nav>
   </div>
@@ -43,7 +46,6 @@
   </script>
 
   <script id="chart-template" type="text/x-underscore-template">
-    <img src="/images/chart.png" />
   </script>
 
   <script id="nav-template" type="text/x-underscore-template">
@@ -56,41 +58,40 @@
     </div>
   </script>
 
-  <script type="infowindow/html" id="infowindow_template">
-    <div class="infowindow">
-      <div class="infowindow-tip-container"></div>
-      <div class="infowindow-content-wrapper">
-        <h1 class="infowindow-title"><%= content.data.country_name %></h1>
+  <script type="infowindow/html" id="infowindow-template">
+    <h1 class="infowindow-title"><%= country_name %></h1>
 
-        <% if (content.data.slavery_policy_risk <= 100 && content.data.slavery_policy_risk > 75.25) { %>
-          <p class="infowindow-risk risk1"><span>Very high</span></p>
-        <% } else if (content.data.slavery_policy_risk <= 75.25 && content.data.slavery_policy_risk > 75.25) { %>
-          <p class="infowindow-risk risk2"><span>High</span></p>
-        <% } else if (content.data.slavery_policy_risk <= 64.64 && content.data.slavery_policy_risk > 46.96) { %>
-          <p class="infowindow-risk risk3"><span>Moderate high</span></p>
-        <% } else if (content.data.slavery_policy_risk <= 46.96 && content.data.slavery_policy_risk > 36.36) { %>
-          <p class="infowindow-risk risk4"><span>Moderate</span></p>
-        <% } else if (content.data.slavery_policy_risk <= 36.36 && content.data.slavery_policy_risk > 18.68) { %>
-          <p class="infowindow-risk risk5"><span>Moderate low</span></p>
-        <% } else if (content.data.slavery_policy_risk <= 18.68 && content.data.slavery_policy_risk > 0) { %>
-          <p class="infowindow-risk risk6"><span>Low</span></p>
-        <% } else { %>
-          <p class="infowindow-risk risk7"><span>Very low</span></p>
-        <% } %>
+    <p class="infowindow-risk <%= slavery_policy_risk.toLowerCase() %>"><span>slavery_policy_risk</span></p>
 
-        <div class="infowindow-block infowindow-population">
-          <p class="total-num">4,511,488 <span>Estimated population</span></p>
-          <div class="percent"></div>
-        </div>
-
-        <div class="infowindow-block infowindow-slaved">
-          <p class="total-num">51,437 <span>Est. number slaved</span></p>
-          <div class="percent">6%</div>
-        </div>
-
-        <a href="#" class="more"><i>+</i>About this country</a>
-      </div>
+    <div class="infowindow-block infowindow-population">
+      <p class="total-num">4,511,488 <span>Estimated population</span></p>
+      <div class="percent"></div>
     </div>
+
+    <div class="infowindow-block infowindow-slaved">
+      <p class="total-num">51,437 <span>Est. number slaved</span></p>
+      <div class="percent">6%</div>
+    </div>
+
+    <a href="#" class="more"><i>+</i>About this country</a>
+  </script>
+
+  <script id="country_panel-template" type="text/x-underscore-template">
+    <a href="#back" class="back">back</a>
+
+    country name: <%= country_name %>
+    prevalence: <%= prevalence %>
+    population: <%= population %>
+    slaved: <%= slaved %>
+    % <%= 100 * slaved / population %>
+    gdp <%= gdpppp %>
+    gdp per capita: <%= gdpppp / population %>
+  </script>
+
+  <script id="region_panel-template" type="text/x-underscore-template">
+    <a href="#back" class="back">back</a>
+    region: <%= region_name %>
+    region_desc: <%= region_desc %>
   </script>
 
   <!-- TODO: Google Analytics -->
@@ -109,15 +110,21 @@
 
   <script src="scripts/slavery.js"></script>
   <script src="scripts/core/profiler.js"></script>
+
   <!-- models -->
   <script src="scripts/models/map.js"></script>
+  <script src="scripts/models/panel.js"></script>
+  <script src="scripts/models/infowindow.js"></script>
+
   <!-- views -->
   <script src="scripts/common/tabs.js"></script>
   <script src="scripts/common/tabpane.js"></script>
-  <script src="scripts/common/infowindow.js"></script>
-
   <script src="scripts/common/nav.js"></script>
+
   <script src="scripts/map/map.js"></script>
+  <script src="scripts/map/panel.js"></script>
+  <script src="scripts/map/infowindow.js"></script>
+
   <script src="scripts/chart/chart.js"></script>
 
   <script src="scripts/utils.js"></script>
