@@ -63,9 +63,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 66, infowindow-icons/*.png */
-.infowindow-icons-sprite, .infowindow-tip-container, .infowindow-content-wrapper, .infowindow-population, .infowindow-slaved {
-  background: url('/images/infowindow-icons-se0a60fcea5.png') no-repeat;
+/* line 58, infowindow-icons/*.png */
+.infowindow-icons-sprite, .infowindow-population, .infowindow-slaved {
+  background: url('/images/infowindow-icons-s816484c94a.png') no-repeat;
 }
 
 /* line 14, ../sass/_map.scss */
@@ -98,7 +98,6 @@ div.cartodb-legend-stack {
   float: left;
   width: 20px;
   height: 260px;
-  background-position: 0 -336px;
 }
 
 /* line 45, ../sass/_map.scss */
@@ -107,7 +106,6 @@ div.cartodb-legend-stack {
   width: 191px;
   max-width: 191px;
   height: 260px;
-  background-position: 0 -37px;
 }
 
 /* line 53, ../sass/_map.scss */
@@ -194,7 +192,7 @@ div.cartodb-legend-stack {
 /* line 129, ../sass/_map.scss */
 .infowindow-slaved {
   color: #F1B14C;
-  background-position: 0 -299px;
+  background-position: 0 -61px;
 }
 
 /* line 134, ../sass/_map.scss */
@@ -240,20 +238,61 @@ div.cartodb-legend-stack {
 /* line 166, ../sass/_map.scss */
 .panel-wrapper {
   position: absolute;
-  top: 50px;
-  right: 0;
+  top: 85px;
+  left: 60px;
   z-index: 10;
-  width: 500px;
-  background: #fff;
+  color: #fff;
 }
 
-/* line 174, ../sass/_map.scss */
+/* line 173, ../sass/_map.scss */
+.panel-title {
+  font: 300 67px/1.2 "Open Sans";
+}
+
+/* line 177, ../sass/_map.scss */
+.panel-desc {
+  font: 300 17px/1.2 "Open Sans";
+}
+/* line 180, ../sass/_map.scss */
+.panel-desc a {
+  color: #fff;
+}
+
+/* line 185, ../sass/_map.scss */
+.panel-sep {
+  display: block;
+  width: 148px;
+  margin: 25px 0;
+  border-bottom: 2px solid #fff;
+}
+
+/* line 192, ../sass/_map.scss */
+.panel-item {
+  margin-bottom: 20px;
+  font: 700 41px/1.2 "Open Sans";
+  text-transform: uppercase;
+}
+/* line 197, ../sass/_map.scss */
+.panel-item strong {
+  display: block;
+  font: 600 13px/1.2 "Open Sans";
+  color: #ababab;
+}
+
+/* line 204, ../sass/_map.scss */
 .infowindow-wrapper {
   position: absolute;
   bottom: 100px;
   right: 0;
   z-index: 10;
   background: #fff;
+}
+
+/* line 1, ../sass/_chart.scss */
+.chart svg {
+  position: absolute;
+  bottom: 63px;
+  left: 0;
 }
 
 /* line 13, ../sass/main.scss */

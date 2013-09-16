@@ -46,6 +46,7 @@
   </script>
 
   <script id="chart-template" type="text/x-underscore-template">
+    <div id="chart" class="chart"></div>
   </script>
 
   <script id="nav-template" type="text/x-underscore-template">
@@ -77,15 +78,42 @@
   </script>
 
   <script id="country_panel-template" type="text/x-underscore-template">
-    <a href="#back" class="back">back</a>
+    <h1 class="panel-title"><%= country_name %></h1>
+    <h2 class="panel-desc">A country within <a href="#back" class="back"><%= region_name %></a></h2>
 
-    country name: <%= country_name %>
-    prevalence: <%= prevalence %>
-    population: <%= population %>
-    slaved: <%= slaved %>
-    % <%= 100 * slaved / population %>
-    gdp <%= gdpppp %>
-    gdp per capita: <%= gdpppp / population %>
+    <div class="panel-sep"></div>
+
+    <ul>
+      <li class="panel-item">
+        <strong>Prevalence rank</strong>
+        <%= prevalence %>
+      </li>
+
+      <li class="panel-item">
+        <strong>Population</strong>
+        <%= population %>
+      </li>
+
+      <li class="panel-item">
+        <strong>Est. number slaved</strong>
+        <%= slaved %>
+      </li>
+
+      <li class="panel-item">
+        <strong>Est. number slaved</strong>
+        <%= slaved %> (<%= 100 * slaved / population %>)
+      </li>
+
+      <li class="panel-item">
+        <strong>GDP (PPP)</strong>
+        <%= gdpppp %>
+      </li>
+
+      <li class="panel-item">
+        <strong>GDP per capita (PPP)</strong>
+        <%= gdpppp / population %>
+      </li>
+    </ul>
   </script>
 
   <script id="region_panel-template" type="text/x-underscore-template">

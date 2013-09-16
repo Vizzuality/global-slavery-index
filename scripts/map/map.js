@@ -115,7 +115,7 @@
                   'population': 9801901,
                   'slaved':143142,
                   'gdpppp': country.gdpppp,
-                  'region_name': country.region_name
+                  'region': country.region_name
                 });
 
                 self.infowindow.model.set({

@@ -39,7 +39,7 @@ div.cartodb-legend-stack {
   float: left;
   width: 20px;
   height: 260px;
-  @include infowindow-icons-sprite(left);
+  // @include infowindow-icons-sprite(left);
 }
 
 .infowindow-content-wrapper {
@@ -47,7 +47,7 @@ div.cartodb-legend-stack {
   width: 191px;
   max-width: 191px;
   height: 260px;
-  @include infowindow-icons-sprite(right);
+  // @include infowindow-icons-sprite(right);
 }
 
 .infowindow-title {
@@ -165,10 +165,40 @@ div.cartodb-legend-stack {
 
 .panel-wrapper {
   position: absolute;
-  top: 50px; right: 0;
+  top: 85px; left: 60px;
   z-index: 10;
-  width: 500px;
-  background: #fff;
+  color: #fff;
+}
+
+.panel-title {
+  @include font(300, 67px, 1.2, "Open Sans");
+}
+
+.panel-desc {
+  @include font(300, 17px, 1.2, "Open Sans");
+
+  a {
+    color: #fff;
+  }
+}
+
+.panel-sep {
+  display: block;
+  width: 148px;
+  margin: 25px 0;
+  border-bottom: 2px solid #fff;
+}
+
+.panel-item {
+  margin-bottom: 20px;
+  @include font(700, 41px, 1.2, "Open Sans");
+  text-transform: uppercase;
+
+  strong {
+    display: block;
+    @include font(600, 13px, 1.2, "Open Sans");
+    color: #ababab;
+  }
 }
 
 .infowindow-wrapper {

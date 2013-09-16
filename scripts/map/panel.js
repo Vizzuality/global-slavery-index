@@ -15,11 +15,23 @@
       'click .back': '_changeArea'
     }),
 
-    _REGION_DESC: {
-      europe: 'europe description',
-      asia: 'asia description',
-      eurasia: 'eurasia description',
-      americas: 'americas description'
+    _REGIONS: {
+      europe: {
+        name: 'Europe',
+        desc: 'europe description'
+      },
+      asia: {
+        name: 'Asia',
+        desc: 'asia description'
+      },
+      eurasia: {
+        name: 'Russia & Eurasia',
+        desc: 'eurasia description'
+      },
+      americas: {
+        name: 'The Americas',
+        desc: 'americas description'
+      }
     },
 
     initialize: function() {
@@ -40,7 +52,8 @@
     },
 
     render: function() {
-      this.model.set('region_desc', this._REGION_DESC[this.model.get('region_name')]);
+      this.model.set('region_name', this._REGIONS[this.model.get('region')].name);
+      this.model.set('region_desc', this._REGIONS[this.model.get('region')].desc);
 
       this.$el.html(this.template.render( this.model.toJSON() ));
       return this;
