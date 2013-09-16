@@ -1,4 +1,44 @@
-.chart svg {
-  position: absolute;
-  bottom: 63px; left: 0;
+.chart-wrapper {
+  background: image-url('chart-bkg.png');
+}
+
+.tick {
+  fill: none;
+  stroke: rgba(#fff, .2);
+  shape-rendering: crispEdges;
+  stroke-width: 1px;
+}
+
+.axis {
+  path {
+    @extend .tick;
+  }
+
+  text {
+    display: none;
+  }
+}
+
+.label {
+  @include font(500, 10px);
+  fill: #fff;
+  text-transform: uppercase;
+}
+
+.grid {
+  @extend .tick;
+  stroke: rgba(#fff, .1);
+}
+
+circle{
+  stroke: black;
+  stroke-width: .5px;
+  @include opacity(.6);
+
+  &.americas { fill: #FFD24D; }
+  &.asia { fill: #A64DFF; }
+  &.middle_east { fill: #5DA69D; }
+  &.east_europe { fill: #FF73FF; }
+  &.west_europe { fill: #64C5FF; }
+  &.africa { fill: #FF4D4D; }
 }

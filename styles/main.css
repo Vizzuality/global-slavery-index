@@ -289,10 +289,65 @@ div.cartodb-legend-stack {
 }
 
 /* line 1, ../sass/_chart.scss */
-.chart svg {
-  position: absolute;
-  bottom: 63px;
-  left: 0;
+.chart-wrapper {
+  background: url('/images/chart-bkg.png?1378818296');
+}
+
+/* line 5, ../sass/_chart.scss */
+.tick, .axis path, .grid {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.2);
+  shape-rendering: crispEdges;
+  stroke-width: 1px;
+}
+
+/* line 17, ../sass/_chart.scss */
+.axis text {
+  display: none;
+}
+
+/* line 22, ../sass/_chart.scss */
+.label {
+  font: 500 10px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  fill: #fff;
+  text-transform: uppercase;
+}
+
+/* line 28, ../sass/_chart.scss */
+.grid {
+  stroke: rgba(255, 255, 255, 0.1);
+}
+
+/* line 33, ../sass/_chart.scss */
+circle {
+  stroke: black;
+  stroke-width: .5px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+  opacity: 0.6;
+}
+/* line 38, ../sass/_chart.scss */
+circle.americas {
+  fill: #FFD24D;
+}
+/* line 39, ../sass/_chart.scss */
+circle.asia {
+  fill: #A64DFF;
+}
+/* line 40, ../sass/_chart.scss */
+circle.middle_east {
+  fill: #5DA69D;
+}
+/* line 41, ../sass/_chart.scss */
+circle.east_europe {
+  fill: #FF73FF;
+}
+/* line 42, ../sass/_chart.scss */
+circle.west_europe {
+  fill: #64C5FF;
+}
+/* line 43, ../sass/_chart.scss */
+circle.africa {
+  fill: #FF4D4D;
 }
 
 /* line 13, ../sass/main.scss */

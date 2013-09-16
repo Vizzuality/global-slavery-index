@@ -31,7 +31,7 @@
 
       this.render();
 
-      var polygons_url = 'https://matallo.cartodb.com/api/v2/sql?q=select cartodb_id, ST_Simplify(the_geom, 0.005) as the_geom from gsi_geom&format=geojson';
+      var polygons_url = 'https://walkfree.cartodb.com/api/v2/sql?q=select cartodb_id, ST_Simplify(the_geom, 0.005) as the_geom from gsi_geom_copy&format=geojson';
       self.countries_polygons = {};
 
       create_polygons(polygons_url, function(polygons) {
@@ -105,7 +105,7 @@
           sublayer.on('featureClick', function(e, latlng, pos, data, layerNumber) {
             var sql = new cartodb.SQL({ user: 'walkfree' });
 
-            sql.execute("SELECT * FROM gsi_geom WHERE cartodb_id = {{id}}", { id: data.cartodb_id })
+            sql.execute("SELECT * FROM gsi_geom_copy WHERE cartodb_id = {{id}}", { id: data.cartodb_id })
               .done(function(data) {
                 var country = data.rows[0];
 
@@ -132,7 +132,7 @@
                 console.log("error:" + errors);
               });
 
-            sql.getBounds('SELECT * FROM gsi_geom WHERE cartodb_id = ' + data.cartodb_id)
+            sql.getBounds('SELECT * FROM gsi_geom_copy WHERE cartodb_id = ' + data.cartodb_id)
               .done(function(bounds) {
                 self.model.set({
                   'center': L.latLngBounds(bounds).getCenter(),
