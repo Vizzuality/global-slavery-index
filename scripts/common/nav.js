@@ -20,21 +20,10 @@
       });
 
       this.render();
-
-      this._initViews();
-      this._bindEvents();
     },
 
     render: function() {
       this.$el.append(this.template.render());
       return this;
-    },
-
-    _initViews: function() {
-
-    },
-
-    _bindEvents: function() {
-
     }
   });
