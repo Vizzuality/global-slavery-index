@@ -77,14 +77,28 @@
 
     _bindInfowindow: function() {
 
-      var self = this;
-
-      $(window).resize(function() { self.infowindow._center(); });
-
       this.map.on("dragend",   function() { this.infowindow._center(); }, this);
       this.map.on("drag",      function() { this.infowindow._center(); }, this);
       this.map.on("zoomend",   function() { this.infowindow._center(); }, this);
       this.map.on("zoomstart", function() { this.infowindow._center(); }, this);
+
+    },
+
+    _bindOnResize: function() {
+
+      var self = this;
+
+      $(window).resize(function() {
+        self._adjustMapHeight();
+        self.infowindow._center();
+      });
+
+    },
+
+    _adjustMapHeight: function() {
+
+      var mapHeight = $(window).height() - $("nav").outerHeight(true);
+      $('.cartodb-map').height(mapHeight);
 
     },
 
@@ -108,7 +122,10 @@
         inertia:false
       });
 
+      this._adjustMapHeight();
+
       this._bindInfowindow();
+      this._bindOnResize();
 
       var layerUrl = 'http://walkfree.cartodb.com/api/v2/viz/75be535c-1649-11e3-8469-6d55fc63b176/viz.json';
 
