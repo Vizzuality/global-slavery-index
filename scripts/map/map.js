@@ -122,13 +122,15 @@
           sublayer.on('featureClick', function(e, latlng, pos, data, layerNumber) {
             var sql = new cartodb.SQL({ user: 'walkfree' });
 
-            self.infowindow.model.set({
-              coordinates: latlng
-            });
-
             sql.execute("SELECT * FROM gsi_geom_copy WHERE cartodb_id = {{id}}", { id: data.cartodb_id })
               .done(function(data) {
                 var country = data.rows[0];
+
+                if(self.infowindow.model.get('country_name') != country.country_name){
+                  self.infowindow.model.set({
+                    coordinates: latlng
+                  });
+                }
 
                 self.panel.model.set({
                   'country_name': country.country_name,
@@ -148,7 +150,9 @@
                   'slaved': 143142,
                   'hidden': false
                 });
+
               })
+
               .error(function(errors) {
                 // errors contains a list of errors
                 console.log("error:" + errors);
