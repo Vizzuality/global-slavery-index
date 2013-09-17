@@ -15,9 +15,7 @@
       // this.template = cdb.templates.getTemplate('chart/views/nav.jst.js');
       var template = $("#nav-template").html();
 
-      this.model = new cdb.core.Model({
-        legend: "map"
-      });
+      this.model = new cdb.core.Model();
 
       this.model.bind("change:legend", this._toggleLegend, this);
 
@@ -29,8 +27,6 @@
     },
 
     _toggleLegend: function() {
-
-      console.log(this.model.get("legend"));
 
       if (this.model.get("legend") === 'map') {
         this.$el.find(".legend.map").show();

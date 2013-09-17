@@ -76,6 +76,8 @@ $(function() {
       this.workView.addTab('chart', this.chart, { active: false });
 
       this.workTabs.linkToPane(this.workView);
+
+
     },
 
     activeView: function(pane) {
@@ -86,7 +88,6 @@ $(function() {
       // map or chart?
       this.workView.active(this.workViewActive);
       this.workTabs.activate(this.workViewActive);
-
 
       if(this.workViewActive === 'map') {
         this.nav.model.set("legend", "map");
