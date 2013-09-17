@@ -1,4 +1,4 @@
-/* line 17, ../../../../../usr/local/var/rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,45 +20,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../usr/local/var/rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../usr/local/var/rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../usr/local/var/rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../usr/local/var/rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../usr/local/var/rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../usr/local/var/rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../usr/local/var/rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../usr/local/var/rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -68,12 +68,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   background: url('/images/infowindow-icons-s816484c94a.png') no-repeat;
 }
 
-/* line 14, ../sass/_map.scss */
+/* line 17, ../sass/_map.scss */
 .leaflet-container {
   background: #333;
 }
 
-/* line 20, ../sass/_map.scss */
+/* line 23, ../sass/_map.scss */
 div.cartodb-legend-stack {
   z-index: 1000002;
   position: absolute;
@@ -86,21 +86,21 @@ div.cartodb-legend-stack {
   box-shadow: none;
 }
 
-/* line 32, ../sass/_map.scss */
+/* line 35, ../sass/_map.scss */
 .infowindow {
   padding: 0;
   width: auto;
   background: transparent;
 }
 
-/* line 38, ../sass/_map.scss */
+/* line 41, ../sass/_map.scss */
 .infowindow-tip-container {
   float: left;
   width: 20px;
   height: 260px;
 }
 
-/* line 45, ../sass/_map.scss */
+/* line 48, ../sass/_map.scss */
 .infowindow-content-wrapper {
   float: left;
   width: 191px;
@@ -108,53 +108,53 @@ div.cartodb-legend-stack {
   height: 260px;
 }
 
-/* line 53, ../sass/_map.scss */
+/* line 56, ../sass/_map.scss */
 .infowindow-title {
-  padding: 20px 5px 20px 10px;
+  padding: 20px 0 20px 0;
   color: #444;
   font: bold 21px/1 "Open Sans";
+  text-align: center;
 }
 
-/* line 59, ../sass/_map.scss */
+/* line 63, ../sass/_map.scss */
 .infowindow-risk {
-  margin-left: -7px;
   width: 193px;
   max-width: 193px;
   height: 10px;
   color: #b10026;
   border-top: 2px solid #b10026;
 }
-/* line 67, ../sass/_map.scss */
+/* line 70, ../sass/_map.scss */
 .infowindow-risk.risk2 {
   color: #e31a1c;
   border-top-color: #e31a1c;
 }
-/* line 72, ../sass/_map.scss */
+/* line 75, ../sass/_map.scss */
 .infowindow-risk.risk3 {
   color: #fc4e2a;
   border-top-color: #fc4e2a;
 }
-/* line 77, ../sass/_map.scss */
+/* line 80, ../sass/_map.scss */
 .infowindow-risk.risk4 {
   color: #fd8d3c;
   border-top-color: #fd8d3c;
 }
-/* line 82, ../sass/_map.scss */
+/* line 85, ../sass/_map.scss */
 .infowindow-risk.risk5 {
   color: #feb24c;
   border-top-color: #feb24c;
 }
-/* line 87, ../sass/_map.scss */
+/* line 90, ../sass/_map.scss */
 .infowindow-risk.risk6 {
   color: #fed976;
   border-top-color: #fed976;
 }
-/* line 92, ../sass/_map.scss */
+/* line 95, ../sass/_map.scss */
 .infowindow-risk.risk7 {
   color: #ffffb2;
   border-top-color: #ffffb2;
 }
-/* line 97, ../sass/_map.scss */
+/* line 100, ../sass/_map.scss */
 .infowindow-risk span {
   float: right;
   margin: -9px 13px 0 0;
@@ -164,38 +164,39 @@ div.cartodb-legend-stack {
   font: bold 11px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 107, ../sass/_map.scss */
+/* line 110, ../sass/_map.scss */
 .total-num {
   float: right;
   text-align: right;
   font: 400 21px/1.2 "Open Sans";
 }
-/* line 112, ../sass/_map.scss */
+/* line 115, ../sass/_map.scss */
 .total-num span {
   display: block;
   font-size: 10px;
 }
 
-/* line 118, ../sass/_map.scss */
+/* line 121, ../sass/_map.scss */
 .infowindow-block {
-  color: #444;
-  margin: 7px 15px 7px 0;
-  background-repeat: no-repeat;
   overflow: hidden;
-}
-
-/* line 125, ../sass/_map.scss */
-.infowindow-population {
-  background-position: 0 0;
+  margin: 7px 0 7px 0;
+  padding: 0 20px;
+  background-repeat: no-repeat;
+  color: #444;
 }
 
 /* line 129, ../sass/_map.scss */
-.infowindow-slaved {
-  color: #F1B14C;
-  background-position: 0 -61px;
+.infowindow-population {
+  background-position: 20px 0;
 }
 
-/* line 134, ../sass/_map.scss */
+/* line 133, ../sass/_map.scss */
+.infowindow-slaved {
+  background-position: 20px -61px;
+  color: #F1B14C;
+}
+
+/* line 138, ../sass/_map.scss */
 .percent {
   float: left;
   background: #FFF;
@@ -204,11 +205,11 @@ div.cartodb-legend-stack {
   margin: 9px 0;
 }
 
-/* line 142, ../sass/_map.scss */
+/* line 146, ../sass/_map.scss */
 .more {
-  position: absolute;
-  left: 13px;
-  bottom: 0;
+  margin: 20px 0 0 0;
+  position: relative;
+  display: block;
   border-top: 2px solid #eee;
   width: 193px;
   text-transform: uppercase;
@@ -217,7 +218,7 @@ div.cartodb-legend-stack {
   text-align: center;
   color: #00A99D !important;
 }
-/* line 153, ../sass/_map.scss */
+/* line 158, ../sass/_map.scss */
 .more i {
   position: absolute;
   display: block;
@@ -235,7 +236,7 @@ div.cartodb-legend-stack {
   border-radius: 15px;
 }
 
-/* line 166, ../sass/_map.scss */
+/* line 171, ../sass/_map.scss */
 .panel-wrapper {
   position: absolute;
   top: 85px;
@@ -244,21 +245,21 @@ div.cartodb-legend-stack {
   color: #fff;
 }
 
-/* line 173, ../sass/_map.scss */
+/* line 178, ../sass/_map.scss */
 .panel-title {
   font: 300 67px/1.2 "Open Sans";
 }
 
-/* line 177, ../sass/_map.scss */
+/* line 182, ../sass/_map.scss */
 .panel-desc {
   font: 300 17px/1.2 "Open Sans";
 }
-/* line 180, ../sass/_map.scss */
+/* line 185, ../sass/_map.scss */
 .panel-desc a {
   color: #fff;
 }
 
-/* line 185, ../sass/_map.scss */
+/* line 190, ../sass/_map.scss */
 .panel-sep {
   display: block;
   width: 148px;
@@ -266,31 +267,40 @@ div.cartodb-legend-stack {
   border-bottom: 2px solid #fff;
 }
 
-/* line 192, ../sass/_map.scss */
+/* line 197, ../sass/_map.scss */
 .panel-item {
   margin-bottom: 20px;
   font: 700 41px/1.2 "Open Sans";
   text-transform: uppercase;
 }
-/* line 197, ../sass/_map.scss */
+/* line 202, ../sass/_map.scss */
 .panel-item strong {
   display: block;
   font: 600 13px/1.2 "Open Sans";
   color: #ababab;
 }
 
-/* line 204, ../sass/_map.scss */
+/* line 209, ../sass/_map.scss */
 .infowindow-wrapper {
+  display: none;
+  width: 194px;
+  min-height: 30px;
   position: absolute;
-  bottom: 100px;
-  right: 0;
-  z-index: 10;
   background: #fff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0px 0 3px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0px 0 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0px 0 3px rgba(0, 0, 0, 0.3);
+  z-index: 10;
 }
 
 /* line 1, ../sass/_chart.scss */
 .chart-wrapper {
-  background: url('/images/chart-bkg.png?1378818296');
+  background: url('/images/chart-bkg.png?1379406128');
 }
 
 /* line 5, ../sass/_chart.scss */

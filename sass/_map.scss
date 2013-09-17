@@ -9,99 +9,102 @@ $risk7: #FFFFB2;
 
 @import "infowindow-icons/*.png";
 
+$infowindow-icons-population-spacing: 40px;
+$infowindow-icons-slavery-spacing: 40px;
+
 
 // override leaflet.css
 .leaflet-container {
-  background: #333;
+background: #333;
 }
 
 // legend
 // override cartodb.css
 div.cartodb-legend-stack {
-  z-index: 1000002;
-  position: absolute;
-  bottom: 0;
-  border-radius: 0;
-  border: 0;
-  background: transparent;
-  @include box-shadow(none);
+z-index: 1000002;
+position: absolute;
+bottom: 0;
+border-radius: 0;
+border: 0;
+background: transparent;
+@include box-shadow(none);
 }
 
 // infowindow
 // override cartodb.css
 .infowindow {
-  padding: 0;
-  width: auto;
-  background: transparent;
+padding: 0;
+width: auto;
+background: transparent;
 }
 
 .infowindow-tip-container {
-  float: left;
-  width: 20px;
-  height: 260px;
-  // @include infowindow-icons-sprite(left);
+float: left;
+width: 20px;
+height: 260px;
+// @include infowindow-icons-sprite(left);
 }
 
 .infowindow-content-wrapper {
-  float: left;
-  width: 191px;
-  max-width: 191px;
-  height: 260px;
-  // @include infowindow-icons-sprite(right);
+float: left;
+width: 191px;
+max-width: 191px;
+height: 260px;
+// @include infowindow-icons-sprite(right);
 }
 
 .infowindow-title {
-  padding: 20px 5px 20px 10px;
-  color: #444;
-  @include font(bold, 21px, 1, "Open Sans");
+padding: 20px 0 20px 0;
+color: #444;
+@include font(bold, 21px, 1, "Open Sans");
+text-align:center;
 }
 
 .infowindow-risk {
-  margin-left: -7px;
-  width: 193px;
-  max-width: 193px;
-  height: 10px;
-  color: $risk1;
-  border-top: 2px solid $risk1;
+width: 193px;
+max-width: 193px;
+height: 10px;
+color: $risk1;
+border-top: 2px solid $risk1;
 
-  &.risk2 {
-    color: $risk2;
-    border-top-color: $risk2;
-  }
+&.risk2 {
+  color: $risk2;
+  border-top-color: $risk2;
+}
 
-  &.risk3 {
-    color: $risk3;
-    border-top-color: $risk3;
-  }
+&.risk3 {
+  color: $risk3;
+  border-top-color: $risk3;
+}
 
-  &.risk4 {
-    color: $risk4;
-    border-top-color: $risk4;
-  }
+&.risk4 {
+  color: $risk4;
+  border-top-color: $risk4;
+}
 
-  &.risk5 {
-    color: $risk5;
-    border-top-color: $risk5;
-  }
+&.risk5 {
+  color: $risk5;
+  border-top-color: $risk5;
+}
 
-  &.risk6 {
-    color: $risk6;
-    border-top-color: $risk6;
-  }
+&.risk6 {
+  color: $risk6;
+  border-top-color: $risk6;
+}
 
-  &.risk7 {
-    color: $risk7;
-    border-top-color: $risk7;
-  }
+&.risk7 {
+  color: $risk7;
+  border-top-color: $risk7;
+}
 
-  span {
-    float: right;
-    margin: -9px 13px 0 0;
-    padding: 0 5px;
-    background: #FFF;
-    text-transform: uppercase;
-    @include font(bold, 11px);
-  }
+span {
+  float: right;
+  margin: -9px 13px 0 0;
+  padding: 0 5px;
+  background: #FFF;
+  text-transform: uppercase;
+  @include font(bold, 11px);
+}
 }
 
 .total-num {
@@ -116,19 +119,20 @@ div.cartodb-legend-stack {
 }
 
 .infowindow-block {
-  color: #444;
-  margin: 7px 15px 7px 0;
-  background-repeat: no-repeat;
   overflow: hidden;
+  margin: 7px 0 7px 0;
+  padding: 0 20px;
+  background-repeat: no-repeat;
+  color: #444;
 }
 
 .infowindow-population {
-  @include infowindow-icons-sprite(population);
+  @include infowindow-icons-sprite(population, $offset-x: 20px);
 }
 
 .infowindow-slaved {
+  @include infowindow-icons-sprite(slavery, $offset-x: 20px);
   color: #F1B14C;
-  @include infowindow-icons-sprite(slavery);
 }
 
 .percent {
@@ -140,8 +144,9 @@ div.cartodb-legend-stack {
 }
 
 .more {
-  position: absolute;
-  left: 13px; bottom: 0;
+  margin: 20px 0 0 0;
+  position: relative;
+  display:block;
   border-top: 2px solid #eee;
   width: 193px;
   text-transform: uppercase;
@@ -202,8 +207,17 @@ div.cartodb-legend-stack {
 }
 
 .infowindow-wrapper {
+  display:none;
+
+  width: 194px;
+  min-height: 30px;
+
   position: absolute;
-  bottom: 100px; right: 0;
-  z-index: 10;
   background: #fff;
+
+  @include border-radius(3px);
+  @include box-shadow(0 0px 0 3px rgba(#000, .3));
+
+  z-index: 10;
+
 }
