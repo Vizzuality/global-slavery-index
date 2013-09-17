@@ -31,6 +31,21 @@ body,
   right: 20px;
   top: 25px;
 
+  clear: both;
+  overflow: hidden;
+
+  strong  {
+    float:left;
+    position:relative;
+    top: -4px;
+    margin: 0 7px 0 0;
+    text-transform: uppercase;
+    @include font(bold, 10px, 21px);
+    color: #414346;
+  }
+
+  ul { float: left; }
+
   .quartile {
     float:left;
     width: 52px;

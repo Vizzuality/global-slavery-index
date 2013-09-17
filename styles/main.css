@@ -442,22 +442,38 @@ body,
   position: absolute;
   right: 20px;
   top: 25px;
+  clear: both;
+  overflow: hidden;
 }
-/* line 34, ../sass/main.scss */
+/* line 37, ../sass/main.scss */
+.legend strong {
+  float: left;
+  position: relative;
+  top: -4px;
+  margin: 0 7px 0 0;
+  text-transform: uppercase;
+  font: bold 10px/21px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #414346;
+}
+/* line 47, ../sass/main.scss */
+.legend ul {
+  float: left;
+}
+/* line 49, ../sass/main.scss */
 .legend .quartile {
   float: left;
   width: 52px;
   height: 10px;
 }
-/* line 41, ../sass/main.scss */
+/* line 56, ../sass/main.scss */
 .legend .quartile, .legend .quartile:first-child {
   border: 1px solid rgba(0, 0, 0, 0.3);
 }
-/* line 42, ../sass/main.scss */
+/* line 57, ../sass/main.scss */
 .legend .quartile {
   border-left: 0;
 }
-/* line 44, ../sass/main.scss */
+/* line 59, ../sass/main.scss */
 .legend .quartile:first-child {
   -webkit-border-radius: 4px 0 0 4px;
   -moz-border-radius: 4px 0 0 4px;
@@ -465,7 +481,7 @@ body,
   -o-border-radius: 4px 0 0 4px;
   border-radius: 4px 0 0 4px;
 }
-/* line 45, ../sass/main.scss */
+/* line 60, ../sass/main.scss */
 .legend .quartile:last-child {
   -webkit-border-radius: 0 4px 4px 0;
   -moz-border-radius: 0 4px 4px 0;
@@ -474,7 +490,7 @@ body,
   border-radius: 0 4px 4px 0;
 }
 
-/* line 50, ../sass/main.scss */
+/* line 65, ../sass/main.scss */
 .switch {
   position: relative;
   float: left;
@@ -487,7 +503,7 @@ body,
   -o-border-radius: 14px;
   border-radius: 14px;
 }
-/* line 58, ../sass/main.scss */
+/* line 73, ../sass/main.scss */
 .switch span {
   position: absolute;
   top: 2px;
@@ -502,16 +518,16 @@ body,
   border-radius: 11px;
   width: 47px;
 }
-/* line 67, ../sass/main.scss */
+/* line 82, ../sass/main.scss */
 .switch ul {
   position: relative;
   z-index: 10;
 }
-/* line 72, ../sass/main.scss */
+/* line 87, ../sass/main.scss */
 .switch li {
   float: left;
 }
-/* line 76, ../sass/main.scss */
+/* line 91, ../sass/main.scss */
 .switch a {
   display: -moz-inline-stack;
   display: inline-block;
@@ -525,7 +541,7 @@ body,
   text-transform: uppercase;
   font: 500 12px/21px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-/* line 84, ../sass/main.scss */
+/* line 99, ../sass/main.scss */
 .switch a.selected {
   color: #fff;
 }
