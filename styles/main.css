@@ -288,22 +288,37 @@ div.cartodb-legend-stack {
 
 /* line 214, ../sass/_map.scss */
 .infowindow-wrapper {
+  position: absolute;
   display: none;
   width: 208px;
   min-height: 30px;
-  position: absolute;
-  /*background: #fff;*/
-  /*@include border-radius(3px);*/
-  /*@include box-shadow(0 0px 0 3px rgba(#000, .3));*/
   z-index: 10;
 }
-/* line 228, ../sass/_map.scss */
+/* line 223, ../sass/_map.scss */
+.infowindow-wrapper .spinner {
+  position: relative;
+  top: 27px;
+  display: none;
+  background: url(../images/spinner.gif) no-repeat 0 0;
+  margin: auto;
+  width: 24px;
+  height: 24px;
+}
+/* line 233, ../sass/_map.scss */
+.infowindow-wrapper.collapsed .inner {
+  display: none;
+}
+/* line 234, ../sass/_map.scss */
+.infowindow-wrapper.collapsed .spinner {
+  display: block;
+}
+/* line 236, ../sass/_map.scss */
 .infowindow-wrapper .content {
   min-height: 60px;
   padding: 0 3px 0 11px;
   background: url(../images/infowindow.png) no-repeat 0 16px;
 }
-/* line 234, ../sass/_map.scss */
+/* line 242, ../sass/_map.scss */
 .infowindow-wrapper .top {
   position: absolute;
   top: 0;
@@ -312,7 +327,7 @@ div.cartodb-legend-stack {
   height: 16px;
   background: url(../images/infowindow.png) no-repeat -208px 0;
 }
-/* line 242, ../sass/_map.scss */
+/* line 250, ../sass/_map.scss */
 .infowindow-wrapper .bottom {
   position: absolute;
   bottom: -16px;

@@ -26,6 +26,7 @@
       this.model.bind("change:country_name change:prevalence change:population change:slaved change:gdpppp change:region", this.render, this);
       this.model.bind("change:hidden", this._toggle, this);
       this.model.bind("change:coordinates", this._changeCoordinates, this);
+      this.model.bind("change:collapsed", this._toggleCollapsed, this);
 
       // this.template = cdb.templates.getTemplate('map/views/panel.jst.js');
       var template = $("#infowindow-template").html();
@@ -64,9 +65,12 @@
       if(!this.model.get("hidden")) {
 
         this._center();
-        this._pan();
 
-        $(this.$el).fadeIn(150);
+        $(this.$el).fadeIn(150, function() {
+          self._center();
+        });
+
+        //this._pan();
 
       } else {
         $(this.$el).fadeOut(150);
@@ -75,6 +79,14 @@
     },
 
     _pan: function() {
+
+      var top  = this.$el.position().top;
+      var left = this.$el.position().left;
+
+      var width  = this.$el.width();
+      var height = this.$el.height();
+
+      if (top < 0) this.map.panBy([0, top - 20 ]);
 
     },
 
@@ -85,15 +97,32 @@
       if (coordinates) {
         var point  = this.map.latLngToContainerPoint([coordinates[0], coordinates[1]]);
 
+        var padding = 70;
+
+        if (this.model.get("collapsed")) padding = 10;
+
         var left = point.x + 10;
-        var top  = point.y - this.$el.height()/2 - 70;
+        var top  = point.y - this.$el.height()/2 - padding;
 
         this.$el.css({ left: left, top: top });
       }
 
     },
 
+    _toggleCollapsed: function() {
+
+      if (this.model.get("collapsed")) {
+        this.$el.addClass("collapsed");
+      } else {
+        this.$el.removeClass("collapsed");
+      }
+
+      this._center();
+
+    },
+
     _changeCoordinates:function() {
+      //this._pan();
       this._center();
     },
 

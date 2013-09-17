@@ -9,6 +9,7 @@
 // };
 
 slavery.ui.view.Infowindow = L.Class.extend({
+
   events: cdb.core.View.extendEvents({
     'click .more': 'changeCountry',
     'mousemove': 'killEvent'

@@ -212,18 +212,26 @@ span {
 }
 
 .infowindow-wrapper {
+  position: absolute;
   display:none;
 
   width: 208px;
   min-height: 30px;
 
-  position: absolute;
-
-  /*background: #fff;*/
-  /*@include border-radius(3px);*/
-  /*@include box-shadow(0 0px 0 3px rgba(#000, .3));*/
-
   z-index: 10;
+
+  .spinner {
+    position:relative;
+    top: 27px;
+    display: none;
+    background: url(../images/spinner.gif) no-repeat 0 0;
+    margin: auto;
+    width: 24px;
+    height: 24px;
+  }
+
+  &.collapsed .inner { display: none; }
+  &.collapsed .spinner { display: block; }
 
   .content {
     min-height: 60px;

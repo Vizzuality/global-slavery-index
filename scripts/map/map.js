@@ -118,6 +118,7 @@
       });
 
       this.infowindow = new slavery.ui.view.Infowindow({
+        className: "collapsed",
         map: this.map,
         el: this.$(".infowindow-wrapper")
       });
@@ -141,7 +142,9 @@
             var sql = new cartodb.SQL({ user: 'walkfree' });
 
             self.infowindow.model.set({
-              coordinates: latlng
+              collapsed: true,
+              coordinates: latlng,
+              hidden: false
             });
 
             sql.execute("SELECT * FROM gsi_geom_copy WHERE cartodb_id = {{id}}", { id: data.cartodb_id })
@@ -158,13 +161,16 @@
                   'region': country.region_name
                 });
 
+                var collapsed = country.country_name ? false : true;
+
                 self.infowindow.model.set({
-                  'slavery_policy_risk': slaveryToHuman(country.slavery_policy_risk),
-                  'country_name': country.country_name,
-                  'prevalence': 'high',
-                  'population': 9801901,
-                  'slaved': 143142,
-                  'hidden': false
+                  collapsed: collapsed,
+                  slavery_policy_risk: slaveryToHuman(country.slavery_policy_risk),
+                  country_name: country.country_name,
+                  prevalence: 'high',
+                  population: 9801901,
+                  slaved: 143142,
+                  hidden: false
                 });
               })
               .error(function(errors) {
