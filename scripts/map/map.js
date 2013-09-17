@@ -77,6 +77,12 @@
 
     _bindInfowindow: function() {
 
+      var self = this;
+
+      $(document).on("keyup", function(e) {
+        if (e.keyCode == 27) self.infowindow.model.set({ hidden: true });
+      });
+
       this.map.on("dragend",   function() { this.infowindow._center(); }, this);
       this.map.on("drag",      function() { this.infowindow._center(); }, this);
       this.map.on("zoomend",   function() { this.infowindow._center(); }, this);
