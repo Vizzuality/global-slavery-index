@@ -108,13 +108,8 @@
       this.panel = new slavery.ui.view.Panel({
         el: this.$(".panel-wrapper")
       });
+
       this.addView(this.panel);
-
-      this.infowindow = new slavery.ui.view.Infowindow({
-        el: this.$(".infowindow-wrapper")
-      });
-
-      this.addView(this.infowindow);
 
       this.map = L.map('cartodb-map', {
         center: [40, -98],
@@ -122,6 +117,12 @@
         inertia:false
       });
 
+      this.infowindow = new slavery.ui.view.Infowindow({
+        map: this.map,
+        el: this.$(".infowindow-wrapper")
+      });
+
+      this.addView(this.infowindow);
       this._adjustMapHeight();
 
       this._bindInfowindow();
