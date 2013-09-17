@@ -84,7 +84,7 @@
 
   <script id="country_panel-template" type="text/x-underscore-template">
     <h1 class="panel-title"><%= country_name %></h1>
-    <h2 class="panel-desc">A country within <a href="#back" class="back"><%= region_name %></a></h2>
+    <h2 class="panel-desc">A country within <a href="#map/region/<%= region %>" class="back"><%= region_name %></a></h2>
 
     <div class="panel-sep"></div>
 
@@ -122,8 +122,9 @@
   </script>
 
   <script id="region_panel-template" type="text/x-underscore-template">
-    <a href="#back" class="back">back</a>
-    region: <%= region_name %>
+    <h1 class="panel-title"><%= region_name %></h1>
+    <h2 class="panel-desc">Get back to the <a href="#map" class="back">whole world</a></h2>
+
     region_desc: <%= region_desc %>
   </script>
 

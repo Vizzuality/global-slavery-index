@@ -148,6 +148,7 @@
                   'hidden': false
                 });
 
+                self.model.set('href', 'map/country/'+country.iso3);
               })
               .error(function(errors) {
                 // errors contains a list of errors
@@ -199,8 +200,9 @@
 
     _onAreaChanged: function() {
       if(this.model.get('area') === 'country') {
-        this.map.setView(this.model.get('center'), this.model.get('zoom'));
         this.countries_sublayer.setInteraction(false);
+        this.map.setView(this.model.get('center'), this.model.get('zoom'));
+        Backbone.history.navigate(this.model.get('href'), true);
 
         this.panel.template.set('template', $("#country_panel-template").html());
         this.panel.render();

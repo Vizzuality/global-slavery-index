@@ -8,7 +8,7 @@ $(function() {
       '/':              'map',
       'map':            'map',
       'map/':           'map',
-      'map/:type/:id':  'map',
+      'map/:area/:id':  'mapWithArea',
 
       // Chart
       'chart':          'chart',
@@ -19,7 +19,11 @@ $(function() {
       this.trigger('change', { type: 'chart'}, this);
     },
 
-    map: function(area, id) {
+    map: function() {
+      this.trigger('change', { type: 'map' }, this);
+    },
+
+    mapWithArea: function(area, id) {
       this.trigger('change', { type: 'map', area: area, id: id }, this);
     }
   });
@@ -48,11 +52,11 @@ $(function() {
       });
       this.addView(this.workView);
 
-      this.mapTab = new slavery.ui.view.Map({
+      this.map = new slavery.ui.view.Map({
         el: this.$('.map-wrapper')
       });
 
-      this.chartTab = new slavery.Chart({
+      this.chart = new slavery.Chart({
         el: this.$('.chart-wrapper')
       });
 
@@ -67,18 +71,47 @@ $(function() {
       });
       this.addView(this.workTabs);
 
-      this.workView.addTab('map', this.mapTab, { active: false });
-      this.workView.addTab('chart', this.chartTab, { active: false });
+      this.workView.addTab('map', this.map, { active: false });
+      this.workView.addTab('chart', this.chart, { active: false });
 
       this.workTabs.linkToPane(this.workView);
     },
 
     activeView: function(pane) {
+      var self = this;
+
       this.workViewActive = pane['type'];
 
       // map or chart?
       this.workView.active(this.workViewActive);
       this.workTabs.activate(this.workViewActive);
+
+      // map with area
+      if(this.workViewActive === 'map') {
+        if(pane['area'] && pane['area'] === 'region') {
+          // boundaries are set in utils, uncomment to get them through API SQL
+          self.map.map.setView(slavery.AppData.REGIONS[pane['id']].center, slavery.AppData.REGIONS[pane['id']].zoom);
+
+          // var sql = new cartodb.SQL({ user: 'walkfree' });
+          // sql.getBounds("SELECT * FROM gsi_geom_copy WHERE region_name = '" + pane['id'] + "'")
+          //   .done(function(bounds) {
+          //     var center = L.latLngBounds(bounds).getCenter(),
+          //         zoom = self.map.map.getBoundsZoom(bounds);
+
+          //     console.log(center, zoom);
+          // });
+        } else if (pane['area'] && pane['area'] === 'country') {
+          var sql = new cartodb.SQL({ user: 'walkfree' });
+
+          sql.getBounds("SELECT * FROM gsi_geom_copy WHERE iso3 = '" + pane['id'] + "'")
+            .done(function(bounds) {
+              var center = L.latLngBounds(bounds).getCenter(),
+                  zoom = self.map.map.getBoundsZoom(bounds);
+
+              self.map.map.setView(center, zoom);
+          });
+        }
+      }
     }
   });
 

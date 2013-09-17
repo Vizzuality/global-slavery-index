@@ -1,3 +1,50 @@
+slavery.AppData = {
+  REGIONS: {
+    'asia': {
+      center: {
+        lat: -0.5904881759999512,
+        lng: 0.4429630865000007
+      },
+      zoom: 1
+    },
+    'west_europe': {
+      center: {
+        lat: 13.153794663500104,
+        lng: -6.281442837999851
+      },
+      zoom: 2
+    },
+    'east_europe': {
+      center: {
+        lat: 58.4996784495001,
+        lng: 0
+      },
+      zoom: 1
+    },
+    'americas': {
+      center: {
+        lat: 13.599009152500102,
+        lng: 0
+      },
+      zoom: 1
+    },
+    'africa': {
+      center: {
+        lat: -9.840168555999899,
+        lng: 19.0667423835001
+      },
+      zoom: 3
+    },
+    'middle_east': {
+      center: {
+        lat: 24.226584371000065,
+        lng: 23.152942403827552
+      },
+      zoom: 3
+    }
+  }
+}
+
 function send_profiler_stats() {
   for(var i in Profiler.metrics) {
     var img = new Image();
