@@ -118,8 +118,8 @@ div.cartodb-legend-stack {
 
 /* line 63, ../sass/_map.scss */
 .infowindow-risk {
-  width: 193px;
-  max-width: 193px;
+  width: 194px;
+  max-width: 194px;
   height: 10px;
   color: #b10026;
   border-top: 2px solid #b10026;
@@ -179,7 +179,7 @@ div.cartodb-legend-stack {
 /* line 121, ../sass/_map.scss */
 .infowindow-block {
   overflow: hidden;
-  margin: 7px 0 7px 0;
+  margin: 10px 0 10pxpx 0;
   padding: 0 20px;
   background-repeat: no-repeat;
   color: #444;
@@ -188,37 +188,43 @@ div.cartodb-legend-stack {
 /* line 129, ../sass/_map.scss */
 .infowindow-population {
   background-position: 20px 0;
+  margin: 10px 0 10px 0;
 }
 
-/* line 133, ../sass/_map.scss */
+/* line 134, ../sass/_map.scss */
 .infowindow-slaved {
   background-position: 20px -61px;
   color: #F1B14C;
+  margin-bottom: 0;
 }
 
-/* line 138, ../sass/_map.scss */
+/* line 140, ../sass/_map.scss */
 .percent {
   float: left;
-  background: #FFF;
-  font-size: 11px;
   padding: 0 5px;
   margin: 9px 0;
+  font-size: 11px;
+  background: #FFF;
 }
 
-/* line 146, ../sass/_map.scss */
+/* line 148, ../sass/_map.scss */
 .more {
-  margin: 20px 0 0 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   position: relative;
+  margin: 24px 0 0 0;
   display: block;
+  width: 194px;
+  height: 38px;
   border-top: 2px solid #eee;
-  width: 193px;
   text-transform: uppercase;
   text-decoration: none;
   font: bold 12px/48px "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
   color: #00A99D !important;
 }
-/* line 158, ../sass/_map.scss */
+/* line 163, ../sass/_map.scss */
 .more i {
   position: absolute;
   display: block;
@@ -236,7 +242,7 @@ div.cartodb-legend-stack {
   border-radius: 15px;
 }
 
-/* line 171, ../sass/_map.scss */
+/* line 176, ../sass/_map.scss */
 .panel-wrapper {
   position: absolute;
   top: 85px;
@@ -245,21 +251,21 @@ div.cartodb-legend-stack {
   color: #fff;
 }
 
-/* line 178, ../sass/_map.scss */
+/* line 183, ../sass/_map.scss */
 .panel-title {
   font: 300 67px/1.2 "Open Sans";
 }
 
-/* line 182, ../sass/_map.scss */
+/* line 187, ../sass/_map.scss */
 .panel-desc {
   font: 300 17px/1.2 "Open Sans";
 }
-/* line 185, ../sass/_map.scss */
+/* line 190, ../sass/_map.scss */
 .panel-desc a {
   color: #fff;
 }
 
-/* line 190, ../sass/_map.scss */
+/* line 195, ../sass/_map.scss */
 .panel-sep {
   display: block;
   width: 148px;
@@ -267,35 +273,52 @@ div.cartodb-legend-stack {
   border-bottom: 2px solid #fff;
 }
 
-/* line 197, ../sass/_map.scss */
+/* line 202, ../sass/_map.scss */
 .panel-item {
   margin-bottom: 20px;
   font: 700 41px/1.2 "Open Sans";
   text-transform: uppercase;
 }
-/* line 202, ../sass/_map.scss */
+/* line 207, ../sass/_map.scss */
 .panel-item strong {
   display: block;
   font: 600 13px/1.2 "Open Sans";
   color: #ababab;
 }
 
-/* line 209, ../sass/_map.scss */
+/* line 214, ../sass/_map.scss */
 .infowindow-wrapper {
   display: none;
-  width: 194px;
+  width: 208px;
   min-height: 30px;
   position: absolute;
-  background: #fff;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
-  -webkit-box-shadow: 0 0px 0 3px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0 0px 0 3px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0px 0 3px rgba(0, 0, 0, 0.3);
+  /*background: #fff;*/
+  /*@include border-radius(3px);*/
+  /*@include box-shadow(0 0px 0 3px rgba(#000, .3));*/
   z-index: 10;
+}
+/* line 228, ../sass/_map.scss */
+.infowindow-wrapper .content {
+  padding: 0 3px 0 11px;
+  background: url(../images/infowindow.png) no-repeat 0 16px;
+}
+/* line 233, ../sass/_map.scss */
+.infowindow-wrapper .top {
+  position: absolute;
+  top: 0;
+  left: 8px;
+  width: 200px;
+  height: 16px;
+  background: url(../images/infowindow.png) no-repeat -208px 0;
+}
+/* line 241, ../sass/_map.scss */
+.infowindow-wrapper .bottom {
+  position: absolute;
+  bottom: -10px;
+  left: 8px;
+  width: 200px;
+  height: 16px;
+  background: url(../images/infowindow.png) no-repeat -408px 0;
 }
 
 /* line 1, ../sass/_chart.scss */
