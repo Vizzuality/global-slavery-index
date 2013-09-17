@@ -20,6 +20,8 @@
 
       _.bindAll(this, "toggle", "_toggle");
 
+      this.map = this.options.map;
+
       this.model = new slavery.ui.model.Infowindow();
       this.model.bind("change:country_name change:prevalence change:population change:slaved change:gdpppp change:region", this.render, this);
       this.model.bind("change:hidden", this._toggle, this);
@@ -63,11 +65,16 @@
       if(!this.model.get("hidden")) {
 
         this._center();
-        $(this.$el).fadeIn(350);
+        $(this.$el).fadeIn(150);
+        this._pan();
 
       } else {
         $(this.$el).fadeOut(350);
       }
+
+    },
+
+    _pan: function() {
 
     },
 
@@ -76,7 +83,7 @@
       var coordinates = this.model.get("coordinates");
 
       if (coordinates) {
-        var point  = app.map.map.latLngToContainerPoint([coordinates[0], coordinates[1]]);
+        var point  = this.map.latLngToContainerPoint([coordinates[0], coordinates[1]]);
 
         var left = point.x + 10;
         var top  = point.y - this.$el.height() + 44;
