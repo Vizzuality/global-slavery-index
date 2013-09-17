@@ -58,6 +58,8 @@
       if (!$t.hasClass('disabled') && href) {
         var name = href.replace('#/', '#').split('#')[1];
         this.trigger('click', name);
+
+        Backbone.history.navigate(href, true);
       }
     },
 
