@@ -332,12 +332,16 @@ div.cartodb-legend-stack {
   display: block;
 }
 /* line 252, ../sass/_map.scss */
+.infowindow-wrapper.collapsed.no_data .content {
+  background: url(../images/infowindow.png) no-repeat -608px 13px;
+}
+/* line 256, ../sass/_map.scss */
 .infowindow-wrapper .content {
   min-height: 60px;
   padding: 0 3px 0 11px;
   background: url(../images/infowindow.png) no-repeat 0 16px;
 }
-/* line 258, ../sass/_map.scss */
+/* line 262, ../sass/_map.scss */
 .infowindow-wrapper .top {
   position: absolute;
   top: 0;
@@ -346,7 +350,7 @@ div.cartodb-legend-stack {
   height: 16px;
   background: url(../images/infowindow.png) no-repeat -208px 0;
 }
-/* line 266, ../sass/_map.scss */
+/* line 270, ../sass/_map.scss */
 .infowindow-wrapper .bottom {
   position: absolute;
   bottom: -16px;
