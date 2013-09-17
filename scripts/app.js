@@ -46,20 +46,6 @@ $(function() {
     },
 
     _initViews: function() {
-      // Work view (table and map)
-      this.workView = new cdb.ui.common.TabPane({
-        el: this.$(".wrapper")
-      });
-      this.addView(this.workView);
-
-      this.map = new slavery.ui.view.Map({
-        el: this.$('.map-wrapper')
-      });
-
-      this.chart = new slavery.Chart({
-        el: this.$('.chart-wrapper')
-      });
-
       // Nav
       this.nav = new slavery.ui.view.Nav({
         el: this.$(".nav")
@@ -70,6 +56,21 @@ $(function() {
         slash: false
       });
       this.addView(this.workTabs);
+
+      // Work view (table and map)
+      this.workView = new cdb.ui.common.TabPane({
+        el: this.$(".wrapper")
+      });
+      this.addView(this.workView);
+
+      this.map = new slavery.ui.view.Map({
+        el: this.$('.map-wrapper'),
+        mapTab: $(this.workTabs.el).find(".map")
+      });
+
+      this.chart = new slavery.Chart({
+        el: this.$('.chart-wrapper')
+      });
 
       this.workView.addTab('map', this.map, { active: false });
       this.workView.addTab('chart', this.chart, { active: false });

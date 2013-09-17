@@ -132,6 +132,7 @@
 
                 self.panel.model.set({
                   'country_name': country.country_name,
+                  'country_iso': country.iso3,
                   'prevalence': 'high',
                   'population': 9801901,
                   'slaved':143142,
@@ -147,8 +148,6 @@
                   'slaved': 143142,
                   'hidden': false
                 });
-
-                self.model.set('href', 'map/country/'+country.iso3);
               })
               .error(function(errors) {
                 // errors contains a list of errors
@@ -177,8 +176,13 @@
     },
 
     _initBindings: function() {
-      this.panel.bind("changearea", this._changeArea, this);
       this.infowindow.bind("changearea", this._changeArea, this);
+      this.panel.bind("changearea", this._changeArea, this);
+    },
+
+    _changeURL: function(href) {
+      this.options.mapTab.attr("data-url", href);
+      Backbone.history.navigate(href, true);
     },
 
     _changeArea: function(area) {
@@ -202,23 +206,30 @@
       if(this.model.get('area') === 'country') {
         this.countries_sublayer.setInteraction(false);
         this.map.setView(this.model.get('center'), this.model.get('zoom'));
-        Backbone.history.navigate(this.model.get('href'), true);
 
         this.panel.template.set('template', $("#country_panel-template").html());
         this.panel.render();
 
         this.panel.show();
+
+        this._changeURL('map/country/'+this.panel.model.get('country_iso'));
       } else if(this.model.get('area') === 'region') {
+        this.infowindow.hide();
+
         this.panel.template.set('template', $("#region_panel-template").html());
         this.panel.render();
 
         // fit regioun bounds
         this.countries_sublayer.setInteraction(true);
+
+        this._changeURL('map/region/'+this.panel.model.get('region'));
       } else if(this.model.get('area') === 'world') {
         this.panel.hide();
         this.infowindow.hide();
 
         this.map.fitWorld();
+
+        this._changeURL('map');
       }
     }
   });

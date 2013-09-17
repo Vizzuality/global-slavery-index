@@ -53,13 +53,14 @@
       if (e && this.preventDefault) e.preventDefault();
 
       var $t = $(e.target).closest('a'),
-          href = $t.attr('href');
+          href = $t.attr('href'),
+          data_url = $t.attr('data-url');
 
       if (!$t.hasClass('disabled') && href) {
         var name = href.replace('#/', '#').split('#')[1];
         this.trigger('click', name);
 
-        Backbone.history.navigate(href, true);
+        Backbone.history.navigate(data_url, true);
       }
     },
 

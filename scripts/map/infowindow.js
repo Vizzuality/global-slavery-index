@@ -68,7 +68,7 @@
       var coordinates = this.model.get("coordinates");
 
       if (coordinates) {
-        var point  = app.mapTab.map.latLngToContainerPoint([coordinates[0], coordinates[1]]);
+        var point  = app.map.map.latLngToContainerPoint([coordinates[0], coordinates[1]]);
 
         var left = point.x - this.$el.width() / 2;
         var top  = point.y - this.$el.height();
@@ -87,6 +87,7 @@
       e.stopPropagation();
 
       this.trigger('changearea', 'country');
+      this.trigger('changeurl');
       this.hide();
     }
   });
