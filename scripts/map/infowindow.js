@@ -39,6 +39,7 @@
     },
 
     render: function() {
+
       this.$el.html(this.template.render( this.model.toJSON() ));
 
       return this;
@@ -72,10 +73,8 @@
           self._center();
         });
 
-        //this._pan();
-
       } else {
-        $(this.$el).fadeOut(150);
+        $(this.$el).fadeOut(350);
       }
 
     },

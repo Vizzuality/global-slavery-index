@@ -153,6 +153,12 @@
               .done(function(data) {
                 var country = data.rows[0];
 
+                if(self.infowindow.model.get('country_name') != country.country_name){
+                  self.infowindow.model.set({
+                    coordinates: latlng
+                  });
+                }
+
                 self.panel.model.set({
                   'country_name': country.country_name,
                   'country_iso': country.iso3,
@@ -189,6 +195,7 @@
                 }
 
               })
+
               .error(function(errors) {
                 // errors contains a list of errors
                 console.log("error:" + errors);
