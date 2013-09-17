@@ -35,6 +35,7 @@
 
     render: function() {
       this.$el.html(this.template.render( this.model.toJSON() ));
+
       return this;
     },
 
@@ -55,12 +56,19 @@
     },
 
     _toggle: function() {
+
+      var self = this;
+
       if(!this.model.get("hidden")) {
-        $(this.$el).fadeIn(150);
+
         this._center();
+
+        $(this.$el).fadeIn(150);
+
       } else {
         $(this.$el).fadeOut(150);
       }
+
     },
 
     _center:function() {
@@ -70,8 +78,8 @@
       if (coordinates) {
         var point  = app.mapTab.map.latLngToContainerPoint([coordinates[0], coordinates[1]]);
 
-        var left = point.x - this.$el.width() / 2;
-        var top  = point.y - this.$el.height();
+        var left = point.x + 10;
+        var top  = point.y - this.$el.height()/2;
 
         this.$el.css({ left: left, top: top });
       }

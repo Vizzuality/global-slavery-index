@@ -61,8 +61,8 @@ text-align:center;
 }
 
 .infowindow-risk {
-width: 193px;
-max-width: 193px;
+width: 194px;
+max-width: 194px;
 height: 10px;
 color: $risk1;
 border-top: 2px solid $risk1;
@@ -120,7 +120,7 @@ span {
 
 .infowindow-block {
   overflow: hidden;
-  margin: 7px 0 7px 0;
+  margin: 10px 0 10pxpx 0;
   padding: 0 20px;
   background-repeat: no-repeat;
   color: #444;
@@ -128,27 +128,32 @@ span {
 
 .infowindow-population {
   @include infowindow-icons-sprite(population, $offset-x: 20px);
+  margin: 10px 0 10px 0;
 }
 
 .infowindow-slaved {
   @include infowindow-icons-sprite(slavery, $offset-x: 20px);
   color: #F1B14C;
+  margin-bottom: 0;
 }
 
 .percent {
   float: left;
-  background: #FFF;
-  font-size: 11px;
   padding: 0 5px;
   margin: 9px 0;
+  font-size: 11px;
+  background: #FFF;
 }
 
 .more {
-  margin: 20px 0 0 0;
+@include box-sizing(border-box);
   position: relative;
+  margin: 24px 0 0 0;
   display:block;
+  width: 194px;
+  height: 38px;
+
   border-top: 2px solid #eee;
-  width: 193px;
   text-transform: uppercase;
   text-decoration: none;
   @include font(bold, 12px, 48px);
@@ -209,15 +214,36 @@ span {
 .infowindow-wrapper {
   display:none;
 
-  width: 194px;
+  width: 208px;
   min-height: 30px;
 
   position: absolute;
-  background: #fff;
 
-  @include border-radius(3px);
-  @include box-shadow(0 0px 0 3px rgba(#000, .3));
+  /*background: #fff;*/
+  /*@include border-radius(3px);*/
+  /*@include box-shadow(0 0px 0 3px rgba(#000, .3));*/
 
   z-index: 10;
+
+  .content {
+    padding: 0 3px 0 11px;
+    background: url(../images/infowindow.png) no-repeat 0 16px;
+  }
+
+  .top {
+    position:absolute;
+    top: 0; left: 8px;
+    width: 200px;
+    height: 16px;
+    background: url(../images/infowindow.png) no-repeat -208px 0;
+  }
+
+  .bottom {
+    position:absolute;
+    bottom: -10px; left: 8px;
+    width: 200px;
+    height: 16px;
+    background: url(../images/infowindow.png) no-repeat -408px 0;
+  }
 
 }
