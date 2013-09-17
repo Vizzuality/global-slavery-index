@@ -31,8 +31,7 @@ body,
   right: 20px;
   top: 25px;
 
-  clear: both;
-  overflow: hidden;
+  @include clearfix();
 
   strong  {
     float:left;
@@ -48,10 +47,28 @@ body,
 
   .quartile {
     float:left;
-    width: 52px;
+    width: 54px;
     height:10px;
+    position:relative;
 
     $radius: 4px;
+
+    .top, .bottom {
+      &.big {
+        left: -15px;
+        width: 84px;
+      }
+
+      width: 54px;
+      text-align: center;
+      position:absolute;
+      @include font(500, 9px, 21px);
+      color: #AAAAAA;
+      text-transform: uppercase;
+    }
+
+    .top { top: -17px; }
+    .bottom { top: 8px; }
 
     &, &:first-child { border: 1px solid rgba(#000, .3); }
     & { border-left: 0; }
