@@ -110,7 +110,7 @@ div.cartodb-legend-stack {
 
 /* line 56, ../sass/_map.scss */
 .infowindow-title {
-  padding: 20px 0 20px 0;
+  padding: 20px 5px;
   color: #444;
   font: bold 21px/1 "Open Sans";
   text-align: center;
