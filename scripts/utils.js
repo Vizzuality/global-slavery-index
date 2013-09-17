@@ -71,7 +71,7 @@ function create_polygons(url, ready) {
           color: '#FFFFFF',
           opacity: 1,
           fillColor: '#FFFFFF',
-          fillOpacity: 0.3,
+          fillOpacity: 0,
           clickable: false
         });
         pol.geo = geo;
