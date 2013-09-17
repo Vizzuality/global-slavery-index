@@ -143,8 +143,10 @@
 
             self.infowindow.model.set({
               collapsed: true,
-              coordinates: latlng,
-              hidden: false
+              loading: true,
+              hidden: false,
+              no_data: false,
+              coordinates: latlng
             });
 
             sql.execute("SELECT * FROM gsi_geom_copy WHERE cartodb_id = {{id}}", { id: data.cartodb_id })
@@ -163,15 +165,29 @@
 
                 var collapsed = country.country_name ? false : true;
 
-                self.infowindow.model.set({
-                  collapsed: collapsed,
-                  slavery_policy_risk: slaveryToHuman(country.slavery_policy_risk),
-                  country_name: country.country_name,
-                  prevalence: 'high',
-                  population: 9801901,
-                  slaved: 143142,
-                  hidden: false
-                });
+                if (collapsed) {
+
+                  self.infowindow.model.set({
+                    collapsed: collapsed,
+                    no_data: true,
+                    loading: false
+                  });
+
+                } else {
+
+                  self.infowindow.model.set({
+                    collapsed: collapsed,
+                    no_data: false,
+                    loading: false,
+                    slavery_policy_risk: slaveryToHuman(country.slavery_policy_risk),
+                    country_name: country.country_name,
+                    prevalence: 'high',
+                    population: 9801901,
+                    slaved: 143142
+                  });
+
+                }
+
               })
               .error(function(errors) {
                 // errors contains a list of errors

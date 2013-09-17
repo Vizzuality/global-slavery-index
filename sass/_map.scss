@@ -220,6 +220,14 @@ span {
 
   z-index: 10;
 
+  .no_data {
+    display:none;
+    position:relative;
+    top: 30px;
+    text-align:center;
+    @include font(bold, 12px, 1.2, 'Open Sans');
+  }
+
   .spinner {
     position:relative;
     top: 27px;
@@ -231,7 +239,8 @@ span {
   }
 
   &.collapsed .inner { display: none; }
-  &.collapsed .spinner { display: block; }
+  &.loading .spinner { display: block; }
+  &.no_data .no_data { display: block; }
 
   .content {
     min-height: 60px;

@@ -295,6 +295,14 @@ div.cartodb-legend-stack {
   z-index: 10;
 }
 /* line 223, ../sass/_map.scss */
+.infowindow-wrapper .no_data {
+  display: none;
+  position: relative;
+  top: 30px;
+  text-align: center;
+  font: bold 12px/1.2 "Open Sans";
+}
+/* line 231, ../sass/_map.scss */
 .infowindow-wrapper .spinner {
   position: relative;
   top: 27px;
@@ -304,21 +312,25 @@ div.cartodb-legend-stack {
   width: 24px;
   height: 24px;
 }
-/* line 233, ../sass/_map.scss */
+/* line 241, ../sass/_map.scss */
 .infowindow-wrapper.collapsed .inner {
   display: none;
 }
-/* line 234, ../sass/_map.scss */
-.infowindow-wrapper.collapsed .spinner {
+/* line 242, ../sass/_map.scss */
+.infowindow-wrapper.loading .spinner {
   display: block;
 }
-/* line 236, ../sass/_map.scss */
+/* line 243, ../sass/_map.scss */
+.infowindow-wrapper.no_data .no_data {
+  display: block;
+}
+/* line 245, ../sass/_map.scss */
 .infowindow-wrapper .content {
   min-height: 60px;
   padding: 0 3px 0 11px;
   background: url(../images/infowindow.png) no-repeat 0 16px;
 }
-/* line 242, ../sass/_map.scss */
+/* line 251, ../sass/_map.scss */
 .infowindow-wrapper .top {
   position: absolute;
   top: 0;
@@ -327,7 +339,7 @@ div.cartodb-legend-stack {
   height: 16px;
   background: url(../images/infowindow.png) no-repeat -208px 0;
 }
-/* line 250, ../sass/_map.scss */
+/* line 259, ../sass/_map.scss */
 .infowindow-wrapper .bottom {
   position: absolute;
   bottom: -16px;

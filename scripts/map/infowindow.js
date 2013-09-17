@@ -27,6 +27,8 @@
       this.model.bind("change:hidden", this._toggle, this);
       this.model.bind("change:coordinates", this._changeCoordinates, this);
       this.model.bind("change:collapsed", this._toggleCollapsed, this);
+      this.model.bind("change:no_data", this._toggleNoData, this);
+      this.model.bind("change:loading", this._toggleLoading, this);
 
       // this.template = cdb.templates.getTemplate('map/views/panel.jst.js');
       var template = $("#infowindow-template").html();
@@ -105,6 +107,25 @@
         var top  = point.y - this.$el.height()/2 - padding;
 
         this.$el.css({ left: left, top: top });
+      }
+
+    },
+
+    _toggleLoading: function() {
+
+      if (this.model.get("loading")) {
+        this.$el.addClass("loading");
+      } else {
+        this.$el.removeClass("loading");
+      }
+
+    },
+    _toggleNoData: function() {
+
+      if (this.model.get("no_data")) {
+        this.$el.addClass("no_data");
+      } else {
+        this.$el.removeClass("no_data");
       }
 
     },
