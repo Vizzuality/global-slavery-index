@@ -34,6 +34,7 @@
     },
 
     render: function() {
+
       this.$el.html(this.template.render( this.model.toJSON() ));
 
       return this;
@@ -62,11 +63,10 @@
       if(!this.model.get("hidden")) {
 
         this._center();
-
-        $(this.$el).fadeIn(150);
+        $(this.$el).fadeIn(350);
 
       } else {
-        $(this.$el).fadeOut(150);
+        $(this.$el).fadeOut(350);
       }
 
     },
@@ -79,7 +79,7 @@
         var point  = app.map.map.latLngToContainerPoint([coordinates[0], coordinates[1]]);
 
         var left = point.x + 10;
-        var top  = point.y - this.$el.height()/2;
+        var top  = point.y - this.$el.height() + 44;
 
         this.$el.css({ left: left, top: top });
       }
