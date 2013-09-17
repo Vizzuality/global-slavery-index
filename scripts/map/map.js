@@ -197,6 +197,7 @@
                     population: 9801901,
                     slaved: 143142
                   });
+
                   self.infowindow._center();
 
                 }

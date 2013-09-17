@@ -87,8 +87,16 @@ $(function() {
       this.workView.active(this.workViewActive);
       this.workTabs.activate(this.workViewActive);
 
+
+      if(this.workViewActive === 'map') {
+        this.nav.model.set("legend", "map");
+      } else {
+        this.nav.model.set("legend", "plot");
+      }
+
       // map with area
       if(this.workViewActive === 'map') {
+
         if(pane['area'] && pane['area'] === 'region') {
           // boundaries are set in utils, uncomment to get them through API SQL
           self.map.map.setView(slavery.AppData.REGIONS[pane['id']].center, slavery.AppData.REGIONS[pane['id']].zoom);
@@ -102,6 +110,8 @@ $(function() {
           //     console.log(center, zoom);
           // });
         } else if (pane['area'] && pane['area'] === 'country') {
+
+
           var sql = new cartodb.SQL({ user: 'walkfree' });
 
           sql.getBounds("SELECT * FROM gsi_geom_copy WHERE iso3 = '" + pane['id'] + "'")
