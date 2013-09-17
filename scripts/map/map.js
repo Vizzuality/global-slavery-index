@@ -182,6 +182,7 @@
                   self.infowindow.model.set({
                     collapsed: collapsed,
                     no_data: true,
+                    hidden: false,
                     loading: false
                   });
 
@@ -190,6 +191,7 @@
                   self.infowindow.model.set({
                     collapsed: collapsed,
                     no_data: false,
+                    hidden: false,
                     loading: false,
                     slavery_policy_risk: slaveryToHuman(country.slavery_policy_risk),
                     country_name: country.country_name,
@@ -197,6 +199,8 @@
                     population: 9801901,
                     slaved: 143142
                   });
+
+                  self.infowindow._center();
 
                 }
 
