@@ -8,7 +8,7 @@
 //   fields: null // contains the fields displayed in the infowindow
 // };
 
-slavery.ui.view.Infowindow = cdb.geo.ui.Infowindow.extend({
+slavery.ui.view.Infowindow = L.Class.extend({
   events: cdb.core.View.extendEvents({
     'click .more': 'changeCountry',
     'mousemove': 'killEvent'
@@ -45,7 +45,7 @@ slavery.ui.view.Infowindow = cdb.geo.ui.Infowindow.extend({
       var sanitized_fields = this._fieldsToString(fields, template_name);
       var data = this.model.get('content') ? this.model.get('content').data : {};
 
-      this.$el.html(this.template({ 
+      this.$el.html(this.template({
           content: {
             fields: sanitized_fields,
             data: data

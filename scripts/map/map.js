@@ -75,6 +75,19 @@
       return this;
     },
 
+    _bindInfowindow: function() {
+
+      var self = this;
+
+      $(window).resize(function() { self.infowindow._center(); });
+
+      this.map.on("dragend",   function() { this.infowindow._center(); }, this);
+      this.map.on("drag",      function() { this.infowindow._center(); }, this);
+      this.map.on("zoomend",   function() { this.infowindow._center(); }, this);
+      this.map.on("zoomstart", function() { this.infowindow._center(); }, this);
+
+    },
+
     _initViews: function() {
       var self = this;
 
@@ -86,12 +99,16 @@
       this.infowindow = new slavery.ui.view.Infowindow({
         el: this.$(".infowindow-wrapper")
       });
+
       this.addView(this.infowindow);
 
       this.map = L.map('cartodb-map', {
         center: [40, -98],
-        zoom: 4
+        zoom: 4,
+        inertia:false
       });
+
+      this._bindInfowindow();
 
       var layerUrl = 'http://walkfree.cartodb.com/api/v2/viz/75be535c-1649-11e3-8469-6d55fc63b176/viz.json';
 
@@ -104,6 +121,10 @@
 
           sublayer.on('featureClick', function(e, latlng, pos, data, layerNumber) {
             var sql = new cartodb.SQL({ user: 'walkfree' });
+
+            self.infowindow.model.set({
+              coordinates: latlng
+            });
 
             sql.execute("SELECT * FROM gsi_geom_copy WHERE cartodb_id = {{id}}", { id: data.cartodb_id })
               .done(function(data) {
