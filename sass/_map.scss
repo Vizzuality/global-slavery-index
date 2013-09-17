@@ -223,9 +223,16 @@ span {
   .no_data {
     display:none;
     position:relative;
-    top: 30px;
+    top: 25px;
     text-align:center;
     @include font(bold, 12px, 1.2, 'Open Sans');
+
+    a {
+      display: block;
+      margin: 2px 0 0 0;
+      color: #00A99D;
+      font-size: 10px;
+    }
   }
 
   .spinner {

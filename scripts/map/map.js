@@ -198,8 +198,6 @@
                     slaved: 143142
                   });
 
-                  self.infowindow._center();
-
                 }
 
               })

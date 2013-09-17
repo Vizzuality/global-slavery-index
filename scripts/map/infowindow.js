@@ -13,6 +13,7 @@
   slavery.ui.view.Infowindow = cdb.core.View.extend({
     events: cdb.core.View.extendEvents({
       'click .more': '_changeArea',
+      'click .close': 'hide'
     }),
 
     initialize: function() {
@@ -57,7 +58,11 @@
       this.model.set("hidden", false);
     },
 
-    hide: function() {
+    hide: function(e) {
+
+      e && e.preventDefault();
+      e && e.stopPropagation();
+
       this.model.set("hidden", true);
     },
 
