@@ -79,7 +79,7 @@
         var point  = app.map.map.latLngToContainerPoint([coordinates[0], coordinates[1]]);
 
         var left = point.x + 10;
-        var top  = point.y - this.$el.height()/2;
+        var top  = point.y - this.$el.height()/2 - 70;
 
         this.$el.css({ left: left, top: top });
       }

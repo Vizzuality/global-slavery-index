@@ -216,7 +216,7 @@ div.cartodb-legend-stack {
   margin: 24px 0 0 0;
   display: block;
   width: 194px;
-  height: 38px;
+  height: 37px;
   border-top: 2px solid #eee;
   text-transform: uppercase;
   text-decoration: none;
@@ -314,7 +314,7 @@ div.cartodb-legend-stack {
 /* line 241, ../sass/_map.scss */
 .infowindow-wrapper .bottom {
   position: absolute;
-  bottom: -10px;
+  bottom: -16px;
   left: 8px;
   width: 200px;
   height: 16px;
