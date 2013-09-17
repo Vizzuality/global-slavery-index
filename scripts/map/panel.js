@@ -88,5 +88,8 @@
       e.stopPropagation();
 
       this.trigger('changearea');
+
+      var href = $(e.target).closest('a').attr('href');
+      Backbone.history.navigate(href, true);
     }
   });
