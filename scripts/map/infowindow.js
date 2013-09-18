@@ -68,17 +68,17 @@
 
     setLoading: function() {
       this.model.set({
-        collapsed: true,
         hidden: false,
         template_name: 'infowindow_loading',
-        content: null
+        content: null,
+        collapsed: true
       });
     },
 
     setError: function() {
       this.model.set({
-        collapsed: true,
         template_name: 'infowindow_error',
+        collapsed: true
       });
     },
 
@@ -113,10 +113,18 @@
       if (coordinates) {
         var point  = this.map.latLngToContainerPoint([coordinates[0], coordinates[1]]);
 
-        var padding = this.model.get("collapsed") ? 10 : 70;
+        var height = this.$el.height();
+        var padding = 10;
+
+        if(!this.model.get("collapsed")) {
+          var header_padding = this.$el.find(".infowindow-title").height() - 21;
+
+          height = this.$el.height() - header_padding;
+          padding = 70;
+        }
 
         var left = point.x + 10;
-        var top = point.y - this.$el.height()/2 - padding;
+        var top = point.y - height/2 - padding;
 
         this.$el.css({ left: left, top: top });
       }

@@ -133,7 +133,7 @@ span {
   color: #00A99D !important; // override leaflet-container
 
   i {
-    position: relative;
+    position: absolute;
     display: block;
     line-height: 24px;
     top: -15px; left: 50%;
@@ -202,7 +202,7 @@ span {
       font-size: 10px;
     }
 
-    .content {
+    &.content {
       background: url(../images/infowindow-sprite.png) no-repeat -613px 13px;
     }
   }
@@ -220,7 +220,7 @@ span {
   .content {
     position: relative;
     z-index: 10;
-    padding: 0 3px 0 11px;
+    padding: 0 3px 60px 11px;
     background: url(../images/infowindow-sprite.png) no-repeat 0 16px;
   }
 

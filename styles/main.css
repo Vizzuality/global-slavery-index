@@ -197,7 +197,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 /* line 135, ../sass/_map.scss */
 .more i {
-  position: relative;
+  position: absolute;
   display: block;
   line-height: 24px;
   top: -15px;
@@ -281,7 +281,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font-size: 10px;
 }
 /* line 205, ../sass/_map.scss */
-.infowindow-wrapper .no_data .content {
+.infowindow-wrapper .no_data.content {
   background: url(../images/infowindow-sprite.png) no-repeat -613px 13px;
 }
 /* line 210, ../sass/_map.scss */
@@ -298,7 +298,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 .infowindow-wrapper .content {
   position: relative;
   z-index: 10;
-  padding: 0 3px 0 11px;
+  padding: 0 3px 60px 11px;
   background: url(../images/infowindow-sprite.png) no-repeat 0 16px;
 }
 /* line 227, ../sass/_map.scss */
