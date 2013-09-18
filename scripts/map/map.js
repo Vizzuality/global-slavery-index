@@ -51,7 +51,7 @@
       var current_polygon = this.current_polygon = this.countries_polygons[key];
       var current_key = this.current_key;
 
-      if(!current_polygon || current_key === key) return;
+      if(!current_polygon) return;
 
       for(var i=0; i < current_polygon.length; ++i) {
         this.map.addLayer(current_polygon[i].geo);
@@ -118,9 +118,9 @@
       this.addView(this.panel);
 
       this.map = L.map('cartodb-map', {
-        center: [40, -98],
-        zoom: 4,
-        inertia:false
+        center: [0, 0],
+        zoom: 3,
+        inertia: false
       });
 
       this.infowindow = new slavery.ui.view.Infowindow({
@@ -145,25 +145,24 @@
           sublayer.setInteraction(true);
 
           sublayer.on('featureClick', function(e, latlng, pos, data, layerNumber) {
-            var sql = new cartodb.SQL({ user: 'walkfree' });
+
+            if(self.current_cartodb_id !== data.cartodb_id) {
+              self.infowindow.setLoading();
+            }
 
             self.infowindow.model.set({
-              collapsed: true,
-              loading: true,
-              hidden: false,
-              no_data: false,
               coordinates: latlng
             });
+
+            if(self.current_cartodb_id === data.cartodb_id) return;
+
+            self.current_cartodb_id = data.cartodb_id;
+
+            var sql = new cartodb.SQL({ user: 'walkfree' });
 
             sql.execute("SELECT * FROM gsi_geom_copy WHERE cartodb_id = {{id}}", { id: data.cartodb_id })
               .done(function(data) {
                 var country = data.rows[0];
-
-                if(self.infowindow.model.get('country_name') != country.country_name){
-                  self.infowindow.model.set({
-                    coordinates: latlng
-                  });
-                }
 
                 self.panel.model.set({
                   'country_name': country.country_name,
@@ -178,32 +177,25 @@
                 var collapsed = country.country_name ? false : true;
 
                 if (collapsed) {
-
-                  self.infowindow.model.set({
-                    collapsed: collapsed,
-                    no_data: true,
-                    hidden: false,
-                    loading: false
-                  });
-
+                  // infowindow error
+                  self.infowindow.setError();
                 } else {
-
+                  // infowindow success
                   self.infowindow.model.set({
-                    collapsed: collapsed,
-                    no_data: false,
                     hidden: false,
-                    loading: false,
-                    slavery_policy_risk: slaveryToHuman(country.slavery_policy_risk),
-                    country_name: country.country_name,
-                    prevalence: 'high',
-                    population: 9801901,
-                    slaved: 143142
-                  });
+                    collapsed: false,
+                    content: {
+                      slavery_policy_risk: slaveryToHuman(country.slavery_policy_risk),
+                      country_name: country.country_name,
+                      prevalence: 'high',
+                      population: 9801901,
+                      slaved: 143142
+                    },
+                    template_name: 'infowindow_success'
+                  })
 
                   self.infowindow._center();
-
                 }
-
               })
 
               .error(function(errors) {

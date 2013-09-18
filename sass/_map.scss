@@ -15,54 +15,26 @@ $infowindow-icons-slavery-spacing: 40px;
 
 // override leaflet.css
 .leaflet-container {
-background: #333;
-}
-
-// legend
-// override cartodb.css
-div.cartodb-legend-stack {
-z-index: 1000002;
-position: absolute;
-bottom: 0;
-border-radius: 0;
-border: 0;
-background: transparent;
-@include box-shadow(none);
+  background: #333;
 }
 
 // infowindow
 // override cartodb.css
 .infowindow {
-padding: 0;
-width: auto;
-background: transparent;
-}
-
-.infowindow-tip-container {
-float: left;
-width: 20px;
-height: 260px;
-// @include infowindow-icons-sprite(left);
-}
-
-.infowindow-content-wrapper {
-float: left;
-width: 191px;
-max-width: 191px;
-height: 260px;
-// @include infowindow-icons-sprite(right);
+  padding: 0;
+  width: auto;
+  background: transparent;
 }
 
 .infowindow-title {
-padding: 20px 5px;
-color: #444;
-@include font(bold, 21px, 1, "Open Sans");
-text-align:center;
+  padding: 20px;
+  color: #444;
+  @include font(bold, 21px, 1, "Open Sans");
 }
 
 .infowindow-risk {
-width: 194px;
-max-width: 194px;
+width: 199px;
+max-width: 199px;
 height: 10px;
 color: $risk1;
 border-top: 2px solid $risk1;
@@ -146,22 +118,22 @@ span {
 }
 
 .more {
-@include box-sizing(border-box);
-  position: relative;
+  @include box-sizing(border-box);
+  position: absolute;
   margin: 24px 0 0 0;
   display:block;
-  width: 194px;
-  height: 37px;
+  width: 199px;
+  height: 49px;
 
   border-top: 2px solid #eee;
   text-transform: uppercase;
   text-decoration: none;
-  @include font(bold, 12px, 48px);
+  @include font(bold, 12px, 49px);
   text-align: center;
   color: #00A99D !important; // override leaflet-container
 
   i {
-    position: absolute;
+    position: relative;
     display: block;
     line-height: 24px;
     top: -15px; left: 50%;
@@ -187,9 +159,7 @@ span {
 .panel-desc {
   @include font(300, 17px, 1.2, "Open Sans");
 
-  a {
-    color: #fff;
-  }
+  a { color: #fff; }
 }
 
 .panel-sep {
@@ -213,18 +183,16 @@ span {
 
 .infowindow-wrapper {
   position: absolute;
+  z-index: 10;
   display:none;
-
-  width: 208px;
+  width: 213px;
   min-height: 30px;
 
-  z-index: 10;
-
   .no_data {
-    display:none;
-    position:relative;
+    position: relative;
+    display: block;
     top: 25px;
-    text-align:center;
+    text-align: center;
     @include font(bold, 12px, 1.2, 'Open Sans');
 
     a {
@@ -233,46 +201,42 @@ span {
       color: #00A99D;
       font-size: 10px;
     }
+
+    .content {
+      background: url(../images/infowindow-sprite.png) no-repeat -613px 13px;
+    }
   }
 
   .spinner {
     position:relative;
     top: 27px;
-    display: none;
+    display: block;
     background: url(../images/spinner.gif) no-repeat 0 0;
     margin: auto;
     width: 24px;
     height: 24px;
   }
 
-  &.collapsed .inner { display: none; }
-  &.loading .spinner { display: block; }
-  &.no_data .no_data { display: block; }
-
-  &.collapsed.no_data .content {
-    background: url(../images/infowindow.png) no-repeat -608px 13px;
-  }
-
   .content {
-    min-height: 60px;
+    position: relative;
+    z-index: 10;
     padding: 0 3px 0 11px;
-    background: url(../images/infowindow.png) no-repeat 0 16px;
+    background: url(../images/infowindow-sprite.png) no-repeat 0 16px;
   }
 
   .top {
-    position:absolute;
+    position: absolute;
     top: 0; left: 8px;
-    width: 200px;
+    width: 205px;
     height: 16px;
-    background: url(../images/infowindow.png) no-repeat -208px 0;
+    background: url(../images/infowindow-sprite.png) no-repeat -213px 0;
   }
 
   .bottom {
-    position:absolute;
+    position: absolute;
     bottom: -16px; left: 8px;
-    width: 200px;
+    width: 205px;
     height: 16px;
-    background: url(../images/infowindow.png) no-repeat -408px 0;
+    background: url(../images/infowindow-sprite.png) no-repeat -418px 0;
   }
-
 }
