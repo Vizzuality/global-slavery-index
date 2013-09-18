@@ -86,7 +86,7 @@
   <script type="infowindow/html" id="infowindow_loading-template">
     <div class="top"></div>
 
-    <div class="content">
+    <div class="content loading">
       <div class="spinner"></div>
     </div>
 
@@ -96,11 +96,8 @@
   <script type="infowindow/html" id="infowindow_error-template">
     <div class="top"></div>
 
-    <div class="content">
-      <div class="no_data">
-        No data available
-        <a href="#" class="close">close</a>
-      </div>
+    <div class="content no_data">
+      <p>No data available</p>
     </div>
 
     <div class="bottom"></div>
@@ -112,7 +109,7 @@
       <div class="inner">
         <h1 class="infowindow-title"><%= content.country_name %></h1>
 
-        <p class="infowindow-risk <%= content.slavery_policy_risk.toLowerCase() %>"><span><%= content.slavery_policy_risk %></span></p>
+        <p class="infowindow-risk <%= content.slavery_policy_risk.toLowerCase().split(' ').join('_') %>"><span><%= content.slavery_policy_risk %></span></p>
 
         <div class="infowindow-block infowindow-population">
           <p class="total-num">4,511,488 <span>Estimated population</span></p>

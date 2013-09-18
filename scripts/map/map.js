@@ -146,15 +146,13 @@
 
           sublayer.on('featureClick', function(e, latlng, pos, data, layerNumber) {
 
-            if(self.current_cartodb_id !== data.cartodb_id) {
-              self.infowindow.setLoading();
-            }
-
             self.infowindow.model.set({
               coordinates: latlng
             });
 
             if(self.current_cartodb_id === data.cartodb_id) return;
+
+            self.infowindow.setLoading();
 
             self.current_cartodb_id = data.cartodb_id;
 

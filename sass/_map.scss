@@ -39,32 +39,32 @@ height: 10px;
 color: $risk1;
 border-top: 2px solid $risk1;
 
-&.risk2 {
+&.very_high {
   color: $risk2;
   border-top-color: $risk2;
 }
 
-&.risk3 {
+&.high {
   color: $risk3;
   border-top-color: $risk3;
 }
 
-&.risk4 {
+&.moderate {
   color: $risk4;
   border-top-color: $risk4;
 }
 
-&.risk5 {
+&.moderate_low {
   color: $risk5;
   border-top-color: $risk5;
 }
 
-&.risk6 {
+&.low {
   color: $risk6;
   border-top-color: $risk6;
 }
 
-&.risk7 {
+&.very_low {
   color: $risk7;
   border-top-color: $risk7;
 }
@@ -188,25 +188,6 @@ span {
   width: 213px;
   min-height: 30px;
 
-  .no_data {
-    position: relative;
-    display: block;
-    top: 25px;
-    text-align: center;
-    @include font(bold, 12px, 1.2, 'Open Sans');
-
-    a {
-      display: block;
-      margin: 2px 0 0 0;
-      color: #00A99D;
-      font-size: 10px;
-    }
-
-    &.content {
-      background: url(../images/infowindow-sprite.png) no-repeat -613px 13px;
-    }
-  }
-
   .spinner {
     position:relative;
     top: 27px;
@@ -221,7 +202,25 @@ span {
     position: relative;
     z-index: 10;
     padding: 0 3px 60px 11px;
+    min-height: 60px;
     background: url(../images/infowindow-sprite.png) no-repeat 0 16px;
+
+    &.no_data {
+      padding: 0 3px 0 11px;
+      text-align: center;
+      text-transform: uppercase;
+      @include font(bold, 12px, 1.2, 'Open Sans');
+      background: url(../images/infowindow-sprite.png) no-repeat -623px 16px;
+
+      p {
+        position: relative;
+        top: 30px;
+      }
+    }
+
+    &.loading {
+      padding: 0 3px 0 11px;
+    }
   }
 
   .top {

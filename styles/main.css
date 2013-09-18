@@ -96,32 +96,32 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border-top: 2px solid #b10026;
 }
 /* line 42, ../sass/_map.scss */
-.infowindow-risk.risk2 {
+.infowindow-risk.very_high {
   color: #e31a1c;
   border-top-color: #e31a1c;
 }
 /* line 47, ../sass/_map.scss */
-.infowindow-risk.risk3 {
+.infowindow-risk.high {
   color: #fc4e2a;
   border-top-color: #fc4e2a;
 }
 /* line 52, ../sass/_map.scss */
-.infowindow-risk.risk4 {
+.infowindow-risk.moderate {
   color: #fd8d3c;
   border-top-color: #fd8d3c;
 }
 /* line 57, ../sass/_map.scss */
-.infowindow-risk.risk5 {
+.infowindow-risk.moderate_low {
   color: #feb24c;
   border-top-color: #feb24c;
 }
 /* line 62, ../sass/_map.scss */
-.infowindow-risk.risk6 {
+.infowindow-risk.low {
   color: #fed976;
   border-top-color: #fed976;
 }
 /* line 67, ../sass/_map.scss */
-.infowindow-risk.risk7 {
+.infowindow-risk.very_low {
   color: #ffffb2;
   border-top-color: #ffffb2;
 }
@@ -266,25 +266,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   min-height: 30px;
 }
 /* line 191, ../sass/_map.scss */
-.infowindow-wrapper .no_data {
-  position: relative;
-  display: block;
-  top: 25px;
-  text-align: center;
-  font: bold 12px/1.2 "Open Sans";
-}
-/* line 198, ../sass/_map.scss */
-.infowindow-wrapper .no_data a {
-  display: block;
-  margin: 2px 0 0 0;
-  color: #00A99D;
-  font-size: 10px;
-}
-/* line 205, ../sass/_map.scss */
-.infowindow-wrapper .no_data.content {
-  background: url(../images/infowindow-sprite.png) no-repeat -613px 13px;
-}
-/* line 210, ../sass/_map.scss */
 .infowindow-wrapper .spinner {
   position: relative;
   top: 27px;
@@ -294,14 +275,32 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 24px;
   height: 24px;
 }
-/* line 220, ../sass/_map.scss */
+/* line 201, ../sass/_map.scss */
 .infowindow-wrapper .content {
   position: relative;
   z-index: 10;
   padding: 0 3px 60px 11px;
+  min-height: 60px;
   background: url(../images/infowindow-sprite.png) no-repeat 0 16px;
 }
-/* line 227, ../sass/_map.scss */
+/* line 208, ../sass/_map.scss */
+.infowindow-wrapper .content.no_data {
+  padding: 0 3px 0 11px;
+  text-align: center;
+  text-transform: uppercase;
+  font: bold 12px/1.2 "Open Sans";
+  background: url(../images/infowindow-sprite.png) no-repeat -623px 16px;
+}
+/* line 215, ../sass/_map.scss */
+.infowindow-wrapper .content.no_data p {
+  position: relative;
+  top: 30px;
+}
+/* line 221, ../sass/_map.scss */
+.infowindow-wrapper .content.loading {
+  padding: 0 3px 0 11px;
+}
+/* line 226, ../sass/_map.scss */
 .infowindow-wrapper .top {
   position: absolute;
   top: 0;
@@ -310,7 +309,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   height: 16px;
   background: url(../images/infowindow-sprite.png) no-repeat -213px 0;
 }
-/* line 235, ../sass/_map.scss */
+/* line 234, ../sass/_map.scss */
 .infowindow-wrapper .bottom {
   position: absolute;
   bottom: -16px;
