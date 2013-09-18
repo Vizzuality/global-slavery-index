@@ -98,13 +98,31 @@
     },
 
     _pan: function() {
-      var top  = this.$el.position().top;
-      var left = this.$el.position().left;
+      var top  = this.$el.position().top,
+          left = this.$el.position().left,
+          width = this.$el.width(),
+          height = this.$el.height(),
+          size = this.map.getSize(),
+          adjustOffset = {x: 0, y: 0},
+          padding = 30;
 
-      var width  = this.$el.width();
-      var height = this.$el.height();
+      if (top < 0) {
+        adjustOffset.y = top - padding;
+      }
 
-      if (top < 0) this.map.panBy([0, top - 20 ]);
+      if (top + height + padding > size.y - 63) {
+        adjustOffset.y = top + height + padding - (size.y - 63);
+      }
+
+      if (left + padding + width > size.x) {
+        adjustOffset.x = left + width - (size.x - padding);
+      }
+
+      if(!this.model.get("collapsed")) {
+        this.map.panBy(adjustOffset);
+      }
+
+      this._center();
     },
 
     _center: function() {
@@ -119,7 +137,7 @@
         if(!this.model.get("collapsed")) {
           var header_padding = this.$el.find(".infowindow-title").height() - 21;
 
-          height = this.$el.height() - header_padding;
+          height -= header_padding;
           padding = 70;
         }
 
@@ -132,11 +150,12 @@
 
     _toggleCollapsed: function() {
       this._center();
+      this._pan();
     },
 
     _changeCoordinates: function() {
-      // this._pan();
       this._center();
+      this._pan();
     },
 
     _changeArea: function(e) {

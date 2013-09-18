@@ -390,9 +390,10 @@ body,
 .cartodb-map {
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
-/* line 18, ../sass/main.scss */
+/* line 19, ../sass/main.scss */
 .nav {
   position: absolute;
   z-index: 1000001;
@@ -407,7 +408,7 @@ body,
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
-/* line 29, ../sass/main.scss */
+/* line 30, ../sass/main.scss */
 .nav .legend {
   display: none;
   position: absolute;
@@ -427,7 +428,7 @@ body,
 .nav .legend:after {
   clear: both;
 }
-/* line 39, ../sass/main.scss */
+/* line 40, ../sass/main.scss */
 .nav .legend strong {
   float: left;
   position: relative;
@@ -438,15 +439,15 @@ body,
   color: #414346;
 }
 
-/* line 51, ../sass/main.scss */
+/* line 52, ../sass/main.scss */
 .nav .legend.plot {
   top: 24px;
 }
-/* line 55, ../sass/main.scss */
+/* line 56, ../sass/main.scss */
 .nav .legend.plot ul {
   float: left;
 }
-/* line 56, ../sass/main.scss */
+/* line 57, ../sass/main.scss */
 .nav .legend.plot li {
   float: left;
   position: relative;
@@ -455,7 +456,7 @@ body,
   color: #393D3F;
   text-transform: uppercase;
 }
-/* line 65, ../sass/main.scss */
+/* line 66, ../sass/main.scss */
 .nav .legend.plot li i {
   width: 7px;
   height: 7px;
@@ -478,18 +479,18 @@ body,
   opacity: 0.6;
 }
 
-/* line 81, ../sass/main.scss */
+/* line 82, ../sass/main.scss */
 .nav .legend.map ul {
   float: left;
 }
-/* line 83, ../sass/main.scss */
+/* line 84, ../sass/main.scss */
 .nav .legend.map .quartile {
   float: left;
   width: 54px;
   height: 10px;
   position: relative;
 }
-/* line 91, ../sass/main.scss */
+/* line 92, ../sass/main.scss */
 .nav .legend.map .quartile .top, .nav .legend.map .quartile .bottom {
   width: 54px;
   text-align: center;
@@ -498,28 +499,28 @@ body,
   color: #AAAAAA;
   text-transform: uppercase;
 }
-/* line 92, ../sass/main.scss */
+/* line 93, ../sass/main.scss */
 .nav .legend.map .quartile .top.big, .nav .legend.map .quartile .bottom.big {
   left: -15px;
   width: 84px;
 }
-/* line 105, ../sass/main.scss */
+/* line 106, ../sass/main.scss */
 .nav .legend.map .quartile .top {
   top: -17px;
 }
-/* line 106, ../sass/main.scss */
+/* line 107, ../sass/main.scss */
 .nav .legend.map .quartile .bottom {
   top: 8px;
 }
-/* line 108, ../sass/main.scss */
+/* line 109, ../sass/main.scss */
 .nav .legend.map .quartile, .nav .legend.map .quartile:first-child {
   border: 1px solid rgba(0, 0, 0, 0.3);
 }
-/* line 109, ../sass/main.scss */
+/* line 110, ../sass/main.scss */
 .nav .legend.map .quartile {
   border-left: 0;
 }
-/* line 111, ../sass/main.scss */
+/* line 112, ../sass/main.scss */
 .nav .legend.map .quartile:first-child {
   -webkit-border-radius: 4px 0 0 4px;
   -moz-border-radius: 4px 0 0 4px;
@@ -527,7 +528,7 @@ body,
   -o-border-radius: 4px 0 0 4px;
   border-radius: 4px 0 0 4px;
 }
-/* line 112, ../sass/main.scss */
+/* line 113, ../sass/main.scss */
 .nav .legend.map .quartile:last-child {
   -webkit-border-radius: 0 4px 4px 0;
   -moz-border-radius: 0 4px 4px 0;
@@ -536,7 +537,7 @@ body,
   border-radius: 0 4px 4px 0;
 }
 
-/* line 118, ../sass/main.scss */
+/* line 119, ../sass/main.scss */
 .switch {
   position: relative;
   float: left;
@@ -549,7 +550,7 @@ body,
   -o-border-radius: 14px;
   border-radius: 14px;
 }
-/* line 126, ../sass/main.scss */
+/* line 127, ../sass/main.scss */
 .switch span {
   position: absolute;
   top: 2px;
@@ -564,16 +565,16 @@ body,
   border-radius: 11px;
   width: 47px;
 }
-/* line 135, ../sass/main.scss */
+/* line 136, ../sass/main.scss */
 .switch ul {
   position: relative;
   z-index: 10;
 }
-/* line 140, ../sass/main.scss */
+/* line 141, ../sass/main.scss */
 .switch li {
   float: left;
 }
-/* line 144, ../sass/main.scss */
+/* line 145, ../sass/main.scss */
 .switch a {
   display: -moz-inline-stack;
   display: inline-block;
@@ -587,7 +588,7 @@ body,
   text-transform: uppercase;
   font: 500 12px/21px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-/* line 152, ../sass/main.scss */
+/* line 153, ../sass/main.scss */
 .switch a.selected {
   color: #fff;
 }
