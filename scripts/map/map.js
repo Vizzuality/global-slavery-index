@@ -336,7 +336,6 @@
         // map
         this.out();
         this._enableInteraction();
-        debugger;
         this.countries_sublayer.setCartoCSS(slavery.AppData.CARTOCSS['default'] + "#gsi_geom_copy [ region_name != '" + this.panel.model.get('region') + "'] { polygon-fill: #666; polygon-opacity: 1; line-width: 1; line-color: #333; line-opacity: 1; }");
 
         // url
