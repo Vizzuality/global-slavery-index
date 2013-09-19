@@ -219,11 +219,11 @@
       });
 
       this.bind("sublayerloaded", function() {
-        this.loadCountry();
+        this.loadCountry && this.loadCountry();
       });
 
       this.bind("polygonsloaded", function() {
-        this.loadCountry();
+        this.loadCountry && this.loadCountry();
       });
     },
 
@@ -245,7 +245,7 @@
             'region': country.region_name
           });
 
-          self.loadCountry();
+          self.loadCountry && self.loadCountry();
         })
         .error(function(errors) {
           console.log("error:" + errors);
@@ -260,7 +260,7 @@
             'zoom': zoom
           });
 
-          self.loadCountry();
+          self.loadCountry && self.loadCountry();
         }).error(function(errors) {
           console.log("error:" + errors);
         });
