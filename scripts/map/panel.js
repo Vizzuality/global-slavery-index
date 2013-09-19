@@ -16,17 +16,21 @@
     }),
 
     _REGIONS: {
-      europe: {
+      west_europe: {
         name: 'Europe',
         desc: 'europe description'
       },
-      asia: {
-        name: 'Asia',
-        desc: 'asia description'
+      east_europe: {
+        name: 'east_europe',
+        desc: 'europe description'
       },
-      eurasia: {
-        name: 'Russia & Eurasia',
-        desc: 'eurasia description'
+      africa: {
+        name: 'africa',
+        desc: 'europe description'
+      },
+      asia: {
+        name: 'asia',
+        desc: 'asia description'
       },
       americas: {
         name: 'The Americas',

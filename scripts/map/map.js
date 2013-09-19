@@ -132,7 +132,7 @@
 
       this.addView(this.infowindow);
 
-      var layerUrl = 'http://walkfree.cartodb.com/api/v2/viz/75be535c-1649-11e3-8469-6d55fc63b176/viz.json';
+      var layerUrl = 'http://walkfree.cartodb.com/api/v2/viz/9919ac04-1c8c-11e3-a3f4-df1f5817433c/viz.json';
 
       this.layerMap = cartodb.createLayer(this.map, layerUrl, { infowindow: false })
         .addTo(this.map)
