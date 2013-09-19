@@ -147,17 +147,12 @@
 
       <li class="panel-item">
         <strong>Est. number slaved</strong>
-        <%= slaved %>
-      </li>
-
-      <li class="panel-item">
-        <strong>Est. number slaved</strong>
-        <%= slaved %> (<%= 100 * slaved / population %>)
+        <%= slaved %> (<%= (100 * slaved / population).toFixed(2) %>)
       </li>
 
       <li class="panel-item">
         <strong>GDP (PPP)</strong>
-        <%= gdpppp %>
+        <%= gdpppp/1000000000 %>B
       </li>
 
       <li class="panel-item">
@@ -171,7 +166,9 @@
     <h1 class="panel-title"><%= region_name %></h1>
     <h2 class="panel-desc">Get back to the <a href="#map" class="back">whole world</a></h2>
 
-    region_desc: <%= region_desc %>
+    <div class="panel-sep"></div>
+
+    <p class="panel-desc"><%= region_desc %></p>
   </script>
 
   <!-- TODO: Google Analytics -->

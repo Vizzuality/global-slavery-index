@@ -30,7 +30,7 @@
       },
       americas: {
         name: 'The Americas',
-        desc: 'americas description'
+        desc: 'Although there had been some trans-Saharan trade from the interior of Sub-Saharan Africa to other regions, slavery was a small part of the economic life of many societies in Africa until the introduction of transcontinental slave trades (Arab and Atlantic). Slave practices were again transformed with European colonization of Africa and the formal abolition of slavery in the early 1900s.'
       }
     },
 

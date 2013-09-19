@@ -45,7 +45,7 @@
       this._initBindings();
     },
 
-    over: function(key) {
+    over: function(key, borderColor) {
       this.out();
 
       var current_polygon = this.current_polygon = this.countries_polygons[key];
@@ -54,6 +54,8 @@
       if(!current_polygon) return;
 
       for(var i=0; i < current_polygon.length; ++i) {
+        current_polygon[i].geo.setStyle({ color: borderColor });
+
         this.map.addLayer(current_polygon[i].geo);
       }
     },
@@ -120,6 +122,7 @@
       this.map = L.map('cartodb-map', {
         center: [0, 0],
         zoom: 3,
+        minZoom: 3,
         inertia: false
       });
 
@@ -150,7 +153,7 @@
               coordinates: latlng
             });
 
-            if(self.current_cartodb_id === data.cartodb_id) return;
+            if(!self.infowindow.model.get("hidden") && self.current_cartodb_id === data.cartodb_id) return;
 
             self.infowindow.setLoading();
 
@@ -168,7 +171,8 @@
                   'prevalence': 'high',
                   'population': 9801901,
                   'slaved':143142,
-                  'gdpppp': country.gdpppp,
+                  // 'gdpppp': country.gdpppp,
+                  'gdpppp': 7895000000000,
                   'region': country.region_name
                 });
 
@@ -211,7 +215,7 @@
           });
 
           sublayer.on('featureOver', function(e, latlng, pos, data, layerNumber) {
-            self.over(data.cartodb_id);
+            self.over(data.cartodb_id, "#fff");
           });
 
           sublayer.on('featureOut', function(e, latlng, pos, data, layerNumber) {
@@ -251,16 +255,18 @@
 
     _onAreaChanged: function() {
       if(this.model.get('area') === 'country') {
+        this.over(this.current_cartodb_id, "#333");
         this.countries_sublayer.setInteraction(false);
         this.map.setView(this.model.get('center'), this.model.get('zoom'));
 
         this.panel.template.set('template', $("#country_panel-template").html());
         this.panel.render();
-
         this.panel.show();
 
         this._changeURL('map/country/'+this.panel.model.get('country_iso'));
       } else if(this.model.get('area') === 'region') {
+        this.out();
+
         this.infowindow.hide();
 
         this.panel.template.set('template', $("#region_panel-template").html());

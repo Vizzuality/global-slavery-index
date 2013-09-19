@@ -82,7 +82,6 @@ span {
 .total-num {
   float: right;
   text-align: right;
-  @include font(400, 21px, 1.2, 'Open Sans');
 
   span {
     display: block;
@@ -92,10 +91,11 @@ span {
 
 .infowindow-block {
   overflow: hidden;
-  margin: 10px 0 10pxpx 0;
+  margin: 10px 0;
   padding: 0 20px;
   background-repeat: no-repeat;
   color: #444;
+  @include font(400, 21px, 1.2, 'Open Sans');
 }
 
 .infowindow-population {
@@ -124,13 +124,17 @@ span {
   display:block;
   width: 199px;
   height: 49px;
-
   border-top: 2px solid #eee;
   text-transform: uppercase;
   text-decoration: none;
   @include font(bold, 12px, 49px);
   text-align: center;
   color: #00A99D !important; // override leaflet-container
+  @include border-bottom-radius(5px);
+
+  &:hover {
+    background: #f8f8f8;
+  }
 
   i {
     position: absolute;
@@ -147,7 +151,7 @@ span {
 
 .panel-wrapper {
   position: absolute;
-  top: 85px; left: 60px;
+  top: 55px; left: 60px;
   z-index: 10;
   color: #fff;
 }
@@ -157,6 +161,7 @@ span {
 }
 
 .panel-desc {
+  width: 365px;
   @include font(300, 17px, 1.2, "Open Sans");
 
   a { color: #fff; }
@@ -170,8 +175,8 @@ span {
 }
 
 .panel-item {
-  margin-bottom: 20px;
-  @include font(700, 41px, 1.2, "Open Sans");
+  margin-bottom: 10px;
+  @include font(700, 41px, 1, "Open Sans");
   text-transform: uppercase;
 
   strong {

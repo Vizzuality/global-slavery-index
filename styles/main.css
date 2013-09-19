@@ -139,21 +139,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 .total-num {
   float: right;
   text-align: right;
-  font: 400 21px/1.2 "Open Sans";
 }
-/* line 87, ../sass/_map.scss */
+/* line 86, ../sass/_map.scss */
 .total-num span {
   display: block;
   font-size: 10px;
 }
 
-/* line 93, ../sass/_map.scss */
+/* line 92, ../sass/_map.scss */
 .infowindow-block {
   overflow: hidden;
-  margin: 10px 0 10pxpx 0;
+  margin: 10px 0;
   padding: 0 20px;
   background-repeat: no-repeat;
   color: #444;
+  font: 400 21px/1.2 "Open Sans";
 }
 
 /* line 101, ../sass/_map.scss */
@@ -194,8 +194,18 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font: bold 12px/49px "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
   color: #00A99D !important;
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 /* line 135, ../sass/_map.scss */
+.more:hover {
+  background: #f8f8f8;
+}
+/* line 139, ../sass/_map.scss */
 .more i {
   position: absolute;
   display: block;
@@ -213,30 +223,31 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border-radius: 15px;
 }
 
-/* line 148, ../sass/_map.scss */
+/* line 152, ../sass/_map.scss */
 .panel-wrapper {
   position: absolute;
-  top: 85px;
+  top: 55px;
   left: 60px;
   z-index: 10;
   color: #fff;
 }
 
-/* line 155, ../sass/_map.scss */
+/* line 159, ../sass/_map.scss */
 .panel-title {
   font: 300 67px/1.2 "Open Sans";
 }
 
-/* line 159, ../sass/_map.scss */
+/* line 163, ../sass/_map.scss */
 .panel-desc {
+  width: 365px;
   font: 300 17px/1.2 "Open Sans";
 }
-/* line 162, ../sass/_map.scss */
+/* line 167, ../sass/_map.scss */
 .panel-desc a {
   color: #fff;
 }
 
-/* line 165, ../sass/_map.scss */
+/* line 170, ../sass/_map.scss */
 .panel-sep {
   display: block;
   width: 148px;
@@ -244,20 +255,20 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border-bottom: 2px solid #fff;
 }
 
-/* line 172, ../sass/_map.scss */
+/* line 177, ../sass/_map.scss */
 .panel-item {
-  margin-bottom: 20px;
-  font: 700 41px/1.2 "Open Sans";
+  margin-bottom: 10px;
+  font: 700 41px/1 "Open Sans";
   text-transform: uppercase;
 }
-/* line 177, ../sass/_map.scss */
+/* line 182, ../sass/_map.scss */
 .panel-item strong {
   display: block;
   font: 600 13px/1.2 "Open Sans";
   color: #ababab;
 }
 
-/* line 184, ../sass/_map.scss */
+/* line 189, ../sass/_map.scss */
 .infowindow-wrapper {
   position: absolute;
   z-index: 10;
@@ -265,7 +276,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 213px;
   min-height: 30px;
 }
-/* line 191, ../sass/_map.scss */
+/* line 196, ../sass/_map.scss */
 .infowindow-wrapper .spinner {
   position: relative;
   top: 27px;
@@ -275,7 +286,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 24px;
   height: 24px;
 }
-/* line 201, ../sass/_map.scss */
+/* line 206, ../sass/_map.scss */
 .infowindow-wrapper .content {
   position: relative;
   z-index: 10;
@@ -283,7 +294,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   min-height: 60px;
   background: url(../images/infowindow-sprite.png) no-repeat 0 16px;
 }
-/* line 208, ../sass/_map.scss */
+/* line 213, ../sass/_map.scss */
 .infowindow-wrapper .content.no_data {
   padding: 0 3px 0 11px;
   text-align: center;
@@ -291,16 +302,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font: bold 12px/1.2 "Open Sans";
   background: url(../images/infowindow-sprite.png) no-repeat -623px 16px;
 }
-/* line 215, ../sass/_map.scss */
+/* line 220, ../sass/_map.scss */
 .infowindow-wrapper .content.no_data p {
   position: relative;
   top: 30px;
 }
-/* line 221, ../sass/_map.scss */
+/* line 226, ../sass/_map.scss */
 .infowindow-wrapper .content.loading {
   padding: 0 3px 0 11px;
 }
-/* line 226, ../sass/_map.scss */
+/* line 231, ../sass/_map.scss */
 .infowindow-wrapper .top {
   position: absolute;
   top: 0;
@@ -309,7 +320,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   height: 16px;
   background: url(../images/infowindow-sprite.png) no-repeat -213px 0;
 }
-/* line 234, ../sass/_map.scss */
+/* line 239, ../sass/_map.scss */
 .infowindow-wrapper .bottom {
   position: absolute;
   bottom: -16px;

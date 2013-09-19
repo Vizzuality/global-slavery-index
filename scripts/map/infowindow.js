@@ -138,7 +138,7 @@
           var header_padding = this.$el.find(".infowindow-title").height() - 21;
 
           height -= header_padding;
-          padding = 70;
+          padding = 55;
         }
 
         var left = point.x + 10;

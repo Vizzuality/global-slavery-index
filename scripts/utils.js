@@ -74,6 +74,7 @@ function create_polygons(url, ready) {
           fillOpacity: 0,
           clickable: false
         });
+
         pol.geo = geo;
         pol.prop = features[i].properties;
         var key = features[i].properties.cartodb_id;
