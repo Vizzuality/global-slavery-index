@@ -16,7 +16,7 @@ $(function() {
     },
 
     chart: function() {
-      this.trigger('change', { type: 'chart'}, this);
+      this.trigger('change', { type: 'chart' }, this);
     },
 
     map: function() {
@@ -34,6 +34,8 @@ $(function() {
 
     initialize: function() {
       this.workViewActive = this.options.workViewActive || 'map';
+
+      this.loaded = false;
 
       this._initRouter();
       this._initViews();
@@ -76,8 +78,6 @@ $(function() {
       this.workView.addTab('chart', this.chart, { active: false });
 
       this.workTabs.linkToPane(this.workView);
-
-
     },
 
     activeView: function(pane) {
@@ -99,6 +99,7 @@ $(function() {
       if(this.workViewActive === 'map') {
 
         if(pane['area'] && pane['area'] === 'region') {
+          self.map
           // boundaries are set in utils, uncomment to get them through API SQL
           self.map.map.setView(slavery.AppData.REGIONS[pane['id']].center, slavery.AppData.REGIONS[pane['id']].zoom);
 
@@ -111,17 +112,7 @@ $(function() {
           //     console.log(center, zoom);
           // });
         } else if (pane['area'] && pane['area'] === 'country') {
-
-
-          var sql = new cartodb.SQL({ user: 'walkfree' });
-
-          sql.getBounds("SELECT * FROM gsi_geom_copy WHERE iso3 = '" + pane['id'] + "'")
-            .done(function(bounds) {
-              var center = L.latLngBounds(bounds).getCenter(),
-                  zoom = self.map.map.getBoundsZoom(bounds);
-
-              self.map.map.setView(center, zoom);
-          });
+          self.map._setCountryInfo(pane['id'], self.map._loadCountry(function() { self.map._changeArea('country', pane['id']); }));
         }
       }
     }
