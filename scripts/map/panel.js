@@ -16,6 +16,9 @@
     }),
 
     _REGIONS: {
+      middle_east: {
+        desc: 'middle_east description'
+      },
       west_europe: {
         desc: 'west_europe description'
       },
