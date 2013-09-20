@@ -96,24 +96,14 @@ $(function() {
       }
 
       // map with area
-      if(this.workViewActive === 'map') {
-
-        if(pane['area'] && pane['area'] === 'region') {
-          self.map
-          // boundaries are set in utils, uncomment to get them through API SQL
-          self.map.map.setView(slavery.AppData.REGIONS[pane['id']].center, slavery.AppData.REGIONS[pane['id']].zoom);
-
-          // var sql = new cartodb.SQL({ user: 'walkfree' });
-          // sql.getBounds("SELECT * FROM gsi_geom_copy WHERE region_name = '" + pane['id'] + "'")
-          //   .done(function(bounds) {
-          //     var center = L.latLngBounds(bounds).getCenter(),
-          //         zoom = self.map.map.getBoundsZoom(bounds);
-
-          //     console.log(center, zoom);
-          // });
-        } else if (pane['area'] && pane['area'] === 'country') {
-          self.map._setCountryInfo(pane['id'], self.map._loadCountry(function() { self.map._changeArea('country', pane['id']); }));
+      if(this.workViewActive === 'map' && pane['area']) {
+        if(pane['area'] === 'region') {
+          self.map._setRegionInfo(pane['id']);
+        } else if (pane['area'] === 'country') {
+          self.map._setCountryInfo(pane['id']);
         }
+
+        self.map._loadArea(pane['area'], function() { self.map._changeArea(pane['area'], pane['id']); });
       }
     }
   });

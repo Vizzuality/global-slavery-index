@@ -164,6 +164,7 @@
 
       this.trigger('changearea', 'country');
       this.trigger('changeurl');
+
       this.hide();
     }
   });
