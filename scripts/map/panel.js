@@ -17,23 +17,18 @@
 
     _REGIONS: {
       west_europe: {
-        name: 'Europe',
-        desc: 'europe description'
+        desc: 'west_europe description'
       },
       east_europe: {
-        name: 'east_europe',
         desc: 'europe description'
       },
       africa: {
-        name: 'africa',
         desc: 'europe description'
       },
       asia: {
-        name: 'asia',
         desc: 'asia description'
       },
       americas: {
-        name: 'The Americas',
         desc: 'Although there had been some trans-Saharan trade from the interior of Sub-Saharan Africa to other regions, slavery was a small part of the economic life of many societies in Africa until the introduction of transcontinental slave trades (Arab and Atlantic). Slave practices were again transformed with European colonization of Africa and the formal abolition of slavery in the early 1900s.'
       }
     },
@@ -56,7 +51,6 @@
     },
 
     render: function() {
-      this.model.set('region_name', this._REGIONS[this.model.get('region')].name);
       this.model.set('region_desc', this._REGIONS[this.model.get('region')].desc);
 
       this.$el.html(this.template.render( this.model.toJSON() ));

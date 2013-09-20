@@ -182,11 +182,6 @@
                   });
 
                   self.infowindow._center();
-
-                  self.model.set({
-                    center: slavery.AppData.REGIONS[id].center,
-                    zoom: slavery.AppData.REGIONS[id].zoom
-                  });
                 }
               })
               .error(function(errors) {
@@ -255,7 +250,8 @@
             'slaved':143142,
             // 'gdpppp': country.gdpppp,
             'gdpppp': 7895000000000,
-            'region': country.region_name
+            'region': country.region,
+            'region_name': country.region_name
           });
 
           self.loadArea && self.loadArea();
@@ -282,7 +278,7 @@
     _setRegionInfo: function(id, callback) {
       var self = this;
 
-      this.sql.execute("SELECT * FROM gsi_geom_copy WHERE region_name = '{{id}}'", { id: id })
+      this.sql.execute("SELECT * FROM gsi_geom_copy WHERE region = '{{id}}'", { id: id })
         .done(function(data) {
           var region = data.rows[0];
 
@@ -297,7 +293,7 @@
         });
 
       // boundaries are set in utils, uncomment to get them through API SQL
-      // this.sql.getBounds("SELECT * FROM gsi_geom_copy WHERE region_name = '{{id}}'", { id: id })
+      // this.sql.getBounds("SELECT * FROM gsi_geom_copy WHERE region = '{{id}}'", { id: id })
       //   .done(function(bounds) {
       //     var center = L.latLngBounds(bounds).getCenter(),
       //         zoom = self.map.getBoundsZoom(bounds);

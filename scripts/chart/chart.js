@@ -44,7 +44,7 @@
         .attr("width", w)
         .attr("height", h);
 
-      d3.json('http://walkfree.cartodb.com/api/v2/sql?q=SELECT gdppp AS x, slavery_policy_risk AS y, cartodb_id AS radius, region_name FROM gsi_geom_copy WHERE gdppp IS NOT NULL', function(dataset) {
+      d3.json('http://walkfree.cartodb.com/api/v2/sql?q=SELECT gdppp AS x, slavery_policy_risk AS y, cartodb_id AS radius, region FROM gsi_geom_copy WHERE gdppp IS NOT NULL', function(dataset) {
         dataset = dataset.rows;
 
         var x_scale = d3.scale.linear()
@@ -111,7 +111,7 @@
           "cx": function(d) { return x_scale(d.x); },
           "cy": function(d) { return y_scale(d.y); },
           "r": function(d) { return r_scale(d.radius) },
-          "class": function(d) { return d.region_name ; }
+          "class": function(d) { return d.region ; }
         };
 
         var circles = svg.selectAll("circle")
