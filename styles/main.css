@@ -65,7 +65,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* line 58, infowindow-icons/*.png */
 .infowindow-icons-sprite, .infowindow-population, .infowindow-slaved {
-  background: url('/images/infowindow-icons-s816484c94a.png') no-repeat;
+  background: url('../images/infowindow-icons-s816484c94a.png') no-repeat;
 }
 
 /* line 17, ../sass/_map.scss */
@@ -332,7 +332,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* line 1, ../sass/_chart.scss */
 .chart-wrapper {
-  background: url('/images/chart-bkg.png?1378818296');
+  background: url('../images/chart-bkg.png?1378818296');
 }
 
 /* line 5, ../sass/_chart.scss */
