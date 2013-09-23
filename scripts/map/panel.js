@@ -23,10 +23,10 @@
         desc: 'west_europe description'
       },
       east_europe: {
-        desc: 'europe description'
+        desc: 'east_europe description'
       },
       africa: {
-        desc: 'europe description'
+        desc: 'africa description'
       },
       asia: {
         desc: 'asia description'

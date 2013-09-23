@@ -73,6 +73,9 @@ $(function() {
         mapTab: $(this.workTabs.el).find(".map")
       });
 
+      // Set map controls
+      Zoom.initialize(this.map.map, this.options.city);
+
       this.chart = new slavery.Chart({
         el: this.$wrapper.find('.chart-wrapper')
       });

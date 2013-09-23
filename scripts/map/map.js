@@ -112,20 +112,22 @@
     _initViews: function() {
       var self = this;
 
-      this.panel = new slavery.ui.view.Panel({
-        el: this.$(".panel-wrapper")
-      });
-
-      this.addView(this.panel);
-
       this.$cartodbMap = $('.cartodb-map');
 
       this.map = L.map('cartodb-map', {
         center: [0, 0],
+        zoomControl: false,
         zoom: 3,
         minZoom: 3,
         inertia: false
       });
+
+      this.zoom = new slavery.ui.view.Zoom({
+        el: this.$(".zoom-wrapper"),
+        map: this,
+      });
+
+      this.addView(this.zoom);
 
       this.infowindow = new slavery.ui.view.Infowindow({
         className: "collapsed",
@@ -134,6 +136,12 @@
       });
 
       this.addView(this.infowindow);
+
+      this.panel = new slavery.ui.view.Panel({
+        el: this.$(".panel-wrapper")
+      });
+
+      this.addView(this.panel);
 
       var layerUrl = 'http://walkfree.cartodb.com/api/v2/viz/9919ac04-1c8c-11e3-a3f4-df1f5817433c/viz.json';
 
