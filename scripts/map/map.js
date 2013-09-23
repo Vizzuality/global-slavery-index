@@ -39,6 +39,7 @@
 
       this._initViews();
       this._initBindings();
+      this._initLoader();
 
       var polygons_url = 'https://walkfree.cartodb.com/api/v2/sql?q=select iso3, ST_Simplify(the_geom, 0.005) as the_geom from gsi_geom_copy&format=geojson';
 
@@ -105,7 +106,7 @@
     _adjustMapHeight: function() {
       var mapHeight = $(window).height() - $("nav").outerHeight(true);
 
-      $('.cartodb-map').height(mapHeight);
+      this.$cartodbMap.height(mapHeight);
     },
 
     _initViews: function() {
@@ -116,6 +117,8 @@
       });
 
       this.addView(this.panel);
+
+      this.$cartodbMap = $('.cartodb-map');
 
       this.map = L.map('cartodb-map', {
         center: [0, 0],
@@ -213,12 +216,17 @@
     },
 
     _loadArea: function(area, callback) {
-      var num = 4;
+      var self = this;
 
-      if(area === 'region') num = 3;
+      var num = 2;
+
+      if(area === 'region') {
+        num = 3;
+      } else if(area === 'country') {
+        num = 4;
+      }
 
       this.loadArea = _.after(num, function() {
-
         if(!self.isLoaded) {
           self.isLoaded = true;
 
@@ -233,6 +241,42 @@
       this.bind("polygonsloaded", function() {
         this.loadArea && this.loadArea();
       });
+    },
+
+    _initLoader: function() {
+      var opts = {
+        lines: 11, // The number of lines to draw
+        length: 11, // The length of each line
+        width: 4, // The line thickness
+        radius: 13, // The radius of the inner circle
+        corners: 1, // Corner roundness (0..1)
+        rotate: 0, // The rotation offset
+        direction: 1, // 1: clockwise, -1: counterclockwise
+        color: '#ccc', // #rgb or #rrggbb or array of colors
+        speed: 1, // Rounds per second
+        trail: 60, // Afterglow percentage
+        shadow: false, // Whether to render a shadow
+        hwaccel: true, // Whether to use hardware acceleration
+        className: 'loader', // The CSS class to assign to the spinner
+        zIndex: 2e9, // The z-index (defaults to 2000000000)
+        top: 'auto', // Top position relative to parent in px
+        left: 'auto' // Left position relative to parent in px
+      };
+
+      var target = document.getElementById('wrapper');
+
+      this.loader = new Spinner(opts).spin(target);
+      this.$el.append(this.loader.el);
+    },
+
+    hideLoader: function(delay) {
+      var self = this;
+
+      var delay = delay || 0;
+
+      setTimeout(function() {
+        self.loader.stop();
+      }, delay);
     },
 
     _setCountryInfo: function(iso, callback) {
@@ -283,7 +327,8 @@
           var region = data.rows[0];
 
           self.panel.model.set({
-            'region': id
+            'region': id,
+            'region_name': region.region_name
           });
 
           self.loadArea && self.loadArea();
@@ -340,6 +385,7 @@
       this.map.boxZoom.disable();
       this.map.keyboard.disable();
       this.countries_sublayer.setInteraction(false);
+      this.$cartodbMap.addClass("cartodb-map-disabled");
     },
 
     _enableInteraction: function() {
@@ -350,6 +396,7 @@
       this.map.boxZoom.enable();
       this.map.keyboard.enable();
       this.countries_sublayer.setInteraction(true);
+      this.$cartodbMap.removeClass("cartodb-map-disabled");
     },
 
     _onAreaChanged: function() {

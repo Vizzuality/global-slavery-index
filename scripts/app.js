@@ -8,7 +8,7 @@ $(function() {
       '/':              'map',
       'map':            'map',
       'map/':           'map',
-      'map/:area/:id':  'mapWithArea',
+      'map/:area/:id':  'map',
 
       // Chart
       'chart':          'chart',
@@ -19,12 +19,12 @@ $(function() {
       this.trigger('change', { type: 'chart' }, this);
     },
 
-    map: function() {
-      this.trigger('change', { type: 'map' }, this);
-    },
-
-    mapWithArea: function(area, id) {
-      this.trigger('change', { type: 'map', area: area, id: id }, this);
+    map: function(area, id) {
+      this.trigger('change', {
+        type: 'map',
+        area: area || 'world',
+        id: id
+      }, this);
     }
   });
 
@@ -36,6 +36,9 @@ $(function() {
       this.workViewActive = this.options.workViewActive || 'map';
 
       this.loaded = false;
+
+      this.$wrapper = this.$(".wrapper");
+      this.$nav = this.$(".nav");
 
       this._initRouter();
       this._initViews();
@@ -50,28 +53,28 @@ $(function() {
     _initViews: function() {
       // Nav
       this.nav = new slavery.ui.view.Nav({
-        el: this.$(".nav")
+        el: this.$nav
       });
 
       this.workTabs = new slavery.ui.view.Tabs({
-        el: this.$('.switch'),
+        el: this.$nav.find('.switch'),
         slash: false
       });
       this.addView(this.workTabs);
 
       // Work view (table and map)
       this.workView = new cdb.ui.common.TabPane({
-        el: this.$(".wrapper")
+        el: this.$wrapper
       });
       this.addView(this.workView);
 
       this.map = new slavery.ui.view.Map({
-        el: this.$('.map-wrapper'),
+        el: this.$wrapper.find('.map-wrapper'),
         mapTab: $(this.workTabs.el).find(".map")
       });
 
       this.chart = new slavery.Chart({
-        el: this.$('.chart-wrapper')
+        el: this.$wrapper.find('.chart-wrapper')
       });
 
       this.workView.addTab('map', this.map, { active: false });
@@ -96,14 +99,22 @@ $(function() {
       }
 
       // map with area
-      if(this.workViewActive === 'map' && pane['area']) {
-        if(pane['area'] === 'region') {
-          self.map._setRegionInfo(pane['id']);
-        } else if (pane['area'] === 'country') {
-          self.map._setCountryInfo(pane['id']);
-        }
+      if(this.workViewActive === 'map'){
+        if(pane['area'] === 'world') {
+          this.map.hideLoader(600);
+        } else {
+          if(pane['area'] === 'region') {
+            this.map._setRegionInfo(pane['id']);
+          } else if (pane['area'] === 'country') {
+            this.map._setCountryInfo(pane['id']);
+          }
 
-        self.map._loadArea(pane['area'], function() { self.map._changeArea(pane['area'], pane['id']); });
+          this.map._loadArea(pane['area'], function() {
+            self.map.hideLoader((pane['area'] === 'region') ? 0 : 600);
+
+            self.map._changeArea(pane['area'], pane['id']);
+          });
+        }
       }
     }
   });

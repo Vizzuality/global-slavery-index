@@ -16,6 +16,10 @@ body,
   overflow: hidden;
 }
 
+.wrapper {
+  background: #333;
+}
+
 .nav {
   position: absolute;
   z-index: 1000001;
@@ -154,4 +158,8 @@ body,
       color: #fff;
     }
   }
+}
+
+.loader {
+  position: absolute !important;
 }

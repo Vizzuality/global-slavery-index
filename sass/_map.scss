@@ -9,13 +9,18 @@ $risk7: #FFFFB2;
 
 @import "infowindow-icons/*.png";
 
+
 $infowindow-icons-population-spacing: 40px;
 $infowindow-icons-slavery-spacing: 40px;
 
 
+.cartodb-map-disabled {
+  cursor: default;
+}
+
 // override leaflet.css
 .leaflet-container {
-  background: #333;
+  background: transparent;
 }
 
 // infowindow
@@ -33,50 +38,50 @@ $infowindow-icons-slavery-spacing: 40px;
 }
 
 .infowindow-risk {
-width: 199px;
-max-width: 199px;
-height: 10px;
-color: $risk1;
-border-top: 2px solid $risk1;
+  width: 199px;
+  max-width: 199px;
+  height: 10px;
+  color: $risk1;
+  border-top: 2px solid $risk1;
 
-&.very_high {
-  color: $risk2;
-  border-top-color: $risk2;
-}
+  &.very_high {
+    color: $risk2;
+    border-top-color: $risk2;
+  }
 
-&.high {
-  color: $risk3;
-  border-top-color: $risk3;
-}
+  &.high {
+    color: $risk3;
+    border-top-color: $risk3;
+  }
 
-&.moderate {
-  color: $risk4;
-  border-top-color: $risk4;
-}
+  &.moderate {
+    color: $risk4;
+    border-top-color: $risk4;
+  }
 
-&.moderate_low {
-  color: $risk5;
-  border-top-color: $risk5;
-}
+  &.moderate_low {
+    color: $risk5;
+    border-top-color: $risk5;
+  }
 
-&.low {
-  color: $risk6;
-  border-top-color: $risk6;
-}
+  &.low {
+    color: $risk6;
+    border-top-color: $risk6;
+  }
 
-&.very_low {
-  color: $risk7;
-  border-top-color: $risk7;
-}
+  &.very_low {
+    color: $risk7;
+    border-top-color: $risk7;
+  }
 
-span {
-  float: right;
-  margin: -9px 13px 0 0;
-  padding: 0 5px;
-  background: #FFF;
-  text-transform: uppercase;
-  @include font(bold, 11px);
-}
+  span {
+    float: right;
+    margin: -9px 13px 0 0;
+    padding: 0 5px;
+    background: #FFF;
+    text-transform: uppercase;
+    @include font(bold, 11px);
+  }
 }
 
 .total-num {
@@ -153,6 +158,7 @@ span {
   position: absolute;
   top: 55px; left: 60px;
   z-index: 10;
+  display: none;
   color: #fff;
 }
 

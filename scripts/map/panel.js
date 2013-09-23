@@ -78,9 +78,9 @@
 
     _toggle: function() {
       if(!this.model.get("hidden")) {
-        $(this.$el).fadeIn(150);
+        $(this.$el).delay(600).fadeIn(150);
       } else {
-        $(this.$el).fadeOut(150);
+        $(this.$el).fadeOut(250);
       }
     },
 
