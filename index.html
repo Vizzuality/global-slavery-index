@@ -115,18 +115,19 @@
 
       <li class="panel-item">
         <strong>Est. number slaved</strong>
-        <%= slaved %> (<%= (100 * slaved / population).toFixed(2) %>)
+        <%= slaved %> (<%= (100 * slaved / population).toFixed(2) %>%)
       </li>
 
       <li class="panel-item">
-        <strong>GDP (PPP)</strong>
-        <%= gdppp/1000000000 %>B
+        <strong>GDP</strong>
+        $<%= gdppp %>B
       </li>
 
       <li class="panel-item">
-        <strong>GDP per capita (PPP)</strong>
-        <%= gdppp / population %>
+        <strong>GDP PER CAPITA</strong>
+        $<%= gdppp/population %>
       </li>
+
     </ul>
   </script>
 

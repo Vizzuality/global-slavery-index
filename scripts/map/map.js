@@ -346,8 +346,9 @@
             'country_name': country.country_name,
             'country_iso': country.iso3,
             'prevalence': 'high',
-            'slaved':143142,
-            'gdppp': country.gdppp,
+            'population': numberWithCommas(19992929),
+            'slaved':numberWithCommas(143142),
+            'gdppp': numberWithCommas(country.gdppp),
             'region': country.region,
             'region_name': country.region_name
           });
