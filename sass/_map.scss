@@ -292,3 +292,9 @@ $infowindow-icons-slavery-spacing: 40px;
     background: url(../images/infowindow-sprite.png) no-repeat -418px 0;
   }
 }
+
+.chip {
+  &:hover span { display: block; }
+
+  span { display: none; }
+}

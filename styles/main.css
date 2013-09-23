@@ -396,6 +396,15 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   background: url(../images/infowindow-sprite.png) no-repeat -418px 0;
 }
 
+/* line 297, ../sass/_map.scss */
+.chip:hover span {
+  display: block;
+}
+/* line 299, ../sass/_map.scss */
+.chip span {
+  display: none;
+}
+
 /* line 1, ../sass/_chart.scss */
 .chart-wrapper {
   background: url('/images/chart-bkg.png?1378818296');

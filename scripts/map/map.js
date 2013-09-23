@@ -376,9 +376,21 @@
     _setRegionInfo: function(id, callback) {
       var self = this;
 
-      this.sql.execute("SELECT * FROM gsi_geom_copy WHERE region = '{{id}}'", { id: id })
+      this.sql.execute("SELECT region, region_name, ST_AsGeoJSON(ST_PointOnSurface(the_geom)) FROM gsi_geom_copy WHERE region = '{{id}}'", { id: id })
         .done(function(data) {
+
           var region = data.rows[0];
+
+          _.each(data.rows, function(country) {
+            var coordinates = $.parseJSON(country.st_asgeojson).coordinates;
+
+            var myIcon = L.divIcon({
+              className: 'chip',
+              html: '<p>'+coordinates[1]+'<span><strong>'+country.region_name+'</strong></span></p>'
+            });
+
+            L.marker([coordinates[1], coordinates[0]], {icon: myIcon}).addTo(self.map);
+          });
 
           self.panel.model.set({
             'region': id,
