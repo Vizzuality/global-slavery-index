@@ -396,13 +396,28 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   background: url(../images/infowindow-sprite.png) no-repeat -418px 0;
 }
 
-/* line 297, ../sass/_map.scss */
-.chip:hover span {
+/* line 296, ../sass/_map.scss */
+.chip {
   display: block;
+  background: #fff;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  border-radius: 50px;
+  -webkit-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
 }
-/* line 299, ../sass/_map.scss */
+/* line 304, ../sass/_map.scss */
 .chip span {
   display: none;
+}
+/* line 306, ../sass/_map.scss */
+.chip .mean {
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 
 /* line 1, ../sass/_chart.scss */

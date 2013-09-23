@@ -94,7 +94,7 @@ function create_polygons(url, ready) {
   });
 }
 
-function slaveryToHuman(num) {
+function meanToHuman(num) {
   var risk = '';
 
   if (num <= 100 && num > 75.25) {

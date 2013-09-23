@@ -294,7 +294,17 @@ $infowindow-icons-slavery-spacing: 40px;
 }
 
 .chip {
-  &:hover span { display: block; }
+  display: block;
+  background: #fff;
+  @include border-radius(50px);
+  @include box-shadow(0 0 0 3px rgba(#000, .2));
+
+  // &:hover span { display: block; }
 
   span { display: none; }
+
+  .mean {
+    position: absolute;
+    top: 50%; left: 50%;
+  }
 }

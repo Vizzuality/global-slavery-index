@@ -227,7 +227,7 @@
                   self.infowindow.model.set({
                     hidden: false,
                     content: {
-                      slavery_policy_risk: slaveryToHuman(country.slavery_policy_risk),
+                      mean: meanToHuman(country.mean),
                       country_name: country.country_name,
                       prevalence: 'high',
                       gdppp: country.gdppp,
@@ -376,28 +376,67 @@
     _setRegionInfo: function(id, callback) {
       var self = this;
 
-      this.sql.execute("SELECT region, region_name, ST_AsGeoJSON(ST_PointOnSurface(the_geom)) FROM gsi_geom_copy WHERE region = '{{id}}'", { id: id })
+      this.sql.execute("SELECT *, ST_AsGeoJSON(ST_PointOnSurface(the_geom)) as center FROM gsi_geom_copy WHERE region = '{{id}}'", { id: id })
         .done(function(data) {
 
           var region = data.rows[0];
 
           _.each(data.rows, function(country) {
-            var coordinates = $.parseJSON(country.st_asgeojson).coordinates;
+            var coordinates = $.parseJSON(country.center).coordinates;
 
             var myIcon = L.divIcon({
-              className: 'chip',
-              html: '<p>'+coordinates[1]+'<span><strong>'+country.region_name+'</strong></span></p>'
+              iconSize: [100, 100],
+              className: 'chip chip_'+country.iso3,
+              html: '<div class="mean">'+country.mean+'</div>'
             });
 
             L.marker([coordinates[1], coordinates[0]], {icon: myIcon}).addTo(self.map);
-          });
 
-          self.panel.model.set({
-            'region': id,
-            'region_name': region.region_name
-          });
+            var dataset = [country.human_rights_risk, country.develop_rights_risk, country.state_stability_risk, country.discrimination_risk, country.slavery_policy_risk];
 
-          self.loadArea && self.loadArea();
+            var width = 100,
+                height = 100;
+
+            var color = d3.scale.ordinal()
+                .range(["#00A99D", "#33BAB1", "#66CBC4", "#99DDD8", "#CCEEEB"]);
+
+            var pie = d3.layout.pie()
+                .sort(null)
+                .value(function(d) { return 1; } );
+
+            var arc = d3.svg.arc()
+                .innerRadius(20)
+                .outerRadius(50);
+
+            var svg = d3.select('.chip_'+country.iso3).append("svg")
+              .attr("width", width)
+              .attr("height", height)
+              .append("g")
+              .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+            var g = svg.selectAll(".arc")
+              .data(pie(dataset))
+              .enter().append("g")
+              .attr("class", "arc");
+
+            g.append("path")
+                .attr("d", arc)
+                .style("fill", function(d) { return color(d.data); });
+
+            g.append("text")
+                .attr("transform", function(d, i) { return "translate(" + arc.centroid(d) + ")"; })
+                .attr("dy", ".35em")
+                .style("text-anchor", "middle")
+                .text(function(d) { return d.data; });
+
+            self.panel.model.set({
+              'region': id,
+              'region_name': region.region_name
+            });
+
+            self.loadArea && self.loadArea();
+
+          });
         })
         .error(function(errors) {
           console.log("error:" + errors);
