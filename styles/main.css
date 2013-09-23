@@ -68,31 +68,91 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   background: url('/images/infowindow-icons-s816484c94a.png') no-repeat;
 }
 
-/* line 17, ../sass/_map.scss */
+/* line 16, ../sass/_map.scss */
 .cartodb-map-disabled {
   cursor: default;
 }
 
-/* line 22, ../sass/_map.scss */
+/* line 21, ../sass/_map.scss */
 .leaflet-container {
   background: transparent;
 }
 
-/* line 28, ../sass/_map.scss */
+/* line 25, ../sass/_map.scss */
+.zoom-wrapper {
+  position: absolute;
+  z-index: 10;
+  margin: 20px 0 0 50px;
+  border: 1px solid #444;
+  -webkit-border-radius: 14px;
+  -moz-border-radius: 14px;
+  -ms-border-radius: 14px;
+  -o-border-radius: 14px;
+  border-radius: 14px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+/* line 33, ../sass/_map.scss */
+.zoom-wrapper a {
+  float: left;
+  height: 26px;
+  width: 32px;
+  border: 0;
+  line-height: 26px;
+  font-weight: bold;
+  background: #f8f8f8 url("../images/zoom-sprite.png") no-repeat;
+  color: #00A99D;
+  text-align: center;
+  text-decoration: none;
+}
+/* line 45, ../sass/_map.scss */
+.zoom-wrapper a:hover {
+  background-color: #fff;
+}
+/* line 49, ../sass/_map.scss */
+.zoom-wrapper a.disabled {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  cursor: default;
+}
+/* line 54, ../sass/_map.scss */
+.zoom-wrapper a.zoomIn {
+  -webkit-border-radius: 13px 0 0 13px;
+  -moz-border-radius: 13px 0 0 13px;
+  -ms-border-radius: 13px 0 0 13px;
+  -o-border-radius: 13px 0 0 13px;
+  border-radius: 13px 0 0 13px;
+}
+/* line 58, ../sass/_map.scss */
+.zoom-wrapper a.zoomOut {
+  border-left: 1px solid #CCC;
+  background-position: -32px 0;
+  -webkit-border-radius: 0 13px 13px 0;
+  -moz-border-radius: 0 13px 13px 0;
+  -ms-border-radius: 0 13px 13px 0;
+  -o-border-radius: 0 13px 13px 0;
+  border-radius: 0 13px 13px 0;
+}
+/* line 64, ../sass/_map.scss */
+.zoom-wrapper a span {
+  display: none;
+}
+
+/* line 70, ../sass/_map.scss */
 .infowindow {
   padding: 0;
   width: auto;
   background: transparent;
 }
 
-/* line 34, ../sass/_map.scss */
+/* line 76, ../sass/_map.scss */
 .infowindow-title {
   padding: 20px;
   color: #444;
   font: bold 21px/1 "Open Sans";
 }
 
-/* line 40, ../sass/_map.scss */
+/* line 82, ../sass/_map.scss */
 .infowindow-risk {
   width: 199px;
   max-width: 199px;
@@ -100,37 +160,37 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   color: #b10026;
   border-top: 2px solid #b10026;
 }
-/* line 47, ../sass/_map.scss */
+/* line 89, ../sass/_map.scss */
 .infowindow-risk.very_high {
   color: #e31a1c;
   border-top-color: #e31a1c;
 }
-/* line 52, ../sass/_map.scss */
+/* line 94, ../sass/_map.scss */
 .infowindow-risk.high {
   color: #fc4e2a;
   border-top-color: #fc4e2a;
 }
-/* line 57, ../sass/_map.scss */
+/* line 99, ../sass/_map.scss */
 .infowindow-risk.moderate {
   color: #fd8d3c;
   border-top-color: #fd8d3c;
 }
-/* line 62, ../sass/_map.scss */
+/* line 104, ../sass/_map.scss */
 .infowindow-risk.moderate_low {
   color: #feb24c;
   border-top-color: #feb24c;
 }
-/* line 67, ../sass/_map.scss */
+/* line 109, ../sass/_map.scss */
 .infowindow-risk.low {
   color: #fed976;
   border-top-color: #fed976;
 }
-/* line 72, ../sass/_map.scss */
+/* line 114, ../sass/_map.scss */
 .infowindow-risk.very_low {
   color: #ffffb2;
   border-top-color: #ffffb2;
 }
-/* line 77, ../sass/_map.scss */
+/* line 119, ../sass/_map.scss */
 .infowindow-risk span {
   float: right;
   margin: -9px 13px 0 0;
@@ -140,18 +200,18 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font: bold 11px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 87, ../sass/_map.scss */
+/* line 129, ../sass/_map.scss */
 .total-num {
   float: right;
   text-align: right;
 }
-/* line 91, ../sass/_map.scss */
+/* line 133, ../sass/_map.scss */
 .total-num span {
   display: block;
   font-size: 10px;
 }
 
-/* line 97, ../sass/_map.scss */
+/* line 139, ../sass/_map.scss */
 .infowindow-block {
   overflow: hidden;
   margin: 10px 0;
@@ -161,20 +221,20 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font: 400 21px/1.2 "Open Sans";
 }
 
-/* line 106, ../sass/_map.scss */
+/* line 148, ../sass/_map.scss */
 .infowindow-population {
   background-position: 20px 0;
   margin: 10px 0 10px 0;
 }
 
-/* line 111, ../sass/_map.scss */
+/* line 153, ../sass/_map.scss */
 .infowindow-slaved {
   background-position: 20px -61px;
   color: #F1B14C;
   margin-bottom: 0;
 }
 
-/* line 117, ../sass/_map.scss */
+/* line 159, ../sass/_map.scss */
 .percent {
   float: left;
   padding: 0 5px;
@@ -183,7 +243,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   background: #FFF;
 }
 
-/* line 125, ../sass/_map.scss */
+/* line 167, ../sass/_map.scss */
 .more {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -206,11 +266,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -webkit-border-bottom-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
-/* line 140, ../sass/_map.scss */
+/* line 182, ../sass/_map.scss */
 .more:hover {
   background: #f8f8f8;
 }
-/* line 144, ../sass/_map.scss */
+/* line 186, ../sass/_map.scss */
 .more i {
   position: absolute;
   display: block;
@@ -228,7 +288,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border-radius: 15px;
 }
 
-/* line 157, ../sass/_map.scss */
+/* line 199, ../sass/_map.scss */
 .panel-wrapper {
   position: absolute;
   top: 55px;
@@ -238,22 +298,22 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   color: #fff;
 }
 
-/* line 165, ../sass/_map.scss */
+/* line 207, ../sass/_map.scss */
 .panel-title {
   font: 300 67px/1.2 "Open Sans";
 }
 
-/* line 169, ../sass/_map.scss */
+/* line 211, ../sass/_map.scss */
 .panel-desc {
   width: 365px;
   font: 300 17px/1.2 "Open Sans";
 }
-/* line 173, ../sass/_map.scss */
+/* line 215, ../sass/_map.scss */
 .panel-desc a {
   color: #fff;
 }
 
-/* line 176, ../sass/_map.scss */
+/* line 218, ../sass/_map.scss */
 .panel-sep {
   display: block;
   width: 148px;
@@ -261,20 +321,20 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border-bottom: 2px solid #fff;
 }
 
-/* line 183, ../sass/_map.scss */
+/* line 225, ../sass/_map.scss */
 .panel-item {
   margin-bottom: 10px;
   font: 700 41px/1 "Open Sans";
   text-transform: uppercase;
 }
-/* line 188, ../sass/_map.scss */
+/* line 230, ../sass/_map.scss */
 .panel-item strong {
   display: block;
   font: 600 13px/1.2 "Open Sans";
   color: #ababab;
 }
 
-/* line 195, ../sass/_map.scss */
+/* line 237, ../sass/_map.scss */
 .infowindow-wrapper {
   position: absolute;
   z-index: 10;
@@ -282,7 +342,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 213px;
   min-height: 30px;
 }
-/* line 202, ../sass/_map.scss */
+/* line 244, ../sass/_map.scss */
 .infowindow-wrapper .spinner {
   position: relative;
   top: 27px;
@@ -292,7 +352,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 24px;
   height: 24px;
 }
-/* line 212, ../sass/_map.scss */
+/* line 254, ../sass/_map.scss */
 .infowindow-wrapper .content {
   position: relative;
   z-index: 10;
@@ -300,7 +360,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   min-height: 60px;
   background: url(../images/infowindow-sprite.png) no-repeat 0 16px;
 }
-/* line 219, ../sass/_map.scss */
+/* line 261, ../sass/_map.scss */
 .infowindow-wrapper .content.no_data {
   padding: 0 3px 0 11px;
   text-align: center;
@@ -308,16 +368,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font: bold 12px/1.2 "Open Sans";
   background: url(../images/infowindow-sprite.png) no-repeat -623px 16px;
 }
-/* line 226, ../sass/_map.scss */
+/* line 268, ../sass/_map.scss */
 .infowindow-wrapper .content.no_data p {
   position: relative;
   top: 30px;
 }
-/* line 232, ../sass/_map.scss */
+/* line 274, ../sass/_map.scss */
 .infowindow-wrapper .content.loading {
   padding: 0 3px 0 11px;
 }
-/* line 237, ../sass/_map.scss */
+/* line 279, ../sass/_map.scss */
 .infowindow-wrapper .top {
   position: absolute;
   top: 0;
@@ -326,7 +386,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   height: 16px;
   background: url(../images/infowindow-sprite.png) no-repeat -213px 0;
 }
-/* line 245, ../sass/_map.scss */
+/* line 287, ../sass/_map.scss */
 .infowindow-wrapper .bottom {
   position: absolute;
   bottom: -16px;

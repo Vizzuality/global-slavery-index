@@ -9,7 +9,6 @@ $risk7: #FFFFB2;
 
 @import "infowindow-icons/*.png";
 
-
 $infowindow-icons-population-spacing: 40px;
 $infowindow-icons-slavery-spacing: 40px;
 
@@ -21,6 +20,49 @@ $infowindow-icons-slavery-spacing: 40px;
 // override leaflet.css
 .leaflet-container {
   background: transparent;
+}
+
+.zoom-wrapper {
+  position: absolute;
+  z-index: 10;
+  margin: 20px 0 0 50px;
+  border: 1px solid #444;
+  @include border-radius(14px);
+  @include box-shadow(none);
+
+  a {
+    float: left;
+    height: 26px;
+    width: 32px;
+    border: 0;
+    line-height: 26px;
+    font-weight: bold;
+    background: #f8f8f8 url('../images/zoom-sprite.png') no-repeat;
+    color: #00A99D;
+    text-align: center;
+    text-decoration: none;
+
+    &:hover {
+      background-color: #fff;
+    }
+
+    &.disabled {
+      background-color: rgba(#fff, .9) !important;
+      cursor: default;
+    }
+
+    &.zoomIn {
+      @include border-radius(13px 0 0 13px);
+    }
+
+    &.zoomOut {
+      border-left: 1px solid #CCC;
+      background-position: -32px 0;
+      @include border-radius(0 13px 13px 0);
+    }
+
+    span { display: none; }
+  }
 }
 
 // infowindow

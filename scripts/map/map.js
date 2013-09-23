@@ -88,10 +88,13 @@
         if (e.keyCode == 27) self.infowindow.model.set({ hidden: true });
       });
 
-      this.map.on("dragend",   function() { this.infowindow._center(); }, this);
       this.map.on("drag",      function() { this.infowindow._center(); }, this);
-      this.map.on("zoomend",   function() { this.infowindow._center(); }, this);
+      this.map.on("dragend",   function() { this.infowindow._center(); }, this);
       this.map.on("zoomstart", function() { this.infowindow._center(); }, this);
+      this.map.on("zoomend",   function() {
+        this.infowindow._center();
+        this.zoom._checkMaxMin(this.map.getZoom());
+      }, this);
     },
 
     _bindOnResize: function() {
@@ -119,6 +122,7 @@
         zoomControl: false,
         zoom: 3,
         minZoom: 3,
+        maxZoom: 5,
         inertia: false
       });
 
