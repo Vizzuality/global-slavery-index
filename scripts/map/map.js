@@ -346,8 +346,9 @@
             'country_name': country.country_name,
             'country_iso': country.iso3,
             'prevalence': 'high',
-            'slaved':143142,
-            'gdppp': country.gdppp,
+            'population': numberWithCommas(19992929),
+            'slaved':numberWithCommas(143142),
+            'gdppp': numberWithCommas(country.gdppp),
             'region': country.region,
             'region_name': country.region_name
           });
@@ -362,6 +363,9 @@
         .done(function(bounds) {
           var center = L.latLngBounds(bounds).getCenter(),
               zoom = self.map.getBoundsZoom(bounds);
+              
+          center.lng = center.lng - 10;
+
           self.model.set({
             'center': center,
             'zoom': zoom
