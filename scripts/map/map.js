@@ -363,6 +363,9 @@
         .done(function(bounds) {
           var center = L.latLngBounds(bounds).getCenter(),
               zoom = self.map.getBoundsZoom(bounds);
+              
+          center.lng = center.lng - 10;
+
           self.model.set({
             'center': center,
             'zoom': zoom
