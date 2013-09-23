@@ -68,7 +68,7 @@ $(function() {
       });
       this.addView(this.workView);
 
-      this.map = new slavery.ui.view.Map({
+      this.mapView = new slavery.ui.view.Map({
         el: this.$wrapper.find('.map-wrapper'),
         mapTab: $(this.workTabs.el).find(".map")
       });
@@ -77,7 +77,7 @@ $(function() {
         el: this.$wrapper.find('.chart-wrapper')
       });
 
-      this.workView.addTab('map', this.map, { active: false });
+      this.workView.addTab('map', this.mapView, { active: false });
       this.workView.addTab('chart', this.chart, { active: false });
 
       this.workTabs.linkToPane(this.workView);
@@ -101,18 +101,18 @@ $(function() {
       // map with area
       if(this.workViewActive === 'map'){
         if(pane['area'] === 'world') {
-          this.map.hideLoader(600);
+          this.mapView.hideLoader(600);
         } else {
           if(pane['area'] === 'region') {
-            this.map._setRegionInfo(pane['id']);
+            this.mapView._setRegionInfo(pane['id']);
           } else if (pane['area'] === 'country') {
-            this.map._setCountryInfo(pane['id']);
+            this.mapView._setCountryInfo(pane['id']);
           }
 
-          this.map._loadArea(pane['area'], function() {
-            self.map.hideLoader((pane['area'] === 'region') ? 0 : 600);
+          this.mapView._loadArea(pane['area'], function() {
+            self.mapView.hideLoader((pane['area'] === 'region') ? 0 : 600);
 
-            self.map._changeArea(pane['area'], pane['id']);
+            self.mapView._changeArea(pane['area'], pane['id']);
           });
         }
       }

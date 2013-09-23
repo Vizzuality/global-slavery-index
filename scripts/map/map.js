@@ -95,6 +95,12 @@
         this.infowindow._center();
         this.zoom._checkMaxMin(this.map.getZoom());
       }, this);
+
+      this.bind("missingclick", function() {
+        if(this.water) {
+          this.infowindow.hide();
+        }
+      });
     },
 
     _bindOnResize: function() {
@@ -110,6 +116,38 @@
       var mapHeight = $(window).height() - $("nav").outerHeight(true);
 
       this.$cartodbMap.height(mapHeight);
+    },
+
+    /**
+    * this function binds click and dblclick events
+    * in order to not raise click when user does a dblclick
+    *
+    * it raises a missingClick when the user clicks on the map
+    * but not over a feature or ui component
+    */
+    _bindMissingClickEvents: function() {
+      var self = this;
+
+      this.map.on('click', function(e) {
+        self.water = true;
+
+        if(self.clickTimeout === null) {
+          self.clickTimeout = setTimeout(function() {
+            self.clickTimeout = null;
+
+            if(!self.featureHovered) {
+              self.trigger('missingclick');
+            }
+          }, 250);
+        }
+      });
+
+      this.map.on('dblclick', function() {
+        if(self.clickTimeout !== null) {
+          clearTimeout(self.clickTimeout);
+          self.clickTimeout = null;
+        }
+      });
     },
 
     _initViews: function() {
@@ -162,11 +200,14 @@
           sublayer.setInteraction(true);
 
           sublayer.on('featureClick', function(e, latlng, pos, data, layerNumber) {
+            self.water = false;
+
             self.infowindow.model.set({
               coordinates: latlng
             });
 
             if(!self.infowindow.model.get("hidden") && self.current_iso === data.iso3) return;
+
             self.current_iso = data.iso3;
 
             self.infowindow.setLoading();
@@ -189,7 +230,7 @@
                       slavery_policy_risk: slaveryToHuman(country.slavery_policy_risk),
                       country_name: country.country_name,
                       prevalence: 'high',
-                      population: 9801901,
+                      gdppp: country.gdppp,
                       slaved: 143142
                     },
                     template_name: 'infowindow_success',
@@ -222,6 +263,9 @@
       this._adjustMapHeight();
       this._bindOnResize();
       this._bindInfowindow();
+
+      this.clickTimeout = null;
+      this._bindMissingClickEvents();
 
       this.infowindow.bind("changearea", this._changeArea, this);
       this.panel.bind("changearea", this._changeArea, this);
@@ -302,10 +346,8 @@
             'country_name': country.country_name,
             'country_iso': country.iso3,
             'prevalence': 'high',
-            'population': 9801901,
             'slaved':143142,
-            // 'gdpppp': country.gdpppp,
-            'gdpppp': 7895000000000,
+            'gdppp': country.gdppp,
             'region': country.region,
             'region_name': country.region_name
           });

@@ -80,7 +80,7 @@
         <p class="infowindow-risk <%= content.slavery_policy_risk.toLowerCase().split(' ').join('_') %>"><span><%= content.slavery_policy_risk %></span></p>
 
         <div class="infowindow-block infowindow-population">
-          <p class="total-num">4,511,488 <span>Estimated population</span></p>
+          <p class="total-num"><%= content.gdppp %>B <span>GDP (PPP)</span></p>
           <div class="percent"></div>
         </div>
 
@@ -120,12 +120,12 @@
 
       <li class="panel-item">
         <strong>GDP (PPP)</strong>
-        <%= gdpppp/1000000000 %>B
+        <%= gdppp/1000000000 %>B
       </li>
 
       <li class="panel-item">
         <strong>GDP per capita (PPP)</strong>
-        <%= gdpppp / population %>
+        <%= gdppp / population %>
       </li>
     </ul>
   </script>

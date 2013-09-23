@@ -93,7 +93,7 @@
       if(!this.model.get("hidden")) {
         $(this.$el).fadeIn(150);
       } else {
-        $(this.$el).fadeOut(350);
+        $(this.$el).fadeOut(150);
       }
     },
 
