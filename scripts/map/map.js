@@ -161,7 +161,7 @@
         zoomControl: false,
         zoom: 3,
         minZoom: 3,
-        maxZoom: 5,
+        maxZoom: 7,
         inertia: false
       });
 
