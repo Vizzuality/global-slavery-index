@@ -1,10 +1,10 @@
-$risk1: #B10026;
-$risk2: #E31A1C;
-$risk3: #FC4E2A;
-$risk4: #FD8D3C;
-$risk5: #FEB24C;
-$risk6: #FED976;
 $risk7: #FFFFB2;
+$risk6: #FED976;
+$risk5: #FEB24C;
+$risk4: #FD8D3C;
+$risk3: #FC4E2A;
+$risk2: #E31A1C;
+$risk1: #B10026;
 
 
 @import "infowindow-icons/*.png";
@@ -86,12 +86,12 @@ $infowindow-icons-slavery-spacing: 40px;
   color: $risk1;
   border-top: 2px solid $risk1;
 
-  &.very_high {
+  &.high {
     color: $risk2;
     border-top-color: $risk2;
   }
 
-  &.high {
+  &.moderate_high {
     color: $risk3;
     border-top-color: $risk3;
   }
@@ -105,6 +105,20 @@ $infowindow-icons-slavery-spacing: 40px;
     color: $risk5;
     border-top-color: $risk5;
   }
+
+  &.low {
+    color: $risk6;
+    border-top-color: $risk6;
+  }
+
+  &.very_low {
+    color: $risk7;
+    border-top-color: $risk7;
+  }
+
+
+
+
 
   &.low {
     color: $risk6;
@@ -295,6 +309,7 @@ $infowindow-icons-slavery-spacing: 40px;
 
 .chip {
   display: block;
+  padding: 2px;
   background: #fff;
   @include border-radius(50px);
   @include box-shadow(0 0 0 3px rgba(#000, .2));
@@ -303,8 +318,29 @@ $infowindow-icons-slavery-spacing: 40px;
 
   span { display: none; }
 
+  text {
+    @include font(bold, 10px, 1.4, "Open Sans");
+    fill: rgba(#000, .5);
+  }
+
   .mean {
     position: absolute;
     top: 50%; left: 50%;
+    height: 36px;
+    width: 36px;
+    margin-top: -18px;
+    margin-left: -18px;
+    @include font(400, 10px, 36px, "Open Sans");
+    color: #fff;
+    background: $risk1;
+    text-align: center;
+    @include border-radius(19px);
+
+    &.high { background: $risk2; }
+    &.moderate_high { background: $risk3; }
+    &.moderate { background: $risk4; }
+    &.moderate_low { background: $risk5; }
+    &.low { background: $risk6; }
+    &.very_low { background: $risk7; }
   }
 }
