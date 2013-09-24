@@ -185,9 +185,13 @@
 
       this.addView(this.panel);
 
+      this.tooltip = d3.select('body')
+        .append('div')
+        .attr('class', 'tooltip');
+
       var layerUrl = 'http://walkfree.cartodb.com/api/v2/viz/9919ac04-1c8c-11e3-a3f4-df1f5817433c/viz.json';
 
-      this.layerMap = cartodb.createLayer(this.map, layerUrl, { infowindow: false })
+      cartodb.createLayer(this.map, layerUrl, { infowindow: false })
         .addTo(this.map)
         .on('done', function(layer) {
           var sublayer = self.countries_sublayer = layer.getSubLayer(1),
@@ -348,9 +352,9 @@
             'country_name': country.country_name,
             'country_iso': country.iso3,
             'prevalence': 'high',
-            'population': numberWithCommas(19992929),
-            'slaved':numberWithCommas(143142),
-            'gdppp': numberWithCommas(country.gdppp),
+            'population': country.population,
+            'slaved': country.slaves,
+            'gdppp': country.gdppp,
             'region': country.region,
             'region_name': country.region_name
           });
@@ -399,14 +403,36 @@
 
             // dataset
             var dataset = [country.human_rights_risk, country.develop_rights_risk, country.state_stability_risk, country.discrimination_risk, country.slavery_policy_risk];
-            var dataset_ord = dataset.slice(0)
-                                .sort(function(a,b){ return b-a });
+            var dataset_ord = dataset.slice(0).sort(function(a,b){ return b-a });
 
             // palette
-            var palette = ["#00A99D", "#33BAB1", "#66CBC4", "#99DDD8", "#CCEEEB"];
-            var palette_ord = [];
+            var palette = ["#00A99D", "#33BAB1", "#66CBC4", "#99DDD8", "#CCEEEB"],
+                palette_ord = [];
 
             // wedges
+            var wedges = [
+              {
+                "name": "Human rights risk",
+                "val": country.human_rights_risk
+              },
+              {
+                "name": "Develop rights risk",
+                "val": country.develop_rights_risk
+              },
+              {
+                "name": "State stability risk",
+                "val": country.state_stability_risk
+              },
+              {
+                "name": "Discrimination risk",
+                "val": country.discrimination_risk
+              },
+              {
+                "name": "Slavery policy risk",
+                "val": country.slavery_policy_risk
+              },
+            ];
+
             var wedges_ord = [];
 
             for(var i = 0; i < dataset_ord.length; i++) {
@@ -415,17 +441,17 @@
               wedges_ord[i]['color'] = palette[i];
             }
 
-            for(var j = 0; j < dataset.length; j++) {
+            _.each(wedges, function(wedge, i) {
               _.each(wedges_ord, function(wedge_ord) {
-                if(wedge_ord['val'] === dataset[j]) {
-                  palette_ord[j] = wedge_ord['color'];
+                if(wedge_ord['val'] === wedge['val']) {
+                  palette_ord[i] = wedge_ord['color'];
 
                   return;
                 }
               });
-            }
+            });
 
-            self._drawChips(country, dataset, palette_ord);
+            self._drawChips(country, wedges, palette_ord);
 
             self.panel.model.set({
               'region': id,
@@ -440,7 +466,9 @@
         });
     },
 
-    _drawChips: function(country, dataset, palette) {
+    _drawChips: function(country, wedges, palette) {
+      var self = this;
+
       var width = 100,
           height = 100;
 
@@ -462,19 +490,39 @@
           .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
       var g = svg.selectAll(".arc")
-          .data(pie(dataset))
+          .data(pie(wedges))
           .enter().append("g")
           .attr("class", "arc");
 
       g.append("path")
         .attr("d", arc)
-        .style("fill", function(d) { return color(d.data); });
+        .style("fill", function(d) { return color(d.data['val']); })
 
       g.append("text")
         .attr("transform", function(d, i) { return "translate(" + arc.centroid(d) + ")"; })
         .attr("dy", ".35em")
         .style("text-anchor", "middle")
-        .text(function(d) { return d.data.toFixed(2); });
+        .text(function(d) { return d.data.val.toFixed(2); });
+
+      g.on("mouseover", function(d) {
+        var l = $(this).offset().left,
+            m = $(this).find("path")[0].getBoundingClientRect().width/2;
+
+        self.tooltip
+          .html(country.name + "<strong>" + d.data['name'] + "</strong>")
+          .style("visibility", "visible")
+          .style("top", $(this).offset().top-40+"px")
+          .style("left", l+m+"px")
+          .style("margin-left", function() {
+            return -$(this).outerWidth()/2+"px"
+          });
+      })
+      .on("mousemove", function() {
+        self.tooltip.style("visibility", "visible")
+      })
+      .on("mouseout", function() {
+        self.tooltip.style("visibility", "hidden")
+      });
     },
 
     _changeURL: function(href) {

@@ -246,6 +246,13 @@ $infowindow-icons-slavery-spacing: 40px;
     @include font(600, 13px, 1.2, "Open Sans");
     color: #ababab;
   }
+
+  sup {
+    position: relative;
+    top: -30px;
+    font-size: 13px;
+    font-weight: 600;
+  }
 }
 
 .infowindow-wrapper {
@@ -342,5 +349,31 @@ $infowindow-icons-slavery-spacing: 40px;
     &.moderate_low { background: $risk5; }
     &.low { background: $risk6; }
     &.very_low { background: $risk7; }
+  }
+}
+
+.tooltip {
+  position: absolute;
+  padding: 0 10px 5px;
+  background: rgba(#000, .8);
+  @include border-radius(3px);
+  @include font(400, 11px, 1.4, "Open Sans");
+  color: #fff;
+  text-align: center;
+  pointer-events: none;
+
+  &:after {
+    content: " ";
+    position: absolute;
+    left: 50%; bottom: -6px;
+    margin-left: -6px;
+    border-top: 6px solid rgba(#000, .8);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+  }
+
+  strong {
+    display: block;
+    font-weight: bold;
   }
 }

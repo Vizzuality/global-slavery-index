@@ -110,22 +110,22 @@
 
       <li class="panel-item">
         <strong>Population</strong>
-        <%= population %>
+        <%= numberWithCommas(population) %><sup>(2102 Est.)</sup>
       </li>
 
       <li class="panel-item">
         <strong>Est. number slaved</strong>
-        <%= slaved %> (<%= (100 * slaved / population).toFixed(2) %>%)
+        <%= numberWithCommas(slaved) %> (<%= (100 * slaved / population).toFixed(2) %>%)
       </li>
 
       <li class="panel-item">
-        <strong>GDP</strong>
-        $<%= gdppp %>B
+        <strong>GDP (PPP)</strong>
+        $<%= numberWithCommas(gdppp) %>B<sup>(2102 Est.)</sup>
       </li>
 
       <li class="panel-item">
-        <strong>GDP PER CAPITA</strong>
-        $<%= gdppp/population %>
+        <strong>GDP PER CAPITA (PPP)</strong>
+        $<%= numberWithCommas(parseInt(gdppp*1000000000/population, 10)) %><sup>(2102 Est.)</sup>
       </li>
 
     </ul>

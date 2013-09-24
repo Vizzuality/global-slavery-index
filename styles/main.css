@@ -343,8 +343,15 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font: 600 13px/1.2 "Open Sans";
   color: #ababab;
 }
+/* line 250, ../sass/_map.scss */
+.panel-item sup {
+  position: relative;
+  top: -30px;
+  font-size: 13px;
+  font-weight: 600;
+}
 
-/* line 251, ../sass/_map.scss */
+/* line 258, ../sass/_map.scss */
 .infowindow-wrapper {
   position: absolute;
   z-index: 10;
@@ -352,7 +359,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 213px;
   min-height: 30px;
 }
-/* line 258, ../sass/_map.scss */
+/* line 265, ../sass/_map.scss */
 .infowindow-wrapper .spinner {
   position: relative;
   top: 27px;
@@ -362,7 +369,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 24px;
   height: 24px;
 }
-/* line 268, ../sass/_map.scss */
+/* line 275, ../sass/_map.scss */
 .infowindow-wrapper .content {
   position: relative;
   z-index: 10;
@@ -370,7 +377,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   min-height: 60px;
   background: url(../images/infowindow-sprite.png) no-repeat 0 16px;
 }
-/* line 275, ../sass/_map.scss */
+/* line 282, ../sass/_map.scss */
 .infowindow-wrapper .content.no_data {
   padding: 0 3px 0 11px;
   text-align: center;
@@ -378,16 +385,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font: bold 12px/1.2 "Open Sans";
   background: url(../images/infowindow-sprite.png) no-repeat -623px 16px;
 }
-/* line 282, ../sass/_map.scss */
+/* line 289, ../sass/_map.scss */
 .infowindow-wrapper .content.no_data p {
   position: relative;
   top: 30px;
 }
-/* line 288, ../sass/_map.scss */
+/* line 295, ../sass/_map.scss */
 .infowindow-wrapper .content.loading {
   padding: 0 3px 0 11px;
 }
-/* line 293, ../sass/_map.scss */
+/* line 300, ../sass/_map.scss */
 .infowindow-wrapper .top {
   position: absolute;
   top: 0;
@@ -396,7 +403,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   height: 16px;
   background: url(../images/infowindow-sprite.png) no-repeat -213px 0;
 }
-/* line 301, ../sass/_map.scss */
+/* line 308, ../sass/_map.scss */
 .infowindow-wrapper .bottom {
   position: absolute;
   bottom: -16px;
@@ -406,7 +413,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   background: url(../images/infowindow-sprite.png) no-repeat -418px 0;
 }
 
-/* line 310, ../sass/_map.scss */
+/* line 317, ../sass/_map.scss */
 .chip {
   display: block;
   padding: 2px;
@@ -420,16 +427,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -moz-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
 }
-/* line 319, ../sass/_map.scss */
+/* line 326, ../sass/_map.scss */
 .chip span {
   display: none;
 }
-/* line 321, ../sass/_map.scss */
+/* line 328, ../sass/_map.scss */
 .chip text {
   font: bold 10px/1.4 "Open Sans";
   fill: rgba(0, 0, 0, 0.5);
 }
-/* line 326, ../sass/_map.scss */
+/* line 333, ../sass/_map.scss */
 .chip .mean {
   position: absolute;
   top: 50%;
@@ -448,29 +455,61 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -o-border-radius: 19px;
   border-radius: 19px;
 }
-/* line 339, ../sass/_map.scss */
+/* line 346, ../sass/_map.scss */
 .chip .mean.high {
   background: #e31a1c;
 }
-/* line 340, ../sass/_map.scss */
+/* line 347, ../sass/_map.scss */
 .chip .mean.moderate_high {
   background: #fc4e2a;
 }
-/* line 341, ../sass/_map.scss */
+/* line 348, ../sass/_map.scss */
 .chip .mean.moderate {
   background: #fd8d3c;
 }
-/* line 342, ../sass/_map.scss */
+/* line 349, ../sass/_map.scss */
 .chip .mean.moderate_low {
   background: #feb24c;
 }
-/* line 343, ../sass/_map.scss */
+/* line 350, ../sass/_map.scss */
 .chip .mean.low {
   background: #fed976;
 }
-/* line 344, ../sass/_map.scss */
+/* line 351, ../sass/_map.scss */
 .chip .mean.very_low {
   background: #ffffb2;
+}
+
+/* line 355, ../sass/_map.scss */
+.tooltip {
+  position: absolute;
+  padding: 0 10px 5px;
+  background: rgba(0, 0, 0, 0.8);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  font: 400 11px/1.4 "Open Sans";
+  color: #fff;
+  text-align: center;
+  pointer-events: none;
+}
+/* line 365, ../sass/_map.scss */
+.tooltip:after {
+  content: " ";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  margin-left: -6px;
+  border-top: 6px solid rgba(0, 0, 0, 0.8);
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+}
+/* line 375, ../sass/_map.scss */
+.tooltip strong {
+  display: block;
+  font-weight: bold;
 }
 
 /* line 1, ../sass/_chart.scss */
