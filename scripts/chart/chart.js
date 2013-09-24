@@ -75,6 +75,7 @@
 
         svg.append("text")
           .attr("class", "x label")
+          .attr("id", "x_label")
           .attr("x", m)
           .attr("y", h-m+20)
           .text("HUMAN DEVELOPMENT INDEX");
@@ -183,6 +184,9 @@
           .data(dataset)
           .transition()
             .attr("cx",function(d) { return x_scale(d.x); }) 
+
+        var x_label = d3.select("#x_label")
+          .text(graph.get('title'));
 
       })
     }
