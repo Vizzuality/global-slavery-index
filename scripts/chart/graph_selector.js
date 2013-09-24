@@ -76,8 +76,8 @@
         self.$graphs.show();
         self.$graphs.animate({
           opacity: 1,
-          height: 46 * self.graphs.length
-        }, 50);
+          height: 44 * self.graphs.length + 2 * (self.graphs.length-1)
+        }, 150);
       }
     },
 

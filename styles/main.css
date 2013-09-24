@@ -548,54 +548,71 @@ circle.africa {
   position: absolute;
   top: 50px;
   right: 50px;
-}
-/* line 56, ../sass/_chart.scss */
-.graph_selector ul {
-  float: right;
+  width: 254px;
+  text-align: right;
 }
 /* line 58, ../sass/_chart.scss */
-.graph_selector li {
-  position: relative;
+.graph_selector ul {
   float: right;
-  margin-left: 5px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-  background: #000;
+  width: 100%;
+  margin-top: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+  text-align: left;
 }
-/* line 65, ../sass/_chart.scss */
-.graph_selector li:first-child {
-  margin-left: 8px;
+/* line 67, ../sass/_chart.scss */
+.graph_selector a {
+  color: #00A99D;
+  text-decoration: none;
 }
-/* line 66, ../sass/_chart.scss */
-.graph_selector li:last-child {
-  margin-left: 0;
+/* line 74, ../sass/_chart.scss */
+.graph_selector li:first-child a {
+  border-top: 0;
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
 }
-/* line 68, ../sass/_chart.scss */
+/* line 79, ../sass/_chart.scss */
+.graph_selector li:last-child a {
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+/* line 85, ../sass/_chart.scss */
+.graph_selector li:hover a, .graph_selector li.selected a {
+  background: #f6f6f6;
+}
+/* line 88, ../sass/_chart.scss */
 .graph_selector li.selected a {
-  opacity: 1;
+  color: #444;
 }
-/* line 70, ../sass/_chart.scss */
+/* line 90, ../sass/_chart.scss */
 .graph_selector li a {
   display: block;
-  width: 30px;
-  height: 30px;
-  border: 1px solid #333;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  opacity: .6;
+  height: 44px;
+  padding-left: 10px;
+  border-top: 2px solid #e5e5e5;
+  background: #fff;
+  font: bold 14px/44px "Open Sans";
 }
-/* line 82, ../sass/_chart.scss */
+/* line 99, ../sass/_chart.scss */
+.graph_selector li a:hover,
+.graph_selector li a .selected {
+  background: #f6f6f6;
+}
+/* line 105, ../sass/_chart.scss */
 .graph_selector .link {
   display: inline-block;
   font: bold 12px/26px "Open Sans";
@@ -607,18 +624,11 @@ circle.africa {
   background: #fff;
   border: 1px solid #000;
   padding: 0 10px;
-  color: #00A99D;
-  text-decoration: none;
   text-transform: uppercase;
 }
-/* line 93, ../sass/_chart.scss */
+/* line 114, ../sass/_chart.scss */
 .graph_selector .link:hover {
   background: #f4f4f4;
-}
-
-/* line 97, ../sass/_chart.scss */
-.graphs {
-  width: 254px;
 }
 
 /* line 13, ../sass/main.scss */
