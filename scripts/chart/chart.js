@@ -45,12 +45,12 @@
         .attr("height", h);
 
       //TODO: TAKE NOTE OF THE RADIUS VARIABLE!
-      d3.json('http://walkfree.cartodb.com/api/v2/sql?q=SELECT gdppp AS x, slavery_policy_risk AS y, slavery_policy_risk, gdppp AS radius, country_name, region FROM gsi_geom_copy WHERE gdppp IS NOT NULL', function(dataset) {
+      d3.json('http://walkfree.cartodb.com/api/v2/sql?q=SELECT human_development_index AS x, slavery_policy_risk AS y, slavery_policy_risk, gdppp AS radius, country_name, region FROM gsi_geom_copy WHERE gdppp IS NOT NULL', function(dataset) {
         dataset = dataset.rows;
 
         var x_scale = d3.scale.linear()
           .range([m, w-m])
-          .domain([0, d3.max(dataset, function(d) { return d.x; })]);
+          .domain([d3.min(dataset, function(d) {return d.x}), d3.max(dataset, function(d) { return d.x; })]);
 
         var y_scale = d3.scale.linear()
           .range([h-m, m])
@@ -71,7 +71,7 @@
           .attr("class", "x label")
           .attr("x", m)
           .attr("y", h-m+20)
-          .text("GDP (PPP) Est. 2012");
+          .text("HUMAN DEVELOPMENT INDEX");
 
         // y axis
         var y_axis = d3.svg.axis().scale(y_scale).orient("left").ticks(4);
