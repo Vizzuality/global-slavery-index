@@ -34,6 +34,7 @@
 
       this.countries_polygons = {};
       this.countries_sublayer = {};
+      self.chips = [];
 
       this.sql = new cartodb.SQL({ user: 'walkfree' });
 
@@ -399,7 +400,7 @@
               html: '<div class="mean '+slaveryToHuman(country.slavery_policy_risk).toLowerCase().split(' ').join('_')+'">'+country.mean.toFixed(2)+'</div>'
             });
 
-            L.marker([coordinates[1], coordinates[0]], {icon: markerIcon}).addTo(self.map);
+            self.chips.push(L.marker([coordinates[1], coordinates[0]], {icon: markerIcon}).addTo(self.map));
 
             // dataset
             var dataset = [country.human_rights_risk, country.develop_rights_risk, country.state_stability_risk, country.discrimination_risk, country.slavery_policy_risk];
@@ -455,7 +456,8 @@
 
             self.panel.model.set({
               'region': id,
-              'region_name': region.region_name
+              'region_name': region.region_name,
+              'countries_count': data.rows.length
             });
 
             self.loadArea && self.loadArea();
@@ -522,6 +524,14 @@
       })
       .on("mouseout", function() {
         self.tooltip.style("visibility", "hidden")
+      });
+    },
+
+    _hideChips: function() {
+      var self = this;
+
+      _.each(this.chips, function(chip) {
+        self.map.removeLayer(chip);
       });
     },
 
@@ -606,6 +616,9 @@
       } else if(this.model.get('area') === 'world') {
         // infowindow
         this.infowindow.hide();
+
+        //chips
+        this._hideChips();
 
         // panel
         this.panel.hide();

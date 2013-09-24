@@ -302,7 +302,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 .panel-wrapper {
   position: absolute;
   top: 55px;
-  left: 60px;
+  left: 50px;
   z-index: 10;
   display: none;
   color: #fff;
@@ -338,12 +338,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   text-transform: uppercase;
 }
 /* line 244, ../sass/_map.scss */
+.panel-item.slaved {
+  color: #F1B14D;
+}
+/* line 248, ../sass/_map.scss */
 .panel-item strong {
   display: block;
   font: 600 13px/1.2 "Open Sans";
   color: #ababab;
 }
-/* line 250, ../sass/_map.scss */
+/* line 254, ../sass/_map.scss */
 .panel-item sup {
   position: relative;
   top: -30px;
@@ -351,7 +355,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font-weight: 600;
 }
 
-/* line 258, ../sass/_map.scss */
+/* line 262, ../sass/_map.scss */
 .infowindow-wrapper {
   position: absolute;
   z-index: 10;
@@ -359,7 +363,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 213px;
   min-height: 30px;
 }
-/* line 265, ../sass/_map.scss */
+/* line 269, ../sass/_map.scss */
 .infowindow-wrapper .spinner {
   position: relative;
   top: 27px;
@@ -369,7 +373,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 24px;
   height: 24px;
 }
-/* line 275, ../sass/_map.scss */
+/* line 279, ../sass/_map.scss */
 .infowindow-wrapper .content {
   position: relative;
   z-index: 10;
@@ -377,7 +381,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   min-height: 60px;
   background: url(../images/infowindow-sprite.png) no-repeat 0 16px;
 }
-/* line 282, ../sass/_map.scss */
+/* line 286, ../sass/_map.scss */
 .infowindow-wrapper .content.no_data {
   padding: 0 3px 0 11px;
   text-align: center;
@@ -385,16 +389,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font: bold 12px/1.2 "Open Sans";
   background: url(../images/infowindow-sprite.png) no-repeat -623px 16px;
 }
-/* line 289, ../sass/_map.scss */
+/* line 293, ../sass/_map.scss */
 .infowindow-wrapper .content.no_data p {
   position: relative;
   top: 30px;
 }
-/* line 295, ../sass/_map.scss */
+/* line 299, ../sass/_map.scss */
 .infowindow-wrapper .content.loading {
   padding: 0 3px 0 11px;
 }
-/* line 300, ../sass/_map.scss */
+/* line 304, ../sass/_map.scss */
 .infowindow-wrapper .top {
   position: absolute;
   top: 0;
@@ -403,7 +407,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   height: 16px;
   background: url(../images/infowindow-sprite.png) no-repeat -213px 0;
 }
-/* line 308, ../sass/_map.scss */
+/* line 312, ../sass/_map.scss */
 .infowindow-wrapper .bottom {
   position: absolute;
   bottom: -16px;
@@ -413,7 +417,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   background: url(../images/infowindow-sprite.png) no-repeat -418px 0;
 }
 
-/* line 317, ../sass/_map.scss */
+/* line 321, ../sass/_map.scss */
 .chip {
   display: block;
   padding: 2px;
@@ -427,16 +431,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -moz-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
 }
-/* line 326, ../sass/_map.scss */
+/* line 330, ../sass/_map.scss */
 .chip span {
   display: none;
 }
-/* line 328, ../sass/_map.scss */
+/* line 332, ../sass/_map.scss */
 .chip text {
   font: bold 10px/1.4 "Open Sans";
   fill: rgba(0, 0, 0, 0.5);
 }
-/* line 333, ../sass/_map.scss */
+/* line 337, ../sass/_map.scss */
 .chip .mean {
   position: absolute;
   top: 50%;
@@ -455,32 +459,32 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -o-border-radius: 19px;
   border-radius: 19px;
 }
-/* line 346, ../sass/_map.scss */
+/* line 350, ../sass/_map.scss */
 .chip .mean.high {
   background: #e31a1c;
 }
-/* line 347, ../sass/_map.scss */
+/* line 351, ../sass/_map.scss */
 .chip .mean.moderate_high {
   background: #fc4e2a;
 }
-/* line 348, ../sass/_map.scss */
+/* line 352, ../sass/_map.scss */
 .chip .mean.moderate {
   background: #fd8d3c;
 }
-/* line 349, ../sass/_map.scss */
+/* line 353, ../sass/_map.scss */
 .chip .mean.moderate_low {
   background: #feb24c;
 }
-/* line 350, ../sass/_map.scss */
+/* line 354, ../sass/_map.scss */
 .chip .mean.low {
   background: #fed976;
 }
-/* line 351, ../sass/_map.scss */
+/* line 355, ../sass/_map.scss */
 .chip .mean.very_low {
   background: #ffffb2;
 }
 
-/* line 355, ../sass/_map.scss */
+/* line 359, ../sass/_map.scss */
 .tooltip {
   position: absolute;
   padding: 0 10px 5px;
@@ -495,7 +499,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   text-align: center;
   pointer-events: none;
 }
-/* line 365, ../sass/_map.scss */
+/* line 369, ../sass/_map.scss */
 .tooltip:after {
   content: " ";
   position: absolute;
@@ -506,10 +510,15 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
 }
-/* line 375, ../sass/_map.scss */
+/* line 379, ../sass/_map.scss */
 .tooltip strong {
   display: block;
   font-weight: bold;
+}
+
+/* line 385, ../sass/_map.scss */
+.cartodb-logo {
+  display: none !important;
 }
 
 /* line 1, ../sass/_chart.scss */

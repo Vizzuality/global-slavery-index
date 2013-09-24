@@ -212,7 +212,7 @@ $infowindow-icons-slavery-spacing: 40px;
 
 .panel-wrapper {
   position: absolute;
-  top: 55px; left: 60px;
+  top: 55px; left: 50px;
   z-index: 10;
   display: none;
   color: #fff;
@@ -240,6 +240,10 @@ $infowindow-icons-slavery-spacing: 40px;
   margin-bottom: 10px;
   @include font(700, 41px, 1, "Open Sans");
   text-transform: uppercase;
+
+  &.slaved {
+    color: #F1B14D;
+  }
 
   strong {
     display: block;
@@ -376,4 +380,8 @@ $infowindow-icons-slavery-spacing: 40px;
     display: block;
     font-weight: bold;
   }
+}
+
+.cartodb-logo {
+  display: none !important;
 }

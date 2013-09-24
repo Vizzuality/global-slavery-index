@@ -113,7 +113,7 @@
         <%= numberWithCommas(population) %><sup>(2102 Est.)</sup>
       </li>
 
-      <li class="panel-item">
+      <li class="panel-item slaved">
         <strong>Est. number slaved</strong>
         <%= numberWithCommas(slaved) %> (<%= (100 * slaved / population).toFixed(2) %>%)
       </li>
@@ -133,7 +133,7 @@
 
   <script id="region_panel-template" type="text/x-underscore-template">
     <h1 class="panel-title"><%= region_name %></h1>
-    <h2 class="panel-desc">Get back to the <a href="#map" class="back">whole world</a></h2>
+    <h2 class="panel-desc"><%= countries_count %> countries - get back to the <a href="#map" class="back">whole world</a></h2>
 
     <div class="panel-sep"></div>
 
