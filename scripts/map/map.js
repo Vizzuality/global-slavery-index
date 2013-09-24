@@ -40,7 +40,7 @@
 
       this._initViews();
       this._initBindings();
-      this._initLoader();
+      // this._initLoader();
 
       var polygons_url = 'https://walkfree.cartodb.com/api/v2/sql?q=select iso3, ST_Simplify(the_geom, 0.005) as the_geom from gsi_geom_copy&format=geojson';
 
@@ -167,7 +167,7 @@
 
       this.zoom = new slavery.ui.view.Zoom({
         el: this.$(".zoom-wrapper"),
-        map: this,
+        map: this
       });
 
       this.addView(this.zoom);

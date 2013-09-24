@@ -5,6 +5,7 @@
   window.slavery.core = {};
   window.slavery.ui = {};
   window.slavery.ui.model = {};
+  window.slavery.ui.collection = {};
   window.slavery.ui.view = {};
 
   window.slavery.AppData = {};

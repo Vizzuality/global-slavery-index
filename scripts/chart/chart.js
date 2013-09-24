@@ -39,6 +39,10 @@
 
       var dataset = [];
 
+      this.graph_selector = new slavery.ui.view.GraphSelector({
+        el: this.$(".graph_selector-wrapper")
+      });
+
       var svg = d3.select(".chart")
         .append("svg")
         .attr("width", w)

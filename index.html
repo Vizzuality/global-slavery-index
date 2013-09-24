@@ -42,6 +42,40 @@
   </div>
 
   <!-- templates -->
+  <script id="nav-template" type="text/x-underscore-template">
+    <div class="switch">
+      <span class="selected"></span>
+      <ul>
+        <li><a href="#map" data-url="#map" class="map">map</a></li>
+        <li><a href="#chart" data-url="#chart" class="chart">plot</a></li>
+      </ul>
+    </div>
+
+    <div class="legend plot">
+      <ul>
+        <li><i style="border-color: #330066; background-color:#A64DFF"></i> Asia</li>
+        <li><i style="border-color: #663300; background-color:#FFD24D"></i> Americas</li>
+        <li><i style="border-color: #0F2523; background-color:#5DA69D"></i> Middle East</li>
+        <li><i style="border-color: #660066; background-color:#FF73FF"></i> Central and Eastern Europe</li>
+        <li><i style="border-color: #003040; background-color:#64C5FF"></i> Western Europe</li>
+        <li><i style="border-color: #660000; background-color:#FF4D4D"></i> Sub-saharian Africa</li>
+      </ul>
+    </div>
+
+    <div class="legend map">
+      <strong>Slavery Prevalence</strong>
+      <ul>
+        <li class="quartile" style="background-color:#FFFFB2"><div class="big bottom">Very low</div></li>
+        <li class="quartile" style="background-color:#FED976"><div class="top">Low</div></li>
+        <li class="quartile" style="background-color:#FEB24C"><div class="big bottom">Moderate low</div></li>
+        <li class="quartile" style="background-color:#FD8D3C"><div class="top">Moderate</div></li>
+        <li class="quartile" style="background-color:#FC4E2A"><div class="big bottom">Moderate high</div></li>
+        <li class="quartile" style="background-color:#E31A1C"><div class="top">High</div></li>
+        <li class="quartile" style="background-color:#B10026"><div class="big bottom">Very high</div></li>
+      </ul>
+    </div>
+  </script>
+
   <script id="cartodb-map-template" type="text/x-underscore-template">
     <div id="cartodb-map" class="cartodb-map"></div>
   </script>
@@ -142,40 +176,19 @@
 
   <script id="chart-template" type="text/x-underscore-template">
     <div id="chart" class="chart"></div>
+
+    <div class="graph_selector-wrapper"></div>
   </script>
 
-  <script id="nav-template" type="text/x-underscore-template">
-    <div class="switch">
-      <span class="selected"></span>
-      <ul>
-        <li><a href="#map" data-url="#map" class="map">map</a></li>
-        <li><a href="#chart" data-url="#chart" class="chart">plot</a></li>
-      </ul>
-    </div>
+  <script id="graph_selector-template" type="text/x-underscore-template">
+    <ul class="selected_graph"></ul>
+    <ul class="graphs"></ul>
+  </script>
 
-    <div class="legend plot">
-      <ul>
-        <li><i style="border-color: #330066; background-color:#A64DFF"></i> Asia</li>
-        <li><i style="border-color: #663300; background-color:#FFD24D"></i> Americas</li>
-        <li><i style="border-color: #0F2523; background-color:#5DA69D"></i> Middle East</li>
-        <li><i style="border-color: #660066; background-color:#FF73FF"></i> Central and Eastern Europe</li>
-        <li><i style="border-color: #003040; background-color:#64C5FF"></i> Western Europe</li>
-        <li><i style="border-color: #660000; background-color:#FF4D4D"></i> Sub-saharian Africa</li>
-      </ul>
-    </div>
-
-    <div class="legend map">
-      <strong>Slavery Prevalence</strong>
-      <ul>
-        <li class="quartile" style="background-color:#FFFFB2"><div class="big bottom">Very low</div></li>
-        <li class="quartile" style="background-color:#FED976"><div class="top">Low</div></li>
-        <li class="quartile" style="background-color:#FEB24C"><div class="big bottom">Moderate low</div></li>
-        <li class="quartile" style="background-color:#FD8D3C"><div class="top">Moderate</div></li>
-        <li class="quartile" style="background-color:#FC4E2A"><div class="big bottom">Moderate high</div></li>
-        <li class="quartile" style="background-color:#E31A1C"><div class="top">High</div></li>
-        <li class="quartile" style="background-color:#B10026"><div class="big bottom">Very high</div></li>
-      </ul>
-    </div>
+  <script id="graph-template" type="text/x-underscore-template">
+    <li id="<%= name %>" class="<%= name %> <%= selected ? 'selected' : '' %>">
+      <a href="#"><%= name %></a>
+    </li>
   </script>
 
   <!-- TODO: Google Analytics -->
@@ -200,6 +213,8 @@
   <script src="scripts/models/infowindow.js"></script>
   <script src="scripts/models/panel.js"></script>
 
+  <script src="scripts/models/graph_selector.js"></script>
+
   <!-- views -->
   <script src="scripts/common/tabs.js"></script>
   <script src="scripts/common/tabpane.js"></script>
@@ -211,6 +226,7 @@
   <script src="scripts/map/panel.js"></script>
 
   <script src="scripts/chart/chart.js"></script>
+  <script src="scripts/chart/graph_selector.js"></script>
 
   <script src="scripts/utils.js"></script>
   <script src="scripts/app.js"></script>

@@ -3,8 +3,8 @@
    *
    *  Example:
    *
-   *  var zoom = new slavery.Zoom({
-   *    el: $('.zoom-control')
+   *  var zoom = new slavery.ui.view.Zoom({
+   *    el: $('.zoom-wrapper')
    *  });
    */
 

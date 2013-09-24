@@ -42,6 +42,25 @@ slavery.AppData = {
       },
       zoom: 4
     }
+  },
+  GRAPHS: {
+    'human_development_index': {
+      name: 'human_development_index',
+      title: 'Human Development Index'
+    },
+    'access_to_financial_services': {
+      name: 'access_to_financial_services to Financial Services',
+      title: 'Access to Financial Services'
+    },
+    'corruption': {
+      name: 'corruption',
+      title: 'Corruption'
+    },
+  },
+  CONFIG: {
+    chart: {
+      graph: 'human_development_index'
+    }
   }
 }
 
