@@ -34,7 +34,7 @@
 
       this.countries_polygons = {};
       this.countries_sublayer = {};
-      self.chips = [];
+      this.chips = [];
 
       this.sql = new cartodb.SQL({ user: 'walkfree' });
 
@@ -219,7 +219,7 @@
 
             self.infowindow.setLoading();
 
-            self._setCountryInfo(data.iso3);
+            self._setCountry(data.iso3);
 
             self.sql.execute("SELECT * FROM gsi_geom_copy WHERE cartodb_id = {{id}}", { id: data.cartodb_id })
               .done(function(data) {
@@ -281,12 +281,17 @@
     _loadArea: function(area, callback) {
       var self = this;
 
+      // sublayer
+      // polygons
       var num = 2;
 
       if(area === 'region') {
+        // region info
         num = 3;
       } else if(area === 'country') {
-        num = 4;
+        // country info
+        // country bounds
+        num = 5;
       }
 
       this.loadArea = _.after(num, function() {
@@ -342,7 +347,7 @@
       }, delay);
     },
 
-    _setCountryInfo: function(iso, callback) {
+    _setCountry: function(iso) {
       var self = this;
 
       this.sql.execute("SELECT * FROM gsi_geom_copy WHERE iso3 = '{{id}}'", { id: iso })
@@ -355,10 +360,10 @@
             'prevalence': 'high',
             'population': country.population,
             'slaved': country.slaves,
-            'gdppp': country.gdppp,
-            'region': country.region,
-            'region_name': country.region_name
+            'gdppp': country.gdppp
           });
+
+          self._setRegion(country.region);
 
           self.loadArea && self.loadArea();
         })
@@ -384,24 +389,52 @@
         });
     },
 
-    _setRegionInfo: function(id, callback) {
+    _setRegion: function(id, callback) {
       var self = this;
 
       this.sql.execute("SELECT *, ST_AsGeoJSON(ST_PointOnSurface(the_geom)) as center FROM gsi_geom_copy WHERE region = '{{id}}'", { id: id })
         .done(function(data) {
           var region = data.rows[0];
 
-          _.each(data.rows, function(country) {
-            var coordinates = $.parseJSON(country.center).coordinates;
+          if(self.chips.length === 0) {
+            _.each(data.rows, function(country) {
+              var coordinates = $.parseJSON(country.center).coordinates;
 
-            var markerIcon = L.divIcon({
-              iconSize: [100, 100],
-              className: 'chip chip_'+country.iso3,
-              html: '<div class="mean '+slaveryToHuman(country.slavery_policy_risk).toLowerCase().split(' ').join('_')+'">'+country.mean.toFixed(2)+'</div>'
+              var markerIcon = L.divIcon({
+                iconSize: [100, 100],
+                className: 'chip chip_'+country.iso3,
+                html: '<div class="mean '+slaveryToHuman(country.slavery_policy_risk).toLowerCase().split(' ').join('_')+'">'+country.mean.toFixed(2)+'</div>'
+              });
+
+              self.chips.push(L.marker([coordinates[1], coordinates[0]], {icon: markerIcon}));
             });
+          }
 
-            self.chips.push(L.marker([coordinates[1], coordinates[0]], {icon: markerIcon}).addTo(self.map));
+          self.panel.model.set({
+            'region': id,
+            'region_name': region.region_name,
+            'countries_count': data.rows.length
+          });
 
+          callback && callback();
+
+          self.loadArea && self.loadArea();
+        })
+        .error(function(errors) {
+          console.log("error:" + errors);
+        });
+    },
+
+    _showRegion: function(id) {
+      var self = this;
+
+      this.sql.execute("SELECT * FROM gsi_geom_copy WHERE region = '{{id}}'", { id: id })
+        .done(function(data) {
+          var region = data.rows[0];
+
+          L.layerGroup(app.mapView.chips).addTo(app.mapView.map);
+
+          _.each(data.rows, function(country) {
             // dataset
             var dataset = [country.human_rights_risk, country.develop_rights_risk, country.state_stability_risk, country.discrimination_risk, country.slavery_policy_risk];
             var dataset_ord = dataset.slice(0).sort(function(a,b){ return b-a });
@@ -453,14 +486,6 @@
             });
 
             self._drawChips(country, wedges, palette_ord);
-
-            self.panel.model.set({
-              'region': id,
-              'region_name': region.region_name,
-              'countries_count': data.rows.length
-            });
-
-            self.loadArea && self.loadArea();
           });
         })
         .error(function(errors) {
@@ -533,6 +558,8 @@
       _.each(this.chips, function(chip) {
         self.map.removeLayer(chip);
       });
+
+      this.chips.length = 0;
     },
 
     _changeURL: function(href) {
@@ -552,7 +579,7 @@
         if(current_area === 'world') {
           this.model.set('area', 'country');
         } else if(current_area === 'country') {
-          this.model.set('area', 'region');
+          this.model.set('area', 'region')
         } else {
           this.model.set('area', 'world');
         }
@@ -583,6 +610,9 @@
 
     _onAreaChanged: function() {
       if(this.model.get('area') === 'country') {
+        //chips
+        this._hideChips();
+
         // panel
         this.panel.template.set('template', $("#country_panel-template").html());
         this.panel.render();

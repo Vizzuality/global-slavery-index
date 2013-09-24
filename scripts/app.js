@@ -104,9 +104,12 @@ $(function() {
           this.mapView.hideLoader(600);
         } else {
           if(pane['area'] === 'region') {
-            this.mapView._setRegionInfo(pane['id']);
+            this.mapView._setRegion(pane['id'], function() {
+              self.mapView._showRegion(pane['id']);
+            });
+
           } else if (pane['area'] === 'country') {
-            this.mapView._setCountryInfo(pane['id']);
+            this.mapView._setCountry(pane['id']);
           }
 
           this.mapView._loadArea(pane['area'], function() {
