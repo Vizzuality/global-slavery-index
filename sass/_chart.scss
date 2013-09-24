@@ -43,6 +43,12 @@ circle{
   &.africa { fill: #FF4D4D; }
 }
 
+.tipsy{
+  @include font(400, 15px, 1.2, 'Open Sans');
+  fill:#FFF;
+  pointer-events: none;
+}
+
 .graph_selector-wrapper {
   position: absolute;
   top: 0;

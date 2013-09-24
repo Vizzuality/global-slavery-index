@@ -48,19 +48,20 @@
         .attr("width", w)
         .attr("height", h);
 
-      d3.json('http://walkfree.cartodb.com/api/v2/sql?q=SELECT gdppp AS x, slavery_policy_risk AS y, cartodb_id AS radius, region FROM gsi_geom_copy WHERE gdppp IS NOT NULL', function(dataset) {
+      //TODO: TAKE NOTE OF THE RADIUS VARIABLE!
+      d3.json('http://walkfree.cartodb.com/api/v2/sql?q=SELECT human_development_index AS x, slavery_policy_risk AS y, slavery_policy_risk, gdppp AS radius, country_name, region FROM gsi_geom_copy WHERE gdppp IS NOT NULL', function(dataset) {
         dataset = dataset.rows;
 
         var x_scale = d3.scale.linear()
           .range([m, w-m])
-          .domain([0, d3.max(dataset, function(d) { return d.x; })]);
+          .domain([d3.min(dataset, function(d) {return d.x}), d3.max(dataset, function(d) { return d.x; })]);
 
         var y_scale = d3.scale.linear()
           .range([h-m, m])
-          .domain([0, d3.max(dataset, function(d) { return d.y; })]);
+          .domain([0,d3.max(dataset, function(d) { return d.y; })]);
 
         var r_scale = d3.scale.linear()
-          .range([10, 20]) // max ball radius
+          .range([5, 30]) // max ball radius
           .domain([0, d3.max(dataset, function(d) { return d.radius; })])
 
         // x axis
@@ -74,7 +75,7 @@
           .attr("class", "x label")
           .attr("x", m)
           .attr("y", h-m+20)
-          .text("GDP (PPP) Est. 2012");
+          .text("HUMAN DEVELOPMENT INDEX");
 
         // y axis
         var y_axis = d3.svg.axis().scale(y_scale).orient("left").ticks(4);
@@ -87,7 +88,7 @@
           .attr("x", m-h)
           .attr("y", m-10)
           .attr("transform", "rotate(-90)")
-          .text("Slavery prevalence");
+          .text("Slavery policy risk");
 
         // grid
         svg.selectAll("line.grid_v").data(y_scale.ticks(4)).enter()
@@ -124,16 +125,39 @@
         circles.enter()
           .append("circle")
           .attr(circle_attr)
-          .on('mouseover', function(e, j, u) {
+          .on('mouseenter', function(e, j, u) {
             d3.select(d3.event.target)
               .transition()
               .attr('r', function(d) { return circle_attr.r(d) + 5; })
               .style('opacity', 1);
+
+            d3.selectAll(".tipsy")
+              .transition()
+                .style("opacity","0")
+                .remove();
+
+            svg
+              .append('svg:text')
+              .style("opacity", "0")
+              .attr("class", "tipsy")
+              .attr("x", x_scale(e.x))
+              .attr("y", y_scale(e.y))
+              .style("text-anchor", "middle")
+              .text(function(d) { return e.country_name + " ("+e.slavery_policy_risk.toFixed(1)+")"; })
+              .transition()
+                .style("opacity","1")
+                .attr("y", y_scale(e.y)-r_scale(e.radius)-18);
+
           }).on('mouseout', function() {
             d3.select(d3.event.target)
               .transition()
               .attr('r', function(d) { return circle_attr.r(d); })
               .style('opacity', .6);
+
+            d3.select(".tipsy")
+              .transition()
+                .style("opacity","0")
+                .remove();
           })
       });
     },
