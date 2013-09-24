@@ -2,45 +2,45 @@ slavery.AppData = {
   REGIONS: {
     'asia': {
       center: {
-        lat: -0.5904881759999512,
-        lng: 0.4429630865000007
+        lat: 3.5134210456400443, 
+        lng: 77.958984375
       },
-      zoom: 1
+      zoom: 4
     },
     'west_europe': {
       center: {
-        lat: 13.153794663500104,
-        lng: -6.281442837999851
+        lat: 46.9502622421856,
+        lng: 0.3515625
       },
-      zoom: 2
+      zoom: 5
     },
     'east_europe': {
       center: {
-        lat: 58.4996784495001,
-        lng: 0
+        lat: 51.12106042504407, 
+        lng: 40.869140625
       },
-      zoom: 1
+      zoom: 4
     },
     'americas': {
       center: {
-        lat: 13.599009152500102,
-        lng: 0
+        lat: 1.2303741774326145,
+        lng:  -104.94140625,
       },
-      zoom: 1
+      zoom: 3
     },
     'africa': {
       center: {
         lat: -9.840168555999899,
         lng: 19.0667423835001
       },
-      zoom: 3
+      zoom: 4
     },
     'middle_east': {
       center: {
         lat: 24.226584371000065,
         lng: 23.152942403827552
       },
-      zoom: 3
+      zoom: 4
     }
   }
 }
