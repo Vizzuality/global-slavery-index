@@ -54,7 +54,7 @@
 
         var y_scale = d3.scale.linear()
           .range([h-m, m])
-          .domain([0, d3.max(dataset, function(d) { return d.y; })]);
+          .domain([0,d3.max(dataset, function(d) { return d.y; })]);
 
         var r_scale = d3.scale.linear()
           .range([5, 30]) // max ball radius
@@ -84,7 +84,7 @@
           .attr("x", m-h)
           .attr("y", m-10)
           .attr("transform", "rotate(-90)")
-          .text("Slavery prevalence");
+          .text("Slavery policy risk");
 
         // grid
         svg.selectAll("line.grid_v").data(y_scale.ticks(4)).enter()
