@@ -109,15 +109,11 @@
       graph.set("selected", true);
       this.selectedGraph = graph;
 
-      this._updateView(this.selectedGraph);
+      this.trigger("updateview", this.selectedGraph);
 
       this._addGraphs();
 
       this.close();
-    },
-
-    _updateView: function(graph){
-      console.log(graph);
     },
 
     open: function() {

@@ -22,6 +22,7 @@
       this.render();
 
       this._initViews();
+      this._initBindings();
     },
 
     render: function() {
@@ -160,5 +161,13 @@
                 .remove();
           })
       });
+    },
+
+    _initBindings: function() {
+      this.graph_selector.bind("updateview", this._updateView);
+    },
+
+    _updateView: function(graph){
+      console.log(graph);
     }
   });
