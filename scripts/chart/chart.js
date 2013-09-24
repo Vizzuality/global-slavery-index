@@ -161,4 +161,9 @@
           })
       });
     },
+
+    _updateView: function(){
+      console.log('UPDATE')
+    }
+    
   });
