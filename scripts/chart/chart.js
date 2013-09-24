@@ -78,6 +78,7 @@
           .attr("id", "x_label")
           .attr("x", m)
           .attr("y", h-m+20)
+          //TODO: MAKE THIS DYNAMIC
           .text("HUMAN DEVELOPMENT INDEX");
 
         // y axis
