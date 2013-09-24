@@ -91,6 +91,7 @@ function create_polygons(url, ready) {
   });
 }
 
+//TODO: REMEMBER TO CHANGE THIS TO THE LINE GRADIENT
 function slaveryToHuman(num) {
   var risk = '';
 
