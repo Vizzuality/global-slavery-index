@@ -26,7 +26,7 @@
 
       // graphs are defined in utils
       _.each(slavery.AppData.GRAPHS, function(graph) {
-        self.graphs.add(new slavery.ui.model.Graph(graph['name'] === slavery.AppData.CONFIG.chart.graph ? _.extend(graph, { selected: true }) : graph));
+        self.graphs.add(new slavery.ui.model.Graph(graph['column'] === slavery.AppData.CONFIG.chart.graph ? _.extend(graph, { selected: true }) : graph));
       });
 
       this.selectedGraph = this.graphs.find(function(graph) { return graph.get("selected"); });
@@ -95,15 +95,15 @@
       e.preventDefault();
 
       var $li  = $(e.target).closest("li"),
-          name = $li.attr("id");
+          column = $li.attr("id");
 
-      if(this.selectedGraph.get("name") === name) {
+      if(this.selectedGraph.get("column") === column) {
         this.close();
 
         return;
       }
 
-      var graph = this.graphs.find(function(graph) { return name === graph.get("name"); });
+      var graph = this.graphs.find(function(graph) { return column === graph.get("column"); });
 
       this.selectedGraph.set("selected", false);
       graph.set("selected", true);

@@ -8,6 +8,7 @@
    *  });
    */
 
+  var m, margin_h, w, h;
 
   slavery.Chart = cdb.core.View.extend({
 
@@ -33,10 +34,10 @@
     _initViews: function() {
       var self = this;
 
-      var m = 40,
-          margin_h = 63,
-          w = window.innerWidth,
-          h = window.innerHeight-margin_h;
+      m = 40;
+      margin_h = 63;
+      w = window.innerWidth;
+      h = window.innerHeight-margin_h;
 
       var dataset = [];
 
@@ -168,6 +169,21 @@
     },
 
     _updateView: function(graph){
-      console.log(graph);
+      d3.json('http://walkfree.cartodb.com/api/v2/sql?q=SELECT ' + graph.get('column') + ' AS x, slavery_policy_risk AS y, slavery_policy_risk, gdppp AS radius, country_name, region FROM gsi_geom_copy WHERE gdppp IS NOT NULL', function(dataset) {
+        dataset = dataset.rows;
+
+        var _domain = (graph.get('column')==='corruption_index') ? [d3.max(dataset, function(d) { return d.x; }), d3.min(dataset, function(d) {return d.x}), ] : [d3.min(dataset, function(d) {return d.x}), d3.max(dataset, function(d) { return d.x; })]
+        var x_scale = d3.scale.linear()
+          .range([m, w-m])
+          .domain(_domain);
+
+        var circles = d3.selectAll('circle');
+        
+        circles
+          .data(dataset)
+          .transition()
+            .attr("cx",function(d) { return x_scale(d.x); }) 
+
+      })
     }
   });

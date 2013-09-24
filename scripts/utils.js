@@ -45,16 +45,16 @@ slavery.AppData = {
   },
   GRAPHS: {
     'human_development_index': {
-      name: 'human_development_index',
-      title: 'Human Development Index'
+      title: 'Human Development Index',
+      column: 'human_development_index'
     },
     'access_to_financial_services': {
-      name: 'access_to_financial_services to Financial Services',
-      title: 'Access to Financial Services'
+      title: 'Access to Financial Services Index',
+      column: 'access_to_fin_services_index'
     },
     'corruption': {
-      name: 'corruption',
-      title: 'Corruption'
+      title: 'Corruption Index',
+      column: 'corruption_index'
     },
   },
   CONFIG: {
