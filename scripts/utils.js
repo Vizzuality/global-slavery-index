@@ -49,7 +49,7 @@ slavery.AppData = {
       title: 'Human Development Index'
     },
     'access_to_financial_services': {
-      name: 'access_to_financial_services to Financial Services',
+      name: 'access_to_financial_services',
       title: 'Access to Financial Services'
     },
     'corruption': {

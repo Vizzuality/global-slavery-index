@@ -52,30 +52,53 @@ circle {
 .graph_selector {
   position: absolute;
   top: 50px; right: 50px;
+  width: 254px;
+  text-align: right;
 
-  ul { float: right; }
+  ul {
+    float: right;
+    width: 100%;
+    margin-top: 10px;
+    @include border-radius(5px);
+    @include box-shadow(0 0 0 3px rgba(#000, .2));
+    text-align: left;
+  }
+
+  a {
+    color: #00A99D;
+    text-decoration: none;
+  }
 
   li {
-    position: relative;
-    float: right;
-    margin-left: 5px;
-    @include border-radius(4px);
-    background: #000;
 
-    &:first-child { margin-left: 8px; }
-    &:last-child { margin-left: 0; }
+    &:first-child a {
+      border-top: 0;
+      @include border-top-radius(4px);
+    }
 
-    &.selected a { opacity: 1; }
+    &:last-child a {
+      @include border-bottom-radius(4px);
+    }
+
+    &:hover,
+    &.selected {
+      a { background: #f6f6f6; }
+    }
+
+    &.selected a { color: #444; }
 
     a {
       display: block;
-      width: 30px;
-      height: 30px;
-      border: 1px solid #333;
-      @include border-radius(4px);
-      background-repeat: no-repeat;
-      @include background-size(cover);
-      opacity: .6;
+      height: 44px;
+      padding-left: 10px;
+      border-top: 2px solid #e5e5e5;
+      background: #fff;
+      @include font(bold, 14px, 44px, "Open Sans");
+
+      &:hover,
+      .selected {
+        background: #f6f6f6;
+      }
     }
   }
 
@@ -86,14 +109,8 @@ circle {
     background: #fff;
     border: 1px solid #000;
     padding: 0 10px;
-    color: #00A99D;
-    text-decoration: none;
     text-transform: uppercase;
 
     &:hover { background: #f4f4f4; }
   }
-}
-
-.graphs {
-  width: 254px;
 }
