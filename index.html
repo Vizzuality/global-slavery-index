@@ -33,7 +33,7 @@
 <body>
   <div id="wrapper" class="wrapper">
     <div class="map-wrapper"></div>
-    <div class="chart-wrapper"></div>
+    <div class="plot-wrapper"></div>
     <nav class="nav"></nav>
   </div>
 
@@ -43,7 +43,7 @@
       <span class="selected"></span>
       <ul>
         <li><a href="#map" data-url="#map" class="map">map</a></li>
-        <li><a href="#chart" data-url="#chart" class="chart">plot</a></li>
+        <li><a href="#plot" data-url="#plot" class="plot">plot</a></li>
       </ul>
     </div>
 
@@ -173,8 +173,8 @@
     <p class="panel-desc"><%= region_desc %></p>
   </script>
 
-  <script id="chart-template" type="text/x-underscore-template">
-    <div id="chart" class="chart"></div>
+  <script id="plot-template" type="text/x-underscore-template">
+    <div id="plot" class="plot"></div>
 
     <div class="graph_selector"></div>
   </script>
@@ -225,8 +225,8 @@
   <script src="scripts/map/infowindow.js"></script>
   <script src="scripts/map/panel.js"></script>
 
-  <script src="scripts/chart/chart.js"></script>
-  <script src="scripts/chart/graph_selector.js"></script>
+  <script src="scripts/plot/plot.js"></script>
+  <script src="scripts/plot/graph_selector.js"></script>
 
   <script src="scripts/utils.js"></script>
   <script src="scripts/app.js"></script>

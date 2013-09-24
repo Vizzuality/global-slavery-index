@@ -474,12 +474,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font-weight: bold;
 }
 
-/* line 1, ../sass/_chart.scss */
+/* line 1, ../sass/_plot.scss */
 .chart-wrapper {
-  background: url('/images/chart-bkg.png?1378818296');
+  background: url('/images/chart-bkg.png');
 }
 
-/* line 5, ../sass/_chart.scss */
+/* line 5, ../sass/_plot.scss */
 .tick, .axis path, .grid {
   fill: none;
   stroke: rgba(255, 255, 255, 0.2);
@@ -487,63 +487,63 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   stroke-width: 1px;
 }
 
-/* line 17, ../sass/_chart.scss */
+/* line 17, ../sass/_plot.scss */
 .axis text {
   display: none;
 }
 
-/* line 22, ../sass/_chart.scss */
+/* line 22, ../sass/_plot.scss */
 .label {
   font: 500 10px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
   fill: #fff;
   text-transform: uppercase;
 }
 
-/* line 28, ../sass/_chart.scss */
+/* line 28, ../sass/_plot.scss */
 .grid {
   stroke: rgba(255, 255, 255, 0.1);
 }
 
-/* line 33, ../sass/_chart.scss */
+/* line 33, ../sass/_plot.scss */
 circle {
   stroke: black;
   stroke-width: .5px;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
   opacity: 0.6;
 }
-/* line 38, ../sass/_chart.scss */
+/* line 38, ../sass/_plot.scss */
 circle.americas {
   fill: #FFD24D;
 }
-/* line 39, ../sass/_chart.scss */
+/* line 39, ../sass/_plot.scss */
 circle.asia {
   fill: #A64DFF;
 }
-/* line 40, ../sass/_chart.scss */
+/* line 40, ../sass/_plot.scss */
 circle.middle_east {
   fill: #5DA69D;
 }
-/* line 41, ../sass/_chart.scss */
+/* line 41, ../sass/_plot.scss */
 circle.east_europe {
   fill: #FF73FF;
 }
-/* line 42, ../sass/_chart.scss */
+/* line 42, ../sass/_plot.scss */
 circle.west_europe {
   fill: #64C5FF;
 }
-/* line 43, ../sass/_chart.scss */
+/* line 43, ../sass/_plot.scss */
 circle.africa {
   fill: #FF4D4D;
 }
 
-/* line 46, ../sass/_chart.scss */
+/* line 46, ../sass/_plot.scss */
 .tipsy {
   font: 400 15px/1.2 "Open Sans";
   fill: #FFF;
   pointer-events: none;
 }
 
-/* line 52, ../sass/_chart.scss */
+/* line 52, ../sass/_plot.scss */
 .graph_selector {
   position: absolute;
   top: 50px;
@@ -551,7 +551,7 @@ circle.africa {
   width: 254px;
   text-align: right;
 }
-/* line 58, ../sass/_chart.scss */
+/* line 58, ../sass/_plot.scss */
 .graph_selector ul {
   float: right;
   width: 100%;
@@ -566,12 +566,12 @@ circle.africa {
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
   text-align: left;
 }
-/* line 67, ../sass/_chart.scss */
+/* line 67, ../sass/_plot.scss */
 .graph_selector a {
   color: #00A99D;
   text-decoration: none;
 }
-/* line 74, ../sass/_chart.scss */
+/* line 74, ../sass/_plot.scss */
 .graph_selector li:first-child a {
   border-top: 0;
   -moz-border-radius-topleft: 4px;
@@ -581,7 +581,7 @@ circle.africa {
   -webkit-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
 }
-/* line 79, ../sass/_chart.scss */
+/* line 79, ../sass/_plot.scss */
 .graph_selector li:last-child a {
   -moz-border-radius-bottomleft: 4px;
   -webkit-border-bottom-left-radius: 4px;
@@ -590,15 +590,15 @@ circle.africa {
   -webkit-border-bottom-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-/* line 85, ../sass/_chart.scss */
+/* line 85, ../sass/_plot.scss */
 .graph_selector li:hover a, .graph_selector li.selected a {
   background: #f6f6f6;
 }
-/* line 88, ../sass/_chart.scss */
+/* line 88, ../sass/_plot.scss */
 .graph_selector li.selected a {
   color: #444;
 }
-/* line 90, ../sass/_chart.scss */
+/* line 90, ../sass/_plot.scss */
 .graph_selector li a {
   display: block;
   height: 44px;
@@ -607,12 +607,12 @@ circle.africa {
   background: #fff;
   font: bold 14px/44px "Open Sans";
 }
-/* line 99, ../sass/_chart.scss */
+/* line 99, ../sass/_plot.scss */
 .graph_selector li a:hover,
 .graph_selector li a .selected {
   background: #f6f6f6;
 }
-/* line 105, ../sass/_chart.scss */
+/* line 105, ../sass/_plot.scss */
 .graph_selector .link {
   display: inline-block;
   font: bold 12px/26px "Open Sans";
@@ -626,7 +626,7 @@ circle.africa {
   padding: 0 10px;
   text-transform: uppercase;
 }
-/* line 114, ../sass/_chart.scss */
+/* line 114, ../sass/_plot.scss */
 .graph_selector .link:hover {
   background: #f4f4f4;
 }
@@ -636,7 +636,7 @@ html,
 body,
 .wrapper,
 .map-wrapper,
-.chart-wrapper,
+.plot-wrapper,
 .cartodb-map {
   height: 100%;
   width: 100%;

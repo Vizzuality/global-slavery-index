@@ -3,13 +3,13 @@
 
 @import "helpers";
 @import "map";
-@import "chart";
+@import "plot";
 
 html,
 body,
 .wrapper,
 .map-wrapper,
-.chart-wrapper,
+.plot-wrapper,
 .cartodb-map {
   height: 100%;
   width: 100%;
