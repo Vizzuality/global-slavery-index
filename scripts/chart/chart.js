@@ -44,7 +44,8 @@
         .attr("width", w)
         .attr("height", h);
 
-      d3.json('http://walkfree.cartodb.com/api/v2/sql?q=SELECT gdppp AS x, slavery_policy_risk AS y, cartodb_id AS radius, region FROM gsi_geom_copy WHERE gdppp IS NOT NULL', function(dataset) {
+      //TODO: TAKE NOTE OF THE RADIUS VARIABLE!
+      d3.json('http://walkfree.cartodb.com/api/v2/sql?q=SELECT gdppp AS x, slavery_policy_risk AS y, slavery_policy_risk,  country_name, region FROM gsi_geom_copy WHERE gdppp IS NOT NULL', function(dataset) {
         dataset = dataset.rows;
 
         var x_scale = d3.scale.linear()
@@ -55,9 +56,7 @@
           .range([h-m, m])
           .domain([0, d3.max(dataset, function(d) { return d.y; })]);
 
-        var r_scale = d3.scale.linear()
-          .range([10, 20]) // max ball radius
-          .domain([0, d3.max(dataset, function(d) { return d.radius; })])
+        var radius = 8;
 
         // x axis
         var x_axis = d3.svg.axis().scale(x_scale).ticks(8);
@@ -110,7 +109,7 @@
         var circle_attr = {
           "cx": function(d) { return x_scale(d.x); },
           "cy": function(d) { return y_scale(d.y); },
-          "r": function(d) { return r_scale(d.radius) },
+          "r": function(d) { return radius },
           "class": function(d) { return d.region ; }
         };
 
@@ -120,16 +119,39 @@
         circles.enter()
           .append("circle")
           .attr(circle_attr)
-          .on('mouseover', function(e, j, u) {
+          .on('mouseenter', function(e, j, u) {
             d3.select(d3.event.target)
               .transition()
-              .attr('r', function(d) { return circle_attr.r(d) + 5; })
+              .attr('r', function(d) { return radius + 3; })
               .style('opacity', 1);
+
+            d3.selectAll(".tipsy")
+              .transition()
+                .style("opacity","0")
+                .remove();
+
+            svg
+              .append('svg:text')
+              .style("opacity", "0")
+              .attr("class", "tipsy")
+              .attr("x", x_scale(e.x))
+              .attr("y", y_scale(e.y))
+              .style("text-anchor", "middle")
+              .text(function(d) { return e.country_name+" ("+e.slavery_policy_risk.toFixed(1)+")"; })
+              .transition()
+                .style("opacity","1")
+                .attr("y", y_scale(e.y)-radius-15);
+
           }).on('mouseout', function() {
             d3.select(d3.event.target)
               .transition()
               .attr('r', function(d) { return circle_attr.r(d); })
               .style('opacity', .6);
+
+            d3.select(".tipsy")
+              .transition()
+                .style("opacity","0")
+                .remove();
           })
       });
     },

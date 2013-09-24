@@ -42,3 +42,9 @@ circle{
   &.west_europe { fill: #64C5FF; }
   &.africa { fill: #FF4D4D; }
 }
+
+.tipsy{
+  @include font(400, 15px, 1.2, 'Open Sans');
+  fill:#FFF;
+  pointer-events: none;
+}
