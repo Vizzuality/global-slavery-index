@@ -5,7 +5,7 @@
    *  Example:
    *
    *  var panel = new slavery.ui.view.Panel({
-   *    el: $('.panel-wrapper')
+   *    el: $('.panel')
    *  });
    */
 

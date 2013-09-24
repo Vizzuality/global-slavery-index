@@ -166,7 +166,7 @@
       });
 
       this.zoom = new slavery.ui.view.Zoom({
-        el: this.$(".zoom-wrapper"),
+        el: this.$(".zoom"),
         map: this
       });
 
@@ -175,13 +175,13 @@
       this.infowindow = new slavery.ui.view.Infowindow({
         className: "collapsed",
         map: this.map,
-        el: this.$(".infowindow-wrapper")
+        el: this.$(".infowindow")
       });
 
       this.addView(this.infowindow);
 
       this.panel = new slavery.ui.view.Panel({
-        el: this.$(".panel-wrapper")
+        el: this.$(".panel")
       });
 
       this.addView(this.panel);

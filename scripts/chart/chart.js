@@ -40,7 +40,7 @@
       var dataset = [];
 
       this.graph_selector = new slavery.ui.view.GraphSelector({
-        el: this.$(".graph_selector-wrapper")
+        el: this.$(".graph_selector")
       });
 
       var svg = d3.select(".chart")
@@ -160,10 +160,5 @@
                 .remove();
           })
       });
-    },
-
-    _updateView: function(){
-      console.log('UPDATE')
     }
-    
   });

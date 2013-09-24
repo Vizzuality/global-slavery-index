@@ -30,7 +30,7 @@
   stroke: rgba(#fff, .1);
 }
 
-circle{
+circle {
   stroke: black;
   stroke-width: .5px;
   @include opacity(.6);
@@ -45,22 +45,13 @@ circle{
 
 .tipsy{
   @include font(400, 15px, 1.2, 'Open Sans');
-  fill:#FFF;
+  fill: #FFF;
   pointer-events: none;
 }
 
-.graph_selector-wrapper {
+.graph_selector {
   position: absolute;
-  top: 0;
-  right: 0;
-  height: 32px;
-  width: 32px;
-  @include border-radius(5px);
-  background: #fff;
-  border: 1px solid #000;
-  padding: 2px;
-
-  &:hover { background: #f4f4f4; }
+  top: 50px; right: 50px;
 
   ul { float: right; }
 
@@ -87,4 +78,22 @@ circle{
       opacity: .6;
     }
   }
+
+  .link {
+    display: inline-block;
+    @include font(bold, 12px, 26px, "Open Sans");
+    @include border-radius(15px);
+    background: #fff;
+    border: 1px solid #000;
+    padding: 0 10px;
+    color: #00A99D;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover { background: #f4f4f4; }
+  }
+}
+
+.graphs {
+  width: 254px;
 }

@@ -4,7 +4,7 @@
    *  Example:
    *
    *  var zoom = new slavery.ui.view.Zoom({
-   *    el: $('.zoom-wrapper')
+   *    el: $('.zoom')
    *  });
    */
 

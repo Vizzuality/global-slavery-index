@@ -4,7 +4,7 @@
    *  Example:
    *
    *  var graph_selector = new slavery.ui.view.GraphSelector({
-   *    el: $('.graph_selector-wrapper')
+   *    el: $('.graph_selector')
    *  });
    */
 
@@ -13,7 +13,8 @@
     className: 'graph_selector selector',
 
     events: {
-      "click li a": "_onGraphClick",
+      "click .link": "_onClickLink",
+      "click li a": "_onClickGraph"
     },
 
     initialize: function() {
@@ -57,19 +58,6 @@
       });
     },
 
-    _addSelectedGraph: function() {
-      // this.template = cdb.templates.getTemplate('chart/views/nav.jst.js');
-      var template = $("#graph-template").html();
-
-      this.template = new cdb.core.Template({
-        template: template
-      });
-
-      this.$selected_graph.empty();
-      
-      this.$selected_graph.append(this.template.render( this.selectedGraph.toJSON() ));
-    },
-
     _toggleOpen: function() {
       var self = this;
 
@@ -78,36 +66,39 @@
 
         this.$graphs.animate({
           opacity: 0,
-          width: 0
+          height: 0
         }, 50, function() {
           self.$graphs.hide();
-          self.$selected_graph.fadeIn(150);
         });
       } else {
         this.$el.removeClass("closed");
 
-        this.$selected_graph.fadeOut(150, function() {
-          self.$graphs.show();
-          self.$graphs.animate({
-            opacity: 1,
-            width: 32 * self.graphs.length + 5 * (self.graphs.length - 2) + 8
-          }, 50);
-        });
+        self.$graphs.show();
+        self.$graphs.animate({
+          opacity: 1,
+          height: 46 * self.graphs.length
+        }, 50);
       }
     },
 
-    _onGraphClick: function(e) {
+    _onClickLink: function(e) {
+      e.preventDefault();
+
+      if(this.model.get("closed")) {
+        this.open();
+      } else {
+        this.close();
+      }
+    },
+
+    _onClickGraph: function(e) {
       e.preventDefault();
 
       var $li  = $(e.target).closest("li"),
           name = $li.attr("id");
 
       if(this.selectedGraph.get("name") === name) {
-        if($li.parent().hasClass("selected_graph")) {
-          this.open();
-        } else {
-          this.close();
-        }
+        this.close();
 
         return;
       }
@@ -118,10 +109,15 @@
       graph.set("selected", true);
       this.selectedGraph = graph;
 
+      this._updateView(this.selectedGraph);
+
       this._addGraphs();
-      this._addSelectedGraph();
 
       this.close();
+    },
+
+    _updateView: function(graph){
+      console.log(graph);
     },
 
     open: function() {
@@ -131,6 +127,7 @@
     close: function() {
       this.model.set("closed", true);
     },
+
     render: function() {
       this.$el.append(this.template.render( this.model.toJSON() ));
 
@@ -138,7 +135,6 @@
       this.$selected_graph = this.$el.find(".selected_graph");
 
       this._addGraphs();
-      this._addSelectedGraph();
       this._toggleOpen();
 
       return this;

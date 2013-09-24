@@ -32,11 +32,7 @@
 </head>
 <body>
   <div id="wrapper" class="wrapper">
-    <div class="map-wrapper">
-      <div class="zoom-wrapper"></div>
-      <div class="infowindow-wrapper"></div>
-      <div class="panel-wrapper"></div>
-    </div>
+    <div class="map-wrapper"></div>
     <div class="chart-wrapper"></div>
     <nav class="nav"></nav>
   </div>
@@ -78,6 +74,9 @@
 
   <script id="cartodb-map-template" type="text/x-underscore-template">
     <div id="cartodb-map" class="cartodb-map"></div>
+    <div class="zoom"></div>
+    <div class="infowindow"></div>
+    <div class="panel"></div>
   </script>
 
   <script id="zoom-template" type="text/x-underscore-template">
@@ -177,11 +176,12 @@
   <script id="chart-template" type="text/x-underscore-template">
     <div id="chart" class="chart"></div>
 
-    <div class="graph_selector-wrapper"></div>
+    <div class="graph_selector"></div>
   </script>
 
   <script id="graph_selector-template" type="text/x-underscore-template">
-    <ul class="selected_graph"></ul>
+    <a href="#" class="link">Graph</a>
+
     <ul class="graphs"></ul>
   </script>
 
