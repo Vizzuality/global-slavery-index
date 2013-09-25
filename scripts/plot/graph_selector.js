@@ -22,16 +22,16 @@
 
       _.bindAll(this, "_toggleOpen");
 
-      this.graphs = new slavery.ui.collection.Graphs();
+      this.graphs = new slavery.ui.collection.SelectorItems();
 
       // graphs are defined in utils
       _.each(slavery.AppData.GRAPHS, function(graph) {
-        self.graphs.add(new slavery.ui.model.Graph(graph['column'] === slavery.AppData.CONFIG.plot.graph ? _.extend(graph, { selected: true }) : graph));
+        self.graphs.add(new slavery.ui.model.SelectorItem(graph['column'] === slavery.AppData.CONFIG.plot.graph ? _.extend(graph, { selected: true }) : graph));
       });
 
       this.selectedGraph = this.graphs.find(function(graph) { return graph.get("selected"); });
 
-      this.model = new slavery.ui.model.GraphSelector();
+      this.model = new slavery.ui.model.Selector();
 
       this.model.bind("change:closed", this._toggleOpen);
 

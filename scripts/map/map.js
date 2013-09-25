@@ -166,6 +166,12 @@
 
       this.addView(this.zoom);
 
+      this.country_selector = new slavery.ui.view.CountrySelector({
+        el: this.$(".country_selector")
+      });
+
+      this.addView(this.country_selector);
+
       this.infowindow = new slavery.ui.view.Infowindow({
         className: "collapsed",
         map: this.map,

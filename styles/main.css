@@ -527,16 +527,18 @@ circle.africa {
   pointer-events: none;
 }
 
-/* line 52, ../sass/_plot.scss */
-.graph_selector {
+/* line 53, ../sass/_plot.scss */
+.graph_selector,
+.country_selector {
   position: absolute;
   top: 50px;
   right: 50px;
   width: 254px;
   text-align: right;
 }
-/* line 58, ../sass/_plot.scss */
-.graph_selector ul {
+/* line 59, ../sass/_plot.scss */
+.graph_selector ul,
+.country_selector ul {
   float: right;
   width: 100%;
   margin-top: 10px;
@@ -550,13 +552,15 @@ circle.africa {
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
   text-align: left;
 }
-/* line 67, ../sass/_plot.scss */
-.graph_selector a {
+/* line 68, ../sass/_plot.scss */
+.graph_selector a,
+.country_selector a {
   color: #00A99D;
   text-decoration: none;
 }
-/* line 74, ../sass/_plot.scss */
-.graph_selector li:first-child a {
+/* line 75, ../sass/_plot.scss */
+.graph_selector li:first-child a,
+.country_selector li:first-child a {
   border-top: 0;
   -moz-border-radius-topleft: 4px;
   -webkit-border-top-left-radius: 4px;
@@ -565,8 +569,9 @@ circle.africa {
   -webkit-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
 }
-/* line 79, ../sass/_plot.scss */
-.graph_selector li:last-child a {
+/* line 80, ../sass/_plot.scss */
+.graph_selector li:last-child a,
+.country_selector li:last-child a {
   -moz-border-radius-bottomleft: 4px;
   -webkit-border-bottom-left-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -574,16 +579,20 @@ circle.africa {
   -webkit-border-bottom-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-/* line 85, ../sass/_plot.scss */
-.graph_selector li:hover a, .graph_selector li.selected a {
+/* line 86, ../sass/_plot.scss */
+.graph_selector li:hover a, .graph_selector li.selected a,
+.country_selector li:hover a,
+.country_selector li.selected a {
   background: #f6f6f6;
 }
-/* line 88, ../sass/_plot.scss */
-.graph_selector li.selected a {
+/* line 89, ../sass/_plot.scss */
+.graph_selector li.selected a,
+.country_selector li.selected a {
   color: #444;
 }
-/* line 90, ../sass/_plot.scss */
-.graph_selector li a {
+/* line 91, ../sass/_plot.scss */
+.graph_selector li a,
+.country_selector li a {
   display: block;
   height: 44px;
   padding-left: 10px;
@@ -591,13 +600,16 @@ circle.africa {
   background: #fff;
   font: bold 14px/44px "Open Sans";
 }
-/* line 99, ../sass/_plot.scss */
+/* line 100, ../sass/_plot.scss */
 .graph_selector li a:hover,
-.graph_selector li a .selected {
+.graph_selector li a .selected,
+.country_selector li a:hover,
+.country_selector li a .selected {
   background: #f6f6f6;
 }
-/* line 105, ../sass/_plot.scss */
-.graph_selector .link {
+/* line 106, ../sass/_plot.scss */
+.graph_selector .link,
+.country_selector .link {
   display: inline-block;
   font: bold 12px/26px "Open Sans";
   -webkit-border-radius: 15px;
@@ -610,8 +622,9 @@ circle.africa {
   padding: 0 10px;
   text-transform: uppercase;
 }
-/* line 114, ../sass/_plot.scss */
-.graph_selector .link:hover {
+/* line 115, ../sass/_plot.scss */
+.graph_selector .link:hover,
+.country_selector .link:hover {
   background: #f4f4f4;
 }
 

@@ -77,6 +77,7 @@
     <div class="zoom"></div>
     <div class="infowindow"></div>
     <div class="panel"></div>
+    <div class="country_selector"></div>
   </script>
 
   <script id="zoom-template" type="text/x-underscore-template">
@@ -189,6 +190,18 @@
     </li>
   </script>
 
+  <script id="country_selector-template" type="text/x-underscore-template">
+    <a href="#" class="link">Country</a>
+
+    <ul class="countries"></ul>
+  </script>
+
+  <script id="country-template" type="text/x-underscore-template">
+    <li id="<%= iso3 %>" class="<%= iso3 %> <%= selected ? 'selected' : '' %>">
+      <a href="#map/country/<%= iso3 %>"><%= country_name %></a>
+    </li>
+  </script>
+
   <!-- TODO: Google Analytics -->
   <!-- script>
     var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
@@ -207,11 +220,10 @@
   <script src="scripts/core/profiler.js"></script>
 
   <!-- models -->
+  <script src="scripts/models/selector.js"></script>
   <script src="scripts/models/map.js"></script>
   <script src="scripts/models/infowindow.js"></script>
   <script src="scripts/models/panel.js"></script>
-
-  <script src="scripts/models/graph_selector.js"></script>
 
   <!-- views -->
   <script src="scripts/common/tabs.js"></script>
@@ -222,6 +234,7 @@
   <script src="scripts/map/zoom.js"></script>
   <script src="scripts/map/infowindow.js"></script>
   <script src="scripts/map/panel.js"></script>
+  <script src="scripts/map/country_selector.js"></script>
 
   <script src="scripts/plot/plot.js"></script>
   <script src="scripts/plot/graph_selector.js"></script>
