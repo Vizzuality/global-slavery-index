@@ -40,7 +40,7 @@
 
       create_polygons(polygons_url, function(polygons) {
         self.countries_polygons = polygons;
-        self.loadArea();
+        self.loadArea && self.loadArea();
       });
     },
 
@@ -159,6 +159,10 @@
         inertia: false
       });
 
+      this.map.on("load", function() {
+        debugger;
+      });
+
       this.zoom = new slavery.ui.view.Zoom({
         el: this.$(".zoom"),
         map: this
@@ -258,7 +262,14 @@
             self.out();
           });
 
-          self.loadArea();
+          if(!self.loadArea) {
+            // world
+            setTimeout(function() {
+              self._hideLoader();
+            }, 600);
+          } else {
+            self.loadArea();
+          }
         }).on('error', function() {
           //log the error
         });
@@ -309,6 +320,8 @@
     _setCountry: function(iso) {
       var self = this;
 
+      this.current_iso = iso;
+
       this.sql.execute("SELECT * FROM gsi_geom_copy WHERE iso3 = '{{id}}'", { id: iso })
         .done(function(data) {
           var country = data.rows[0];
@@ -324,7 +337,7 @@
 
           self._setRegion(country.region);
 
-          self.loadArea();
+          self.loadArea && self.loadArea();
         })
         .error(function(errors) {
           console.log("error:" + errors);
@@ -342,7 +355,7 @@
             'zoom': zoom
           });
 
-          self.loadArea();
+          self.loadArea && self.loadArea();
         }).error(function(errors) {
           console.log("error:" + errors);
         });
@@ -350,6 +363,8 @@
 
     _setRegion: function(id) {
       var self = this;
+
+      this.current_region = id;
 
       this.sql.execute("SELECT * FROM gsi_geom_copy WHERE region = '{{id}}'", { id: id })
         .done(function(data) {
@@ -361,7 +376,7 @@
             'countries_count': data.rows.length
           });
 
-          self.loadArea();
+          self.loadArea && self.loadArea();
         })
         .error(function(errors) {
           console.log("error:" + errors);
@@ -519,35 +534,50 @@
       Backbone.history.navigate(href, true);
     },
 
-    changeArea: function(area, id) {
+    changeArea: function(area, id, callback) {
       var self = this;
 
-      var num = 0;
+      if(area !== self.model.get('area')) {
+        var num = 0;
 
-      if(!this.countries_polygons)
-        num++;
+        if(!this.countries_polygons)
+          num++;
 
-      if(!this.countries_sublayer)
-        num++;
+        if(!this.countries_sublayer)
+          num++;
 
-      if(area === 'country') {
-        num += 3;
+        if(area === 'country') {
+          num += 3;
 
-        this.current_iso = id;
+          this._setCountry(id);
+        } else if(area === 'region') {
+          num++;
 
-        this._setCountry(id);
-      } else if(area === 'region') {
-        num++;
+          this._setRegion(id);
+          this._showRegion(id);
+        }
 
-        this._setRegion(id);
-        this._showRegion(id);
+        this.loadArea = _.after(num, function() {
+          self._hideLoader();
+
+          self.model.set('area', area);
+        });
+      } else {
+        if(area === 'country' && this.current_iso !== id) {
+          this._setCountry(id);
+
+          this.loadArea = _.after(3, function() {
+            this._changeCountry();
+          });
+        } else if(area === 'region' && this.current_region !== id) {
+          this._setRegion(id);
+          this._showRegion(id);
+
+          this.loadArea = _.after(1, function() {
+            this._changeRegion();
+          });
+        }
       }
-
-      this.loadArea = _.after(num, function() {
-        self._hideLoader();
-
-        self.model.set('area', area);
-      });
     },
 
     _disableInteraction: function() {
@@ -574,41 +604,52 @@
       this.$cartodbMap.removeClass("cartodb-map-disabled");
     },
 
+    _changeCountry: function() {
+      // infowindow
+      this.infowindow.hide();
+
+      //chips
+      this._hideChips();
+
+      // panel
+      this.panel.template.set('template', $("#country_panel-template").html());
+      this.panel.render();
+      this.panel.show();
+
+      // map
+      this._disableInteraction();
+      // TODO: active layers
+      this.countries_sublayer.setCartoCSS(slavery.AppData.CARTOCSS + "#gsi_geom_copy [ iso3 != '" + this.panel.model.get('country_iso') + "'] { polygon-fill: #666; polygon-opacity: 1; line-width: 1; line-color: #333; line-opacity: 1; }");
+      this.map.setView(this.model.get('center'), this.model.get('zoom'));
+    },
+
+    _changeRegion: function() {
+      // infowindow
+      this.infowindow.hide();
+
+      //chips
+      this._hideChips();
+
+      // panel
+      this.panel.template.set('template', $("#region_panel-template").html());
+      this.panel.render();
+      this.panel.show();
+
+      // map
+      this._enableInteraction();
+      // TODO: active layers
+      this.countries_sublayer.setCartoCSS(slavery.AppData.CARTOCSS + "#gsi_geom_copy [ region_name != '" + this.panel.model.get('region') + "'] { polygon-fill: #666; polygon-opacity: 1; line-width: 1; line-color: #333; line-opacity: 1; }");
+      this.map.setView(slavery.AppData.REGIONS[this.panel.model.get('region')].center, slavery.AppData.REGIONS[this.panel.model.get('region')].zoom);
+
+      // url
+      this._changeURL('map/region/'+this.panel.model.get('region'));
+    },
+
     _onAreaChanged: function() {
       if(this.model.get('area') === 'country') {
-        // infowindow
-        this.infowindow.hide();
-
-        //chips
-        this._hideChips();
-
-        // panel
-        this.panel.template.set('template', $("#country_panel-template").html());
-        this.panel.render();
-        this.panel.show();
-
-        // map
-        this._disableInteraction();
-        // TODO: active layers
-        this.countries_sublayer.setCartoCSS(slavery.AppData.CARTOCSS + "#gsi_geom_copy [ iso3 != '" + this.panel.model.get('country_iso') + "'] { polygon-fill: #666; polygon-opacity: 1; line-width: 1; line-color: #333; line-opacity: 1; }");
-        this.map.setView(this.model.get('center'), this.model.get('zoom'));
+        this._changeCountry();
       } else if(this.model.get('area') === 'region') {
-        // infowindow
-        this.infowindow.hide();
-
-        // panel
-        this.panel.template.set('template', $("#region_panel-template").html());
-        this.panel.render();
-        this.panel.show();
-
-        // map
-        this._enableInteraction();
-        // TODO: active layers
-        this.countries_sublayer.setCartoCSS(slavery.AppData.CARTOCSS + "#gsi_geom_copy [ region_name != '" + this.panel.model.get('region') + "'] { polygon-fill: #666; polygon-opacity: 1; line-width: 1; line-color: #333; line-opacity: 1; }");
-        this.map.setView(slavery.AppData.REGIONS[this.panel.model.get('region')].center, slavery.AppData.REGIONS[this.panel.model.get('region')].zoom);
-
-        // url
-        this._changeURL('map/region/'+this.panel.model.get('region'));
+        this._changeRegion();
       } else if(this.model.get('area') === 'world') {
         // infowindow
         this.infowindow.hide();

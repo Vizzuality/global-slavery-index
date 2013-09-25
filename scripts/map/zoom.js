@@ -53,7 +53,7 @@
       if(self.map.model.get('area') === 'country') {
         e.stopPropagation();
 
-        self.map._changeArea("region");
+        self.map.changeArea("region", self.map.current_region);
       } else {
         self.map.map.zoomOut();
       }
