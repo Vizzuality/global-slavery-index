@@ -1,50 +1,84 @@
 slavery.AppData = {
   REGIONS: {
     'asia': {
+      name: 'asia',
+      title: 'Asia',
+      desc: 'Although there had been some trans-Saharan trade from the interior of Sub-Saharan Africa to other regions, slavery was a small part of the economic life of many societies in Africa until the introduction of transcontinental slave trades (Arab and Atlantic). Slave practices were again transformed with European colonization of Africa and the formal abolition of slavery in the early 1900s.',
       center: {
-        lat: -0.5904881759999512,
-        lng: 0.4429630865000007
+        lat: 3.5134210456400443, 
+        lng: 77.958984375
       },
-      zoom: 1
+      zoom: 4
     },
     'west_europe': {
+      name: 'west_europe',
+      title: 'Europe',
+      desc: 'Although there had been some trans-Saharan trade from the interior of Sub-Saharan Africa to other regions, slavery was a small part of the economic life of many societies in Africa until the introduction of transcontinental slave trades (Arab and Atlantic). Slave practices were again transformed with European colonization of Africa and the formal abolition of slavery in the early 1900s.',
       center: {
-        lat: 13.153794663500104,
-        lng: -6.281442837999851
+        lat: 46.9502622421856,
+        lng: 0.3515625
       },
-      zoom: 2
+      zoom: 5
     },
     'east_europe': {
+      name: 'east_europe',
+      title: 'Russia & Eurasia',
+      desc: 'Although there had been some trans-Saharan trade from the interior of Sub-Saharan Africa to other regions, slavery was a small part of the economic life of many societies in Africa until the introduction of transcontinental slave trades (Arab and Atlantic). Slave practices were again transformed with European colonization of Africa and the formal abolition of slavery in the early 1900s.',
       center: {
-        lat: 58.4996784495001,
-        lng: 0
+        lat: 51.12106042504407, 
+        lng: 40.869140625
       },
-      zoom: 1
+      zoom: 4
     },
     'americas': {
+      name: 'americas',
+      title: 'Americas',
+      desc: 'Although there had been some trans-Saharan trade from the interior of Sub-Saharan Africa to other regions, slavery was a small part of the economic life of many societies in Africa until the introduction of transcontinental slave trades (Arab and Atlantic). Slave practices were again transformed with European colonization of Africa and the formal abolition of slavery in the early 1900s.',
       center: {
-        lat: 13.599009152500102,
-        lng: 0
+        lat: 1.2303741774326145,
+        lng:  -104.94140625,
       },
-      zoom: 1
+      zoom: 3
     },
     'africa': {
+      name: 'africa',
+      title: 'Sub-Saharan Africa',
+      desc: 'Although there had been some trans-Saharan trade from the interior of Sub-Saharan Africa to other regions, slavery was a small part of the economic life of many societies in Africa until the introduction of transcontinental slave trades (Arab and Atlantic). Slave practices were again transformed with European colonization of Africa and the formal abolition of slavery in the early 1900s.',
       center: {
         lat: -9.840168555999899,
         lng: 19.0667423835001
       },
-      zoom: 3
+      zoom: 4
     },
     'middle_east': {
+      name: 'middle_east',
+      title: 'Mid East & N. Africa',
+      desc: 'Although there had been some trans-Saharan trade from the interior of Sub-Saharan Africa to other regions, slavery was a small part of the economic life of many societies in Africa until the introduction of transcontinental slave trades (Arab and Atlantic). Slave practices were again transformed with European colonization of Africa and the formal abolition of slavery in the early 1900s.',
       center: {
         lat: 24.226584371000065,
         lng: 23.152942403827552
       },
-      zoom: 3
+      zoom: 4
     }
   },
-  CARTOCSS: {
-    'default': '#gsi_geom_copy::glow{   line-color: #000;   line-opacity: .2;   line-width: 2; }  #gsi_geom_copy{   line-color: #FFF;   line-opacity: 1;   line-width: 1;   polygon-opacity: 1; } #gsi_geom_copy [ slavery_policy_risk <= 100] {    polygon-fill: #B10026; } #gsi_geom_copy [ slavery_policy_risk <= 89.39] {    polygon-fill: #E31A1C; } #gsi_geom_copy [ slavery_policy_risk <= 75.25] {    polygon-fill: #FC4E2A; } #gsi_geom_copy [ slavery_policy_risk <= 64.64] {    polygon-fill: #FD8D3C; } #gsi_geom_copy [ slavery_policy_risk <= 46.9642857142857] {    polygon-fill: #FEB24C; } #gsi_geom_copy [ slavery_policy_risk <= 36.3571428571429] {    polygon-fill: #FED976; } #gsi_geom_copy [ slavery_policy_risk <= 18.6785714285714] {    polygon-fill: #FFFFB2; } #gsi_geom_copy [ slavery_policy_risk = null] {    polygon-fill: #CCCCCC;   polygon-pattern-file: url("https://s3.amazonaws.com/com.cartodb.users-assets.production/production/walkfree/assets/20130905165330strip1.png");   polygon-pattern-opacity: 0.05; }  #gsi_geom_copy [zoom>=3] {   line-color: #404143;   line-opacity: 1;   line-width: .45; }   #gsi_geom_copy [zoom>=4] {   ::glow{     line-color: #000;     line-opacity: .3;     line-width: 2.9;   }     line-color: #404143;   line-opacity: 1;   line-width: .6; }   #gsi_geom_copy [zoom>=6] {   ::glow{    line-color: #000;     line-opacity: .3;     line-width: 5;   }   line-color: #404143;   line-opacity: 1;   line-width: .9; }'
+  GRAPHS: {
+    'human_development_index': {
+      title: 'Human Development Index',
+      column: 'human_development_index'
+    },
+    'access_to_financial_services': {
+      title: 'Access to Financial Services Index',
+      column: 'access_to_fin_services_index'
+    },
+    'corruption': {
+      title: 'Corruption Index',
+      column: 'corruption_index'
+    },
+  },
+  CONFIG: {
+    plot: {
+      graph: 'human_development_index'
+    }
   }
 }
 
@@ -94,6 +128,7 @@ function create_polygons(url, ready) {
   });
 }
 
+//TODO: REMEMBER TO CHANGE THIS TO THE LINE GRADIENT
 function slaveryToHuman(num) {
   var risk = '';
 
@@ -114,4 +149,8 @@ function slaveryToHuman(num) {
   }
 
   return risk;
+}
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }

@@ -8,23 +8,23 @@ $(function() {
       '/':              'map',
       'map':            'map',
       'map/':           'map',
-      'map/:area/:id':  'mapWithArea',
+      'map/:area/:id':  'map',
 
       // Chart
-      'chart':          'chart',
-      'chart/':         'chart'
+      'plot':   'plot',
+      'plot/':  'plot'
     },
 
-    chart: function() {
-      this.trigger('change', { type: 'chart' }, this);
+    plot: function() {
+      this.trigger('change', { type: 'plot' }, this);
     },
 
-    map: function() {
-      this.trigger('change', { type: 'map' }, this);
-    },
-
-    mapWithArea: function(area, id) {
-      this.trigger('change', { type: 'map', area: area, id: id }, this);
+    map: function(area, id) {
+      this.trigger('change', {
+        type: 'map',
+        area: area || 'world',
+        id: id
+      }, this);
     }
   });
 
@@ -35,7 +35,8 @@ $(function() {
     initialize: function() {
       this.workViewActive = this.options.workViewActive || 'map';
 
-      this.loaded = false;
+      this.$wrapper = this.$(".wrapper");
+      this.$nav = this.$(".nav");
 
       this._initRouter();
       this._initViews();
@@ -50,60 +51,53 @@ $(function() {
     _initViews: function() {
       // Nav
       this.nav = new slavery.ui.view.Nav({
-        el: this.$(".nav")
+        el: this.$nav
       });
 
       this.workTabs = new slavery.ui.view.Tabs({
-        el: this.$('.switch'),
+        el: this.$nav.find('.switch'),
         slash: false
       });
       this.addView(this.workTabs);
 
       // Work view (table and map)
       this.workView = new cdb.ui.common.TabPane({
-        el: this.$(".wrapper")
+        el: this.$wrapper
       });
       this.addView(this.workView);
 
-      this.map = new slavery.ui.view.Map({
-        el: this.$('.map-wrapper'),
+      this.mapView = new slavery.ui.view.Map({
+        el: this.$wrapper.find('.map-wrapper'),
         mapTab: $(this.workTabs.el).find(".map")
       });
 
-      this.chart = new slavery.Chart({
-        el: this.$('.chart-wrapper')
+      this.plotView = new slavery.ui.view.Plot({
+        el: this.$wrapper.find('.plot-wrapper')
       });
 
-      this.workView.addTab('map', this.map, { active: false });
-      this.workView.addTab('chart', this.chart, { active: false });
+      this.workView.addTab('map', this.mapView, { active: false });
+      this.workView.addTab('plot', this.plotView, { active: false });
 
       this.workTabs.linkToPane(this.workView);
     },
 
     activeView: function(pane) {
-      var self = this;
-
       this.workViewActive = pane['type'];
 
-      // map or chart?
+      // map or plot?
       this.workView.active(this.workViewActive);
       this.workTabs.activate(this.workViewActive);
 
       if(this.workViewActive === 'map') {
         this.nav.model.set("legend", "map");
+
+        this.plotView.graph_selector.close();
+
+        this.mapView.changeArea(pane['area'], pane['id']);
       } else {
         this.nav.model.set("legend", "plot");
-      }
 
-      // map with area
-      if(this.workViewActive === 'map' && pane['area']) {
-        if(pane['area'] === 'region') {
-          self.map._setRegionInfo(pane['id']);
-        } else if (pane['area'] === 'country') {
-          self.map._setCountryInfo(pane['id']);
-        }
-
-        self.map._loadArea(pane['area'], function() { self.map._changeArea(pane['area'], pane['id']); });
+        this.mapView.closeSelectors();
       }
     }
   });

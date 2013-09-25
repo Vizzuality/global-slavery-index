@@ -5,16 +5,12 @@
    *  Example:
    *
    *  var panel = new slavery.ui.view.Panel({
-   *    el: $('.panel-wrapper')
+   *    el: $('.panel')
    *  });
    */
 
 
   slavery.ui.view.Panel = cdb.core.View.extend({
-    events: cdb.core.View.extendEvents({
-      'click .back': '_changeArea'
-    }),
-
     _REGIONS: {
       middle_east: {
         desc: 'middle_east description'
@@ -23,10 +19,10 @@
         desc: 'west_europe description'
       },
       east_europe: {
-        desc: 'europe description'
+        desc: 'east_europe description'
       },
       africa: {
-        desc: 'europe description'
+        desc: 'africa description'
       },
       asia: {
         desc: 'asia description'
@@ -46,15 +42,13 @@
       this.model.bind("change:hidden", this._toggle);
 
       // this.template = cdb.templates.getTemplate('map/views/panel.jst.js');
-      var template = $("#country_panel-template").html();
-
       this.template = new cdb.core.Template({
-        template: template
+        template: $("#country_panel-template").html()
       });
     },
 
     render: function() {
-      this.model.set('region_desc', this._REGIONS[this.model.get('region')].desc);
+      this.model.set('region_desc', slavery.AppData.REGIONS[this.model.get('region')].desc);
 
       this.$el.html(this.template.render( this.model.toJSON() ));
       return this;
@@ -78,16 +72,9 @@
 
     _toggle: function() {
       if(!this.model.get("hidden")) {
-        $(this.$el).fadeIn(150);
+        $(this.$el).delay(600).fadeIn(150);
       } else {
-        $(this.$el).fadeOut(150);
+        $(this.$el).fadeOut(250);
       }
-    },
-
-    _changeArea: function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-
-      this.trigger('changearea');
     }
   });

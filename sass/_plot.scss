@@ -30,7 +30,7 @@
   stroke: rgba(#fff, .1);
 }
 
-circle{
+circle {
   stroke: black;
   stroke-width: .5px;
   @include opacity(.6);
@@ -42,3 +42,11 @@ circle{
   &.west_europe { fill: #64C5FF; }
   &.africa { fill: #FF4D4D; }
 }
+
+.tipsy{
+  @include font(400, 15px, 1.2, 'Open Sans');
+  fill: #FFF;
+  pointer-events: none;
+}
+
+.graph_selector .selector-items { width: 294px; }

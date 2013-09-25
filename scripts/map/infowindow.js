@@ -12,7 +12,6 @@
 
   slavery.ui.view.Infowindow = cdb.core.View.extend({
     events: cdb.core.View.extendEvents({
-      'click .more': '_changeArea',
       'click .close': 'hide'
     }),
 
@@ -93,7 +92,7 @@
       if(!this.model.get("hidden")) {
         $(this.$el).fadeIn(150);
       } else {
-        $(this.$el).fadeOut(350);
+        $(this.$el).fadeOut(150);
       }
     },
 
@@ -156,15 +155,5 @@
     _changeCoordinates: function() {
       this._center();
       this._pan();
-    },
-
-    _changeArea: function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-
-      this.trigger('changearea', 'country');
-      this.trigger('changeurl');
-
-      this.hide();
     }
   });
