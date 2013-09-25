@@ -28,8 +28,8 @@ $infowindow-icons-slavery-spacing: 40px;
 
 .zoom {
   position: absolute;
+  top: 20px; left: 50px;
   z-index: 10;
-  margin: 20px 0 0 50px;
   border: 1px solid #444;
   @include border-radius(14px);
   @include box-shadow(none);
@@ -178,26 +178,10 @@ $infowindow-icons-slavery-spacing: 40px;
 }
 
 .infowindow-title {
+  border-bottom: 2px solid $risk1;
   padding: 20px;
   color: #444;
   @include font(bold, 21px, 1, "Open Sans");
-}
-
-.infowindow-risk {
-  width: 199px;
-  max-width: 199px;
-  height: 10px;
-  color: $risk1;
-  border-top: 2px solid $risk1;
-
-  span {
-    float: right;
-    margin: -9px 13px 0 0;
-    padding: 0 5px;
-    background: #FFF;
-    text-transform: uppercase;
-    @include font(bold, 11px);
-  }
 }
 
 .total-num {

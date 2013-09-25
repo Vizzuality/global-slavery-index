@@ -35,8 +35,6 @@ $(function() {
     initialize: function() {
       this.workViewActive = this.options.workViewActive || 'map';
 
-      this.loaded = false;
-
       this.$wrapper = this.$(".wrapper");
       this.$nav = this.$(".nav");
 
@@ -88,7 +86,7 @@ $(function() {
 
       this.workViewActive = pane['type'];
 
-      // map or chart?
+      // map or plot?
       this.workView.active(this.workViewActive);
       this.workTabs.activate(this.workViewActive);
 
