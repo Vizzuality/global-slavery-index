@@ -144,13 +144,13 @@
               .append('svg:text')
               .style("opacity", "0")
               .attr("class", "tipsy")
-              .attr("x", x_scale(e.x))
-              .attr("y", y_scale(e.y))
+              .attr("x", function() {return d3.select(d3.event.target).attr("cx");})
+              .attr("y", function() {return d3.select(d3.event.target).attr("cy");})
               .style("text-anchor", "middle")
               .text(function(d) { return e.country_name + " ("+e.slavery_policy_risk.toFixed(1)+")"; })
               .transition()
                 .style("opacity","1")
-                .attr("y", y_scale(e.y)-r_scale(e.radius)-18);
+                .attr("y", d3.select(d3.event.target).attr("cy")-r_scale(e.radius)-18);
 
           }).on('mouseout', function() {
             d3.select(d3.event.target)
