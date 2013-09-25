@@ -22,31 +22,25 @@
       this.model.bind("change:area", this._onAreaChanged);
 
       // this.template = cdb.templates.getTemplate('map/views/map.jst.js');
-      var template = $("#cartodb-map-template").html();
-
       this.template = new cdb.core.Template({
-        template: template
+        template: $("#cartodb-map-template").html()
       });
 
       this.render();
 
-      this.isLoaded = false;
-
-      this.countries_polygons = {};
-      this.countries_sublayer = {};
       this.chips = [];
 
       this.sql = new cartodb.SQL({ user: 'walkfree' });
 
+      this._initLoader();
       this._initViews();
       this._initBindings();
-      // this._initLoader();
 
       var polygons_url = 'https://walkfree.cartodb.com/api/v2/sql?q=select iso3, ST_Simplify(the_geom, 0.005) as the_geom from gsi_geom_copy&format=geojson';
 
       create_polygons(polygons_url, function(polygons) {
         self.countries_polygons = polygons;
-        self.trigger("polygonsloaded")
+        self.loadArea();
       });
     },
 
@@ -219,8 +213,6 @@
 
             self.infowindow.setLoading();
 
-            self._setCountry(data.iso3);
-
             self.sql.execute("SELECT * FROM gsi_geom_copy WHERE cartodb_id = {{id}}", { id: data.cartodb_id })
               .done(function(data) {
                 var country = data.rows[0],
@@ -234,11 +226,11 @@
                   self.infowindow.model.set({
                     hidden: false,
                     content: {
-                      slavery_policy_risk: slaveryToHuman(country.slavery_policy_risk),
+                      slavery_policy_risk: country.slavery_policy_risk,
                       country_name: country.country_name,
-                      prevalence: 'high',
                       gdppp: country.gdppp,
-                      slaved: 143142
+                      slaves: country.slaves,
+                      iso3: country.iso3,
                     },
                     template_name: 'infowindow_success',
                     collapsed: false
@@ -260,7 +252,7 @@
             self.out();
           });
 
-          self.trigger("sublayerloaded");
+          self.loadArea();
         }).on('error', function() {
           //log the error
         });
@@ -276,39 +268,6 @@
 
       this.infowindow.bind("changearea", this._changeArea, this);
       this.panel.bind("changearea", this._changeArea, this);
-    },
-
-    _loadArea: function(area, callback) {
-      var self = this;
-
-      // sublayer
-      // polygons
-      var num = 2;
-
-      if(area === 'region') {
-        // region info
-        num = 3;
-      } else if(area === 'country') {
-        // country info
-        // country bounds
-        num = 5;
-      }
-
-      this.loadArea = _.after(num, function() {
-        if(!self.isLoaded) {
-          self.isLoaded = true;
-
-          callback && callback();
-        }
-      });
-
-      this.bind("sublayerloaded", function() {
-        this.loadArea && this.loadArea();
-      });
-
-      this.bind("polygonsloaded", function() {
-        this.loadArea && this.loadArea();
-      });
     },
 
     _initLoader: function() {
@@ -337,14 +296,8 @@
       this.$el.append(this.loader.el);
     },
 
-    hideLoader: function(delay) {
-      var self = this;
-
-      var delay = delay || 0;
-
-      setTimeout(function() {
-        self.loader.stop();
-      }, delay);
+    _hideLoader: function() {
+      this.loader.stop();
     },
 
     _setCountry: function(iso) {
@@ -365,7 +318,7 @@
 
           self._setRegion(country.region);
 
-          self.loadArea && self.loadArea();
+          self.loadArea();
         })
         .error(function(errors) {
           console.log("error:" + errors);
@@ -383,32 +336,18 @@
             'zoom': zoom
           });
 
-          self.loadArea && self.loadArea();
+          self.loadArea();
         }).error(function(errors) {
           console.log("error:" + errors);
         });
     },
 
-    _setRegion: function(id, callback) {
+    _setRegion: function(id) {
       var self = this;
 
-      this.sql.execute("SELECT *, ST_AsGeoJSON(ST_PointOnSurface(the_geom)) as center FROM gsi_geom_copy WHERE region = '{{id}}'", { id: id })
+      this.sql.execute("SELECT * FROM gsi_geom_copy WHERE region = '{{id}}'", { id: id })
         .done(function(data) {
           var region = data.rows[0];
-
-          if(self.chips.length === 0) {
-            _.each(data.rows, function(country) {
-              var coordinates = $.parseJSON(country.center).coordinates;
-
-              var markerIcon = L.divIcon({
-                iconSize: [100, 100],
-                className: 'chip chip_'+country.iso3,
-                html: '<div class="mean '+slaveryToHuman(country.slavery_policy_risk).toLowerCase().split(' ').join('_')+'">'+country.mean.toFixed(2)+'</div>'
-              });
-
-              self.chips.push(L.marker([coordinates[1], coordinates[0]], {icon: markerIcon}));
-            });
-          }
 
           self.panel.model.set({
             'region': id,
@@ -416,9 +355,7 @@
             'countries_count': data.rows.length
           });
 
-          callback && callback();
-
-          self.loadArea && self.loadArea();
+          self.loadArea();
         })
         .error(function(errors) {
           console.log("error:" + errors);
@@ -428,13 +365,21 @@
     _showRegion: function(id) {
       var self = this;
 
-      this.sql.execute("SELECT * FROM gsi_geom_copy WHERE region = '{{id}}'", { id: id })
+      this.sql.execute("SELECT *, ST_AsGeoJSON(ST_PointOnSurface(the_geom)) as center FROM gsi_geom_copy WHERE region = '{{id}}'", { id: id })
         .done(function(data) {
           var region = data.rows[0];
 
-          L.layerGroup(app.mapView.chips).addTo(app.mapView.map);
-
           _.each(data.rows, function(country) {
+            var coordinates = $.parseJSON(country.center).coordinates;
+
+            var markerIcon = L.divIcon({
+              iconSize: [100, 100],
+              className: 'chip chip_'+country.iso3,
+              html: '<div class="mean '+slaveryToHuman(country.slavery_policy_risk).toLowerCase().split(' ').join('_')+'">'+country.mean.toFixed(2)+'</div>'
+            });
+
+            self.chips.push(L.marker([coordinates[1], coordinates[0]], {icon: markerIcon}).addTo(self.map));
+
             // dataset
             var dataset = [country.human_rights_risk, country.develop_rights_risk, country.state_stability_risk, country.discrimination_risk, country.slavery_policy_risk];
             var dataset_ord = dataset.slice(0).sort(function(a,b){ return b-a });
@@ -564,29 +509,43 @@
 
     _changeURL: function(href) {
       this.options.mapTab.attr("data-url", href);
+
       Backbone.history.navigate(href, true);
     },
 
-    _changeArea: function(area, id) {
-      if(id) this.current_iso = id;
+    changeArea: function(area, id) {
+      var self = this;
 
-      if(area) {
-        this.panel.model.set('area', area);
-        this.model.set('area', area);
-      } else {
-        var current_area = this.model.get('area');
+      var num = 0;
 
-        if(current_area === 'world') {
-          this.model.set('area', 'country');
-        } else if(current_area === 'country') {
-          this.model.set('area', 'region')
-        } else {
-          this.model.set('area', 'world');
-        }
+      if(!this.countries_polygons)
+        num++;
+
+      if(!this.countries_sublayer)
+        num++;
+
+      if(area === 'country') {
+        num += 3;
+
+        this.current_iso = id;
+
+        this._setCountry(id);
+      } else if(area === 'region') {
+        num++;
+
+        this._setRegion(id);
+        this._showRegion(id);
       }
+
+      this.loadArea = _.after(num, function() {
+        self._hideLoader();
+
+        self.model.set('area', area);
+      });
     },
 
     _disableInteraction: function() {
+      this.over(this.current_iso, "#333");
       this.map.dragging.disable();
       this.map.touchZoom.disable();
       this.map.doubleClickZoom.disable();
@@ -598,6 +557,7 @@
     },
 
     _enableInteraction: function() {
+      this.out();
       this.map.dragging.enable();
       this.map.touchZoom.enable();
       this.map.doubleClickZoom.enable();
@@ -610,6 +570,9 @@
 
     _onAreaChanged: function() {
       if(this.model.get('area') === 'country') {
+        // infowindow
+        this.infowindow.hide();
+
         //chips
         this._hideChips();
 
@@ -619,13 +582,10 @@
         this.panel.show();
 
         // map
-        this.over(this.current_iso, "#333");
         this._disableInteraction();
+        // TODO: active layers
         this.countries_sublayer.setCartoCSS(slavery.AppData.CARTOCSS + "#gsi_geom_copy [ iso3 != '" + this.panel.model.get('country_iso') + "'] { polygon-fill: #666; polygon-opacity: 1; line-width: 1; line-color: #333; line-opacity: 1; }");
         this.map.setView(this.model.get('center'), this.model.get('zoom'));
-
-        // url
-        this._changeURL('map/country/'+this.panel.model.get('country_iso'));
       } else if(this.model.get('area') === 'region') {
         // infowindow
         this.infowindow.hide();
@@ -636,8 +596,8 @@
         this.panel.show();
 
         // map
-        this.out();
         this._enableInteraction();
+        // TODO: active layers
         this.countries_sublayer.setCartoCSS(slavery.AppData.CARTOCSS + "#gsi_geom_copy [ region_name != '" + this.panel.model.get('region') + "'] { polygon-fill: #666; polygon-opacity: 1; line-width: 1; line-color: #333; line-opacity: 1; }");
         this.map.setView(slavery.AppData.REGIONS[this.panel.model.get('region')].center, slavery.AppData.REGIONS[this.panel.model.get('region')].zoom);
 
@@ -654,6 +614,8 @@
         this.panel.hide();
 
         // map
+        this._enableInteraction();
+        // TODO: active layers
         this.countries_sublayer.setCartoCSS(slavery.AppData.CARTOCSS);
         this.map.fitWorld();
 

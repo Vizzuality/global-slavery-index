@@ -11,10 +11,6 @@
 
 
   slavery.ui.view.Panel = cdb.core.View.extend({
-    events: cdb.core.View.extendEvents({
-      'click .back': '_changeArea'
-    }),
-
     _REGIONS: {
       middle_east: {
         desc: 'middle_east description'
@@ -46,10 +42,8 @@
       this.model.bind("change:hidden", this._toggle);
 
       // this.template = cdb.templates.getTemplate('map/views/panel.jst.js');
-      var template = $("#country_panel-template").html();
-
       this.template = new cdb.core.Template({
-        template: template
+        template: $("#country_panel-template").html()
       });
     },
 
@@ -82,12 +76,5 @@
       } else {
         $(this.$el).fadeOut(250);
       }
-    },
-
-    _changeArea: function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-
-      this.trigger('changearea');
     }
   });

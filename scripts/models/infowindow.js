@@ -8,6 +8,6 @@ slavery.ui.model.Infowindow = Backbone.Model.extend({
       prevalence: null,
       population: null,
       slaved: null
-	}
+    }
   }
 });

@@ -26,7 +26,7 @@
 
       // graphs are defined in utils
       _.each(slavery.AppData.GRAPHS, function(graph) {
-        self.graphs.add(new slavery.ui.model.Graph(graph['column'] === slavery.AppData.CONFIG.chart.graph ? _.extend(graph, { selected: true }) : graph));
+        self.graphs.add(new slavery.ui.model.Graph(graph['column'] === slavery.AppData.CONFIG.plot.graph ? _.extend(graph, { selected: true }) : graph));
       });
 
       this.selectedGraph = this.graphs.find(function(graph) { return graph.get("selected"); });

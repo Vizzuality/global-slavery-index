@@ -58,7 +58,7 @@ slavery.AppData = {
     },
   },
   CONFIG: {
-    chart: {
+    plot: {
       graph: 'human_development_index'
     }
   }

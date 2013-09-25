@@ -1,20 +1,20 @@
   /**
-   *  Chart view
+   *  Plot view
    *
    *  Example:
    *
-   *  var chartView = new slavery.Chart({
-   *    el: $('.chart-wrapper')
+   *  var plotView = new slavery.Plot({
+   *    el: $('.plot-wrapper')
    *  });
    */
 
   var m, margin_h, w, h;
 
-  slavery.Chart = cdb.core.View.extend({
+  slavery.ui.view.Plot = cdb.core.View.extend({
 
     initialize: function() {
       // this.template = cdb.templates.getTemplate('chart/views/chart.jst.js');
-      var template = $("#chart-template").html();
+      var template = $("#plot-template").html();
 
       this.template = new cdb.core.Template({
         template: template
@@ -45,7 +45,7 @@
         el: this.$(".graph_selector")
       });
 
-      var svg = d3.select(".chart")
+      var svg = d3.select(".plot")
         .append("svg")
         .attr("width", w)
         .attr("height", h);

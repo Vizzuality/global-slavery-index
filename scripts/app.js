@@ -11,12 +11,12 @@ $(function() {
       'map/:area/:id':  'map',
 
       // Chart
-      'chart':          'chart',
-      'chart/':         'chart'
+      'plot':   'plot',
+      'plot/':  'plot'
     },
 
-    chart: function() {
-      this.trigger('change', { type: 'chart' }, this);
+    plot: function() {
+      this.trigger('change', { type: 'plot' }, this);
     },
 
     map: function(area, id) {
@@ -34,8 +34,6 @@ $(function() {
 
     initialize: function() {
       this.workViewActive = this.options.workViewActive || 'map';
-
-      this.loaded = false;
 
       this.$wrapper = this.$(".wrapper");
       this.$nav = this.$(".nav");
@@ -73,12 +71,12 @@ $(function() {
         mapTab: $(this.workTabs.el).find(".map")
       });
 
-      this.chart = new slavery.Chart({
-        el: this.$wrapper.find('.chart-wrapper')
+      this.plotView = new slavery.ui.view.Plot({
+        el: this.$wrapper.find('.plot-wrapper')
       });
 
       this.workView.addTab('map', this.mapView, { active: false });
-      this.workView.addTab('chart', this.chart, { active: false });
+      this.workView.addTab('plot', this.plotView, { active: false });
 
       this.workTabs.linkToPane(this.workView);
     },
@@ -88,36 +86,16 @@ $(function() {
 
       this.workViewActive = pane['type'];
 
-      // map or chart?
+      // map or plot?
       this.workView.active(this.workViewActive);
       this.workTabs.activate(this.workViewActive);
 
       if(this.workViewActive === 'map') {
         this.nav.model.set("legend", "map");
+
+        self.mapView.changeArea(pane['area'], pane['id']);
       } else {
         this.nav.model.set("legend", "plot");
-      }
-
-      // map with area
-      if(this.workViewActive === 'map'){
-        if(pane['area'] === 'world') {
-          this.mapView.hideLoader(600);
-        } else {
-          if(pane['area'] === 'region') {
-            this.mapView._setRegion(pane['id'], function() {
-              self.mapView._showRegion(pane['id']);
-            });
-
-          } else if (pane['area'] === 'country') {
-            this.mapView._setCountry(pane['id']);
-          }
-
-          this.mapView._loadArea(pane['area'], function() {
-            self.mapView.hideLoader((pane['area'] === 'region') ? 0 : 600);
-
-            self.mapView._changeArea(pane['area'], pane['id']);
-          });
-        }
       }
     }
   });
