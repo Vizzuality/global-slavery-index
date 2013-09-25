@@ -89,6 +89,8 @@
     _onClickLink: function(e) {
       e.preventDefault();
 
+      this.trigger("closeotherselectors");
+
       if(this.model.get("closed")) {
         this.open();
       } else {

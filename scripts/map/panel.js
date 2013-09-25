@@ -48,7 +48,7 @@
     },
 
     render: function() {
-      this.model.set('region_desc', this._REGIONS[this.model.get('region')].desc);
+      this.model.set('region_desc', slavery.AppData.REGIONS[this.model.get('region')].desc);
 
       this.$el.html(this.template.render( this.model.toJSON() ));
       return this;

@@ -47,7 +47,7 @@
       </ul>
     </div>
 
-    <div class="legend plot">
+    <div class="legend legend-plot">
       <ul>
         <li><i style="border-color: #330066; background-color:#A64DFF"></i> Asia</li>
         <li><i style="border-color: #663300; background-color:#FFD24D"></i> Americas</li>
@@ -58,21 +58,17 @@
       </ul>
     </div>
 
-    <div class="legend map">
+    <div class="legend legend-map">
       <strong>Slavery Prevalence</strong>
-      <ul>
-        <li class="quartile" style="background-color:#FFFFB2"><div class="big bottom">Very low</div></li>
-        <li class="quartile" style="background-color:#FED976"><div class="top">Low</div></li>
-        <li class="quartile" style="background-color:#FEB24C"><div class="big bottom">Moderate low</div></li>
-        <li class="quartile" style="background-color:#FD8D3C"><div class="top">Moderate</div></li>
-        <li class="quartile" style="background-color:#FC4E2A"><div class="big bottom">Moderate high</div></li>
-        <li class="quartile" style="background-color:#E31A1C"><div class="top">High</div></li>
-        <li class="quartile" style="background-color:#B10026"><div class="big bottom">Very high</div></li>
-      </ul>
+      <div class="gradient">
+        <div class="left">Very low</div>
+        <div class="right">Very high</div>
+      </div>
     </div>
   </script>
 
   <script id="cartodb-map-template" type="text/x-underscore-template">
+    <svg class="mamufas"></svg>
     <div id="cartodb-map" class="cartodb-map"></div>
     <div class="zoom"></div>
     <div class="infowindow"></div>

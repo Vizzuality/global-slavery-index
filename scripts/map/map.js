@@ -94,6 +94,7 @@
       this.bind("missingclick", function() {
         if(this.water) {
           this.infowindow.hide();
+          this.closeSelectors();
         }
       });
     },
@@ -159,10 +160,6 @@
         inertia: false
       });
 
-      this.map.on("load", function() {
-        debugger;
-      });
-
       this.zoom = new slavery.ui.view.Zoom({
         el: this.$(".zoom"),
         map: this
@@ -204,6 +201,8 @@
 
       this.addView(this.panel);
 
+      this.$mamufas = $(".mamufas");
+
       this.tooltip = d3.select('body')
         .append('div')
         .attr('class', 'tooltip');
@@ -226,6 +225,8 @@
 
           sublayer.on('featureClick', function(e, latlng, pos, data, layerNumber) {
             self.water = false;
+
+            self.closeSelectors();
 
             self.infowindow.model.set({
               coordinates: latlng
@@ -299,6 +300,14 @@
 
       this.infowindow.bind("changearea", this._changeArea, this);
       this.panel.bind("changearea", this._changeArea, this);
+
+      this.country_selector.bind("closeotherselectors", this.closeSelectors, this);
+      this.region_selector.bind("closeotherselectors", this.closeSelectors, this);
+    },
+
+    closeSelectors: function() {
+      this.country_selector.close();
+      this.region_selector.close();
     },
 
     _initLoader: function() {
@@ -621,6 +630,9 @@
     },
 
     _changeCountry: function() {
+      // selectors
+      this.closeSelectors();
+
       // infowindow
       this.infowindow.hide();
 
@@ -631,6 +643,7 @@
       this.panel.template.set('template', $("#country_panel-template").html());
       this.panel.render();
       this.panel.show();
+      this.$mamufas.show();
 
       // map
       this._disableInteraction();
@@ -640,6 +653,9 @@
     },
 
     _changeRegion: function() {
+      // selectors
+      this.closeSelectors();
+
       // infowindow
       this.infowindow.hide();
 
@@ -647,6 +663,7 @@
       this.panel.template.set('template', $("#region_panel-template").html());
       this.panel.render();
       this.panel.show();
+      this.$mamufas.show();
 
       // map
       this._enableInteraction();
@@ -664,6 +681,9 @@
       } else if(this.model.get('area') === 'region') {
         this._changeRegion();
       } else if(this.model.get('area') === 'world') {
+        // selectors
+        this.closeSelectors();
+
         // infowindow
         this.infowindow.hide();
 
@@ -672,6 +692,7 @@
 
         // panel
         this.panel.hide();
+        this.$mamufas.hide();
 
         // map
         this._enableInteraction();

@@ -33,38 +33,32 @@ body,
   @include box-shadow(0 0 3px rgba(#000, .3));
 }
 
-.nav .legend {
-
+.legend {
   display:none;
-
   position: absolute;
-  right: 20px;
-  top: 25px;
-
+  top: 25px; right: 20px;
   @include clearfix();
 
   strong  {
-    float:left;
-    position:relative;
+    float: left;
+    position: relative;
     top: -4px;
     margin: 0 7px 0 0;
     text-transform: uppercase;
     @include font(bold, 10px, 21px);
     color: #414346;
   }
-
 }
 
-.nav .legend.plot {
-
+.legend-plot {
   top: 24px;
 
   ul { float: left; }
+
   li {
     float:left;
     position:relative;
     margin: 0 30px 0 0;
-
     @include font(bold, 10px, 21px);
     color: #393D3F;
     text-transform: uppercase;
@@ -80,47 +74,30 @@ body,
       @include opacity(.6);
     }
   }
-
 }
 
-.nav .legend.map {
-
-  ul { float: left; }
-
-  .quartile {
-    float:left;
-    width: 54px;
-    height:10px;
-    position:relative;
-
-    $radius: 4px;
-
-    .top, .bottom {
-      &.big {
-        left: -15px;
-        width: 84px;
-      }
-
-      width: 54px;
-      text-align: center;
-      position:absolute;
-      @include font(500, 9px, 21px);
-      color: #AAAAAA;
-      text-transform: uppercase;
-    }
-
-    .top { top: -17px; }
-    .bottom { top: 8px; }
-
-    &, &:first-child { border: 1px solid rgba(#000, .3); }
-    & { border-left: 0; }
-
-    &:first-child { @include border-radius($radius 0 0 $radius); }
-    &:last-child { @include border-radius(0 $radius $radius 0); }
-
+.legend-map {
+  .gradient {
+    float: left;
+    width: 394px;
+    height: 10px;
+    border: 1px solid rgba(#000, .3);
+    @include border-radius(6px);
+    @include background-image(linear-gradient(to right, #fed976 0%, #b20727 100%));
   }
-}
 
+  .left,
+  .right {
+    position: relative;
+    top: 12px;
+    @include font(500, 9px);
+    color: #aaa;
+    text-transform: uppercase;
+  }
+
+  .left { float: left; }
+  .right { float: right; }
+}
 
 .switch {
   position: relative;
@@ -169,6 +146,7 @@ body,
 .selectors {
   position: absolute;
   top: 20px; right: 50px;
+  z-index: 10;
 }
 
 .selector {
@@ -177,8 +155,10 @@ body,
   margin-left: 10px;
   text-align: right;
 
-  ul {position: absolute;
+  ul {
+    position: absolute;
     right: 0;
+    display: none;
     width: 254px;
     margin-top: 10px;
     @include border-radius(5px);
@@ -205,14 +185,8 @@ body,
     }
 
     &:hover a {
-      background: url('../images/selector.png') no-repeat right 0;
-    }
-
-    &.selected a { color: #444; }
-
-    &:hover,
-    &.selected {
-      a { background-color: #f6f6f6; }
+      background: #f6f6f6 url('../images/selector.png') no-repeat right 0;
+      color: #444;
     }
 
     a {
@@ -255,7 +229,7 @@ body,
   background: #fff;
   color: #aaa;
 
-  &:hover { background: #f4f4f4; }
+  &:hover { background: #f8f8f8; }
 
   span {
     display: none;

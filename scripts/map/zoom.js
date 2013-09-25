@@ -42,6 +42,8 @@
 
       var self = e.data;
 
+      self.map.closeSelectors();
+
       self.map.map.zoomIn();
     },
 
@@ -51,6 +53,8 @@
       if($(e.target).hasClass("disabled")) return;
 
       var self = e.data;
+
+      self.map.closeSelectors();
 
       if(self.map.model.get('area') === 'country') {
         e.stopPropagation();

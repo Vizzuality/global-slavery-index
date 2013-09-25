@@ -3,6 +3,7 @@ slavery.AppData = {
     'asia': {
       name: 'asia',
       title: 'Asia',
+      desc: 'Although there had been some trans-Saharan trade from the interior of Sub-Saharan Africa to other regions, slavery was a small part of the economic life of many societies in Africa until the introduction of transcontinental slave trades (Arab and Atlantic). Slave practices were again transformed with European colonization of Africa and the formal abolition of slavery in the early 1900s.',
       center: {
         lat: 3.5134210456400443, 
         lng: 77.958984375
@@ -12,6 +13,7 @@ slavery.AppData = {
     'west_europe': {
       name: 'west_europe',
       title: 'Europe',
+      desc: 'Although there had been some trans-Saharan trade from the interior of Sub-Saharan Africa to other regions, slavery was a small part of the economic life of many societies in Africa until the introduction of transcontinental slave trades (Arab and Atlantic). Slave practices were again transformed with European colonization of Africa and the formal abolition of slavery in the early 1900s.',
       center: {
         lat: 46.9502622421856,
         lng: 0.3515625
@@ -21,6 +23,7 @@ slavery.AppData = {
     'east_europe': {
       name: 'east_europe',
       title: 'Russia & Eurasia',
+      desc: 'Although there had been some trans-Saharan trade from the interior of Sub-Saharan Africa to other regions, slavery was a small part of the economic life of many societies in Africa until the introduction of transcontinental slave trades (Arab and Atlantic). Slave practices were again transformed with European colonization of Africa and the formal abolition of slavery in the early 1900s.',
       center: {
         lat: 51.12106042504407, 
         lng: 40.869140625
@@ -30,6 +33,7 @@ slavery.AppData = {
     'americas': {
       name: 'americas',
       title: 'Americas',
+      desc: 'Although there had been some trans-Saharan trade from the interior of Sub-Saharan Africa to other regions, slavery was a small part of the economic life of many societies in Africa until the introduction of transcontinental slave trades (Arab and Atlantic). Slave practices were again transformed with European colonization of Africa and the formal abolition of slavery in the early 1900s.',
       center: {
         lat: 1.2303741774326145,
         lng:  -104.94140625,
@@ -39,6 +43,7 @@ slavery.AppData = {
     'africa': {
       name: 'africa',
       title: 'Sub-Saharan Africa',
+      desc: 'Although there had been some trans-Saharan trade from the interior of Sub-Saharan Africa to other regions, slavery was a small part of the economic life of many societies in Africa until the introduction of transcontinental slave trades (Arab and Atlantic). Slave practices were again transformed with European colonization of Africa and the formal abolition of slavery in the early 1900s.',
       center: {
         lat: -9.840168555999899,
         lng: 19.0667423835001
@@ -48,6 +53,7 @@ slavery.AppData = {
     'middle_east': {
       name: 'middle_east',
       title: 'Mid East & N. Africa',
+      desc: 'Although there had been some trans-Saharan trade from the interior of Sub-Saharan Africa to other regions, slavery was a small part of the economic life of many societies in Africa until the introduction of transcontinental slave trades (Arab and Atlantic). Slave practices were again transformed with European colonization of Africa and the formal abolition of slavery in the early 1900s.',
       center: {
         lat: 24.226584371000065,
         lng: 23.152942403827552

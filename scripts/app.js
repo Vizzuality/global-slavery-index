@@ -82,8 +82,6 @@ $(function() {
     },
 
     activeView: function(pane) {
-      var self = this;
-
       this.workViewActive = pane['type'];
 
       // map or plot?
@@ -93,9 +91,13 @@ $(function() {
       if(this.workViewActive === 'map') {
         this.nav.model.set("legend", "map");
 
-        self.mapView.changeArea(pane['area'], pane['id']);
+        this.plotView.graph_selector.close();
+
+        this.mapView.changeArea(pane['area'], pane['id']);
       } else {
         this.nav.model.set("legend", "plot");
+
+        this.mapView.closeSelectors();
       }
     }
   });
