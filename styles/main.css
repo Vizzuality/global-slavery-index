@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* line 17, ../../../../../usr/local/var/rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -1582,7 +1583,16 @@ circle.africa {
   margin-right: 10px;
 }
 /* line 121, ../sass/_plot.scss */
-.selector .link {
+.selector .link:after {
+  content: "▼";
+  font-size: 6px;
+  top: -1px;
+  position: relative;
+  margin-left: 5px;
+}
+
+/* line 130, ../sass/_plot.scss */
+.button {
   display: inline-block;
   font: bold 12px/26px "Open Sans";
   -webkit-border-radius: 15px;
@@ -1590,14 +1600,37 @@ circle.africa {
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
   border-radius: 15px;
-  background: #fff;
-  border: 1px solid #000;
+  height: 26px;
+  border: 1px solid #444;
   padding: 0 10px;
   text-transform: uppercase;
+  background: #fff;
+  color: #aaa;
 }
-/* line 130, ../sass/_plot.scss */
-.selector .link:hover {
+/* line 141, ../sass/_plot.scss */
+.button:hover {
   background: #f4f4f4;
+}
+/* line 143, ../sass/_plot.scss */
+.button span {
+  display: none;
+}
+/* line 147, ../sass/_plot.scss */
+.button .logo {
+  display: inline-block;
+  width: 24px;
+  height: 26px;
+  vertical-align: bottom;
+  background: url("../images/share-sprite.png") no-repeat;
+}
+/* line 154, ../sass/_plot.scss */
+.button .logo.twitter {
+  background-position: -24px;
+}
+/* line 159, ../sass/_plot.scss */
+.button .sep {
+  font-weight: normal;
+  color: #ccc;
 }
 
 /* line 13, ../sass/main.scss */
@@ -1615,15 +1648,17 @@ body,
 /* line 19, ../sass/main.scss */
 .wrapper {
   background: #333;
+  min-width: 960px;
 }
 
-/* line 23, ../sass/main.scss */
+/* line 24, ../sass/main.scss */
 .nav {
   position: absolute;
   z-index: 1000001;
   bottom: 0;
   left: 0;
   width: 100%;
+  min-width: 960px;
   height: 62px;
   border-top: 1px solid rgba(0, 0, 0, 0.5);
   background: #fff;
@@ -1632,7 +1667,7 @@ body,
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
-/* line 34, ../sass/main.scss */
+/* line 36, ../sass/main.scss */
 .nav .legend {
   display: none;
   position: absolute;
@@ -1652,7 +1687,7 @@ body,
 .nav .legend:after {
   clear: both;
 }
-/* line 44, ../sass/main.scss */
+/* line 46, ../sass/main.scss */
 .nav .legend strong {
   float: left;
   position: relative;
@@ -1663,15 +1698,15 @@ body,
   color: #414346;
 }
 
-/* line 56, ../sass/main.scss */
+/* line 58, ../sass/main.scss */
 .nav .legend.plot {
   top: 24px;
 }
-/* line 60, ../sass/main.scss */
+/* line 62, ../sass/main.scss */
 .nav .legend.plot ul {
   float: left;
 }
-/* line 61, ../sass/main.scss */
+/* line 63, ../sass/main.scss */
 .nav .legend.plot li {
   float: left;
   position: relative;
@@ -1680,7 +1715,7 @@ body,
   color: #393D3F;
   text-transform: uppercase;
 }
-/* line 70, ../sass/main.scss */
+/* line 72, ../sass/main.scss */
 .nav .legend.plot li i {
   width: 7px;
   height: 7px;
@@ -1703,18 +1738,18 @@ body,
   opacity: 0.6;
 }
 
-/* line 86, ../sass/main.scss */
+/* line 88, ../sass/main.scss */
 .nav .legend.map ul {
   float: left;
 }
-/* line 88, ../sass/main.scss */
+/* line 90, ../sass/main.scss */
 .nav .legend.map .quartile {
   float: left;
   width: 54px;
   height: 10px;
   position: relative;
 }
-/* line 96, ../sass/main.scss */
+/* line 98, ../sass/main.scss */
 .nav .legend.map .quartile .top, .nav .legend.map .quartile .bottom {
   width: 54px;
   text-align: center;
@@ -1723,28 +1758,28 @@ body,
   color: #AAAAAA;
   text-transform: uppercase;
 }
-/* line 97, ../sass/main.scss */
+/* line 99, ../sass/main.scss */
 .nav .legend.map .quartile .top.big, .nav .legend.map .quartile .bottom.big {
   left: -15px;
   width: 84px;
 }
-/* line 110, ../sass/main.scss */
+/* line 112, ../sass/main.scss */
 .nav .legend.map .quartile .top {
   top: -17px;
 }
-/* line 111, ../sass/main.scss */
+/* line 113, ../sass/main.scss */
 .nav .legend.map .quartile .bottom {
   top: 8px;
 }
-/* line 113, ../sass/main.scss */
+/* line 115, ../sass/main.scss */
 .nav .legend.map .quartile, .nav .legend.map .quartile:first-child {
   border: 1px solid rgba(0, 0, 0, 0.3);
 }
-/* line 114, ../sass/main.scss */
+/* line 116, ../sass/main.scss */
 .nav .legend.map .quartile {
   border-left: 0;
 }
-/* line 116, ../sass/main.scss */
+/* line 118, ../sass/main.scss */
 .nav .legend.map .quartile:first-child {
   -webkit-border-radius: 4px 0 0 4px;
   -moz-border-radius: 4px 0 0 4px;
@@ -1752,7 +1787,7 @@ body,
   -o-border-radius: 4px 0 0 4px;
   border-radius: 4px 0 0 4px;
 }
-/* line 117, ../sass/main.scss */
+/* line 119, ../sass/main.scss */
 .nav .legend.map .quartile:last-child {
   -webkit-border-radius: 0 4px 4px 0;
   -moz-border-radius: 0 4px 4px 0;
@@ -1761,7 +1796,7 @@ body,
   border-radius: 0 4px 4px 0;
 }
 
-/* line 123, ../sass/main.scss */
+/* line 125, ../sass/main.scss */
 .switch {
   position: relative;
   float: left;
@@ -1774,7 +1809,7 @@ body,
   -o-border-radius: 14px;
   border-radius: 14px;
 }
-/* line 131, ../sass/main.scss */
+/* line 133, ../sass/main.scss */
 .switch span {
   position: absolute;
   top: 2px;
@@ -1789,16 +1824,16 @@ body,
   border-radius: 11px;
   width: 47px;
 }
-/* line 140, ../sass/main.scss */
+/* line 142, ../sass/main.scss */
 .switch ul {
   position: relative;
   z-index: 10;
 }
-/* line 145, ../sass/main.scss */
+/* line 147, ../sass/main.scss */
 .switch li {
   float: left;
 }
-/* line 149, ../sass/main.scss */
+/* line 151, ../sass/main.scss */
 .switch a {
   display: -moz-inline-stack;
   display: inline-block;
@@ -1812,12 +1847,12 @@ body,
   text-transform: uppercase;
   font: 500 12px/21px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-/* line 157, ../sass/main.scss */
+/* line 159, ../sass/main.scss */
 .switch a.selected {
   color: #fff;
 }
 
-/* line 163, ../sass/main.scss */
+/* line 165, ../sass/main.scss */
 .loader {
   position: absolute !important;
 }

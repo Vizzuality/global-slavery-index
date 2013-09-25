@@ -78,6 +78,7 @@
     <div class="infowindow"></div>
     <div class="panel"></div>
     <div class="selectors">
+      <div class="share selector"></div>
       <div class="country_selector selector"></div>
       <div class="region_selector selector"></div>
     </div>
@@ -178,11 +179,13 @@
   <script id="plot-template" type="text/x-underscore-template">
     <div class="plot selector"></div>
 
-    <div class="graph_selector"></div>
+    <div class="selectors">
+      <div class="graph_selector selector"></div>
+    </div>
   </script>
 
   <script id="selector-template" type="text/x-underscore-template">
-    <a href="#" class="link"><%= link_title %></a>
+    <a href="#" class="link button"><%= link_title %></a>
 
     <ul class="selector-items"></ul>
   </script>
@@ -203,6 +206,12 @@
     <li id="<%= name %>" class="<%= name %> <%= selected ? 'selected' : '' %>">
       <a href="#map/region/<%= name %>"><%= title %></a>
     </li>
+  </script>
+
+  <script id="share-template" type="text/x-underscore-template">
+    <div class="button">
+      Share <a href="#share" class="logo facebook"><span>Facebook</span></a> <em class="sep">|</em> <a href="#share" class="logo twitter"><span>Twitter</span></a>
+    </div>
   </script>
 
   <!-- TODO: Google Analytics -->
@@ -239,6 +248,7 @@
   <script src="scripts/map/panel.js"></script>
   <script src="scripts/map/country_selector.js"></script>
   <script src="scripts/map/region_selector.js"></script>
+  <script src="scripts/map/share.js"></script>
 
   <script src="scripts/plot/plot.js"></script>
   <script src="scripts/plot/graph_selector.js"></script>

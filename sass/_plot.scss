@@ -118,15 +118,46 @@ circle {
     }
   }
 
-  .link {
-    display: inline-block;
-    @include font(bold, 12px, 26px, "Open Sans");
-    @include border-radius(15px);
-    background: #fff;
-    border: 1px solid #000;
-    padding: 0 10px;
-    text-transform: uppercase;
+  .link:after {
+    content: "▼";
+    font-size: 6px;
+    top: -1px;
+    position: relative;
+    margin-left: 5px;
+  }
+}
 
-    &:hover { background: #f4f4f4; }
+.button {
+  display: inline-block;
+  @include font(bold, 12px, 26px, "Open Sans");
+  @include border-radius(15px);
+  height: 26px;
+  border: 1px solid #444;
+  padding: 0 10px;
+  text-transform: uppercase;
+  background: #fff;
+  color: #aaa;
+
+  &:hover { background: #f4f4f4; }
+
+  span {
+    display: none;
+  }
+
+  .logo {
+    display: inline-block;
+    width: 24px;
+    height: 26px;
+    vertical-align: bottom;
+    background: url('../images/share-sprite.png') no-repeat;
+
+    &.twitter {
+      background-position: -24px;
+    }
+  }
+
+  .sep {
+    font-weight: normal;
+    color: #ccc;
   }
 }

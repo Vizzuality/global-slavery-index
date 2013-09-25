@@ -170,6 +170,12 @@
 
       this.addView(this.zoom);
 
+      this.share = new slavery.ui.view.Share({
+        el: this.$(".share")
+      });
+
+      this.addView(this.share);
+
       this.country_selector = new slavery.ui.view.CountrySelector({
         el: this.$(".country_selector")
       });
@@ -180,7 +186,7 @@
         el: this.$(".region_selector")
       });
 
-      this.addView(this.country_selector);
+      this.addView(this.region_selector);
 
       this.infowindow = new slavery.ui.view.Infowindow({
         className: "collapsed",
