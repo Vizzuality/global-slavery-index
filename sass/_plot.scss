@@ -75,30 +75,41 @@ circle {
     &:first-child a {
       border-top: 0;
       @include border-top-radius(4px);
+
+      i { height: 44px; }
     }
 
     &:last-child a {
       @include border-bottom-radius(4px);
     }
 
-    &:hover,
-    &.selected {
-      a { background: #f6f6f6; }
+    &:hover a {
+      background: url('../images/selector.png') no-repeat right 0;
     }
 
     &.selected a { color: #444; }
 
+    &:hover,
+    &.selected {
+      a { background-color: #f6f6f6; }
+    }
+
     a {
+      position: relative;
       display: block;
       height: 44px;
-      padding-left: 10px;
+      padding-left: 14px;
       border-top: 2px solid #e5e5e5;
       background: #fff;
       @include font(bold, 14px, 44px, "Open Sans");
 
-      &:hover,
-      .selected {
-        background: #f6f6f6;
+      i {
+        position: absolute;
+        bottom: 0; left: 0;
+        display: block;
+        height: 46px;
+        width: 4px;
+        margin-right: 10px;
       }
     }
   }

@@ -198,7 +198,7 @@
 
   <script id="country-template" type="text/x-underscore-template">
     <li id="<%= iso3 %>" class="<%= iso3 %> <%= selected ? 'selected' : '' %>">
-      <a href="#map/country/<%= iso3 %>"><%= country_name %></a>
+      <a href="#map/country/<%= iso3 %>"><i class="slavery_policy_risk_<%= parseInt(slavery_policy_risk, 10) %>"></i><%= country_name %></a>
     </li>
   </script>
 
