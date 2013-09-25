@@ -177,13 +177,15 @@
       this.addView(this.share);
 
       this.country_selector = new slavery.ui.view.CountrySelector({
-        el: this.$(".country_selector")
+        el: this.$(".country_selector"),
+        map: this
       });
 
       this.addView(this.country_selector);
 
       this.region_selector = new slavery.ui.view.RegionSelector({
-        el: this.$(".region_selector")
+        el: this.$(".region_selector"),
+        map: this
       });
 
       this.addView(this.region_selector);

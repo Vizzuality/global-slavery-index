@@ -18,6 +18,8 @@
     initialize: function() {
       var self = this;
 
+      this.map = this.options.map;
+
       _.bindAll(this, "_toggleOpen");
 
       this.countries = new slavery.ui.collection.SelectorItems();
@@ -38,8 +40,7 @@
             self.countries.add(new slavery.ui.model.SelectorItem(country));
           });
 
-          // TODO: SELECTED COUNTRY
-          self.selectedCountry = new slavery.ui.model.Selector();
+          self.selectedCountry = new slavery.ui.model.SelectorItem();
 
           self.render();
         })
@@ -106,9 +107,6 @@
       }
 
       var country = this.countries.find(function(country) { return iso3 === country.get("iso3"); });
-
-      this.selectedCountry.set("selected", false);
-      country.set("selected", true);
       this.selectedCountry = country;
 
       this._addCountries();
@@ -128,7 +126,6 @@
       this.$el.append(this.template.render( _.extend(this.model.toJSON(), { link_title: "Country" }) ));
 
       this.$countries = this.$el.find("ul");
-      this.$selected_country = this.$el.find(".selected_country");
 
       this._addCountries();
       this._toggleOpen();

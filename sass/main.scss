@@ -165,3 +165,116 @@ body,
 .loader {
   position: absolute !important;
 }
+
+.selectors {
+  position: absolute;
+  top: 20px; right: 50px;
+}
+
+.selector {
+  position: relative;
+  float: right;
+  margin-left: 10px;
+  text-align: right;
+
+  ul {position: absolute;
+    right: 0;
+    width: 254px;
+    margin-top: 10px;
+    @include border-radius(5px);
+    @include box-shadow(0 0 0 3px rgba(#000, .2));
+    text-align: left;
+  }
+
+  a {
+    color: #00A99D;
+    text-decoration: none;
+  }
+
+  li {
+
+    &:first-child a {
+      border-top: 0;
+      @include border-top-radius(4px);
+
+      i { height: 44px; }
+    }
+
+    &:last-child a {
+      @include border-bottom-radius(4px);
+    }
+
+    &:hover a {
+      background: url('../images/selector.png') no-repeat right 0;
+    }
+
+    &.selected a { color: #444; }
+
+    &:hover,
+    &.selected {
+      a { background-color: #f6f6f6; }
+    }
+
+    a {
+      position: relative;
+      display: block;
+      height: 44px;
+      padding-left: 14px;
+      border-top: 2px solid #e5e5e5;
+      background: #fff;
+      @include font(bold, 14px, 44px, "Open Sans");
+
+      i {
+        position: absolute;
+        bottom: 0; left: 0;
+        display: block;
+        height: 46px;
+        width: 4px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .link:after {
+    content: "▼";
+    font-size: 6px;
+    top: -1px;
+    position: relative;
+    margin-left: 5px;
+  }
+}
+
+.button {
+  display: inline-block;
+  @include font(bold, 12px, 26px, "Open Sans");
+  @include border-radius(15px);
+  height: 26px;
+  border: 1px solid #444;
+  padding: 0 10px;
+  text-transform: uppercase;
+  background: #fff;
+  color: #aaa;
+
+  &:hover { background: #f4f4f4; }
+
+  span {
+    display: none;
+  }
+
+  .logo {
+    display: inline-block;
+    width: 24px;
+    height: 26px;
+    vertical-align: bottom;
+    background: url('../images/share-sprite.png') no-repeat;
+
+    &.twitter {
+      background-position: -24px;
+    }
+  }
+
+  .sep {
+    font-weight: normal;
+    color: #ccc;
+  }
+}

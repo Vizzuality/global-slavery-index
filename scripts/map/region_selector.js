@@ -18,6 +18,8 @@
     initialize: function() {
       var self = this;
 
+      this.map = this.options.map;
+
       _.bindAll(this, "_toggleOpen");
 
       this.regions = new slavery.ui.collection.SelectorItems();
@@ -35,8 +37,7 @@
         self.regions.add(new slavery.ui.model.SelectorItem(region));
       });
 
-      // TODO: SELECTED REGION
-      self.selectedRegion = new slavery.ui.model.Selector();
+      self.selectedRegion = new slavery.ui.model.SelectorItem();
 
       self.render();
     },
@@ -90,18 +91,15 @@
 
     _onClickRegion: function(e) {
       var $li  = $(e.target).closest("li"),
-          iso3 = $li.attr("id");
+          name = $li.attr("id");
 
-      if(this.selectedRegion.get("iso3") === iso3) {
+      if(this.selectedRegion.get("name") === name) {
         this.close();
 
         return;
       }
 
-      var region = this.regions.find(function(region) { return iso3 === region.get("iso3"); });
-
-      this.selectedRegion.set("selected", false);
-      region.set("selected", true);
+      var region = this.regions.find(function(region) { return name === region.get("name"); });
       this.selectedRegion = region;
 
       this._addRegions();
@@ -121,7 +119,6 @@
       this.$el.append(this.template.render( _.extend(this.model.toJSON(), { link_title: "Region" }) ));
 
       this.$regions = this.$el.find("ul");
-      this.$selected_region = this.$el.find(".selected_region");
 
       this._addRegions();
       this._toggleOpen();

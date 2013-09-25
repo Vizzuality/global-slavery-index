@@ -1493,144 +1493,8 @@ circle.africa {
 }
 
 /* line 52, ../sass/_plot.scss */
-.selectors {
-  position: absolute;
-  top: 20px;
-  right: 50px;
-}
-
-/* line 57, ../sass/_plot.scss */
-.selector {
-  position: relative;
-  float: right;
-  margin-left: 10px;
-  text-align: right;
-}
-/* line 63, ../sass/_plot.scss */
-.selector ul {
-  position: absolute;
-  right: 0;
-  width: 254px;
-  margin-top: 10px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-  -webkit-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
-  text-align: left;
-}
-/* line 72, ../sass/_plot.scss */
-.selector a {
-  color: #00A99D;
-  text-decoration: none;
-}
-/* line 79, ../sass/_plot.scss */
-.selector li:first-child a {
-  border-top: 0;
-  -moz-border-radius-topleft: 4px;
-  -webkit-border-top-left-radius: 4px;
-  border-top-left-radius: 4px;
-  -moz-border-radius-topright: 4px;
-  -webkit-border-top-right-radius: 4px;
-  border-top-right-radius: 4px;
-}
-/* line 83, ../sass/_plot.scss */
-.selector li:first-child a i {
-  height: 44px;
-}
-/* line 86, ../sass/_plot.scss */
-.selector li:last-child a {
-  -moz-border-radius-bottomleft: 4px;
-  -webkit-border-bottom-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  -moz-border-radius-bottomright: 4px;
-  -webkit-border-bottom-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-/* line 90, ../sass/_plot.scss */
-.selector li:hover a {
-  background: url("../images/selector.png") no-repeat right 0;
-}
-/* line 94, ../sass/_plot.scss */
-.selector li.selected a {
-  color: #444;
-}
-/* line 98, ../sass/_plot.scss */
-.selector li:hover a, .selector li.selected a {
-  background-color: #f6f6f6;
-}
-/* line 101, ../sass/_plot.scss */
-.selector li a {
-  position: relative;
-  display: block;
-  height: 44px;
-  padding-left: 14px;
-  border-top: 2px solid #e5e5e5;
-  background: #fff;
-  font: bold 14px/44px "Open Sans";
-}
-/* line 110, ../sass/_plot.scss */
-.selector li a i {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  display: block;
-  height: 46px;
-  width: 4px;
-  margin-right: 10px;
-}
-/* line 121, ../sass/_plot.scss */
-.selector .link:after {
-  content: "▼";
-  font-size: 6px;
-  top: -1px;
-  position: relative;
-  margin-left: 5px;
-}
-
-/* line 130, ../sass/_plot.scss */
-.button {
-  display: inline-block;
-  font: bold 12px/26px "Open Sans";
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -ms-border-radius: 15px;
-  -o-border-radius: 15px;
-  border-radius: 15px;
-  height: 26px;
-  border: 1px solid #444;
-  padding: 0 10px;
-  text-transform: uppercase;
-  background: #fff;
-  color: #aaa;
-}
-/* line 141, ../sass/_plot.scss */
-.button:hover {
-  background: #f4f4f4;
-}
-/* line 143, ../sass/_plot.scss */
-.button span {
-  display: none;
-}
-/* line 147, ../sass/_plot.scss */
-.button .logo {
-  display: inline-block;
-  width: 24px;
-  height: 26px;
-  vertical-align: bottom;
-  background: url("../images/share-sprite.png") no-repeat;
-}
-/* line 154, ../sass/_plot.scss */
-.button .logo.twitter {
-  background-position: -24px;
-}
-/* line 159, ../sass/_plot.scss */
-.button .sep {
-  font-weight: normal;
-  color: #ccc;
+.graph_selector .selector-items {
+  width: 294px;
 }
 
 /* line 13, ../sass/main.scss */
@@ -1855,4 +1719,145 @@ body,
 /* line 165, ../sass/main.scss */
 .loader {
   position: absolute !important;
+}
+
+/* line 169, ../sass/main.scss */
+.selectors {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+}
+
+/* line 174, ../sass/main.scss */
+.selector {
+  position: relative;
+  float: right;
+  margin-left: 10px;
+  text-align: right;
+}
+/* line 180, ../sass/main.scss */
+.selector ul {
+  position: absolute;
+  right: 0;
+  width: 254px;
+  margin-top: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+  text-align: left;
+}
+/* line 189, ../sass/main.scss */
+.selector a {
+  color: #00A99D;
+  text-decoration: none;
+}
+/* line 196, ../sass/main.scss */
+.selector li:first-child a {
+  border-top: 0;
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+/* line 200, ../sass/main.scss */
+.selector li:first-child a i {
+  height: 44px;
+}
+/* line 203, ../sass/main.scss */
+.selector li:last-child a {
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+/* line 207, ../sass/main.scss */
+.selector li:hover a {
+  background: url("../images/selector.png") no-repeat right 0;
+}
+/* line 211, ../sass/main.scss */
+.selector li.selected a {
+  color: #444;
+}
+/* line 215, ../sass/main.scss */
+.selector li:hover a, .selector li.selected a {
+  background-color: #f6f6f6;
+}
+/* line 218, ../sass/main.scss */
+.selector li a {
+  position: relative;
+  display: block;
+  height: 44px;
+  padding-left: 14px;
+  border-top: 2px solid #e5e5e5;
+  background: #fff;
+  font: bold 14px/44px "Open Sans";
+}
+/* line 227, ../sass/main.scss */
+.selector li a i {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  height: 46px;
+  width: 4px;
+  margin-right: 10px;
+}
+/* line 238, ../sass/main.scss */
+.selector .link:after {
+  content: "▼";
+  font-size: 6px;
+  top: -1px;
+  position: relative;
+  margin-left: 5px;
+}
+
+/* line 247, ../sass/main.scss */
+.button {
+  display: inline-block;
+  font: bold 12px/26px "Open Sans";
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  border-radius: 15px;
+  height: 26px;
+  border: 1px solid #444;
+  padding: 0 10px;
+  text-transform: uppercase;
+  background: #fff;
+  color: #aaa;
+}
+/* line 258, ../sass/main.scss */
+.button:hover {
+  background: #f4f4f4;
+}
+/* line 260, ../sass/main.scss */
+.button span {
+  display: none;
+}
+/* line 264, ../sass/main.scss */
+.button .logo {
+  display: inline-block;
+  width: 24px;
+  height: 26px;
+  vertical-align: bottom;
+  background: url("../images/share-sprite.png") no-repeat;
+}
+/* line 271, ../sass/main.scss */
+.button .logo.twitter {
+  background-position: -24px;
+}
+/* line 276, ../sass/main.scss */
+.button .sep {
+  font-weight: normal;
+  color: #ccc;
 }
