@@ -109,7 +109,7 @@
     <div class="top"></div>
     <div class="content">
       <div class="inner">
-        <h1 class="infowindow-title <%= slaveryToHuman(content.slavery_policy_risk).toLowerCase().split(' ').join('_') %>"><%= content.country_name %></h1>
+        <h1 class="infowindow-title infowindow-slavery_policy_risk_<%= parseInt(content.slavery_policy_risk, 10) %>"><%= content.country_name %></h1>
 
         <div class="infowindow-block infowindow-population">
           <p class="total-num"><%= content.gdppp %>B <span>GDP (PPP)</span></p>

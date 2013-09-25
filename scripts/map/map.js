@@ -396,7 +396,7 @@
             var markerIcon = L.divIcon({
               iconSize: [100, 100],
               className: 'chip chip_'+country.iso3,
-              html: '<div class="mean '+slaveryToHuman(country.slavery_policy_risk).toLowerCase().split(' ').join('_')+'">'+country.mean.toFixed(2)+'</div>'
+              html: '<div class="mean slavery_policy_risk_'+parseInt(country.slavery_policy_risk, 10)+'">'+country.mean.toFixed(2)+'</div>'
             });
 
             self.chips.push(L.marker([coordinates[1], coordinates[0]], {icon: markerIcon}).addTo(self.map));
@@ -570,6 +570,8 @@
             this._changeCountry();
           });
         } else if(area === 'region' && this.current_region !== id) {
+          this._hideChips();
+
           this._setRegion(id);
           this._showRegion(id);
 
@@ -626,9 +628,6 @@
     _changeRegion: function() {
       // infowindow
       this.infowindow.hide();
-
-      //chips
-      this._hideChips();
 
       // panel
       this.panel.template.set('template', $("#region_panel-template").html());

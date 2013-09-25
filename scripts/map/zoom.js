@@ -48,12 +48,18 @@
     _onZoomOut: function(e) {
       e.preventDefault();
 
+      if($(e.target).hasClass("disabled")) return;
+
       var self = e.data;
 
       if(self.map.model.get('area') === 'country') {
         e.stopPropagation();
 
         self.map.changeArea("region", self.map.current_region);
+      } else if(self.map.model.get('area') === 'region') {
+        e.stopPropagation();
+
+        self.map.changeArea("world");
       } else {
         self.map.map.zoomOut();
       }

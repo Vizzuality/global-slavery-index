@@ -63,499 +63,974 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 13, ../sass/_helpers.scss */
-.slavery_policy_risk_96 {
-  background-color: #b20727;
-}
-
-/* line 14, ../sass/_helpers.scss */
-.slavery_policy_risk_95 {
-  background-color: #b30f27;
-}
-
-/* line 15, ../sass/_helpers.scss */
-.slavery_policy_risk_94 {
-  background-color: #b41428;
-}
-
 /* line 16, ../sass/_helpers.scss */
-.slavery_policy_risk_93 {
-  background-color: #b51929;
-}
-
-/* line 17, ../sass/_helpers.scss */
-.slavery_policy_risk_92 {
-  background-color: #b61d29;
-}
-
-/* line 18, ../sass/_helpers.scss */
-.slavery_policy_risk_91 {
-  background-color: #b7202a;
-}
-
-/* line 19, ../sass/_helpers.scss */
-.slavery_policy_risk_90 {
-  background-color: #b8242b;
+.slavery_policy_risk_2 {
+  background-color: #fdd574;
 }
 
 /* line 20, ../sass/_helpers.scss */
-.slavery_policy_risk_89 {
-  background-color: #b8272c;
+.infowindow-slavery_policy_risk_2 {
+  border-bottom: 2px solid #fdd574;
 }
 
-/* line 21, ../sass/_helpers.scss */
-.slavery_policy_risk_88 {
-  background-color: #b92a2c;
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_3 {
+  background-color: #fcd473;
 }
 
-/* line 22, ../sass/_helpers.scss */
-.slavery_policy_risk_87 {
-  background-color: #ba2d2d;
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_3 {
+  border-bottom: 2px solid #fcd473;
 }
 
-/* line 23, ../sass/_helpers.scss */
-.slavery_policy_risk_86 {
-  background-color: #bb2f2e;
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_4 {
+  background-color: #fcd272;
 }
 
-/* line 24, ../sass/_helpers.scss */
-.slavery_policy_risk_85 {
-  background-color: #bc322e;
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_4 {
+  border-bottom: 2px solid #fcd272;
 }
 
-/* line 25, ../sass/_helpers.scss */
-.slavery_policy_risk_84 {
-  background-color: #bd352f;
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_5 {
+  background-color: #fbd072;
 }
 
-/* line 26, ../sass/_helpers.scss */
-.slavery_policy_risk_83 {
-  background-color: #be3730;
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_5 {
+  border-bottom: 2px solid #fbd072;
 }
 
-/* line 27, ../sass/_helpers.scss */
-.slavery_policy_risk_82 {
-  background-color: #bf3931;
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_6 {
+  background-color: #face71;
 }
 
-/* line 28, ../sass/_helpers.scss */
-.slavery_policy_risk_81 {
-  background-color: #c03c31;
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_6 {
+  border-bottom: 2px solid #face71;
 }
 
-/* line 29, ../sass/_helpers.scss */
-.slavery_policy_risk_80 {
-  background-color: #c13e32;
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_7 {
+  background-color: #facc70;
 }
 
-/* line 30, ../sass/_helpers.scss */
-.slavery_policy_risk_79 {
-  background-color: #c14033;
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_7 {
+  border-bottom: 2px solid #facc70;
 }
 
-/* line 31, ../sass/_helpers.scss */
-.slavery_policy_risk_78 {
-  background-color: #c24333;
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_8 {
+  background-color: #f9cb6f;
 }
 
-/* line 32, ../sass/_helpers.scss */
-.slavery_policy_risk_77 {
-  background-color: #c34534;
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_8 {
+  border-bottom: 2px solid #f9cb6f;
 }
 
-/* line 33, ../sass/_helpers.scss */
-.slavery_policy_risk_76 {
-  background-color: #c44735;
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_9 {
+  background-color: #f8c96e;
 }
 
-/* line 34, ../sass/_helpers.scss */
-.slavery_policy_risk_75 {
-  background-color: #c54936;
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_9 {
+  border-bottom: 2px solid #f8c96e;
 }
 
-/* line 35, ../sass/_helpers.scss */
-.slavery_policy_risk_75 {
-  background-color: #c64b36;
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_10 {
+  background-color: #f8c76d;
 }
 
-/* line 36, ../sass/_helpers.scss */
-.slavery_policy_risk_74 {
-  background-color: #c74d37;
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_10 {
+  border-bottom: 2px solid #f8c76d;
 }
 
-/* line 37, ../sass/_helpers.scss */
-.slavery_policy_risk_73 {
-  background-color: #c74f38;
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_11 {
+  background-color: #f7c56c;
 }
 
-/* line 38, ../sass/_helpers.scss */
-.slavery_policy_risk_72 {
-  background-color: #c85139;
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_11 {
+  border-bottom: 2px solid #f7c56c;
 }
 
-/* line 39, ../sass/_helpers.scss */
-.slavery_policy_risk_71 {
-  background-color: #c95339;
-}
-
-/* line 40, ../sass/_helpers.scss */
-.slavery_policy_risk_70 {
-  background-color: #ca563a;
-}
-
-/* line 41, ../sass/_helpers.scss */
-.slavery_policy_risk_69 {
-  background-color: #cb583b;
-}
-
-/* line 42, ../sass/_helpers.scss */
-.slavery_policy_risk_68 {
-  background-color: #cc593c;
-}
-
-/* line 43, ../sass/_helpers.scss */
-.slavery_policy_risk_67 {
-  background-color: #cd5b3d;
-}
-
-/* line 44, ../sass/_helpers.scss */
-.slavery_policy_risk_66 {
-  background-color: #cd5d3d;
-}
-
-/* line 45, ../sass/_helpers.scss */
-.slavery_policy_risk_65 {
-  background-color: #ce5f3e;
-}
-
-/* line 46, ../sass/_helpers.scss */
-.slavery_policy_risk_64 {
-  background-color: #cf613f;
-}
-
-/* line 47, ../sass/_helpers.scss */
-.slavery_policy_risk_63 {
-  background-color: #d06340;
-}
-
-/* line 48, ../sass/_helpers.scss */
-.slavery_policy_risk_62 {
-  background-color: #d16540;
-}
-
-/* line 49, ../sass/_helpers.scss */
-.slavery_policy_risk_61 {
-  background-color: #d16741;
-}
-
-/* line 50, ../sass/_helpers.scss */
-.slavery_policy_risk_60 {
-  background-color: #d26942;
-}
-
-/* line 51, ../sass/_helpers.scss */
-.slavery_policy_risk_59 {
-  background-color: #d36b43;
-}
-
-/* line 52, ../sass/_helpers.scss */
-.slavery_policy_risk_58 {
-  background-color: #d46d44;
-}
-
-/* line 53, ../sass/_helpers.scss */
-.slavery_policy_risk_57 {
-  background-color: #d56f44;
-}
-
-/* line 54, ../sass/_helpers.scss */
-.slavery_policy_risk_56 {
-  background-color: #d67045;
-}
-
-/* line 55, ../sass/_helpers.scss */
-.slavery_policy_risk_55 {
-  background-color: #d67246;
-}
-
-/* line 56, ../sass/_helpers.scss */
-.slavery_policy_risk_54 {
-  background-color: #d77447;
-}
-
-/* line 57, ../sass/_helpers.scss */
-.slavery_policy_risk_54 {
-  background-color: #d87647;
-}
-
-/* line 58, ../sass/_helpers.scss */
-.slavery_policy_risk_53 {
-  background-color: #d97848;
-}
-
-/* line 59, ../sass/_helpers.scss */
-.slavery_policy_risk_52 {
-  background-color: #d97a49;
-}
-
-/* line 60, ../sass/_helpers.scss */
-.slavery_policy_risk_51 {
-  background-color: #da7b4a;
-}
-
-/* line 61, ../sass/_helpers.scss */
-.slavery_policy_risk_50 {
-  background-color: #db7d4b;
-}
-
-/* line 62, ../sass/_helpers.scss */
-.slavery_policy_risk_49 {
-  background-color: #dc7f4b;
-}
-
-/* line 63, ../sass/_helpers.scss */
-.slavery_policy_risk_48 {
-  background-color: #dd814c;
-}
-
-/* line 64, ../sass/_helpers.scss */
-.slavery_policy_risk_47 {
-  background-color: #dd834d;
-}
-
-/* line 65, ../sass/_helpers.scss */
-.slavery_policy_risk_46 {
-  background-color: #de854e;
-}
-
-/* line 66, ../sass/_helpers.scss */
-.slavery_policy_risk_45 {
-  background-color: #df864f;
-}
-
-/* line 67, ../sass/_helpers.scss */
-.slavery_policy_risk_44 {
-  background-color: #e08850;
-}
-
-/* line 68, ../sass/_helpers.scss */
-.slavery_policy_risk_43 {
-  background-color: #e08a50;
-}
-
-/* line 69, ../sass/_helpers.scss */
-.slavery_policy_risk_42 {
-  background-color: #e18c51;
-}
-
-/* line 70, ../sass/_helpers.scss */
-.slavery_policy_risk_41 {
-  background-color: #e28e52;
-}
-
-/* line 71, ../sass/_helpers.scss */
-.slavery_policy_risk_40 {
-  background-color: #e38f53;
-}
-
-/* line 72, ../sass/_helpers.scss */
-.slavery_policy_risk_39 {
-  background-color: #e39154;
-}
-
-/* line 73, ../sass/_helpers.scss */
-.slavery_policy_risk_38 {
-  background-color: #e49354;
-}
-
-/* line 74, ../sass/_helpers.scss */
-.slavery_policy_risk_37 {
-  background-color: #e59555;
-}
-
-/* line 75, ../sass/_helpers.scss */
-.slavery_policy_risk_36 {
-  background-color: #e69756;
-}
-
-/* line 76, ../sass/_helpers.scss */
-.slavery_policy_risk_35 {
-  background-color: #e69857;
-}
-
-/* line 77, ../sass/_helpers.scss */
-.slavery_policy_risk_34 {
-  background-color: #e79a58;
-}
-
-/* line 78, ../sass/_helpers.scss */
-.slavery_policy_risk_33 {
-  background-color: #e89c59;
-}
-
-/* line 79, ../sass/_helpers.scss */
-.slavery_policy_risk_33 {
-  background-color: #e89e59;
-}
-
-/* line 80, ../sass/_helpers.scss */
-.slavery_policy_risk_32 {
-  background-color: #e9a05a;
-}
-
-/* line 81, ../sass/_helpers.scss */
-.slavery_policy_risk_31 {
-  background-color: #eaa15b;
-}
-
-/* line 82, ../sass/_helpers.scss */
-.slavery_policy_risk_30 {
-  background-color: #eba35c;
-}
-
-/* line 83, ../sass/_helpers.scss */
-.slavery_policy_risk_29 {
-  background-color: #eba55d;
-}
-
-/* line 84, ../sass/_helpers.scss */
-.slavery_policy_risk_28 {
-  background-color: #eca75e;
-}
-
-/* line 85, ../sass/_helpers.scss */
-.slavery_policy_risk_27 {
-  background-color: #eda95f;
-}
-
-/* line 86, ../sass/_helpers.scss */
-.slavery_policy_risk_26 {
-  background-color: #edaa5f;
-}
-
-/* line 87, ../sass/_helpers.scss */
-.slavery_policy_risk_25 {
-  background-color: #eeac60;
-}
-
-/* line 88, ../sass/_helpers.scss */
-.slavery_policy_risk_24 {
-  background-color: #efae61;
-}
-
-/* line 89, ../sass/_helpers.scss */
-.slavery_policy_risk_23 {
-  background-color: #efb062;
-}
-
-/* line 90, ../sass/_helpers.scss */
-.slavery_policy_risk_22 {
-  background-color: #f0b263;
-}
-
-/* line 91, ../sass/_helpers.scss */
-.slavery_policy_risk_21 {
-  background-color: #f1b364;
-}
-
-/* line 92, ../sass/_helpers.scss */
-.slavery_policy_risk_20 {
-  background-color: #f1b565;
-}
-
-/* line 93, ../sass/_helpers.scss */
-.slavery_policy_risk_19 {
-  background-color: #f2b765;
-}
-
-/* line 94, ../sass/_helpers.scss */
-.slavery_policy_risk_18 {
-  background-color: #f3b966;
-}
-
-/* line 95, ../sass/_helpers.scss */
-.slavery_policy_risk_17 {
-  background-color: #f3bb67;
-}
-
-/* line 96, ../sass/_helpers.scss */
-.slavery_policy_risk_16 {
-  background-color: #f4bc68;
-}
-
-/* line 97, ../sass/_helpers.scss */
-.slavery_policy_risk_15 {
-  background-color: #f5be69;
-}
-
-/* line 98, ../sass/_helpers.scss */
-.slavery_policy_risk_14 {
-  background-color: #f5c06a;
-}
-
-/* line 99, ../sass/_helpers.scss */
-.slavery_policy_risk_13 {
-  background-color: #f6c26b;
-}
-
-/* line 100, ../sass/_helpers.scss */
+/* line 16, ../sass/_helpers.scss */
 .slavery_policy_risk_12 {
   background-color: #f7c36b;
 }
 
-/* line 101, ../sass/_helpers.scss */
-.slavery_policy_risk_12 {
-  background-color: #f7c56c;
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_12 {
+  border-bottom: 2px solid #f7c36b;
 }
 
-/* line 102, ../sass/_helpers.scss */
-.slavery_policy_risk_11 {
-  background-color: #f8c76d;
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_13 {
+  background-color: #f6c26b;
 }
 
-/* line 103, ../sass/_helpers.scss */
-.slavery_policy_risk_10 {
-  background-color: #f8c96e;
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_13 {
+  border-bottom: 2px solid #f6c26b;
 }
 
-/* line 104, ../sass/_helpers.scss */
-.slavery_policy_risk_9 {
-  background-color: #f9cb6f;
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_14 {
+  background-color: #f5c06a;
 }
 
-/* line 105, ../sass/_helpers.scss */
-.slavery_policy_risk_8 {
-  background-color: #facc70;
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_14 {
+  border-bottom: 2px solid #f5c06a;
 }
 
-/* line 106, ../sass/_helpers.scss */
-.slavery_policy_risk_7 {
-  background-color: #face71;
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_15 {
+  background-color: #f5be69;
 }
 
-/* line 107, ../sass/_helpers.scss */
-.slavery_policy_risk_6 {
-  background-color: #fbd072;
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_15 {
+  border-bottom: 2px solid #f5be69;
 }
 
-/* line 108, ../sass/_helpers.scss */
-.slavery_policy_risk_5 {
-  background-color: #fcd272;
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_16 {
+  background-color: #f4bc68;
 }
 
-/* line 109, ../sass/_helpers.scss */
-.slavery_policy_risk_4 {
-  background-color: #fcd473;
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_16 {
+  border-bottom: 2px solid #f4bc68;
 }
 
-/* line 110, ../sass/_helpers.scss */
-.slavery_policy_risk_3 {
-  background-color: #fdd574;
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_17 {
+  background-color: #f3bb67;
 }
 
-/* line 111, ../sass/_helpers.scss */
-.slavery_policy_risk_2 {
-  background-color: #fdd775;
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_17 {
+  border-bottom: 2px solid #f3bb67;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_18 {
+  background-color: #f3b966;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_18 {
+  border-bottom: 2px solid #f3b966;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_19 {
+  background-color: #f2b765;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_19 {
+  border-bottom: 2px solid #f2b765;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_20 {
+  background-color: #f1b565;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_20 {
+  border-bottom: 2px solid #f1b565;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_21 {
+  background-color: #f1b364;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_21 {
+  border-bottom: 2px solid #f1b364;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_22 {
+  background-color: #f0b263;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_22 {
+  border-bottom: 2px solid #f0b263;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_23 {
+  background-color: #efb062;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_23 {
+  border-bottom: 2px solid #efb062;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_24 {
+  background-color: #efae61;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_24 {
+  border-bottom: 2px solid #efae61;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_25 {
+  background-color: #eeac60;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_25 {
+  border-bottom: 2px solid #eeac60;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_26 {
+  background-color: #edaa5f;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_26 {
+  border-bottom: 2px solid #edaa5f;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_27 {
+  background-color: #eda95f;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_27 {
+  border-bottom: 2px solid #eda95f;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_28 {
+  background-color: #eca75e;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_28 {
+  border-bottom: 2px solid #eca75e;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_29 {
+  background-color: #eba55d;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_29 {
+  border-bottom: 2px solid #eba55d;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_30 {
+  background-color: #eba35c;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_30 {
+  border-bottom: 2px solid #eba35c;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_31 {
+  background-color: #eaa15b;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_31 {
+  border-bottom: 2px solid #eaa15b;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_32 {
+  background-color: #e9a05a;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_32 {
+  border-bottom: 2px solid #e9a05a;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_33 {
+  background-color: #e89e59;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_33 {
+  border-bottom: 2px solid #e89e59;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_34 {
+  background-color: #e89c59;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_34 {
+  border-bottom: 2px solid #e89c59;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_35 {
+  background-color: #e79a58;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_35 {
+  border-bottom: 2px solid #e79a58;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_36 {
+  background-color: #e69857;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_36 {
+  border-bottom: 2px solid #e69857;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_37 {
+  background-color: #e69756;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_37 {
+  border-bottom: 2px solid #e69756;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_38 {
+  background-color: #e59555;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_38 {
+  border-bottom: 2px solid #e59555;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_39 {
+  background-color: #e49354;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_39 {
+  border-bottom: 2px solid #e49354;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_40 {
+  background-color: #e39154;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_40 {
+  border-bottom: 2px solid #e39154;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_41 {
+  background-color: #e38f53;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_41 {
+  border-bottom: 2px solid #e38f53;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_42 {
+  background-color: #e28e52;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_42 {
+  border-bottom: 2px solid #e28e52;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_43 {
+  background-color: #e18c51;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_43 {
+  border-bottom: 2px solid #e18c51;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_44 {
+  background-color: #e08a50;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_44 {
+  border-bottom: 2px solid #e08a50;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_45 {
+  background-color: #e08850;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_45 {
+  border-bottom: 2px solid #e08850;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_46 {
+  background-color: #df864f;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_46 {
+  border-bottom: 2px solid #df864f;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_47 {
+  background-color: #de854e;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_47 {
+  border-bottom: 2px solid #de854e;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_48 {
+  background-color: #dd834d;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_48 {
+  border-bottom: 2px solid #dd834d;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_49 {
+  background-color: #dd814c;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_49 {
+  border-bottom: 2px solid #dd814c;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_50 {
+  background-color: #dc7f4b;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_50 {
+  border-bottom: 2px solid #dc7f4b;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_51 {
+  background-color: #db7d4b;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_51 {
+  border-bottom: 2px solid #db7d4b;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_52 {
+  background-color: #da7b4a;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_52 {
+  border-bottom: 2px solid #da7b4a;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_53 {
+  background-color: #d97a49;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_53 {
+  border-bottom: 2px solid #d97a49;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_54 {
+  background-color: #d97848;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_54 {
+  border-bottom: 2px solid #d97848;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_55 {
+  background-color: #d87647;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_55 {
+  border-bottom: 2px solid #d87647;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_56 {
+  background-color: #d77447;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_56 {
+  border-bottom: 2px solid #d77447;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_57 {
+  background-color: #d67246;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_57 {
+  border-bottom: 2px solid #d67246;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_58 {
+  background-color: #d67045;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_58 {
+  border-bottom: 2px solid #d67045;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_59 {
+  background-color: #d56f44;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_59 {
+  border-bottom: 2px solid #d56f44;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_60 {
+  background-color: #d46d44;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_60 {
+  border-bottom: 2px solid #d46d44;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_61 {
+  background-color: #d36b43;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_61 {
+  border-bottom: 2px solid #d36b43;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_62 {
+  background-color: #d26942;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_62 {
+  border-bottom: 2px solid #d26942;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_63 {
+  background-color: #d16741;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_63 {
+  border-bottom: 2px solid #d16741;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_64 {
+  background-color: #d16540;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_64 {
+  border-bottom: 2px solid #d16540;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_65 {
+  background-color: #d06340;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_65 {
+  border-bottom: 2px solid #d06340;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_66 {
+  background-color: #cf613f;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_66 {
+  border-bottom: 2px solid #cf613f;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_67 {
+  background-color: #ce5f3e;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_67 {
+  border-bottom: 2px solid #ce5f3e;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_68 {
+  background-color: #cd5d3d;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_68 {
+  border-bottom: 2px solid #cd5d3d;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_69 {
+  background-color: #cd5b3d;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_69 {
+  border-bottom: 2px solid #cd5b3d;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_70 {
+  background-color: #cc593c;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_70 {
+  border-bottom: 2px solid #cc593c;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_71 {
+  background-color: #cb583b;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_71 {
+  border-bottom: 2px solid #cb583b;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_72 {
+  background-color: #ca563a;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_72 {
+  border-bottom: 2px solid #ca563a;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_73 {
+  background-color: #c95339;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_73 {
+  border-bottom: 2px solid #c95339;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_74 {
+  background-color: #c85139;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_74 {
+  border-bottom: 2px solid #c85139;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_75 {
+  background-color: #c74f38;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_75 {
+  border-bottom: 2px solid #c74f38;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_76 {
+  background-color: #c74d37;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_76 {
+  border-bottom: 2px solid #c74d37;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_77 {
+  background-color: #c64b36;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_77 {
+  border-bottom: 2px solid #c64b36;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_78 {
+  background-color: #c54936;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_78 {
+  border-bottom: 2px solid #c54936;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_79 {
+  background-color: #c44735;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_79 {
+  border-bottom: 2px solid #c44735;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_80 {
+  background-color: #c34534;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_80 {
+  border-bottom: 2px solid #c34534;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_81 {
+  background-color: #c24333;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_81 {
+  border-bottom: 2px solid #c24333;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_82 {
+  background-color: #c14033;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_82 {
+  border-bottom: 2px solid #c14033;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_83 {
+  background-color: #c13e32;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_83 {
+  border-bottom: 2px solid #c13e32;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_84 {
+  background-color: #c03c31;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_84 {
+  border-bottom: 2px solid #c03c31;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_85 {
+  background-color: #bf3931;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_85 {
+  border-bottom: 2px solid #bf3931;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_86 {
+  background-color: #be3730;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_86 {
+  border-bottom: 2px solid #be3730;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_87 {
+  background-color: #bd352f;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_87 {
+  border-bottom: 2px solid #bd352f;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_88 {
+  background-color: #bc322e;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_88 {
+  border-bottom: 2px solid #bc322e;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_89 {
+  background-color: #bb2f2e;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_89 {
+  border-bottom: 2px solid #bb2f2e;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_90 {
+  background-color: #ba2d2d;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_90 {
+  border-bottom: 2px solid #ba2d2d;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_91 {
+  background-color: #b92a2c;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_91 {
+  border-bottom: 2px solid #b92a2c;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_92 {
+  background-color: #b8272c;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_92 {
+  border-bottom: 2px solid #b8272c;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_93 {
+  background-color: #b8242b;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_93 {
+  border-bottom: 2px solid #b8242b;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_94 {
+  background-color: #b7202a;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_94 {
+  border-bottom: 2px solid #b7202a;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_95 {
+  background-color: #b61d29;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_95 {
+  border-bottom: 2px solid #b61d29;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_96 {
+  background-color: #b51929;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_96 {
+  border-bottom: 2px solid #b51929;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_97 {
+  background-color: #b41428;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_97 {
+  border-bottom: 2px solid #b41428;
+}
+
+/* line 16, ../sass/_helpers.scss */
+.slavery_policy_risk_98 {
+  background-color: #b30f27;
+}
+
+/* line 20, ../sass/_helpers.scss */
+.infowindow-slavery_policy_risk_98 {
+  border-bottom: 2px solid #b30f27;
 }
 
 /* line 58, infowindow-icons/*.png */
@@ -760,24 +1235,23 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* line 180, ../sass/_map.scss */
 .infowindow-title {
-  border-bottom: 2px solid #b10026;
   padding: 20px;
   color: #444;
   font: bold 21px/1 "Open Sans";
 }
 
-/* line 187, ../sass/_map.scss */
+/* line 186, ../sass/_map.scss */
 .total-num {
   float: right;
   text-align: right;
 }
-/* line 191, ../sass/_map.scss */
+/* line 190, ../sass/_map.scss */
 .total-num span {
   display: block;
   font-size: 10px;
 }
 
-/* line 197, ../sass/_map.scss */
+/* line 196, ../sass/_map.scss */
 .infowindow-block {
   overflow: hidden;
   margin: 10px 0;
@@ -787,20 +1261,20 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font: 400 21px/1.2 "Open Sans";
 }
 
-/* line 206, ../sass/_map.scss */
+/* line 205, ../sass/_map.scss */
 .infowindow-population {
   background-position: 20px 0;
   margin: 10px 0 10px 0;
 }
 
-/* line 211, ../sass/_map.scss */
+/* line 210, ../sass/_map.scss */
 .infowindow-slaved {
   background-position: 20px -61px;
   color: #F1B14C;
   margin-bottom: 0;
 }
 
-/* line 217, ../sass/_map.scss */
+/* line 216, ../sass/_map.scss */
 .percent {
   float: left;
   padding: 0 5px;
@@ -809,7 +1283,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   background: #FFF;
 }
 
-/* line 225, ../sass/_map.scss */
+/* line 224, ../sass/_map.scss */
 .more {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -832,11 +1306,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -webkit-border-bottom-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
-/* line 240, ../sass/_map.scss */
+/* line 239, ../sass/_map.scss */
 .more:hover {
   background: #f8f8f8;
 }
-/* line 244, ../sass/_map.scss */
+/* line 243, ../sass/_map.scss */
 .more i {
   position: absolute;
   display: block;
@@ -854,7 +1328,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border-radius: 15px;
 }
 
-/* line 257, ../sass/_map.scss */
+/* line 256, ../sass/_map.scss */
 .chip {
   display: block;
   padding: 2px;
@@ -868,16 +1342,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -moz-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
 }
-/* line 266, ../sass/_map.scss */
+/* line 265, ../sass/_map.scss */
 .chip span {
   display: none;
 }
-/* line 268, ../sass/_map.scss */
+/* line 267, ../sass/_map.scss */
 .chip text {
   font: bold 10px/1.4 "Open Sans";
   fill: rgba(0, 0, 0, 0.5);
 }
-/* line 273, ../sass/_map.scss */
+/* line 272, ../sass/_map.scss */
 .chip .mean {
   position: absolute;
   top: 50%;
@@ -888,7 +1362,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   margin-left: -18px;
   font: 400 10px/36px "Open Sans";
   color: #fff;
-  background: #b10026;
   text-align: center;
   -webkit-border-radius: 19px;
   -moz-border-radius: 19px;
@@ -896,32 +1369,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -o-border-radius: 19px;
   border-radius: 19px;
 }
-/* line 286, ../sass/_map.scss */
-.chip .mean.high {
-  background: #e31a1c;
-}
-/* line 287, ../sass/_map.scss */
-.chip .mean.moderate_high {
-  background: #fc4e2a;
-}
-/* line 288, ../sass/_map.scss */
-.chip .mean.moderate {
-  background: #fd8d3c;
-}
-/* line 289, ../sass/_map.scss */
-.chip .mean.moderate_low {
-  background: #feb24c;
-}
-/* line 290, ../sass/_map.scss */
-.chip .mean.low {
-  background: #fed976;
-}
-/* line 291, ../sass/_map.scss */
-.chip .mean.very_low {
-  background: #ffffb2;
-}
 
-/* line 295, ../sass/_map.scss */
+/* line 286, ../sass/_map.scss */
 .tooltip {
   position: absolute;
   padding: 0 10px 5px;
@@ -936,7 +1385,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   text-align: center;
   pointer-events: none;
 }
-/* line 305, ../sass/_map.scss */
+/* line 296, ../sass/_map.scss */
 .tooltip:after {
   content: " ";
   position: absolute;
@@ -947,7 +1396,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
 }
-/* line 315, ../sass/_map.scss */
+/* line 306, ../sass/_map.scss */
 .tooltip strong {
   display: block;
   font-weight: bold;

@@ -178,7 +178,6 @@ $infowindow-icons-slavery-spacing: 40px;
 }
 
 .infowindow-title {
-  border-bottom: 2px solid $risk1;
   padding: 20px;
   color: #444;
   @include font(bold, 21px, 1, "Open Sans");
@@ -279,16 +278,8 @@ $infowindow-icons-slavery-spacing: 40px;
     margin-left: -18px;
     @include font(400, 10px, 36px, "Open Sans");
     color: #fff;
-    background: $risk1;
     text-align: center;
     @include border-radius(19px);
-
-    &.high { background: $risk2; }
-    &.moderate_high { background: $risk3; }
-    &.moderate { background: $risk4; }
-    &.moderate_low { background: $risk5; }
-    &.low { background: $risk6; }
-    &.very_low { background: $risk7; }
   }
 }
 
