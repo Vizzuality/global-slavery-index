@@ -49,16 +49,20 @@ circle {
   pointer-events: none;
 }
 
-.graph_selector,
-.country_selector {
+.selectors {
   position: absolute;
   top: 20px; right: 50px;
-  width: 254px;
+}
+
+.selector {
+  position: relative;
+  float: right;
+  margin-left: 10px;
   text-align: right;
 
-  ul {
-    float: right;
-    width: 100%;
+  ul {position: absolute;
+    right: 0;
+    width: 254px;
     margin-top: 10px;
     @include border-radius(5px);
     @include box-shadow(0 0 0 3px rgba(#000, .2));

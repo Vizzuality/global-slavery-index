@@ -1,6 +1,8 @@
 slavery.AppData = {
   REGIONS: {
     'asia': {
+      name: 'asia',
+      title: 'Asia',
       center: {
         lat: 3.5134210456400443, 
         lng: 77.958984375
@@ -8,6 +10,8 @@ slavery.AppData = {
       zoom: 4
     },
     'west_europe': {
+      name: 'west_europe',
+      title: 'Europe',
       center: {
         lat: 46.9502622421856,
         lng: 0.3515625
@@ -15,6 +19,8 @@ slavery.AppData = {
       zoom: 5
     },
     'east_europe': {
+      name: 'east_europe',
+      title: 'Russia & Eurasia',
       center: {
         lat: 51.12106042504407, 
         lng: 40.869140625
@@ -22,6 +28,8 @@ slavery.AppData = {
       zoom: 4
     },
     'americas': {
+      name: 'americas',
+      title: 'Americas',
       center: {
         lat: 1.2303741774326145,
         lng:  -104.94140625,
@@ -29,6 +37,8 @@ slavery.AppData = {
       zoom: 3
     },
     'africa': {
+      name: 'africa',
+      title: 'Sub-Saharan Africa',
       center: {
         lat: -9.840168555999899,
         lng: 19.0667423835001
@@ -36,6 +46,8 @@ slavery.AppData = {
       zoom: 4
     },
     'middle_east': {
+      name: 'middle_east',
+      title: 'Mid East & N. Africa',
       center: {
         lat: 24.226584371000065,
         lng: 23.152942403827552

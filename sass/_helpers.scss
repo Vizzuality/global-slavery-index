@@ -10,9 +10,9 @@ $helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;
   &:after { clear: both; }
 }
 
-$color-collection: (#fdd775, #fdd574, #fcd473, #fcd272, #fbd072, #face71, #facc70, #f9cb6f, #f8c96e, #f8c76d, #f7c56c, #f7c36b, #f6c26b, #f5c06a, #f5be69, #f4bc68, #f3bb67, #f3b966, #f2b765, #f1b565, #f1b364, #f0b263, #efb062, #efae61, #eeac60, #edaa5f, #eda95f, #eca75e, #eba55d, #eba35c, #eaa15b, #e9a05a, #e89e59, #e89c59, #e79a58, #e69857, #e69756, #e59555, #e49354, #e39154, #e38f53, #e28e52, #e18c51, #e08a50, #e08850, #df864f, #de854e, #dd834d, #dd814c, #dc7f4b, #db7d4b, #da7b4a, #d97a49, #d97848, #d87647, #d77447, #d67246, #d67045, #d56f44, #d46d44, #d36b43, #d26942, #d16741, #d16540, #d06340, #cf613f, #ce5f3e, #cd5d3d, #cd5b3d, #cc593c, #cb583b, #ca563a, #c95339, #c85139, #c74f38, #c74d37, #c64b36, #c54936, #c44735, #c34534, #c24333, #c14033, #c13e32, #c03c31, #bf3931, #be3730, #bd352f, #bc322e, #bb2f2e, #ba2d2d, #b92a2c, #b8272c, #b8242b, #b7202a, #b61d29, #b51929, #b41428, #b30f27, #b20727);
+$color-collection: (#fed976, #fdd775, #fdd574, #fcd473, #fcd272, #fbd072, #face71, #facc70, #f9cb6f, #f8c96e, #f8c76d, #f7c56c, #f7c36b, #f6c26b, #f5c06a, #f5be69, #f4bc68, #f3bb67, #f3b966, #f2b765, #f1b565, #f1b364, #f0b263, #efb062, #efae61, #eeac60, #edaa5f, #eda95f, #eca75e, #eba55d, #eba35c, #eaa15b, #e9a05a, #e89e59, #e89c59, #e79a58, #e69857, #e69756, #e59555, #e49354, #e39154, #e38f53, #e28e52, #e18c51, #e08a50, #e08850, #df864f, #de854e, #dd834d, #dd814c, #dc7f4b, #db7d4b, #da7b4a, #d97a49, #d97848, #d87647, #d77447, #d67246, #d67045, #d56f44, #d46d44, #d36b43, #d26942, #d16741, #d16540, #d06340, #cf613f, #ce5f3e, #cd5d3d, #cd5b3d, #cc593c, #cb583b, #ca563a, #c95339, #c85139, #c74f38, #c74d37, #c64b36, #c54936, #c44735, #c34534, #c24333, #c14033, #c13e32, #c03c31, #bf3931, #be3730, #bd352f, #bc322e, #bb2f2e, #ba2d2d, #b92a2c, #b8272c, #b8242b, #b7202a, #b61d29, #b51929, #b41428, #b30f27, #b20727);
 
-@for $i from 2 to length($color-collection) {
+@for $i from 1 to length($color-collection) {
   .slavery_policy_risk_#{$i} {
     background-color: nth($color-collection, $i);
   }

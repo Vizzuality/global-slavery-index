@@ -176,6 +176,12 @@
 
       this.addView(this.country_selector);
 
+      this.region_selector = new slavery.ui.view.RegionSelector({
+        el: this.$(".region_selector")
+      });
+
+      this.addView(this.country_selector);
+
       this.infowindow = new slavery.ui.view.Infowindow({
         className: "collapsed",
         map: this.map,
@@ -372,7 +378,7 @@
 
           self.panel.model.set({
             'region': id,
-            'region_name': region.region_name,
+            'region_name': slavery.AppData.REGIONS[id]['title'],
             'countries_count': data.rows.length
           });
 

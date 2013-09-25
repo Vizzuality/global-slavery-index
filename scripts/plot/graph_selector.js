@@ -10,8 +10,6 @@
 
 
   slavery.ui.view.GraphSelector = cdb.core.View.extend({
-    className: 'graph_selector selector',
-
     events: {
       "click .link": "_onClickLink",
       "click li a": "_onClickGraph"
@@ -35,10 +33,8 @@
 
       this.model.bind("change:closed", this._toggleOpen);
 
-      var template = $("#graph_selector-template").html();
-
       this.template = new cdb.core.Template({
-        template: template
+        template: $("#selector-template").html(),
       });
 
       this.render();
@@ -125,9 +121,9 @@
     },
 
     render: function() {
-      this.$el.append(this.template.render( this.model.toJSON() ));
+      this.$el.append(this.template.render( _.extend(this.model.toJSON(), { link_title: "Graph" }) ));
 
-      this.$graphs         = this.$el.find(".graphs");
+      this.$graphs = this.$el.find("ul");
       this.$selected_graph = this.$el.find(".selected_graph");
 
       this._addGraphs();

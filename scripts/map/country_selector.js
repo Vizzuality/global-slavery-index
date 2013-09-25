@@ -10,8 +10,6 @@
 
 
   slavery.ui.view.CountrySelector = cdb.core.View.extend({
-    className: 'country_selector selector',
-
     events: {
       "click .link": "_onClickLink",
       "click li a": "_onClickCountry"
@@ -29,7 +27,7 @@
       this.model.bind("change:closed", self._toggleOpen);
 
       this.template = new cdb.core.Template({
-        template: $("#country_selector-template").html()
+        template: $("#selector-template").html()
       });
 
       var sql = new cartodb.SQL({ user: 'walkfree' });
@@ -127,9 +125,9 @@
     },
 
     render: function() {
-      this.$el.append(this.template.render( this.model.toJSON() ));
+      this.$el.append(this.template.render( _.extend(this.model.toJSON(), { link_title: "Country" }) ));
 
-      this.$countries         = this.$el.find(".countries");
+      this.$countries = this.$el.find("ul");
       this.$selected_country = this.$el.find(".selected_country");
 
       this._addCountries();
