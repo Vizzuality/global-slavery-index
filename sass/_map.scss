@@ -216,7 +216,7 @@ $infowindow-icons-spacing: 20px;
 }
 
 .infowindow-population {
-  @include infowindow-icons-sprite(population, $offset-x: 20px, $offset-y: 4px);
+  @include infowindow-icons-sprite(population, $offset-x: 20px, $offset-y: 5px);
   margin: 10px 0 10px 0;
 }
 
