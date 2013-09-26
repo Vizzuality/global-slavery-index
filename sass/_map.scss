@@ -1,7 +1,3 @@
-@import "infowindow-icons/*.png" ;
-
-$infowindow-icons-spacing: 20px;
-
 // map overrides
 .leaflet-container {
   background: transparent;
@@ -216,12 +212,12 @@ $infowindow-icons-spacing: 20px;
 }
 
 .infowindow-population {
-  @include infowindow-icons-sprite(population, $offset-x: 20px, $offset-y: 5px);
+  background: url(../images/infowindow-icons/population.png) no-repeat 18px 4px;
   margin: 10px 0 10px 0;
 }
 
 .infowindow-slaved {
-  @include infowindow-icons-sprite(slavery, $offset-x: 20px);
+  background: url(../images/infowindow-icons/slavery.png) no-repeat 20px 0;
   color: #F1B14C;
   margin-bottom: 0;
 }
