@@ -52,7 +52,7 @@ slavery.AppData = {
     },
     'middle_east': {
       name: 'middle_east',
-      title: 'The Middle East and North Africa',
+      title: 'Middle East and North Africa',
       desc: 'It is estimated that 2.46% of the estimated total 29.6 million people in modern slavery are in the Middle East and North Africa. The risk of enslavement is relatively high across the region with little variation. Trafficking between the countries of the region is widespread. Globally, this region has the highest measured level of discrimination against women, resulting in high levels of forced and child marriages, as well as the widespread exploitation of trafficked women as sex or domestic workers. In recent years, several countries including Egypt, Syria and Morocco have all passed relevant laws on this issue, but due to ongoing conflict and social unrest they are not effectively enforced. Several Middle Eastern countries host large numbers of migrant workers. Not all are enslaved, but some find themselves in situations that can foster enslavement. On average, foreign workers make up 40-90% of the populations of Jordan, Saudi Arabia, Israel, the United Arab Emirates, and Kuwait. ',
       center: {
         lat: 24.226584371000065,
