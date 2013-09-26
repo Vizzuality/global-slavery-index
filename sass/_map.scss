@@ -1,8 +1,6 @@
-@import "infowindow-icons/*.png";
+@import "infowindow-icons/*.png" ;
 
-$infowindow-icons-population-spacing: 40px;
-$infowindow-icons-slavery-spacing: 40px;
-
+$infowindow-icons-spacing: 20px;
 
 // map overrides
 .leaflet-container {
@@ -203,7 +201,7 @@ $infowindow-icons-slavery-spacing: 40px;
 
   span {
     display: block;
-    font-size: 10px;
+    @include font(400, 10px, 1.2, 'Open Sans');
   }
 }
 
@@ -213,11 +211,12 @@ $infowindow-icons-slavery-spacing: 40px;
   padding: 0 20px;
   background-repeat: no-repeat;
   color: #444;
-  @include font(400, 21px, 1.2, 'Open Sans');
+  @include font(bold, 21px, 1.2, 'Open Sans');
+
 }
 
 .infowindow-population {
-  @include infowindow-icons-sprite(population, $offset-x: 20px);
+  @include infowindow-icons-sprite(population, $offset-x: 20px, $offset-y: 4px);
   margin: 10px 0 10px 0;
 }
 
