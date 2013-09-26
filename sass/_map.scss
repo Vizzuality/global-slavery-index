@@ -85,9 +85,18 @@ $infowindow-icons-slavery-spacing: 40px;
   @include font(300, 67px, 1.2, "Open Sans");
 }
 
+
+.panel-subtitle {
+  width: 420px;
+  @include font(300, 17px, 1.2, "Open Sans");
+
+  a { color: #fff; }
+}
+
 .panel-desc {
   width: 420px;
   @include font(300, 17px, 1.2, "Open Sans");
+  pointer-events: none;
 
   a { color: #fff; }
 }
@@ -103,6 +112,7 @@ $infowindow-icons-slavery-spacing: 40px;
   margin-bottom: 10px;
   @include font(700, 41px, 1, "Open Sans");
   text-transform: uppercase;
+  pointer-events:none;
 
   &.slaved {
     color: #F1B14D;
