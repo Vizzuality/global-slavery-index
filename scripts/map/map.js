@@ -371,7 +371,8 @@
           var center = L.latLngBounds(bounds).getCenter(),
               zoom = self.map.getBoundsZoom(bounds);
               
-          center.lng = center.lng - 10;
+          //Moves the center a bit to the right
+          center.lng = center.lng - 5;
 
           self.model.set({
             'center': center,
