@@ -26,7 +26,7 @@ $infowindow-icons-slavery-spacing: 40px;
   width: 100%;
   height: 100%;
   content: "";
-  @include background-image(radial-gradient(top left, circle cover, rgba(#000, .4), rgba(#000, 0)));
+  @include background-image(linear-gradient(left, rgba(#000, .45) 0, rgba(#000, 0) 90%));
 }
 
 .zoom {
@@ -86,7 +86,7 @@ $infowindow-icons-slavery-spacing: 40px;
 }
 
 .panel-desc {
-  width: 365px;
+  width: 420px;
   @include font(300, 17px, 1.2, "Open Sans");
 
   a { color: #fff; }
