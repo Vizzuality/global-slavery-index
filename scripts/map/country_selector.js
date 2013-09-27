@@ -34,7 +34,7 @@
 
       var sql = new cartodb.SQL({ user: 'walkfree' });
 
-      sql.execute("SELECT * FROM gsi_geom_copy WHERE featured = true")
+      gsdata.featured()
         .done(function(data) {
           _.each(data.rows, function(country) {
             self.countries.add(new slavery.ui.model.SelectorItem(country));

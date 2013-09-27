@@ -30,13 +30,11 @@
 
       this.chips = [];
 
-      this.sql = new cartodb.SQL({ user: 'walkfree' });
-
       this._initLoader();
       this._initViews();
       this._initBindings();
 
-      var polygons_url = 'https://walkfree.cartodb.com/api/v2/sql?q=select iso3, ST_Simplify(the_geom, 0.005) as the_geom from gsi_geom_copy&format=geojson';
+      var polygons_url = 'https://walkfree.cartodb.com/api/v2/sql?q=select iso3, ST_Simplify(the_geom, 0.1) as the_geom from gsi_geom_copy&format=geojson';
 
       create_polygons(polygons_url, function(polygons) {
         self.countries_polygons = polygons;
@@ -222,6 +220,7 @@
           sublayer.setInteraction(true);
 
           slavery.AppData.CARTOCSS = sublayer.getCartoCSS().split(' ').join(' ');
+          //" #gsi_geom{ line-color: #FFF; line-opacity: 1; line-width: 1; polygon-opacity: 1; polygon-fill:red; }"
 
           sublayer.on('featureClick', function(e, latlng, pos, data, layerNumber) {
             self.water = false;
@@ -238,7 +237,8 @@
 
             self.infowindow.setLoading();
 
-            self.sql.execute("SELECT * FROM gsi_geom_copy WHERE cartodb_id = {{id}}", { id: data.cartodb_id })
+            //self.sql.execute("SELECT * FROM gsi_geom_copy WHERE cartodb_id = {{id}}", { id: data.cartodb_id })
+            gsdata.filter({ cartodb_id: data.cartodb_id })
               .done(function(data) {
                 var country = data.rows[0],
                     collapsed = country.country_name ? false : true;
@@ -279,9 +279,9 @@
 
           if(!self.loadArea) {
             // world
-            setTimeout(function() {
+            layer.on('load', function() {
               self._hideLoader();
-            }, 600);
+            });
           } else {
             self.loadArea();
           }
@@ -345,7 +345,8 @@
 
       this.current_iso = iso;
 
-      this.sql.execute("SELECT * FROM gsi_geom_copy WHERE iso3 = '{{id}}'", { id: iso })
+      gsdata.filter({ iso3: iso })
+      //this.sql.execute("SELECT * FROM gsi_geom_copy WHERE iso3 = '{{id}}'", { id: iso })
         .done(function(data) {
           var country = data.rows[0];
 
@@ -366,7 +367,8 @@
           console.log("error:" + errors);
         });
 
-      this.sql.getBounds("SELECT * FROM gsi_geom_copy WHERE iso3 = '{{id}}'", { id: iso })
+      //this.sql.getBounds("SELECT * FROM gsi_geom_copy WHERE iso3 = '{{id}}'", { id: iso })
+      gsdata.filter({ iso3: iso }, { bounds: true })
         .done(function(bounds) {
           var center = L.latLngBounds(bounds).getCenter(),
               zoom = self.map.getBoundsZoom(bounds);
@@ -390,7 +392,8 @@
 
       this.current_region = id;
 
-      this.sql.execute("SELECT * FROM gsi_geom_copy WHERE region = '{{id}}'", { id: id })
+      //this.sql.execute("SELECT * FROM gsi_geom_copy WHERE region = '{{id}}'", { id: id })
+      gsdata.filter({ region: id })
         .done(function(data) {
           var region = data.rows[0];
 
@@ -410,7 +413,10 @@
     _showRegion: function(id) {
       var self = this;
 
-      this.sql.execute("SELECT *, ST_AsGeoJSON(ST_PointOnSurface(the_geom)) as center FROM gsi_geom_copy WHERE region = '{{id}}'", { id: id })
+      gsdata.filter({ region: id }, { 
+        extra_columns: 'ST_AsGeoJSON(ST_PointOnSurface(the_geom)) as center'
+      })
+      //this.sql.execute("SELECT *, ST_AsGeoJSON(ST_PointOnSurface(the_geom)) as center FROM gsi_geom_copy WHERE region = '{{id}}'", { id: id })
         .done(function(data) {
           var region = data.rows[0];
 
