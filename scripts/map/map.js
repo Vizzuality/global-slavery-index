@@ -29,6 +29,7 @@
       this.render();
 
       this.chips = [];
+      this.hoveringChip = false;
 
       this._initLoader();
       this._initViews();
@@ -44,6 +45,20 @@
 
     over: function(key, borderColor) {
       this.out();
+      if(!this.hoveringChip) {
+        d3.selectAll('.leaflet-marker-icon').filter(function() {
+          var c = this.getAttribute('class')
+          if (c) {
+            return c.indexOf('chip_' + key) < 0;
+          }
+          return true;
+        })
+        .transition().duration(200).style('opacity', 0).each('end', function() { d3.select(this).style('display', 'none'); })
+        d3.selectAll('.chip_' + key).style({
+          'opacity': 1,
+          display: 'block'
+        });
+      }
 
       var current_polygon = this.current_polygon = this.countries_polygons[key];
       var current_key = this.current_key;
@@ -429,7 +444,17 @@
               html: '<div class="mean slavery_policy_risk_'+parseInt(country.slavery_policy_risk, 10)+'">'+country.mean.toFixed(2)+'</div>'
             });
 
-            self.chips.push(L.marker([coordinates[1], coordinates[0]], {icon: markerIcon}).addTo(self.map));
+            var chip = L.marker([coordinates[1], coordinates[0]], {icon: markerIcon}).addTo(self.map);
+            (self.chips[country.iso3] || (self.chips[country.iso3] = [])).push(chip);
+            chip.on('mouseover', function() {
+              self.hoveringChip = true;
+            });
+            chip.on('mouseout', function() {
+              self.hoveringChip = false;
+            });
+
+            ///.addTo(self.map)
+
 
             // dataset
             var dataset = [country.human_rights_risk, country.develop_rights_risk, country.state_stability_risk, country.discrimination_risk, country.slavery_policy_risk];
@@ -482,6 +507,7 @@
             });
 
             self._drawChips(country, wedges, palette_ord);
+            d3.selectAll('.leaflet-marker-icon').style('display', 'none');
           });
         })
         .error(function(errors) {
@@ -553,6 +579,7 @@
 
       _.each(this.chips, function(chip) {
         self.map.removeLayer(chip);
+        chip.off();
       });
 
       this.chips.length = 0;
@@ -622,6 +649,7 @@
       this.map.keyboard.disable();
       this.countries_sublayer.setInteraction(false);
       this.$cartodbMap.addClass("cartodb-map-disabled");
+
     },
 
     _enableInteraction: function() {
@@ -634,6 +662,7 @@
       this.map.keyboard.enable();
       this.countries_sublayer.setInteraction(true);
       this.$cartodbMap.removeClass("cartodb-map-disabled");
+
     },
 
     _changeCountry: function() {
