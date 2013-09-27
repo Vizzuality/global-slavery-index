@@ -62,8 +62,8 @@
         self.map.changeArea("region", self.map.current_region);
       } else if(self.map.model.get('area') === 'region') {
         e.stopPropagation();
-
-        self.map.changeArea("world");
+        self.map.map.zoomOut();
+        //self.map.changeArea("world");
       } else {
         self.map.map.zoomOut();
       }
