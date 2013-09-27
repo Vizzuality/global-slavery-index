@@ -28,7 +28,7 @@
 
       this.render();
 
-      this.chips = [];
+      this.chips = {};
       this.hoveringChip = false;
 
       this._initLoader();
@@ -578,11 +578,14 @@
       var self = this;
 
       _.each(this.chips, function(chip) {
-        self.map.removeLayer(chip);
-        chip.off();
+        _.each(chip, function(c) {
+          self.map.removeLayer(c);
+          c.off('mouseout');
+          c.off('mouseover');
+        });
       });
 
-      this.chips.length = 0;
+      this.chips = {};
     },
 
     _changeURL: function(href) {
