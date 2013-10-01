@@ -3,7 +3,7 @@ slavery.AppData = {
     'asia': {
       name: 'asia',
       title: 'Asia',
-      desc: 'It is estimated that 72.7 % of the estimated total 29.6 million people in modern slavery are in Asia. The region includes both countries with low prevalence and risk of enslavement (such as Australia and New Zealand), and some with high prevalence and risk (such as Pakistan, India and Thailand). India is home to the highest number of enslaved people in the world – more than any other country. However, the risk of enslavement varies across the country. The correlation between prevalence and risk is not always clear.  For example, India has a high prevalence but medium estimated risk, perhaps because existing data does not capture complexities like historical practices of debt bondage and the ongoing impact of the caste system. There is wide variation in the implementation of anti-slavery laws and policies.  Australia has a strong legal and policy response, and the Philippines continues to innovate.  Some countries, such as Myanmar, have well drafted laws, but poor implementation.  Others, such as Papua-New Guinea, Japan, and China, have enacted few anti-slavery laws.',
+      desc: 'An estimated 72.7% of the estimated total 29.6 million people in modern slavery are in Asia.<br/><br/>The region includes both countries with low prevalence and risk of enslavement (such as Australia and New Zealand), and some with high prevalence and risk (such as Pakistan, India and Thailand).There is wide variation in the implementation of anti-slavery laws and policies within the region.  Australia, for example, has a strong legal and policy response, while countries like Papua-New Guinea, Japan, and China, have enacted few anti-slavery laws.',
       center: {
         lat: 3.5134210456400443, 
         lng: 77.958984375
@@ -13,7 +13,7 @@ slavery.AppData = {
     'west_europe': {
       name: 'west_europe',
       title: 'Europe',
-      desc: 'It is estimated that 1.83 % of the estimated total 29.6 million people in modern slavery are in Europe.The countries of Western Europe have the lowest overall risk of enslavement by region, reflecting low levels of corruption, the lowest levels of measured discrimination against women, a strong respect for human rights, and effective and comprehensive anti-slavery laws (in some countries). Many Western European countries could, with sufficient political will, be slavery-free, but fail to bring sufficient resources to bear on human trafficking and modern slavery. Estimates of the prevalence of trafficking and modern slavery, based on random sample surveys, exist for Bulgaria and Romania. These estimates suggest tens of thousands of victims exist in this region rather than the low thousands of cases reported to governments.The relationship between risk and prevalence is not always clear.  For example, Turkey’s mean of risk is the highest in the European grouping but not on prevalence ranking.',
+      desc: 'An estimated 1.83 % of the estimated total 29.6 million people in modern slavery are in Europe.<br/><br/>The countries of Western Europe have the lowest overall risk of enslavement by region, reflecting low levels of corruption, low discrimination against women, and strong respect for human rights, and effective anti-slavery laws in some countries.<br/><br/>Estimates of prevalence exist for Bulgaria and Romania and suggest that tens of thousands of victims exist in this region.',
       center: {
         lat: 46.9502622421856,
         lng: 0.3515625
@@ -23,7 +23,7 @@ slavery.AppData = {
     'east_europe': {
       name: 'east_europe',
       title: 'Russia & Eurasia',
-      desc: 'It is estimated that 3.41 % of the estimated total 29.6 million people in modern slavery are in Russia and Eurasia. Three of the troubled former Soviet Republics of Central Asia (Turkmenistan, Uzbekistan, Azerbaijan) show very high levels of risk for enslavement and significant threat to basic human rights. There are mixed modes of labour migration, some of which result in exploitation, between the countries of Central and Eastern Europe. Russia’s large economy draws vulnerable workers, some of whom are ultimately enslaved in agriculture or construction from many of the former Soviet republics as well as from Eastern European countries such as Moldova. Estimates of the prevalence of trafficking and modern slavery, based on random sample surveys, exist for three countries of this region: Belarus, Moldova, and Ukraine. These estimates suggest tens of thousands of victims exist in this region rather than the low number of cases that are reported by governments.',
+      desc: 'An estimated 3.41 % of the estimated total 29.6 million people in modern slavery are in Russia and Eurasia.<br/><br/>Three troubled former Soviet Republics of Central Asia (Turkmenistan, Uzbekistan, Azerbaijan) show very high levels of risk for enslavement. Russia’s large economy draws workers from former Soviet republics and Eastern Europe, some of whom are enslaved in agriculture or construction.<br/><br/>Estimates of the prevalence exist for Belarus, Moldova, and Ukraine, and suggest that tens of thousands of victims exist in this region.',
       center: {
         lat: 51.12106042504407, 
         lng: 40.869140625
@@ -33,7 +33,7 @@ slavery.AppData = {
     'americas': {
       name: 'americas',
       title: 'The Americas',
-      desc: 'It is estimated that 3.73 % of the estimated total 29.6 million people in modern slavery are in the Americas. The wealth of Canada and the United States, their demand for cheap labour and relatively porous land borders make them prime destinations for human trafficking. However, both countries score very low on risk, largely reflecting strong measures on modern slavery policy. Aside from the United States and Canada, modern slavery policy rankings are lowest (best) for Nicaragua, Argentina and Brazil, and highest (worst) for Trinidad and Tobago, Barbados and Cuba. Caribbean basin countries have a lower risk of enslavement than most Latin America; however, in Haiti, a long history of poor government, strong legacy of slavery, and an ongoing environmental crisis has made its population extreme vulnerable to enslavement. Mexico is a transit country for South and Central Americans seeking to enter the US, resulting in a criminal economy that preys on migrants, trafficking and enslaving them.',
+      desc: 'An estimated 3.73 % of the estimated total 29.6 million people in modern slavery are in the Americas. Though Canada and the US score low on risk, their demand for cheap labour and relatively porous borders make them destinations for modern slavery, with Mexico acting as a transit country.<br/><br/>Slavery policy rankings are lowest (best) for the US, Canada, Nicaragua, Argentina and Brazil, and highest (worst) for Trinidad and Tobago, Barbados and Cuba.<br/><br/>Caribbean basin countries score lower on risk than most Latin America with the important exception of Haiti.',
       center: {
         lat: 1.2303741774326145,
         lng:  -104.94140625,
@@ -43,7 +43,7 @@ slavery.AppData = {
     'africa': {
       name: 'africa',
       title: 'Sub-Saharan Africa',
-      desc: 'It is estimated that 15.88 % of the estimated total 29.6 million people in modern slavery are in Sub-Saharan Africa. Sub-Saharan Africa holds the greatest diversity in terms of the risk of enslavement. Mauritius leads the region in stability and the protection of human and worker rights, but is eclipsed by South Africa and Gabon in terms of effective anti-slavery policies. The high prevalence measured for such countries as the Democratic Republic of Congo and Mauritania reflect centuries-old patterns of enslavement, often based on colonial conflicts and injustice exacerbated by contemporary armed conflict. Ongoing conflicts, extremes of poverty, high levels of corruption, and the impact of resource exploitation to feed global markets all increase the risk of enslavement in many African countries. Child and forced marriages are still tolerated in the context of informal or ‘traditional’ legal systems in many countries.',
+      desc: 'An estimated 15.88 % of the estimated total 29.6 million people in modern slavery are in Sub-Saharan Africa.<br/><br/>Mauritius leads the region in stability and the protection of human and worker rights, but is eclipsed by South Africa and Gabon in terms of effective anti-slavery policies.<br/><br/>The high prevalence measured for such countries as the Democratic Republic of Congo and Mauritania reflect centuries-old patterns of enslavement, often based on colonial conflicts and injustice exacerbated by contemporary armed conflict.',
       center: {
         lat: -9.840168555999899,
         lng: 19.0667423835001
@@ -53,7 +53,7 @@ slavery.AppData = {
     'middle_east': {
       name: 'middle_east',
       title: 'Middle East and North Africa',
-      desc: 'It is estimated that 2.46% of the estimated total 29.6 million people in modern slavery are in the Middle East and North Africa. The risk of enslavement is relatively high across the region with little variation. Trafficking between the countries of the region is widespread. Globally, this region has the highest measured level of discrimination against women, resulting in high levels of forced and child marriages, as well as the widespread exploitation of trafficked women as sex or domestic workers. In recent years, several countries including Egypt, Syria and Morocco have all passed relevant laws on this issue, but due to ongoing conflict and social unrest they are not effectively enforced. Several Middle Eastern countries host large numbers of migrant workers. Not all are enslaved, but some find themselves in situations that can foster enslavement. On average, foreign workers make up 40-90% of the populations of Jordan, Saudi Arabia, Israel, the United Arab Emirates, and Kuwait. ',
+      desc: 'An estimated 2.46% of the estimated total 29.6 million people in modern slavery are in the Middle East and North Africa.<br/><br/>The risk of enslavement is relatively high across the region with little variation. Trafficking between the countries of the region is widespread. Migrant workers are especially vulnerable.<br/><br/>Globally, this region has the highest measured level of discrimination against women, reflected in high levels of forced and child marriages, as well as the widespread exploitation of female domestic workers.',
       center: {
         lat: 24.226584371000065,
         lng: 23.152942403827552
