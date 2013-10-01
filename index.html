@@ -189,23 +189,25 @@
         Tier <%= us_tip_report_ranking %><sup>(2013)</sup>
       </li>
 
-      <li class="panel-item">
-        <strong>Remittances as a share of GDP</strong>
-        <%= remittances_of_gdp %>%
+      <% if(remittances_of_gdp !== null) { %>
+        <li class="panel-item">
+          <strong>Remittances as a share of GDP</strong>
+          <%= remittances_of_gdp %>%
 
-        <sup>
-          (2011)
+          <sup>
+            (2011)
 
-          <span class="panel-credit">
-            [3]
+            <span class="panel-credit">
+              [3]
 
-            <dl class="tooltip w">
-              <dt>Migration and Remittances Data, Inflows, 2011, The World</dt>
-              <dd>Bank: <a href="http://go.worldbank.org/092X1CHHD0">http://go.worldbank.org/092X1CHHD0</a></dd>
-            </dl>
-          </span>
-        </sup>
-      </li>
+              <dl class="tooltip w">
+                <dt>Migration and Remittances Data, Inflows, 2011, The World</dt>
+                <dd>Bank: <a href="http://go.worldbank.org/092X1CHHD0">http://go.worldbank.org/092X1CHHD0</a></dd>
+              </dl>
+            </span>
+          </sup>
+        </li>
+      <% } %>
     </ul>
   </script>
 
