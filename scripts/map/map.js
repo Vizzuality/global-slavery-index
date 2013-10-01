@@ -43,7 +43,7 @@
       });
     },
 
-    over: function(key, borderColor) {
+    over: function(key) {
       this.out();
       if(!this.hoveringChip) {
         d3.selectAll('.leaflet-marker-icon').filter(function() {
@@ -66,8 +66,6 @@
       if(!current_polygon) return;
 
       for(var i=0; i < current_polygon.length; ++i) {
-        current_polygon[i].geo.setStyle({ color: borderColor });
-
         this.map.addLayer(current_polygon[i].geo);
       }
     },
@@ -286,7 +284,7 @@
           });
 
           sublayer.on('featureOver', function(e, latlng, pos, data, layerNumber) {
-            self.over(data.iso3, "#fff");
+            self.over(data.iso3);
           });
 
           sublayer.on('featureOut', function(e, latlng, pos, data, layerNumber) {
@@ -672,7 +670,6 @@
     },
 
     _disableInteraction: function() {
-      this.over(this.current_iso, "#333");
       this.map.dragging.disable();
       this.map.touchZoom.disable();
       this.map.doubleClickZoom.disable();
@@ -685,7 +682,6 @@
     },
 
     _enableInteraction: function() {
-      this.out();
       this.map.dragging.enable();
       this.map.touchZoom.enable();
       this.map.doubleClickZoom.enable();
@@ -715,7 +711,8 @@
 
       // map
       // TODO: active layers
-      this.countries_sublayer.setCartoCSS(slavery.AppData.CARTOCSS + "#gsi_geom_copy [ iso3 != '" + this.panel.model.get('country_iso') + "'] { polygon-fill: #666; polygon-opacity: 1; line-width: 1; line-color: #333; line-opacity: 1; }");
+      this.out();
+      this.countries_sublayer.setCartoCSS(slavery.AppData.CARTOCSS + "#gsi_geom_copy [ iso3 != '" + this.panel.model.get('country_iso') + "'] { polygon-fill: #666; polygon-opacity: 1; line-width: 1; line-color: #333; line-opacity: 1; } #gsi_geom_copy [ iso3 = '" + this.panel.model.get('country_iso') + "'] { line-width: 3; line-color: #333; }");
       this.map.setView(this.model.get('center'), this.model.get('zoom'));
       this._disableInteraction();
     },
