@@ -454,6 +454,7 @@
 
             var chip = L.marker([coordinates[1], coordinates[0]], {icon: markerIcon}).addTo(self.map);
             (self.chips[country.iso3] || (self.chips[country.iso3] = [])).push(chip);
+
             chip.on('mouseover', function() {
               self.hoveringChip = true;
             });
@@ -537,11 +538,34 @@
           .innerRadius(20)
           .outerRadius(50);
 
-      var svg = d3.select('.chip_'+country.iso3).append("svg")
-          .attr("width", width)
-          .attr("height", height)
-          .append("g")
-          .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+      var chip = d3.select('.chip_'+country.iso3);
+
+      var svg = chip.append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+      var mean = chip.selectAll(".mean").on("mouseover", function(d) {
+        var l = $(this).offset().left,
+            m = $(this).width()/2,
+            t = "Mean Risk Score";
+
+        self.tooltip
+          .html(country.name + "<strong>" + t + "</strong>")
+          .style("visibility", "visible")
+          .style("top", $(this).offset().top-40+"px")
+          .style("left", l+m+"px")
+          .style("margin-left", function() {
+            return -$(this).outerWidth()/2+"px"
+          });
+      })
+      .on("mousemove", function() {
+        self.tooltip.style("visibility", "visible")
+      })
+      .on("mouseout", function() {
+        self.tooltip.style("visibility", "hidden")
+      });
 
       var g = svg.selectAll(".arc")
           .data(pie(wedges))
