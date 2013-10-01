@@ -66,7 +66,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* line 2, ../sass/_map.scss */
 .leaflet-container {
-  background: transparent;
+  background: transparent url(../images/plot-bkg.png);
 }
 
 /* line 6, ../sass/_map.scss */
@@ -121,7 +121,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border: 0;
   line-height: 26px;
   font-weight: bold;
-  background: #f8f8f8 url("../images/zoom-sprite.png") no-repeat;
+  background: #f8f8f8 url(../images/zoom-sprite.png) no-repeat;
   color: #00A99D;
   text-align: center;
   text-decoration: none;
@@ -486,8 +486,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /* line 1, ../sass/_plot.scss */
-.chart-wrapper {
-  background: url('/images/plot-bkg.png?1380134644');
+.plot-wrapper {
+  background: url(../images/plot-bkg.png);
 }
 
 /* line 5, ../sass/_plot.scss */
