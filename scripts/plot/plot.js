@@ -192,7 +192,6 @@
            "y1": y_scale(lr_line(x0)),
            "x2": x_scale(x1),
            "y2": y_scale(lr_line(x1)),
-           //TODO: change style here <==
            "stroke-width": 1.3,
            "stroke": "white",
            "stroke-dasharray": "7,5"
