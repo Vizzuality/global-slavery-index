@@ -73,6 +73,11 @@
   display: none;
   color: #fff;
   @include text-shadow(0 0 5px rgba(#000, .6));
+  pointer-events: none;
+
+  a {
+    pointer-events: auto;
+  }
 }
 
 .panel-title {

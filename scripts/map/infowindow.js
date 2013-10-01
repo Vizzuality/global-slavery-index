@@ -118,7 +118,7 @@
       }
 
       if(!this.model.get("collapsed")) {
-        this.map.panBy(adjustOffset);
+        this.map.panBy([adjustOffset.x, adjustOffset.y]);
       }
 
       this._center();

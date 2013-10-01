@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* line 17, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../usr/local/var/rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -21,45 +21,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../usr/local/var/rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../usr/local/var/rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../usr/local/var/rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../usr/local/var/rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../usr/local/var/rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../usr/local/var/rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../usr/local/var/rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../usr/local/var/rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -1157,35 +1157,40 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: none;
   color: #fff;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+}
+/* line 78, ../sass/_map.scss */
+.panel a {
+  pointer-events: auto;
 }
 
-/* line 78, ../sass/_map.scss */
+/* line 83, ../sass/_map.scss */
 .panel-title {
   font: 300 67px/1.2 "Open Sans";
 }
 
-/* line 83, ../sass/_map.scss */
+/* line 88, ../sass/_map.scss */
 .panel-subtitle {
   width: 420px;
   font: 300 17px/1.2 "Open Sans";
 }
-/* line 87, ../sass/_map.scss */
+/* line 92, ../sass/_map.scss */
 .panel-subtitle a {
   color: #fff;
 }
 
-/* line 90, ../sass/_map.scss */
+/* line 95, ../sass/_map.scss */
 .panel-desc {
   width: 420px;
   font: 300 17px/1.2 "Open Sans";
   pointer-events: none;
 }
-/* line 95, ../sass/_map.scss */
+/* line 100, ../sass/_map.scss */
 .panel-desc a {
   color: #fff;
 }
 
-/* line 98, ../sass/_map.scss */
+/* line 103, ../sass/_map.scss */
 .panel-sep {
   display: block;
   width: 148px;
@@ -1193,24 +1198,24 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border-bottom: 2px solid #fff;
 }
 
-/* line 105, ../sass/_map.scss */
+/* line 110, ../sass/_map.scss */
 .panel-item {
   margin-bottom: 10px;
   font: 700 41px/1 "Open Sans";
   text-transform: uppercase;
   pointer-events: none;
 }
-/* line 111, ../sass/_map.scss */
+/* line 116, ../sass/_map.scss */
 .panel-item.slaved {
   color: #F1B14D;
 }
-/* line 115, ../sass/_map.scss */
+/* line 120, ../sass/_map.scss */
 .panel-item strong {
   display: block;
   font: 600 13px/1.2 "Open Sans";
   color: #ababab;
 }
-/* line 121, ../sass/_map.scss */
+/* line 126, ../sass/_map.scss */
 .panel-item sup {
   position: relative;
   top: -30px;
@@ -1218,7 +1223,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font-weight: 600;
 }
 
-/* line 129, ../sass/_map.scss */
+/* line 134, ../sass/_map.scss */
 .infowindow {
   position: absolute;
   z-index: 10;
@@ -1226,7 +1231,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 213px;
   min-height: 30px;
 }
-/* line 136, ../sass/_map.scss */
+/* line 141, ../sass/_map.scss */
 .infowindow .spinner {
   position: relative;
   top: 27px;
@@ -1236,7 +1241,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 24px;
   height: 24px;
 }
-/* line 146, ../sass/_map.scss */
+/* line 151, ../sass/_map.scss */
 .infowindow .content {
   position: relative;
   z-index: 10;
@@ -1244,7 +1249,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   min-height: 60px;
   background: url(../images/infowindow-sprite.png) no-repeat 0 16px;
 }
-/* line 153, ../sass/_map.scss */
+/* line 158, ../sass/_map.scss */
 .infowindow .content.no_data {
   padding: 0 3px 0 11px;
   text-align: center;
@@ -1252,16 +1257,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font: bold 12px/1.2 "Open Sans";
   background: url(../images/infowindow-sprite.png) no-repeat -623px 16px;
 }
-/* line 160, ../sass/_map.scss */
+/* line 165, ../sass/_map.scss */
 .infowindow .content.no_data p {
   position: relative;
   top: 30px;
 }
-/* line 166, ../sass/_map.scss */
+/* line 171, ../sass/_map.scss */
 .infowindow .content.loading {
   padding: 0 3px 0 11px;
 }
-/* line 171, ../sass/_map.scss */
+/* line 176, ../sass/_map.scss */
 .infowindow .top {
   position: absolute;
   top: 0;
@@ -1270,7 +1275,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   height: 16px;
   background: url(../images/infowindow-sprite.png) no-repeat -213px 0;
 }
-/* line 179, ../sass/_map.scss */
+/* line 184, ../sass/_map.scss */
 .infowindow .bottom {
   position: absolute;
   bottom: -16px;
@@ -1280,25 +1285,25 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   background: url(../images/infowindow-sprite.png) no-repeat -418px 0;
 }
 
-/* line 188, ../sass/_map.scss */
+/* line 193, ../sass/_map.scss */
 .infowindow-title {
   padding: 20px;
   color: #444;
   font: bold 21px/1 "Open Sans";
 }
 
-/* line 194, ../sass/_map.scss */
+/* line 199, ../sass/_map.scss */
 .total-num {
   float: right;
   text-align: right;
 }
-/* line 198, ../sass/_map.scss */
+/* line 203, ../sass/_map.scss */
 .total-num span {
   display: block;
   font: 400 10px/1.2 "Open Sans";
 }
 
-/* line 204, ../sass/_map.scss */
+/* line 209, ../sass/_map.scss */
 .infowindow-block {
   overflow: hidden;
   margin: 10px 0;
@@ -1308,20 +1313,20 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font: bold 21px/1.2 "Open Sans";
 }
 
-/* line 214, ../sass/_map.scss */
+/* line 219, ../sass/_map.scss */
 .infowindow-population {
   background: url(../images/infowindow-icons/population.png) no-repeat 18px 4px;
   margin: 10px 0 10px 0;
 }
 
-/* line 219, ../sass/_map.scss */
+/* line 224, ../sass/_map.scss */
 .infowindow-slaved {
   background: url(../images/infowindow-icons/slavery.png) no-repeat 20px 0;
   color: #F1B14C;
   margin-bottom: 0;
 }
 
-/* line 225, ../sass/_map.scss */
+/* line 230, ../sass/_map.scss */
 .percent {
   float: left;
   padding: 0 5px;
@@ -1330,7 +1335,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   background: #FFF;
 }
 
-/* line 233, ../sass/_map.scss */
+/* line 238, ../sass/_map.scss */
 .more {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1353,11 +1358,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -webkit-border-bottom-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
-/* line 248, ../sass/_map.scss */
+/* line 253, ../sass/_map.scss */
 .more:hover {
   background: #f8f8f8;
 }
-/* line 252, ../sass/_map.scss */
+/* line 257, ../sass/_map.scss */
 .more i {
   position: absolute;
   display: block;
@@ -1375,7 +1380,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border-radius: 15px;
 }
 
-/* line 265, ../sass/_map.scss */
+/* line 270, ../sass/_map.scss */
 .chip {
   display: block;
   padding: 2px;
@@ -1389,16 +1394,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -moz-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
 }
-/* line 274, ../sass/_map.scss */
+/* line 279, ../sass/_map.scss */
 .chip span {
   display: none;
 }
-/* line 276, ../sass/_map.scss */
+/* line 281, ../sass/_map.scss */
 .chip text {
   font: bold 10px/1.4 "Open Sans";
   fill: rgba(0, 0, 0, 0.5);
 }
-/* line 281, ../sass/_map.scss */
+/* line 286, ../sass/_map.scss */
 .chip .mean {
   position: absolute;
   top: 50%;
@@ -1417,7 +1422,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border-radius: 19px;
 }
 
-/* line 295, ../sass/_map.scss */
+/* line 300, ../sass/_map.scss */
 .tooltip {
   position: absolute;
   padding: 0 10px 5px;
@@ -1432,7 +1437,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   text-align: center;
   pointer-events: none;
 }
-/* line 305, ../sass/_map.scss */
+/* line 310, ../sass/_map.scss */
 .tooltip:after {
   content: " ";
   position: absolute;
@@ -1443,7 +1448,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
 }
-/* line 315, ../sass/_map.scss */
+/* line 320, ../sass/_map.scss */
 .tooltip strong {
   display: block;
   font-weight: bold;

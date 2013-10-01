@@ -320,9 +320,17 @@
       this.region_selector.bind("closeotherselectors", this.closeSelectors, this);
     },
 
-    closeSelectors: function() {
-      this.country_selector.close();
-      this.region_selector.close();
+    closeSelectors: function(area) {
+      if(area) {
+        if(area !== 'region') {
+          this.region_selector.close();
+        } else if(area !== 'country') {
+          this.country_selector.close();
+        }
+      } else {
+        this.region_selector.close();
+        this.country_selector.close();
+      }
     },
 
     _initLoader: function() {
@@ -382,7 +390,6 @@
           console.log("error:" + errors);
         });
 
-      //this.sql.getBounds("SELECT * FROM gsi_geom_copy WHERE iso3 = '{{id}}'", { id: iso })
       gsdata.filter({ iso3: iso }, { bounds: true })
         .done(function(bounds) {
           var center = L.latLngBounds(bounds).getCenter(),
@@ -597,7 +604,7 @@
     changeArea: function(area, id, callback) {
       var self = this;
 
-      if(area !== self.model.get('area')) {
+      if(area !== this.model.get('area')) {
         var num = 0;
 
         if(!this.countries_polygons)
@@ -685,10 +692,10 @@
       this.$mamufas.show();
 
       // map
-      this._disableInteraction();
       // TODO: active layers
       this.countries_sublayer.setCartoCSS(slavery.AppData.CARTOCSS + "#gsi_geom_copy [ iso3 != '" + this.panel.model.get('country_iso') + "'] { polygon-fill: #666; polygon-opacity: 1; line-width: 1; line-color: #333; line-opacity: 1; }");
       this.map.setView(this.model.get('center'), this.model.get('zoom'));
+      this._disableInteraction();
     },
 
     _changeRegion: function() {
@@ -705,8 +712,8 @@
       this.$mamufas.show();
 
       // map
-      this._enableInteraction();
       // TODO: active layers
+      this._enableInteraction();
       this.countries_sublayer.setCartoCSS(slavery.AppData.CARTOCSS + "#gsi_geom_copy [ region_name != '" + this.panel.model.get('region') + "'] { polygon-fill: #666; polygon-opacity: 1; line-width: 1; line-color: #333; line-opacity: 1; }");
       this.map.setView(slavery.AppData.REGIONS[this.panel.model.get('region')].center, slavery.AppData.REGIONS[this.panel.model.get('region')].zoom);
 

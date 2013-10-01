@@ -82,7 +82,7 @@
     _onClickLink: function(e) {
       e.preventDefault();
 
-      this.trigger("closeotherselectors");
+      this.trigger("closeotherselectors", "region");
 
       if(this.model.get("closed")) {
         this.open();
