@@ -27,7 +27,8 @@ var gs_columns = [
   "region",
   "population",
   "slaves",
-  "featured"
+  "featured",
+  "rank"
 ]
 
 function GSData() {

@@ -51,6 +51,9 @@
       this.model.set('region_desc', slavery.AppData.REGIONS[this.model.get('region')].desc);
 
       this.$el.html(this.template.render( this.model.toJSON() ));
+
+      this.$panel_credit = this.$el.find(".panel-credit");
+
       return this;
     },
 
@@ -64,6 +67,26 @@
 
     show: function() {
       this.model.set("hidden", false);
+
+      this.$panel_credit.on('mouseover', function() {
+        var $tooltip = $(this).find('.tooltip');
+
+        $tooltip.css({
+          'visibility': 'visible',
+          'top': - $tooltip.height()/2,
+          'right': - $tooltip.width() - 32 // padding + tip
+        });
+      });
+
+      this.$panel_credit.on('mouseout', function() {
+        var that = this;
+
+        setTimeout(function() {
+          $(that).find('.tooltip').css({
+            'visibility': 'hidden'
+          });
+        }, 1000);
+      });
     },
 
     hide: function() {

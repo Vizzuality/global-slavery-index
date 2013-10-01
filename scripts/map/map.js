@@ -375,7 +375,7 @@
           self.panel.model.set({
             'country_name': country.country_name,
             'country_iso': country.iso3,
-            'prevalence': 'high',
+            'rank': country.rank,
             'population': country.population,
             'slaved': country.slaves,
             'gdppp': country.gdppp

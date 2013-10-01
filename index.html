@@ -137,12 +137,7 @@
     <ul>
       <li class="panel-item">
         <strong>Prevalence rank</strong>
-        <%= prevalence %>
-      </li>
-
-      <li class="panel-item">
-        <strong>Population</strong>
-        <%= numberWithCommas(population) %><sup>(2102 Est.)</sup>
+        <%= rank %>
       </li>
 
       <li class="panel-item slaved">
@@ -151,15 +146,67 @@
       </li>
 
       <li class="panel-item">
-        <strong>GDP (PPP)</strong>
-        $<%= numberWithCommas(gdppp) %>B<sup>(2102 Est.)</sup>
+        <strong>Population</strong>
+        <%= numberWithCommas(population) %><sup>(2012)</sup>
       </li>
 
       <li class="panel-item">
-        <strong>GDP PER CAPITA (PPP)</strong>
-        $<%= numberWithCommas(parseInt(gdppp*1000000000/population, 10)) %><sup>(2102 Est.)</sup>
+        <strong>GDP (PPP)</strong>
+        $<%= numberWithCommas(gdppp) %>B
+        <sup>
+          (2012)
+
+          <span class="panel-credit">
+            [1]
+
+            <dl class="tooltip w">
+              <dt>2012 GDP $US Data, The World</dt>
+              <dd>Bank: <a href="http://data.worldbank.org/indicator/NY.GDP.MKTP.CD">http://data.worldbank.org/indicator/NY.GDP.MKTP.CD</a></dd>
+            </dl>
+          </span>
+        </sup>
       </li>
 
+      <li class="panel-item">
+        <strong>GDP/capita (PPP)</strong>
+        $<%= numberWithCommas(parseInt(gdppp*1000000000/population, 10)) %>
+
+        <sup>
+          (2012)
+
+          <span class="panel-credit">
+            [2]
+
+            <dl class="tooltip w">
+              <dt>2012 GDP per capita $US Data, The World</dt>
+              <dd>Bank: <a href="http://data.worldbank.org/indicator/NY.GDP.PCAP.CD/countries">http://data.worldbank.org/indicator/NY.GDP.PCAP.CD/countries</a></dd>
+            </dl>
+          </span>
+        </sup>
+      </li>
+
+      <li class="panel-item">
+        <strong>US TIP Report ranking</strong>
+        $<%= numberWithCommas(parseInt(gdppp*1000000000/population, 10)) %><sup>(2013)</sup>
+      </li>
+
+      <li class="panel-item">
+        <strong>Remittances as a share of GDP</strong>
+        $<%= numberWithCommas(parseInt(gdppp*1000000000/population, 10)) %>
+
+        <sup>
+          (2011)
+
+          <span class="panel-credit">
+            [3]
+
+            <dl class="tooltip w">
+              <dt>Migration and Remittances Data, Inflows, 2011, The World</dt>
+              <dd>Bank: <a href="http://go.worldbank.org/092X1CHHD0">http://http://go.worldbank.org/092X1CHHD0</a></dd>
+            </dl>
+          </span>
+        </sup>
+      </li>
     </ul>
   </script>
 

@@ -81,7 +81,7 @@
 }
 
 .panel-title {
-  @include font(300, 67px, 1.2, "Open Sans");
+  @include font(300, 41px, 1.2, "Open Sans");
 }
 
 
@@ -103,13 +103,13 @@
 .panel-sep {
   display: block;
   width: 148px;
-  margin: 25px 0;
+  margin: 20px 0;
   border-bottom: 2px solid #fff;
 }
 
 .panel-item {
   margin-bottom: 10px;
-  @include font(700, 41px, 1, "Open Sans");
+  @include font(700, 31px, 1, "Open Sans");
   text-transform: uppercase;
   pointer-events:none;
 
@@ -125,9 +125,24 @@
 
   sup {
     position: relative;
-    top: -30px;
+    top: -15px;
+    margin-left: 5px;
     font-size: 13px;
     font-weight: 600;
+  }
+}
+
+.panel-credit {
+  pointer-events: auto;
+  position: relative;
+
+  .tooltip {
+    visibility: hidden;
+    padding: 10px;
+    min-width: 360px;
+    text-align: left;
+
+    a { color: #fff; }
   }
 }
 
@@ -312,14 +327,29 @@
     content: " ";
     position: absolute;
     left: 50%; bottom: -6px;
-    margin-left: -6px;
+    margin: 0 0 0 -3px;
     border-top: 6px solid rgba(#000, .8);
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
   }
 
-  strong {
+  &.w:after {
+    content: " ";
+    position: absolute;
+    left: -12px; bottom: 50%;
+    margin: 0 0 -6px 0;
+    border-top: 6px solid transparent;
+    border-right: 6px solid rgba(#000, .8);
+    border-bottom: 6px solid transparent;
+  }
+
+
+  strong,
+  dt {
     display: block;
     font-weight: bold;
   }
+
+  dd,
+  dt { white-space: nowrap; }
 }
