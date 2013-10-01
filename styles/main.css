@@ -121,7 +121,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border: 0;
   line-height: 26px;
   font-weight: bold;
-  background: #f8f8f8 url("../images/zoom-sprite.png") no-repeat;
+  background: #f8f8f8 url(../images/zoom-sprite.png) no-repeat;
   color: #00A99D;
   text-align: center;
   text-decoration: none;
