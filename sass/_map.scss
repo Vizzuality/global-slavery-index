@@ -1,12 +1,6 @@
-@import "infowindow-icons/*.png";
-
-$infowindow-icons-population-spacing: 40px;
-$infowindow-icons-slavery-spacing: 40px;
-
-
 // map overrides
 .leaflet-container {
-  background: transparent;
+  background: transparent url(../images/plot-bkg.png);
 }
 
 .cartodb-logo {
@@ -26,7 +20,7 @@ $infowindow-icons-slavery-spacing: 40px;
   width: 100%;
   height: 100%;
   content: "";
-  @include background-image(radial-gradient(top left, circle cover, rgba(#000, .4), rgba(#000, 0)));
+  @include background-image(linear-gradient(left, rgba(#000, .45) 0, rgba(#000, 0) 90%));
 }
 
 .zoom {
@@ -79,15 +73,29 @@ $infowindow-icons-slavery-spacing: 40px;
   display: none;
   color: #fff;
   @include text-shadow(0 0 5px rgba(#000, .6));
+  pointer-events: none;
+
+  a {
+    pointer-events: auto;
+  }
 }
 
 .panel-title {
-  @include font(300, 67px, 1.2, "Open Sans");
+  @include font(300, 31px, 1.2, "Open Sans");
+}
+
+
+.panel-subtitle {
+  width: 420px;
+  @include font(300, 17px, 1.2, "Open Sans");
+
+  a { color: #fff; }
 }
 
 .panel-desc {
-  width: 365px;
+  width: 420px;
   @include font(300, 17px, 1.2, "Open Sans");
+  pointer-events: none;
 
   a { color: #fff; }
 }
@@ -95,14 +103,15 @@ $infowindow-icons-slavery-spacing: 40px;
 .panel-sep {
   display: block;
   width: 148px;
-  margin: 25px 0;
+  margin: 20px 0;
   border-bottom: 2px solid #fff;
 }
 
 .panel-item {
   margin-bottom: 10px;
-  @include font(700, 41px, 1, "Open Sans");
+  @include font(700, 31px, 1, "Open Sans");
   text-transform: uppercase;
+  pointer-events:none;
 
   &.slaved {
     color: #F1B14D;
@@ -116,9 +125,25 @@ $infowindow-icons-slavery-spacing: 40px;
 
   sup {
     position: relative;
-    top: -30px;
+    top: -15px;
+    margin-left: 5px;
     font-size: 13px;
     font-weight: 600;
+  }
+}
+
+.panel-credit {
+  position: relative;
+  border-bottom: 1px dotted #666;
+  pointer-events: auto;
+
+  .tooltip {
+    visibility: hidden;
+    padding: 10px;
+    min-width: 360px;
+    text-align: left;
+
+    a { color: #fff; }
   }
 }
 
@@ -155,7 +180,8 @@ $infowindow-icons-slavery-spacing: 40px;
 
       p {
         position: relative;
-        top: 30px;
+        top: 18px;
+        padding: 0 10px;
       }
     }
 
@@ -193,36 +219,23 @@ $infowindow-icons-slavery-spacing: 40px;
 
   span {
     display: block;
-    font-size: 10px;
+    @include font(400, 10px, 1.2, 'Open Sans');
   }
 }
 
 .infowindow-block {
   overflow: hidden;
-  margin: 10px 0;
+  margin: 15px 0;
   padding: 0 20px;
   background-repeat: no-repeat;
   color: #444;
-  @include font(400, 21px, 1.2, 'Open Sans');
-}
+  @include font(bold, 17px, 1.2, 'Open Sans');
 
-.infowindow-population {
-  @include infowindow-icons-sprite(population, $offset-x: 20px);
-  margin: 10px 0 10px 0;
 }
 
 .infowindow-slaved {
-  @include infowindow-icons-sprite(slavery, $offset-x: 20px);
   color: #F1B14C;
-  margin-bottom: 0;
-}
-
-.percent {
-  float: left;
-  padding: 0 5px;
-  margin: 9px 0;
-  font-size: 11px;
-  background: #FFF;
+  margin: 0 0 5px;
 }
 
 .more {
@@ -301,14 +314,29 @@ $infowindow-icons-slavery-spacing: 40px;
     content: " ";
     position: absolute;
     left: 50%; bottom: -6px;
-    margin-left: -6px;
+    margin: 0 0 0 -3px;
     border-top: 6px solid rgba(#000, .8);
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
   }
 
-  strong {
+  &.w:after {
+    content: " ";
+    position: absolute;
+    left: -12px; bottom: 50%;
+    margin: 0 0 -6px 0;
+    border-top: 6px solid transparent;
+    border-right: 6px solid rgba(#000, .8);
+    border-bottom: 6px solid transparent;
+  }
+
+
+  strong,
+  dt {
     display: block;
     font-weight: bold;
   }
+
+  dd,
+  dt { white-space: nowrap; }
 }

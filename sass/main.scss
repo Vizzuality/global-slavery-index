@@ -83,7 +83,7 @@ body,
     height: 10px;
     border: 1px solid rgba(#000, .3);
     @include border-radius(6px);
-    @include background-image(linear-gradient(to right, #fed976 0%, #b20727 100%));
+    @include background-image(linear-gradient(left, #fed976 0%, #b20727 100%));
   }
 
   .left,

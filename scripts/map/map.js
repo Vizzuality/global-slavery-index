@@ -28,15 +28,14 @@
 
       this.render();
 
-      this.chips = [];
-
-      this.sql = new cartodb.SQL({ user: 'walkfree' });
+      this.chips = {};
+      this.hoveringChip = false;
 
       this._initLoader();
       this._initViews();
       this._initBindings();
 
-      var polygons_url = 'https://walkfree.cartodb.com/api/v2/sql?q=select iso3, ST_Simplify(the_geom, 0.005) as the_geom from gsi_geom_copy&format=geojson';
+      var polygons_url = 'https://walkfree.cartodb.com/api/v2/sql?q=select iso_a3, ST_Simplify(the_geom, 0.1) as the_geom from gsi_geom_copy&format=geojson';
 
       create_polygons(polygons_url, function(polygons) {
         self.countries_polygons = polygons;
@@ -44,8 +43,22 @@
       });
     },
 
-    over: function(key, borderColor) {
+    over: function(key) {
       this.out();
+      if(!this.hoveringChip) {
+        d3.selectAll('.leaflet-marker-icon').filter(function() {
+          var c = this.getAttribute('class')
+          if (c) {
+            return c.indexOf('chip_' + key) < 0;
+          }
+          return true;
+        })
+        .transition().duration(200).style('opacity', 0).each('end', function() { d3.select(this).style('visibility', 'hidden'); })
+        d3.selectAll('.chip_' + key).style({
+          'opacity': 1,
+          'visibility': 'visible'
+        });
+      }
 
       var current_polygon = this.current_polygon = this.countries_polygons[key];
       var current_key = this.current_key;
@@ -53,8 +66,6 @@
       if(!current_polygon) return;
 
       for(var i=0; i < current_polygon.length; ++i) {
-        current_polygon[i].geo.setStyle({ color: borderColor });
-
         this.map.addLayer(current_polygon[i].geo);
       }
     },
@@ -218,10 +229,11 @@
           // remove batimetry
           sublayer2.remove();
 
-          sublayer.setInteractivity('cartodb_id, iso3');
+          sublayer.setInteractivity('cartodb_id, iso_a3, country_name');
           sublayer.setInteraction(true);
 
           slavery.AppData.CARTOCSS = sublayer.getCartoCSS().split(' ').join(' ');
+          //" #gsi_geom{ line-color: #FFF; line-opacity: 1; line-width: 1; polygon-opacity: 1; polygon-fill:red; }"
 
           sublayer.on('featureClick', function(e, latlng, pos, data, layerNumber) {
             self.water = false;
@@ -232,19 +244,20 @@
               coordinates: latlng
             });
 
-            if(!self.infowindow.model.get("hidden") && self.current_iso === data.iso3) return;
+            if(!self.infowindow.model.get("hidden") && data.iso_a3 && data.iso_a3 === self.current_iso) return;
 
-            self.current_iso = data.iso3;
+            self.current_iso = data.iso_a3;
 
             self.infowindow.setLoading();
 
-            self.sql.execute("SELECT * FROM gsi_geom_copy WHERE cartodb_id = {{id}}", { id: data.cartodb_id })
+            gsdata.filter({ cartodb_id: data.cartodb_id })
               .done(function(data) {
                 var country = data.rows[0],
                     collapsed = country.country_name ? false : true;
 
                 if(collapsed) {
                   // infowindow error
+                  self.infowindow.model.set({ content: { country_name: country.name } });
                   self.infowindow.setError();
                 } else {
                   // infowindow success
@@ -253,9 +266,10 @@
                     content: {
                       slavery_policy_risk: country.slavery_policy_risk,
                       country_name: country.country_name,
-                      gdppp: country.gdppp,
-                      slaves: country.slaves,
-                      iso3: country.iso3,
+                      rank: country.rank,
+                      slaves_lb_rounded: country.slaves_lb_rounded,
+                      slaves_ub_rounded: country.slaves_ub_rounded,
+                      iso_a3: country.iso_a3
                     },
                     template_name: 'infowindow_success',
                     collapsed: false
@@ -270,7 +284,7 @@
           });
 
           sublayer.on('featureOver', function(e, latlng, pos, data, layerNumber) {
-            self.over(data.iso3, "#fff");
+            self.over(data.iso_a3);
           });
 
           sublayer.on('featureOut', function(e, latlng, pos, data, layerNumber) {
@@ -279,9 +293,9 @@
 
           if(!self.loadArea) {
             // world
-            setTimeout(function() {
+            layer.on('load', function() {
               self._hideLoader();
-            }, 600);
+            });
           } else {
             self.loadArea();
           }
@@ -305,9 +319,17 @@
       this.region_selector.bind("closeotherselectors", this.closeSelectors, this);
     },
 
-    closeSelectors: function() {
-      this.country_selector.close();
-      this.region_selector.close();
+    closeSelectors: function(area) {
+      if(area) {
+        if(area !== 'region') {
+          this.region_selector.close();
+        } else if(area !== 'country') {
+          this.country_selector.close();
+        }
+      } else {
+        this.region_selector.close();
+        this.country_selector.close();
+      }
     },
 
     _initLoader: function() {
@@ -345,17 +367,22 @@
 
       this.current_iso = iso;
 
-      this.sql.execute("SELECT * FROM gsi_geom_copy WHERE iso3 = '{{id}}'", { id: iso })
+      gsdata.filter({ iso_a3: iso })
         .done(function(data) {
           var country = data.rows[0];
 
           self.panel.model.set({
             'country_name': country.country_name,
-            'country_iso': country.iso3,
-            'prevalence': 'high',
+            'country_iso': country.iso_a3,
+            'rank': country.rank,
             'population': country.population,
-            'slaved': country.slaves,
-            'gdppp': country.gdppp
+            'slaves_lb_rounded': country.slaves_lb_rounded,
+            'slaves_ub_rounded': country.slaves_ub_rounded,
+            'gdppp': country.gdppp,
+            'us_tip_report_ranking': country.us_tip_report_ranking,
+            'remittances_of_gdp': country.remittances_of_gdp
+
+
           });
 
           self._setRegion(country.region);
@@ -366,12 +393,13 @@
           console.log("error:" + errors);
         });
 
-      this.sql.getBounds("SELECT * FROM gsi_geom_copy WHERE iso3 = '{{id}}'", { id: iso })
+      gsdata.filter({ iso_a3: iso }, { bounds: true })
         .done(function(bounds) {
           var center = L.latLngBounds(bounds).getCenter(),
               zoom = self.map.getBoundsZoom(bounds);
               
-          center.lng = center.lng - 10;
+          //Moves the center a bit to the right
+          center.lng = center.lng - 5;
 
           self.model.set({
             'center': center,
@@ -389,7 +417,7 @@
 
       this.current_region = id;
 
-      this.sql.execute("SELECT * FROM gsi_geom_copy WHERE region = '{{id}}'", { id: id })
+      gsdata.filter({ region: id })
         .done(function(data) {
           var region = data.rows[0];
 
@@ -409,7 +437,9 @@
     _showRegion: function(id) {
       var self = this;
 
-      this.sql.execute("SELECT *, ST_AsGeoJSON(ST_PointOnSurface(the_geom)) as center FROM gsi_geom_copy WHERE region = '{{id}}'", { id: id })
+      gsdata.filter({ region: id }, { 
+        extra_columns: 'ST_AsGeoJSON(ST_PointOnSurface(the_geom)) as center'
+      })
         .done(function(data) {
           var region = data.rows[0];
 
@@ -418,11 +448,19 @@
 
             var markerIcon = L.divIcon({
               iconSize: [100, 100],
-              className: 'chip chip_'+country.iso3,
-              html: '<div class="mean slavery_policy_risk_'+parseInt(country.slavery_policy_risk, 10)+'">'+country.mean.toFixed(2)+'</div>'
+              className: 'chip chip_'+country.iso_a3,
+              html: '<div class="mean" style="background:'+slaveryColor(parseInt(country.slavery_policy_risk, 10))+'">'+country.mean.toFixed(2)+'</div>'
             });
 
-            self.chips.push(L.marker([coordinates[1], coordinates[0]], {icon: markerIcon}).addTo(self.map));
+            var chip = L.marker([coordinates[1], coordinates[0]], {icon: markerIcon}).addTo(self.map);
+            (self.chips[country.iso_a3] || (self.chips[country.iso_a3] = [])).push(chip);
+
+            chip.on('mouseover', function() {
+              self.hoveringChip = true;
+            });
+            chip.on('mouseout', function() {
+              self.hoveringChip = false;
+            });
 
             // dataset
             var dataset = [country.human_rights_risk, country.develop_rights_risk, country.state_stability_risk, country.discrimination_risk, country.slavery_policy_risk];
@@ -499,11 +537,34 @@
           .innerRadius(20)
           .outerRadius(50);
 
-      var svg = d3.select('.chip_'+country.iso3).append("svg")
-          .attr("width", width)
-          .attr("height", height)
-          .append("g")
-          .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+      var chip = d3.select('.chip_'+country.iso_a3);
+
+      var svg = chip.append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+      var mean = chip.selectAll(".mean").on("mouseover", function(d) {
+        var l = $(this).offset().left,
+            m = $(this).width()/2,
+            t = "Mean Risk Score";
+
+        self.tooltip
+          .html(country.country_name + "<strong>" + t + "</strong>")
+          .style("visibility", "visible")
+          .style("top", $(this).offset().top-40+"px")
+          .style("left", l+m+"px")
+          .style("margin-left", function() {
+            return -$(this).outerWidth()/2+"px"
+          });
+      })
+      .on("mousemove", function() {
+        self.tooltip.style("visibility", "visible")
+      })
+      .on("mouseout", function() {
+        self.tooltip.style("visibility", "hidden")
+      });
 
       var g = svg.selectAll(".arc")
           .data(pie(wedges))
@@ -525,7 +586,7 @@
             m = $(this).find("path")[0].getBoundingClientRect().width/2;
 
         self.tooltip
-          .html(country.name + "<strong>" + d.data['name'] + "</strong>")
+          .html(country.country_name + "<strong>" + d.data['name'] + "</strong>")
           .style("visibility", "visible")
           .style("top", $(this).offset().top-40+"px")
           .style("left", l+m+"px")
@@ -539,16 +600,22 @@
       .on("mouseout", function() {
         self.tooltip.style("visibility", "hidden")
       });
+
+      chip.style("visibility", "hidden");
     },
 
     _hideChips: function() {
       var self = this;
 
       _.each(this.chips, function(chip) {
-        self.map.removeLayer(chip);
+        _.each(chip, function(c) {
+          self.map.removeLayer(c);
+          c.off('mouseout');
+          c.off('mouseover');
+        });
       });
 
-      this.chips.length = 0;
+      this.chips = {};
     },
 
     _changeURL: function(href) {
@@ -560,7 +627,7 @@
     changeArea: function(area, id, callback) {
       var self = this;
 
-      if(area !== self.model.get('area')) {
+      if(area !== this.model.get('area')) {
         var num = 0;
 
         if(!this.countries_polygons)
@@ -606,7 +673,6 @@
     },
 
     _disableInteraction: function() {
-      this.over(this.current_iso, "#333");
       this.map.dragging.disable();
       this.map.touchZoom.disable();
       this.map.doubleClickZoom.disable();
@@ -615,10 +681,10 @@
       this.map.keyboard.disable();
       this.countries_sublayer.setInteraction(false);
       this.$cartodbMap.addClass("cartodb-map-disabled");
+
     },
 
     _enableInteraction: function() {
-      this.out();
       this.map.dragging.enable();
       this.map.touchZoom.enable();
       this.map.doubleClickZoom.enable();
@@ -627,6 +693,7 @@
       this.map.keyboard.enable();
       this.countries_sublayer.setInteraction(true);
       this.$cartodbMap.removeClass("cartodb-map-disabled");
+
     },
 
     _changeCountry: function() {
@@ -646,10 +713,11 @@
       this.$mamufas.show();
 
       // map
-      this._disableInteraction();
       // TODO: active layers
-      this.countries_sublayer.setCartoCSS(slavery.AppData.CARTOCSS + "#gsi_geom_copy [ iso3 != '" + this.panel.model.get('country_iso') + "'] { polygon-fill: #666; polygon-opacity: 1; line-width: 1; line-color: #333; line-opacity: 1; }");
+      this.out();
+      this.countries_sublayer.setCartoCSS(slavery.AppData.CARTOCSS + "#gsi_geom_copy [ iso3 != '" + this.panel.model.get('country_iso') + "'] { polygon-fill: #666; polygon-opacity: 1; line-width: 1; line-color: #333; line-opacity: 1; } #gsi_geom_copy [ iso3 = '" + this.panel.model.get('country_iso') + "'] { line-width: 3; line-color: #333; }");
       this.map.setView(this.model.get('center'), this.model.get('zoom'));
+      this._disableInteraction();
     },
 
     _changeRegion: function() {
@@ -666,10 +734,11 @@
       this.$mamufas.show();
 
       // map
-      this._enableInteraction();
       // TODO: active layers
+      this._enableInteraction();
       this.countries_sublayer.setCartoCSS(slavery.AppData.CARTOCSS + "#gsi_geom_copy [ region_name != '" + this.panel.model.get('region') + "'] { polygon-fill: #666; polygon-opacity: 1; line-width: 1; line-color: #333; line-opacity: 1; }");
       this.map.setView(slavery.AppData.REGIONS[this.panel.model.get('region')].center, slavery.AppData.REGIONS[this.panel.model.get('region')].zoom);
+      this._enableInteraction();
 
       // url
       this._changeURL('map/region/'+this.panel.model.get('region'));

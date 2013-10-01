@@ -3,7 +3,7 @@ slavery.AppData = {
     'asia': {
       name: 'asia',
       title: 'Asia',
-      desc: 'Although there had been some trans-Saharan trade from the interior of Sub-Saharan Africa to other regions, slavery was a small part of the economic life of many societies in Africa until the introduction of transcontinental slave trades (Arab and Atlantic). Slave practices were again transformed with European colonization of Africa and the formal abolition of slavery in the early 1900s.',
+      desc: 'An estimated 72.7% of the estimated total 29.6 million people in modern slavery are in Asia.<br/><br/>The region includes both countries with low prevalence and risk of enslavement (such as Australia and New Zealand), and some with high prevalence and risk (such as Pakistan, India and Thailand).There is wide variation in the implementation of anti-slavery laws and policies within the region.  Australia, for example, has a strong legal and policy response, while countries like Papua-New Guinea, Japan, and China, have enacted few anti-slavery laws.',
       center: {
         lat: 3.5134210456400443, 
         lng: 77.958984375
@@ -13,7 +13,7 @@ slavery.AppData = {
     'west_europe': {
       name: 'west_europe',
       title: 'Europe',
-      desc: 'Although there had been some trans-Saharan trade from the interior of Sub-Saharan Africa to other regions, slavery was a small part of the economic life of many societies in Africa until the introduction of transcontinental slave trades (Arab and Atlantic). Slave practices were again transformed with European colonization of Africa and the formal abolition of slavery in the early 1900s.',
+      desc: 'An estimated 1.83 % of the estimated total 29.6 million people in modern slavery are in Europe.<br/><br/>The countries of Western Europe have the lowest overall risk of enslavement by region, reflecting low levels of corruption, low discrimination against women, and strong respect for human rights, and effective anti-slavery laws in some countries.<br/><br/>Estimates of prevalence exist for Bulgaria and Romania and suggest that tens of thousands of victims exist in this region.',
       center: {
         lat: 46.9502622421856,
         lng: 0.3515625
@@ -23,7 +23,7 @@ slavery.AppData = {
     'east_europe': {
       name: 'east_europe',
       title: 'Russia & Eurasia',
-      desc: 'Although there had been some trans-Saharan trade from the interior of Sub-Saharan Africa to other regions, slavery was a small part of the economic life of many societies in Africa until the introduction of transcontinental slave trades (Arab and Atlantic). Slave practices were again transformed with European colonization of Africa and the formal abolition of slavery in the early 1900s.',
+      desc: 'An estimated 3.41 % of the estimated total 29.6 million people in modern slavery are in Russia and Eurasia.<br/><br/>Three troubled former Soviet Republics of Central Asia (Turkmenistan, Uzbekistan, Azerbaijan) show very high levels of risk for enslavement. Russia’s large economy draws workers from former Soviet republics and Eastern Europe, some of whom are enslaved in agriculture or construction.<br/><br/>Estimates of the prevalence exist for Belarus, Moldova, and Ukraine, and suggest that tens of thousands of victims exist in this region.',
       center: {
         lat: 51.12106042504407, 
         lng: 40.869140625
@@ -32,8 +32,8 @@ slavery.AppData = {
     },
     'americas': {
       name: 'americas',
-      title: 'Americas',
-      desc: 'Although there had been some trans-Saharan trade from the interior of Sub-Saharan Africa to other regions, slavery was a small part of the economic life of many societies in Africa until the introduction of transcontinental slave trades (Arab and Atlantic). Slave practices were again transformed with European colonization of Africa and the formal abolition of slavery in the early 1900s.',
+      title: 'The Americas',
+      desc: 'An estimated 3.73 % of the estimated total 29.6 million people in modern slavery are in the Americas. Though Canada and the US score low on risk, their demand for cheap labour and relatively porous borders make them destinations for modern slavery, with Mexico acting as a transit country.<br/><br/>Slavery policy rankings are lowest (best) for the US, Canada, Nicaragua, Argentina and Brazil, and highest (worst) for Trinidad and Tobago, Barbados and Cuba.<br/><br/>Caribbean basin countries score lower on risk than most Latin America with the important exception of Haiti.',
       center: {
         lat: 1.2303741774326145,
         lng:  -104.94140625,
@@ -43,7 +43,7 @@ slavery.AppData = {
     'africa': {
       name: 'africa',
       title: 'Sub-Saharan Africa',
-      desc: 'Although there had been some trans-Saharan trade from the interior of Sub-Saharan Africa to other regions, slavery was a small part of the economic life of many societies in Africa until the introduction of transcontinental slave trades (Arab and Atlantic). Slave practices were again transformed with European colonization of Africa and the formal abolition of slavery in the early 1900s.',
+      desc: 'An estimated 15.88 % of the estimated total 29.6 million people in modern slavery are in Sub-Saharan Africa.<br/><br/>Mauritius leads the region in stability and the protection of human and worker rights, but is eclipsed by South Africa and Gabon in terms of effective anti-slavery policies.<br/><br/>The high prevalence measured for such countries as the Democratic Republic of Congo and Mauritania reflect centuries-old patterns of enslavement, often based on colonial conflicts and injustice exacerbated by contemporary armed conflict.',
       center: {
         lat: -9.840168555999899,
         lng: 19.0667423835001
@@ -52,8 +52,8 @@ slavery.AppData = {
     },
     'middle_east': {
       name: 'middle_east',
-      title: 'Mid East & N. Africa',
-      desc: 'Although there had been some trans-Saharan trade from the interior of Sub-Saharan Africa to other regions, slavery was a small part of the economic life of many societies in Africa until the introduction of transcontinental slave trades (Arab and Atlantic). Slave practices were again transformed with European colonization of Africa and the formal abolition of slavery in the early 1900s.',
+      title: 'Middle East and North Africa',
+      desc: 'An estimated 2.46% of the estimated total 29.6 million people in modern slavery are in the Middle East and North Africa.<br/><br/>The risk of enslavement is relatively high across the region with little variation. Trafficking between the countries of the region is widespread. Migrant workers are especially vulnerable.<br/><br/>Globally, this region has the highest measured level of discrimination against women, reflected in high levels of forced and child marriages, as well as the widespread exploitation of female domestic workers.',
       center: {
         lat: 24.226584371000065,
         lng: 23.152942403827552
@@ -114,7 +114,7 @@ function create_polygons(url, ready) {
 
         pol.geo = geo;
         pol.prop = features[i].properties;
-        var key = features[i].properties.iso3;
+        var key = features[i].properties.iso_a3;
 
         if(polygons[key]) {
           polygons[key].push(pol);
@@ -128,27 +128,72 @@ function create_polygons(url, ready) {
   });
 }
 
-//TODO: REMEMBER TO CHANGE THIS TO THE LINE GRADIENT
-function slaveryToHuman(num) {
-  var risk = '';
+function slaveryColor(num) {
+  var color = '';
 
-  if (num <= 100 && num > 75.25) {
-    risk = 'Very high'
-  } else if (num <= 75.25 && num > 75.25) {
-    risk = 'High'
-  } else if (num <= 75.25 && num > 64.64) {
-    risk = 'Moderate high'
-  } else if (num <= 64.64 && num > 46.96) {
-    risk = 'Moderate'
-  } else if (num <= 46.96 && num > 36.36) {
-    risk = 'Moderate low'
-  } else if (num <= 36.36 && num > 18.68) {
-    risk = 'Low'
-  } else {
-    risk = 'Very low'
+  if(num <= 1 ) {
+    color = '#fed976';
+  } else if(num > 1 && num <= 4) {
+    color = '#fcd373';
+  } else if(num > 4 && num <= 7) {
+    color = '#facd70';
+  } else if(num > 7 && num <= 11) {
+    color = '#f8c76d';
+  } else if(num > 11 && num <= 14) {
+    color = '#f6c16a';
+  } else if(num > 14 && num <= 17) {
+    color = '#f4bb67';
+  } else if(num > 17 && num <= 20) {
+    color = '#f1b565';
+  } else if(num > 20 && num <= 23) {
+    color = '#efaf62';
+  } else if(num > 23 && num <= 26) {
+    color = '#eda95f';
+  } else if(num > 26 && num <= 30) {
+    color = '#eba35c';
+  } else if(num > 30 && num <= 33) {
+    color = '#e89d59';
+  } else if(num > 33 && num <= 36) {
+    color = '#e69756';
+  } else if(num > 36 && num <= 39) {
+    color = '#e39154';
+  } else if(num > 39 && num <= 42) {
+    color = '#e18b51';
+  } else if(num > 42 && num <= 46) {
+    color = '#de854e';
+  } else if(num > 46 && num <= 49) {
+    color = '#dc7f4b';
+  } else if(num > 49 && num <= 52) {
+    color = '#d97949';
+  } else if(num > 52 && num <= 55) {
+    color = '#d77346';
+  } else if(num > 55 && num <= 58) {
+    color = '#d46d44';
+  } else if(num > 58 && num <= 61) {
+    color = '#d16641';
+  } else if(num > 61 && num <= 65) {
+    color = '#ce603e';
+  } else if(num > 65 && num <= 68) {
+    color = '#cc593c';
+  } else if(num > 68 && num <= 71) {
+    color = '#c95339';
+  } else if(num > 71 && num <= 74) {
+    color = '#c64c37';
+  } else if(num > 74 && num <= 77) {
+    color = '#c34534';
+  } else if(num > 77 && num <= 81) {
+    color = '#c03d32';
+  } else if(num > 81 && num <= 84) {
+    color = '#bd352f';
+  } else if(num > 84 && num <= 87) {
+    color = '#ba2d2d';
+  } else if(num > 87 && num <= 90) {
+    color = '#b7232b';
+  } else if(num > 90) {
+    color = '#b20727';
   }
 
-  return risk;
+  return color;
 }
 
 function numberWithCommas(x) {

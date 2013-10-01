@@ -34,7 +34,7 @@
 
       var sql = new cartodb.SQL({ user: 'walkfree' });
 
-      sql.execute("SELECT * FROM gsi_geom_copy WHERE featured = true")
+      gsdata.featured()
         .done(function(data) {
           _.each(data.rows, function(country) {
             self.countries.add(new slavery.ui.model.SelectorItem(country));
@@ -89,7 +89,7 @@
     _onClickLink: function(e) {
       e.preventDefault();
 
-      this.trigger("closeotherselectors");
+      this.trigger("closeotherselectors", "country");
 
       if(this.model.get("closed")) {
         this.open();
@@ -100,15 +100,15 @@
 
     _onClickCountry: function(e) {
       var $li  = $(e.target).closest("li"),
-          iso3 = $li.attr("id");
+          iso_a3 = $li.attr("id");
 
-      if(this.selectedCountry.get("iso3") === iso3) {
+      if(this.selectedCountry.get("iso_a3") === iso_a3) {
         this.close();
 
         return;
       }
 
-      var country = this.countries.find(function(country) { return iso3 === country.get("iso3"); });
+      var country = this.countries.find(function(country) { return iso_a3 === country.get("iso_a3"); });
       this.selectedCountry = country;
 
       this._addCountries();
