@@ -266,7 +266,7 @@
                     content: {
                       slavery_policy_risk: country.slavery_policy_risk,
                       country_name: country.country_name,
-                      gdppp: country.gdppp,
+                      rank: country.rank,
                       slaves_lb_rounded: country.slaves_lb_rounded,
                       slaves_ub_rounded: country.slaves_ub_rounded,
                       iso_a3: country.iso_a3

@@ -112,13 +112,11 @@
         <h1 class="infowindow-title" style="border-bottom: 2px solid <%= slaveryColor(parseInt(content.slavery_policy_risk, 10)) %>"><%= content.country_name %></h1>
 
         <div class="infowindow-block infowindow-population">
-          <p class="total-num"><%= numberWithCommas((content.gdppp / 1000000000).toFixed(2)) %>B <span>GDP (PPP)</span></p>
-          <div class="percent"></div>
+          <p class="total-num"><%= content.rank %> <span>Index rank</span></p>
         </div>
 
         <div class="infowindow-block infowindow-slaved">
           <p class="total-num"><%= numberWithCommas(content.slaves_lb_rounded) %> - <%= numberWithCommas(content.slaves_ub_rounded) %> <span>Est. number enslaved</span></p>
-          <div class="percent">6%</div>
         </div>
 
         <a href="#map/country/<%= content.iso_a3 %>" class="more"><i>+</i>About this country</a>

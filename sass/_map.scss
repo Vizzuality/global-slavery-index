@@ -225,7 +225,7 @@
 
 .infowindow-block {
   overflow: hidden;
-  margin: 10px 0;
+  margin: 15px 0;
   padding: 0 20px;
   background-repeat: no-repeat;
   color: #444;
@@ -233,23 +233,9 @@
 
 }
 
-.infowindow-population {
-  background: url(../images/infowindow-icons/population.png) no-repeat 18px 4px;
-  margin: 10px 0 10px 0;
-}
-
 .infowindow-slaved {
-  background: url(../images/infowindow-icons/slavery.png) no-repeat 20px 0;
   color: #F1B14C;
-  margin-bottom: 0;
-}
-
-.percent {
-  float: left;
-  padding: 0 5px;
-  margin: 9px 0;
-  font-size: 11px;
-  background: #FFF;
+  margin: 0 0 5px;
 }
 
 .more {
