@@ -35,7 +35,7 @@
       this._initViews();
       this._initBindings();
 
-      var polygons_url = 'https://walkfree.cartodb.com/api/v2/sql?q=select iso3, ST_Simplify(the_geom, 0.1) as the_geom from gsi_geom_copy&format=geojson';
+      var polygons_url = 'https://walkfree.cartodb.com/api/v2/sql?q=select iso_a3, ST_Simplify(the_geom, 0.1) as the_geom from gsi_geom_copy&format=geojson';
 
       create_polygons(polygons_url, function(polygons) {
         self.countries_polygons = polygons;
@@ -53,10 +53,10 @@
           }
           return true;
         })
-        .transition().duration(200).style('opacity', 0).each('end', function() { d3.select(this).style('display', 'none'); })
+        .transition().duration(200).style('opacity', 0).each('end', function() { d3.select(this).style('visibility', 'hidden'); })
         d3.selectAll('.chip_' + key).style({
           'opacity': 1,
-          display: 'block'
+          'visibility': 'visible'
         });
       }
 
@@ -229,7 +229,7 @@
           // remove batimetry
           sublayer2.remove();
 
-          sublayer.setInteractivity('cartodb_id, iso3');
+          sublayer.setInteractivity('cartodb_id, iso_a3, country_name');
           sublayer.setInteraction(true);
 
           slavery.AppData.CARTOCSS = sublayer.getCartoCSS().split(' ').join(' ');
@@ -244,13 +244,12 @@
               coordinates: latlng
             });
 
-            if(!self.infowindow.model.get("hidden") && data.iso3 && data.iso3 === self.current_iso) return;
+            if(!self.infowindow.model.get("hidden") && data.iso_a3 && data.iso_a3 === self.current_iso) return;
 
-            self.current_iso = data.iso3;
+            self.current_iso = data.iso_a3;
 
             self.infowindow.setLoading();
 
-            //self.sql.execute("SELECT * FROM gsi_geom_copy WHERE cartodb_id = {{id}}", { id: data.cartodb_id })
             gsdata.filter({ cartodb_id: data.cartodb_id })
               .done(function(data) {
                 var country = data.rows[0],
@@ -267,9 +266,10 @@
                     content: {
                       slavery_policy_risk: country.slavery_policy_risk,
                       country_name: country.country_name,
-                      gdppp: numberWithCommas(country.gdppp),
-                      slaves: numberWithCommas(country.slaves),
-                      iso3: country.iso3,
+                      gdppp: country.gdppp,
+                      slaves_lb_rounded: country.slaves_lb_rounded,
+                      slaves_ub_rounded: country.slaves_ub_rounded,
+                      iso_a3: country.iso_a3
                     },
                     template_name: 'infowindow_success',
                     collapsed: false
@@ -284,7 +284,7 @@
           });
 
           sublayer.on('featureOver', function(e, latlng, pos, data, layerNumber) {
-            self.over(data.iso3);
+            self.over(data.iso_a3);
           });
 
           sublayer.on('featureOut', function(e, latlng, pos, data, layerNumber) {
@@ -367,18 +367,22 @@
 
       this.current_iso = iso;
 
-      gsdata.filter({ iso3: iso })
-      //this.sql.execute("SELECT * FROM gsi_geom_copy WHERE iso3 = '{{id}}'", { id: iso })
+      gsdata.filter({ iso_a3: iso })
         .done(function(data) {
           var country = data.rows[0];
 
           self.panel.model.set({
             'country_name': country.country_name,
-            'country_iso': country.iso3,
+            'country_iso': country.iso_a3,
             'rank': country.rank,
             'population': country.population,
-            'slaved': country.slaves,
-            'gdppp': country.gdppp
+            'slaves_lb_rounded': country.slaves_lb_rounded,
+            'slaves_ub_rounded': country.slaves_ub_rounded,
+            'gdppp': country.gdppp,
+            'us_tip_report_ranking': country.us_tip_report_ranking,
+            'remittances_of_gdp': country.remittances_of_gdp
+
+
           });
 
           self._setRegion(country.region);
@@ -389,7 +393,7 @@
           console.log("error:" + errors);
         });
 
-      gsdata.filter({ iso3: iso }, { bounds: true })
+      gsdata.filter({ iso_a3: iso }, { bounds: true })
         .done(function(bounds) {
           var center = L.latLngBounds(bounds).getCenter(),
               zoom = self.map.getBoundsZoom(bounds);
@@ -413,7 +417,6 @@
 
       this.current_region = id;
 
-      //this.sql.execute("SELECT * FROM gsi_geom_copy WHERE region = '{{id}}'", { id: id })
       gsdata.filter({ region: id })
         .done(function(data) {
           var region = data.rows[0];
@@ -437,7 +440,6 @@
       gsdata.filter({ region: id }, { 
         extra_columns: 'ST_AsGeoJSON(ST_PointOnSurface(the_geom)) as center'
       })
-      //this.sql.execute("SELECT *, ST_AsGeoJSON(ST_PointOnSurface(the_geom)) as center FROM gsi_geom_copy WHERE region = '{{id}}'", { id: id })
         .done(function(data) {
           var region = data.rows[0];
 
@@ -446,12 +448,12 @@
 
             var markerIcon = L.divIcon({
               iconSize: [100, 100],
-              className: 'chip chip_'+country.iso3,
+              className: 'chip chip_'+country.iso_a3,
               html: '<div class="mean" style="background:'+slaveryColor(parseInt(country.slavery_policy_risk, 10))+'">'+country.mean.toFixed(2)+'</div>'
             });
 
             var chip = L.marker([coordinates[1], coordinates[0]], {icon: markerIcon}).addTo(self.map);
-            (self.chips[country.iso3] || (self.chips[country.iso3] = [])).push(chip);
+            (self.chips[country.iso_a3] || (self.chips[country.iso_a3] = [])).push(chip);
 
             chip.on('mouseover', function() {
               self.hoveringChip = true;
@@ -511,7 +513,6 @@
             });
 
             self._drawChips(country, wedges, palette_ord);
-            d3.selectAll('.leaflet-marker-icon').style('display', 'none');
           });
         })
         .error(function(errors) {
@@ -536,7 +537,7 @@
           .innerRadius(20)
           .outerRadius(50);
 
-      var chip = d3.select('.chip_'+country.iso3);
+      var chip = d3.select('.chip_'+country.iso_a3);
 
       var svg = chip.append("svg")
         .attr("width", width)
@@ -550,7 +551,7 @@
             t = "Mean Risk Score";
 
         self.tooltip
-          .html(country.name + "<strong>" + t + "</strong>")
+          .html(country.country_name + "<strong>" + t + "</strong>")
           .style("visibility", "visible")
           .style("top", $(this).offset().top-40+"px")
           .style("left", l+m+"px")
@@ -585,7 +586,7 @@
             m = $(this).find("path")[0].getBoundingClientRect().width/2;
 
         self.tooltip
-          .html(country.name + "<strong>" + d.data['name'] + "</strong>")
+          .html(country.country_name + "<strong>" + d.data['name'] + "</strong>")
           .style("visibility", "visible")
           .style("top", $(this).offset().top-40+"px")
           .style("left", l+m+"px")
@@ -599,6 +600,8 @@
       .on("mouseout", function() {
         self.tooltip.style("visibility", "hidden")
       });
+
+      chip.style("visibility", "hidden");
     },
 
     _hideChips: function() {
@@ -735,6 +738,7 @@
       this._enableInteraction();
       this.countries_sublayer.setCartoCSS(slavery.AppData.CARTOCSS + "#gsi_geom_copy [ region_name != '" + this.panel.model.get('region') + "'] { polygon-fill: #666; polygon-opacity: 1; line-width: 1; line-color: #333; line-opacity: 1; }");
       this.map.setView(slavery.AppData.REGIONS[this.panel.model.get('region')].center, slavery.AppData.REGIONS[this.panel.model.get('region')].zoom);
+      this._enableInteraction();
 
       // url
       this._changeURL('map/region/'+this.panel.model.get('region'));

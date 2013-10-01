@@ -114,7 +114,7 @@ function create_polygons(url, ready) {
 
         pol.geo = geo;
         pol.prop = features[i].properties;
-        var key = features[i].properties.iso3;
+        var key = features[i].properties.iso_a3;
 
         if(polygons[key]) {
           polygons[key].push(pol);

@@ -112,16 +112,16 @@
         <h1 class="infowindow-title" style="border-bottom: 2px solid <%= slaveryColor(parseInt(content.slavery_policy_risk, 10)) %>"><%= content.country_name %></h1>
 
         <div class="infowindow-block infowindow-population">
-          <p class="total-num"><%= content.gdppp %>B <span>GDP (PPP)</span></p>
+          <p class="total-num"><%= numberWithCommas((content.gdppp / 1000000000).toFixed(2)) %>B <span>GDP (PPP)</span></p>
           <div class="percent"></div>
         </div>
 
         <div class="infowindow-block infowindow-slaved">
-          <p class="total-num"><%= content.slaves %> <span>Est. number enslaved</span></p>
+          <p class="total-num"><%= numberWithCommas(content.slaves_lb_rounded) %> - <%= numberWithCommas(content.slaves_ub_rounded) %> <span>Est. number enslaved</span></p>
           <div class="percent">6%</div>
         </div>
 
-        <a href="#map/country/<%= content.iso3 %>" class="more"><i>+</i>About this country</a>
+        <a href="#map/country/<%= content.iso_a3 %>" class="more"><i>+</i>About this country</a>
       </div>
     </div>
 
@@ -142,7 +142,7 @@
 
       <li class="panel-item slaved">
         <strong>Est. number enslaved</strong>
-        <%= numberWithCommas(slaved) %> (<%= (100 * slaved / population).toFixed(2) %>%)
+        <%= numberWithCommas(slaves_lb_rounded) %> - <%= numberWithCommas(slaves_ub_rounded) %>
       </li>
 
       <li class="panel-item">
@@ -152,7 +152,7 @@
 
       <li class="panel-item">
         <strong>GDP (PPP)</strong>
-        $<%= numberWithCommas(gdppp) %>B
+        $<%= numberWithCommas((gdppp / 1000000000).toFixed(2)) %>B
         <sup>
           (2012)
 
@@ -168,8 +168,9 @@
       </li>
 
       <li class="panel-item">
+        <!-- calculated, not from dataset -->
         <strong>GDP/capita (PPP)</strong>
-        $<%= numberWithCommas(parseInt(gdppp*1000000000/population, 10)) %>
+        $<%= numberWithCommas(parseInt(gdppp/population, 10)) %>
 
         <sup>
           (2012)
@@ -187,12 +188,12 @@
 
       <li class="panel-item">
         <strong>US TIP Report ranking</strong>
-        $<%= numberWithCommas(parseInt(gdppp*1000000000/population, 10)) %><sup>(2013)</sup>
+        Tier <%= us_tip_report_ranking %><sup>(2013)</sup>
       </li>
 
       <li class="panel-item">
         <strong>Remittances as a share of GDP</strong>
-        $<%= numberWithCommas(parseInt(gdppp*1000000000/population, 10)) %>
+        <%= remittances_of_gdp %>%
 
         <sup>
           (2011)
@@ -240,8 +241,8 @@
   </script>
 
   <script id="country-template" type="text/x-underscore-template">
-    <li id="<%= iso3 %>" class="<%= iso3 %> <%= selected ? 'selected' : '' %>">
-      <a href="#map/country/<%= iso3 %>"><i class="slavery_policy_risk_<%= parseInt(slavery_policy_risk, 10) %>"></i><%= country_name %></a>
+    <li id="<%= iso_a3 %>" class="<%= iso_a3 %> <%= selected ? 'selected' : '' %>">
+      <a href="#map/country/<%= iso_a3 %>"><i style="background:<%= slaveryColor(parseInt(slavery_policy_risk, 10)) %>;"></i><%= country_name %></a>
     </li>
   </script>
 

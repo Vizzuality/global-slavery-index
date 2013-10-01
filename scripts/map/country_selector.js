@@ -100,15 +100,15 @@
 
     _onClickCountry: function(e) {
       var $li  = $(e.target).closest("li"),
-          iso3 = $li.attr("id");
+          iso_a3 = $li.attr("id");
 
-      if(this.selectedCountry.get("iso3") === iso3) {
+      if(this.selectedCountry.get("iso_a3") === iso_a3) {
         this.close();
 
         return;
       }
 
-      var country = this.countries.find(function(country) { return iso3 === country.get("iso3"); });
+      var country = this.countries.find(function(country) { return iso_a3 === country.get("iso_a3"); });
       this.selectedCountry = country;
 
       this._addCountries();

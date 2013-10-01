@@ -81,7 +81,7 @@
 }
 
 .panel-title {
-  @include font(300, 41px, 1.2, "Open Sans");
+  @include font(300, 31px, 1.2, "Open Sans");
 }
 
 
@@ -133,8 +133,9 @@
 }
 
 .panel-credit {
-  pointer-events: auto;
   position: relative;
+  border-bottom: 1px dotted #666;
+  pointer-events: auto;
 
   .tooltip {
     visibility: hidden;
@@ -228,7 +229,7 @@
   padding: 0 20px;
   background-repeat: no-repeat;
   color: #444;
-  @include font(bold, 21px, 1.2, 'Open Sans');
+  @include font(bold, 17px, 1.2, 'Open Sans');
 
 }
 
