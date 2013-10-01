@@ -268,8 +268,8 @@
                     content: {
                       slavery_policy_risk: country.slavery_policy_risk,
                       country_name: country.country_name,
-                      gdppp: country.gdppp,
-                      slaves: country.slaves,
+                      gdppp: numberWithCommas(country.gdppp),
+                      slaves: numberWithCommas(country.slaves),
                       iso3: country.iso3,
                     },
                     template_name: 'infowindow_success',
