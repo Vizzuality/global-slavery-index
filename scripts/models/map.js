@@ -1,34 +1,33 @@
-// columns to get
 // TODO: remove non-unsed columns
 var gs_columns = [
-//"the_geom",
-//"cartodb_id",
-//"created_at",
-//"updated_at",
-//"the_geom_webmercator",
-"iso_a3",
-"name",
-"access_to_fin_services_index",
-"access_to_fin_services_rank",
-"corruption_index",
-"corruption_rank",
-"country_name",
-"develop_rights_risk",
-"discrimination_risk",
-"gdppp",
-"gdppp_rank",
-"human_development_index",
-"human_development_rank",
-"human_rights_risk",
-"iso3",
-"mean",
-"region_name",
-"slavery_policy_risk",
-"state_stability_risk",
-"region",
-"population",
-"slaves",
-"featured"
+  //"the_geom",
+  //"cartodb_id",
+  //"created_at",
+  //"updated_at",
+  //"the_geom_webmercator",
+  "iso_a3",
+  "name",
+  "access_to_fin_services_index",
+  "access_to_fin_services_rank",
+  "corruption_index",
+  "corruption_rank",
+  "country_name",
+  "develop_rights_risk",
+  "discrimination_risk",
+  "gdppp",
+  "gdppp_rank",
+  "human_development_index",
+  "human_development_rank",
+  "human_rights_risk",
+  "iso3",
+  "mean",
+  "region_name",
+  "slavery_policy_risk",
+  "state_stability_risk",
+  "region",
+  "population",
+  "slaves",
+  "featured"
 ]
 
 function GSData() {
@@ -68,11 +67,7 @@ function GSData() {
   return _gsdata;
 }
 
-
 var gsdata = GSData();
-
-
-
 
 slavery.ui.model.Map = Backbone.Model.extend({
   defaults: {

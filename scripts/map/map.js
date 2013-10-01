@@ -246,7 +246,7 @@
               coordinates: latlng
             });
 
-            if(!self.infowindow.model.get("hidden") && self.current_iso === data.iso3) return;
+            if(!self.infowindow.model.get("hidden") && data.iso3 && data.iso3 === self.current_iso) return;
 
             self.current_iso = data.iso3;
 
@@ -260,6 +260,7 @@
 
                 if(collapsed) {
                   // infowindow error
+                  self.infowindow.model.set({ content: { country_name: country.name } });
                   self.infowindow.setError();
                 } else {
                   // infowindow success
@@ -448,7 +449,7 @@
             var markerIcon = L.divIcon({
               iconSize: [100, 100],
               className: 'chip chip_'+country.iso3,
-              html: '<div class="mean slavery_policy_risk_'+parseInt(country.slavery_policy_risk, 10)+'">'+country.mean.toFixed(2)+'</div>'
+              html: '<div class="mean" style="background:'+slaveryColor(parseInt(country.slavery_policy_risk, 10))+'">'+country.mean.toFixed(2)+'</div>'
             });
 
             var chip = L.marker([coordinates[1], coordinates[0]], {icon: markerIcon}).addTo(self.map);
@@ -459,9 +460,6 @@
             chip.on('mouseout', function() {
               self.hoveringChip = false;
             });
-
-            ///.addTo(self.map)
-
 
             // dataset
             var dataset = [country.human_rights_risk, country.develop_rights_risk, country.state_stability_risk, country.discrimination_risk, country.slavery_policy_risk];

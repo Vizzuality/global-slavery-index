@@ -128,27 +128,72 @@ function create_polygons(url, ready) {
   });
 }
 
-//TODO: REMEMBER TO CHANGE THIS TO THE LINE GRADIENT
-function slaveryToHuman(num) {
-  var risk = '';
+function slaveryColor(num) {
+  var color = '';
 
-  if (num <= 100 && num > 75.25) {
-    risk = 'Very high'
-  } else if (num <= 75.25 && num > 75.25) {
-    risk = 'High'
-  } else if (num <= 75.25 && num > 64.64) {
-    risk = 'Moderate high'
-  } else if (num <= 64.64 && num > 46.96) {
-    risk = 'Moderate'
-  } else if (num <= 46.96 && num > 36.36) {
-    risk = 'Moderate low'
-  } else if (num <= 36.36 && num > 18.68) {
-    risk = 'Low'
-  } else {
-    risk = 'Very low'
+  if(num <= 1 ) {
+    color = '#fed976';
+  } else if(num > 1 && num <= 4) {
+    color = '#fcd373';
+  } else if(num > 4 && num <= 7) {
+    color = '#facd70';
+  } else if(num > 7 && num <= 11) {
+    color = '#f8c76d';
+  } else if(num > 11 && num <= 14) {
+    color = '#f6c16a';
+  } else if(num > 14 && num <= 17) {
+    color = '#f4bb67';
+  } else if(num > 17 && num <= 20) {
+    color = '#f1b565';
+  } else if(num > 20 && num <= 23) {
+    color = '#efaf62';
+  } else if(num > 23 && num <= 26) {
+    color = '#eda95f';
+  } else if(num > 26 && num <= 30) {
+    color = '#eba35c';
+  } else if(num > 30 && num <= 33) {
+    color = '#e89d59';
+  } else if(num > 33 && num <= 36) {
+    color = '#e69756';
+  } else if(num > 36 && num <= 39) {
+    color = '#e39154';
+  } else if(num > 39 && num <= 42) {
+    color = '#e18b51';
+  } else if(num > 42 && num <= 46) {
+    color = '#de854e';
+  } else if(num > 46 && num <= 49) {
+    color = '#dc7f4b';
+  } else if(num > 49 && num <= 52) {
+    color = '#d97949';
+  } else if(num > 52 && num <= 55) {
+    color = '#d77346';
+  } else if(num > 55 && num <= 58) {
+    color = '#d46d44';
+  } else if(num > 58 && num <= 61) {
+    color = '#d16641';
+  } else if(num > 61 && num <= 65) {
+    color = '#ce603e';
+  } else if(num > 65 && num <= 68) {
+    color = '#cc593c';
+  } else if(num > 68 && num <= 71) {
+    color = '#c95339';
+  } else if(num > 71 && num <= 74) {
+    color = '#c64c37';
+  } else if(num > 74 && num <= 77) {
+    color = '#c34534';
+  } else if(num > 77 && num <= 81) {
+    color = '#c03d32';
+  } else if(num > 81 && num <= 84) {
+    color = '#bd352f';
+  } else if(num > 84 && num <= 87) {
+    color = '#ba2d2d';
+  } else if(num > 87 && num <= 90) {
+    color = '#b7232b';
+  } else if(num > 90) {
+    color = '#b20727';
   }
 
-  return risk;
+  return color;
 }
 
 function numberWithCommas(x) {
