@@ -50,6 +50,8 @@
         .attr("width", w)
         .attr("height", h);
 
+      self.svg = svg;
+
       //TODO: TAKE NOTE OF THE RADIUS VARIABLE!
       d3.json('http://walkfree.cartodb.com/api/v2/sql?q=SELECT human_development_index AS x, slavery_policy_risk AS y, slavery_policy_risk, gdppp AS radius, country_name, region FROM gsi_geom_copy WHERE gdppp IS NOT NULL', function(dataset) {
         dataset = dataset.rows;
@@ -61,6 +63,8 @@
         var y_scale = d3.scale.linear()
           .range([h-m, m])
           .domain([0,d3.max(dataset, function(d) { return d.y; })]);
+
+        self.y_scale = y_scale;
 
         var r_scale = d3.scale.linear()
           .range([5, 30]) // max ball radius
@@ -115,6 +119,9 @@
             "x2": function(d){ return x_scale(d); }
           });
 
+        self.linearRegressionLine(svg, dataset, x_scale, y_scale);
+
+
         // circles
         var circle_attr = {
           "cx": function(d) { return x_scale(d.x); },
@@ -166,11 +173,44 @@
       });
     },
 
+    linearRegressionLine: function(svg, dataset, x_scale, y_scale) {
+        // linear regresion line
+        var lr_line = ss.linear_regression()
+          .data(dataset.map(function(d) { return [d.x, d.y]; }))
+          .line();
+
+        var line = d3.svg.line()
+          .x(x_scale)
+          .y(function(d) { return y_scale(lr_line(d));} )
+
+        var x0 = x_scale.domain()[0];
+        var x1 = x_scale.domain()[1];
+        var lr = svg.selectAll('.linear_regression').data([0]);
+
+        var attrs = {
+           "x1": x_scale(x0),
+           "y1": y_scale(lr_line(x0)),
+           "x2": x_scale(x1),
+           "y2": y_scale(lr_line(x1)),
+           //TODO: change style here <==
+           "stroke-width": 2,
+           "stroke": "black"
+        };
+
+        lr.enter()
+          .append("line")
+           .attr('class', 'linear_regression')
+           .attr(attrs);
+
+        lr.transition().attr(attrs);
+    },
+
     _initBindings: function() {
-      this.graph_selector.bind("updateview", this._updateView);
+      this.graph_selector.bind("updateview", this._updateView, this);
     },
 
     _updateView: function(graph){
+      var self = this;
       d3.json('http://walkfree.cartodb.com/api/v2/sql?q=SELECT ' + graph.get('column') + ' AS x, slavery_policy_risk AS y, slavery_policy_risk, gdppp AS radius, country_name, region FROM gsi_geom_copy WHERE gdppp IS NOT NULL', function(dataset) {
         dataset = dataset.rows;
 
@@ -179,6 +219,8 @@
           .range([m, w-m])
           .domain(_domain);
 
+
+        self.linearRegressionLine(self.svg, dataset, x_scale, self.y_scale)
         var circles = d3.selectAll('circle');
         
         circles
