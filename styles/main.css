@@ -881,14 +881,14 @@ body,
 /* line 238, ../sass/main.scss */
 .button .logo {
   display: inline-block;
-  width: 24px;
+  width: 20px;
   height: 26px;
   vertical-align: bottom;
   background: url("../images/share-sprite.png") no-repeat;
 }
 /* line 245, ../sass/main.scss */
 .button .logo.twitter {
-  background-position: -24px;
+  background-position: -20px;
 }
 /* line 250, ../sass/main.scss */
 .button .sep {

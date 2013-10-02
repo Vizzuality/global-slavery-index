@@ -179,7 +179,11 @@
       this.addView(this.zoom);
 
       this.share = new slavery.ui.view.Share({
-        el: this.$(".share")
+        el: this.$(".share"),
+        // bitly: {
+        //   key: 'R_de188fd61320cb55d359b2fecd3dad4b',
+        //   login: 'vizzuality'
+        // }
       });
 
       this.addView(this.share);
