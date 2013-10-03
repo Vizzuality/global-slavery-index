@@ -94,10 +94,12 @@ $(function() {
         this.plotView.graph_selector.close();
 
         this.mapView.changeArea(pane['area'], pane['id']);
+        this.mapView.map.invalidateSize(true);
       } else {
         this.nav.model.set("legend", "plot");
 
         this.mapView.closeSelectors();
+        this.mapView.map.invalidateSize(false);
       }
     }
   });
