@@ -107,6 +107,10 @@
   border-bottom: 2px solid #fff;
 }
 
+.panel-items {
+  position: relative;
+}
+
 .panel-item {
   margin-bottom: 10px;
   @include font(700, 31px, 1, "Open Sans");
@@ -115,6 +119,32 @@
 
   &.slaved {
     color: #F1B14D;
+  }
+
+  &.last {
+    position: fixed;
+    bottom: 103px; right: 20px;
+
+    a {
+      @include box-shadow(0 0 3px rgba(#000, .5));
+    }
+  }
+
+  .learn-more {
+    display: inline-block;
+    border: 2px solid #fff;
+    padding: 0 20px;
+    text-transform: none;
+    text-decoration: none;
+    @include font(600, 14px, 40px, "Open Sans");
+    @include border-radius(21px);
+    @include box-shadow(none);
+    color: #fff;
+    white-space: nowrap;
+
+    &:hover {
+      border-color: #ccc;
+    }
   }
 
   strong {
@@ -219,7 +249,8 @@
 
   span {
     display: block;
-    @include font(400, 10px, 1.2, 'Open Sans');
+    @include font(400, 10px, 1, 'Open Sans');
+    margin-top: 5px;
   }
 }
 
@@ -229,13 +260,14 @@
   padding: 0 20px;
   background-repeat: no-repeat;
   color: #444;
-  @include font(bold, 17px, 1.2, 'Open Sans');
+  @include font(bold, 31px, 1, 'Open Sans');
 
 }
 
 .infowindow-slaved {
   color: #F1B14C;
   margin: 0 0 5px;
+  font-size: 21px;
 }
 
 .more {

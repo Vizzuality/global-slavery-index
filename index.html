@@ -116,7 +116,7 @@
         </div>
 
         <div class="infowindow-block infowindow-slaved">
-          <p class="total-num"><%= numberWithCommas(content.slaves_lb_rounded) %> - <%= numberWithCommas(content.slaves_ub_rounded) %> <span>Est. number enslaved</span></p>
+          <p class="total-num"><%= numberWithCommas(content.slaves_lb_rounded) %><br /><%= numberWithCommas(content.slaves_ub_rounded) %> <span>Est. number enslaved</span></p>
         </div>
 
         <a href="#map/country/<%= content.iso_a3 %>" class="more"><i>+</i>About this country</a>
@@ -132,7 +132,7 @@
 
     <div class="panel-sep"></div>
 
-    <ul>
+    <ul class="panel-items">
       <li class="panel-item">
         <strong>Index rank</strong>
         <%= rank %>
@@ -206,6 +206,12 @@
               </dl>
             </span>
           </sup>
+        </li>
+      <% } %>
+
+      <% if(url) { %>
+        <li class="panel-item last">
+          <a href="<%= url %>" class="learn-more" target="_blank">Learn more about this country</a>
         </li>
       <% } %>
     </ul>
