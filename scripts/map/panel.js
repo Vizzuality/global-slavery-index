@@ -68,6 +68,8 @@
     show: function() {
       this.model.set("hidden", false);
 
+      this.trigger("reposition");
+
       this.$panel_credit.on('mouseover', function() {
         var $tooltip = $(this).find('.tooltip');
 
