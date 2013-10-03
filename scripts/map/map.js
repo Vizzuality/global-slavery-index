@@ -123,6 +123,14 @@
       var mapHeight = $(window).height() - $("nav").outerHeight(true);
 
       this.$cartodbMap.height(mapHeight);
+
+      var top = (mapHeight-48)/2 - this.$panel.height()/2 + 48 // 48 = zoom
+
+      if(top > 55) {
+        this.$panel.css({
+          top: top
+        });
+      }
     },
 
     /**
@@ -160,7 +168,8 @@
     _initViews: function() {
       var self = this;
 
-      this.$cartodbMap = $('.cartodb-map');
+      this.$cartodbMap = this.$('.cartodb-map');
+      this.$panel = this.$(".panel");
 
       this.map = L.map('cartodb-map', {
         center: [0, 0],
@@ -179,7 +188,11 @@
       this.addView(this.zoom);
 
       this.share = new slavery.ui.view.Share({
-        el: this.$(".share")
+        el: this.$(".share"),
+        // bitly: {
+        //   key: 'R_de188fd61320cb55d359b2fecd3dad4b',
+        //   login: 'vizzuality'
+        // }
       });
 
       this.addView(this.share);
@@ -207,7 +220,7 @@
       this.addView(this.infowindow);
 
       this.panel = new slavery.ui.view.Panel({
-        el: this.$(".panel")
+        el: this.$panel
       });
 
       this.addView(this.panel);
@@ -233,7 +246,6 @@
           sublayer.setInteraction(true);
 
           slavery.AppData.CARTOCSS = sublayer.getCartoCSS().split(' ').join(' ');
-          //" #gsi_geom{ line-color: #FFF; line-opacity: 1; line-width: 1; polygon-opacity: 1; polygon-fill:red; }"
 
           sublayer.on('featureClick', function(e, latlng, pos, data, layerNumber) {
             self.water = false;
@@ -380,9 +392,8 @@
             'slaves_ub_rounded': country.slaves_ub_rounded,
             'gdppp': country.gdppp,
             'us_tip_report_ranking': country.us_tip_report_ranking,
-            'remittances_of_gdp': country.remittances_of_gdp
-
-
+            'remittances_of_gdp': country.remittances_of_gdp,
+            'url': country.url
           });
 
           self._setRegion(country.region);
@@ -428,6 +439,8 @@
           });
 
           self.loadArea && self.loadArea();
+
+          self._adjustMapHeight();
         })
         .error(function(errors) {
           console.log("error:" + errors);

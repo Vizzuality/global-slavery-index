@@ -116,7 +116,7 @@
         </div>
 
         <div class="infowindow-block infowindow-slaved">
-          <p class="total-num"><%= numberWithCommas(content.slaves_lb_rounded) %> - <%= numberWithCommas(content.slaves_ub_rounded) %> <span>Est. number enslaved</span></p>
+          <p class="total-num"><%= numberWithCommas(content.slaves_lb_rounded) %><br /><%= numberWithCommas(content.slaves_ub_rounded) %> <span>Est. number enslaved</span></p>
         </div>
 
         <a href="#map/country/<%= content.iso_a3 %>" class="more"><i>+</i>About this country</a>
@@ -132,7 +132,7 @@
 
     <div class="panel-sep"></div>
 
-    <ul>
+    <ul class="panel-items">
       <li class="panel-item">
         <strong>Index rank</strong>
         <%= rank %>
@@ -208,6 +208,12 @@
           </sup>
         </li>
       <% } %>
+
+      <% if(url) { %>
+        <li class="panel-item last">
+          <a href="<%= url %>" class="learn-more" target="_blank">Learn more about this country</a>
+        </li>
+      <% } %>
     </ul>
   </script>
 
@@ -254,7 +260,7 @@
 
   <script id="share-template" type="text/x-underscore-template">
     <div class="button">
-      Share <a href="#share" class="logo facebook"><span>Facebook</span></a> <em class="sep">|</em> <a href="#share" class="logo twitter"><span>Twitter</span></a>
+      Share <a href="http://www.facebook.com/sharer.php?u=" class="logo facebook share" target="_blank"><span>Facebook</span></a> <em class="sep">|</em> <a href="https://twitter.com/share?url=" class="logo twitter share" target="_blank"><span>Twitter</span></a>
     </div>
   </script>
 

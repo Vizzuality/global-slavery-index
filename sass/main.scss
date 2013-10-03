@@ -237,13 +237,13 @@ body,
 
   .logo {
     display: inline-block;
-    width: 24px;
+    width: 20px;
     height: 26px;
     vertical-align: bottom;
     background: url('../images/share-sprite.png') no-repeat;
 
     &.twitter {
-      background-position: -24px;
+      background-position: -20px;
     }
   }
 

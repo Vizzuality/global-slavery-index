@@ -25,7 +25,8 @@ var gs_columns = [
   "featured",
   "rank",
   "us_tip_report_ranking",
-  "remittances_of_gdp"
+  "remittances_of_gdp",
+  "url"
 ]
 
 function GSData() {
