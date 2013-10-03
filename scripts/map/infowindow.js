@@ -104,6 +104,7 @@
           size = this.map.getSize(),
           adjustOffset = {x: 0, y: 0},
           padding = 30;
+          padding_h = 100;
 
       if (top < 0) {
         adjustOffset.y = top - padding;
@@ -113,8 +114,8 @@
         adjustOffset.y = top + height + padding - (size.y - 63);
       }
 
-      if (left + padding + width > size.x) {
-        adjustOffset.x = left + width - (size.x - padding);
+      if (left + padding_h + width > size.x) {
+        adjustOffset.x = left + width + padding_h - size.x;
       }
 
       if(!this.model.get("collapsed")) {
@@ -137,7 +138,7 @@
           var header_padding = this.$el.find(".infowindow-title").height() - 21;
 
           height -= header_padding;
-          padding = 30;
+          padding = 50;
         }
 
         var left = point.x + 10;

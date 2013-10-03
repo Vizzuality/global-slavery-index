@@ -68,7 +68,7 @@
 
 .panel {
   position: absolute;
-  top: 55px; left: 50px;
+  top: 50px; left: 50px;
   z-index: 10;
   display: none;
   color: #fff;
@@ -81,7 +81,7 @@
 }
 
 .panel-title {
-  @include font(300, 31px, 1.2, "Open Sans");
+  @include font(300, 41px, 1.2, "Open Sans");
 }
 
 
@@ -181,7 +181,7 @@
   position: absolute;
   z-index: 10;
   display:none;
-  width: 213px;
+  width: 268px;
   min-height: 30px;
 
   .spinner {
@@ -206,7 +206,7 @@
       text-align: center;
       text-transform: uppercase;
       @include font(bold, 12px, 1.2, 'Open Sans');
-      background: url(../images/infowindow-sprite.png) no-repeat -623px 16px;
+      background: url(../images/infowindow-sprite.png) no-repeat -978px 16px;
 
       p {
         position: relative;
@@ -223,17 +223,17 @@
   .top {
     position: absolute;
     top: 0; left: 8px;
-    width: 205px;
+    width: 260px;
     height: 16px;
-    background: url(../images/infowindow-sprite.png) no-repeat -213px 0;
+    background: url(../images/infowindow-sprite.png) no-repeat -268px 0;
   }
 
   .bottom {
     position: absolute;
     bottom: -16px; left: 8px;
-    width: 205px;
+    width: 260px;
     height: 16px;
-    background: url(../images/infowindow-sprite.png) no-repeat -418px 0;
+    background: url(../images/infowindow-sprite.png) no-repeat -528px 0;
   }
 }
 
@@ -250,32 +250,34 @@
   span {
     display: block;
     @include font(400, 10px, 1, 'Open Sans');
-    margin-top: 5px;
   }
 }
 
 .infowindow-block {
   overflow: hidden;
-  margin: 15px 0;
   padding: 0 20px;
   background-repeat: no-repeat;
   color: #444;
   @include font(bold, 31px, 1, 'Open Sans');
-
+  letter-spacing: -1px;
 }
 
 .infowindow-slaved {
   color: #F1B14C;
-  margin: 0 0 5px;
+  margin: 20px 0 10px;
   font-size: 21px;
+
+  span {
+    margin-top: 5px;
+  }
 }
 
 .more {
   @include box-sizing(border-box);
   position: absolute;
   margin: 24px 0 0 0;
-  display:block;
-  width: 199px;
+  display: block;
+  width: 254px;
   height: 49px;
   border-top: 2px solid #eee;
   text-transform: uppercase;

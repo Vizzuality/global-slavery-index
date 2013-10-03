@@ -126,7 +126,7 @@
 
       var top = (mapHeight-48)/2 - this.$panel.height()/2 + 48 // 48 = zoom
 
-      if(top > 55) {
+      if(top > 50) {
         this.$panel.css({
           top: top
         });
@@ -326,6 +326,7 @@
 
       this.infowindow.bind("changearea", this._changeArea, this);
       this.panel.bind("changearea", this._changeArea, this);
+      this.panel.bind("reposition", this._adjustMapHeight, this);
 
       this.country_selector.bind("closeotherselectors", this.closeSelectors, this);
       this.region_selector.bind("closeotherselectors", this.closeSelectors, this);
@@ -439,8 +440,6 @@
           });
 
           self.loadArea && self.loadArea();
-
-          self._adjustMapHeight();
         })
         .error(function(errors) {
           console.log("error:" + errors);
