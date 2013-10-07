@@ -29,7 +29,7 @@
       this.model.bind("change:closed", self._toggleOpen);
 
       this.template = new cdb.core.Template({
-        template: $("#selector-template").html()
+        template: $("#country_selector-template").html()
       });
 
       var sql = new cartodb.SQL({ user: 'walkfree' });
@@ -56,10 +56,14 @@
         template: $("#country-template").html()
       });
 
-      this.$countries.empty();
+      this.$countries_high.empty();
+      this.$countries_low.empty();
 
       this.countries.each(function(country) {
-        self.$countries.append(template.render( country.toJSON() ));
+        if(country.get('rank') > 10)
+          self.$countries_high.append(template.render( country.toJSON() ));
+        else
+          self.$countries_low.append(template.render( country.toJSON() ));
       });
     },
 
@@ -81,7 +85,7 @@
         self.$countries.show();
         self.$countries.animate({
           opacity: 1,
-          height: 44 * self.countries.length + 2 * (self.countries.length-1)
+          height: (44 * self.countries.length + 2 * (self.countries.length-1))/2
         }, 150);
       }
     },
@@ -127,7 +131,9 @@
     render: function() {
       this.$el.append(this.template.render( _.extend(this.model.toJSON(), { link_title: "Country" }) ));
 
-      this.$countries = this.$el.find("ul");
+      this.$countries = this.$el.find(".countries");
+      this.$countries_high = this.$el.find(".countries_high");
+      this.$countries_low = this.$el.find(".countries_low");
 
       this._addCountries();
       this._toggleOpen();

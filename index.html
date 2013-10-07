@@ -240,14 +240,21 @@
     <ul class="selector-items"></ul>
   </script>
 
+  <script id="country_selector-template" type="text/x-underscore-template">
+    <a href="#" class="link button"><%= link_title %></a>
+
+    <ul class="selector-items countries countries_high"></ul>
+    <ul class="selector-items countries countries_low"></ul>
+  </script>
+
   <script id="graph-template" type="text/x-underscore-template">
-    <li id="<%= column %>" class="<%= column %> <%= selected ? 'selected' : '' %>">
+    <li id="<%= column %>" class="<%= column %>">
       <a href="#"><%= title %></a>
     </li>
   </script>
 
   <script id="country-template" type="text/x-underscore-template">
-    <li id="<%= iso_a3 %>" class="<%= iso_a3 %> <%= selected ? 'selected' : '' %>">
+    <li id="<%= iso_a3 %>" class="<%= iso_a3 %>">
       <a href="#map/country/<%= iso_a3 %>"><i style="background:<%= slaveryColor(parseInt(slavery_policy_risk, 10)) %>;"></i><%= country_name %></a>
     </li>
   </script>

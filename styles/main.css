@@ -837,12 +837,16 @@ body,
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
   text-align: left;
 }
-/* line 169, ../sass/main.scss */
+/* line 168, ../sass/main.scss */
+.selector ul.countries_high {
+  right: 264px;
+}
+/* line 173, ../sass/main.scss */
 .selector a {
   color: #00A99D;
   text-decoration: none;
 }
-/* line 176, ../sass/main.scss */
+/* line 180, ../sass/main.scss */
 .selector li:first-child a {
   border-top: 0;
   -moz-border-radius-topleft: 4px;
@@ -852,11 +856,11 @@ body,
   -webkit-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
 }
-/* line 180, ../sass/main.scss */
+/* line 184, ../sass/main.scss */
 .selector li:first-child a i {
   height: 44px;
 }
-/* line 183, ../sass/main.scss */
+/* line 187, ../sass/main.scss */
 .selector li:last-child a {
   -moz-border-radius-bottomleft: 4px;
   -webkit-border-bottom-left-radius: 4px;
@@ -865,12 +869,12 @@ body,
   -webkit-border-bottom-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-/* line 187, ../sass/main.scss */
+/* line 191, ../sass/main.scss */
 .selector li:hover a {
   background: #f6f6f6 url("../images/selector.png") no-repeat right 0;
   color: #444;
 }
-/* line 192, ../sass/main.scss */
+/* line 196, ../sass/main.scss */
 .selector li a {
   position: relative;
   display: block;
@@ -880,7 +884,7 @@ body,
   background: #fff;
   font: bold 14px/44px "Open Sans";
 }
-/* line 201, ../sass/main.scss */
+/* line 205, ../sass/main.scss */
 .selector li a i {
   position: absolute;
   bottom: 0;
@@ -890,7 +894,7 @@ body,
   width: 4px;
   margin-right: 10px;
 }
-/* line 212, ../sass/main.scss */
+/* line 216, ../sass/main.scss */
 .selector .link:after {
   content: "▼";
   font-size: 6px;
@@ -899,7 +903,7 @@ body,
   margin-left: 5px;
 }
 
-/* line 221, ../sass/main.scss */
+/* line 225, ../sass/main.scss */
 .button {
   display: inline-block;
   font: bold 12px/26px "Open Sans";
@@ -915,15 +919,15 @@ body,
   background: #fff;
   color: #aaa;
 }
-/* line 232, ../sass/main.scss */
+/* line 236, ../sass/main.scss */
 .button:hover {
   background: #f8f8f8;
 }
-/* line 234, ../sass/main.scss */
+/* line 238, ../sass/main.scss */
 .button span {
   display: none;
 }
-/* line 238, ../sass/main.scss */
+/* line 242, ../sass/main.scss */
 .button .logo {
   display: inline-block;
   width: 20px;
@@ -931,11 +935,11 @@ body,
   vertical-align: bottom;
   background: url("../images/share-sprite.png") no-repeat;
 }
-/* line 245, ../sass/main.scss */
+/* line 249, ../sass/main.scss */
 .button .logo.twitter {
   background-position: -20px;
 }
-/* line 250, ../sass/main.scss */
+/* line 254, ../sass/main.scss */
 .button .sep {
   font-weight: normal;
   color: #ccc;
