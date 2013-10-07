@@ -409,9 +409,23 @@
         .done(function(bounds) {
           var center = L.latLngBounds(bounds).getCenter(),
               zoom = self.map.getBoundsZoom(bounds);
-              
-          //Moves the center a bit to the right
-          center.lng = center.lng - 5;
+
+          if(self.current_iso === 'USA') {
+            zoom = 3;
+            center = {
+              lat: 0,
+              lng: 0
+            };
+          } else if(self.current_iso === 'FRA') {
+            zoom = 3;
+            center = {
+              lat: 0,
+              lng: 0
+            };
+          } else {
+            //Moves the center a bit to the right
+            center.lng = center.lng - 5;
+          }
 
           self.model.set({
             'center': center,
