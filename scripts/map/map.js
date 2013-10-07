@@ -45,18 +45,23 @@
 
     over: function(key) {
       this.out();
+
       if(!this.hoveringChip) {
-        d3.selectAll('.leaflet-marker-icon').filter(function() {
-          var c = this.getAttribute('class')
-          if (c) {
+        d3.selectAll('.chip').filter(function() {
+          var c = this.getAttribute('class');
+
+          if(c) {
             return c.indexOf('chip_' + key) < 0;
           }
+
           return true;
         })
-        .transition().duration(200).style('opacity', 0).each('end', function() { d3.select(this).style('visibility', 'hidden'); })
+        .transition().duration(200).style('opacity', 0).each('end', function() { d3.select(this).style('visibility', 'hidden').style('display', 'none'); });
+
         d3.selectAll('.chip_' + key).style({
           'opacity': 1,
-          'visibility': 'visible'
+          'visibility': 'visible',
+          'display': 'block'
         });
       }
 
@@ -481,13 +486,6 @@
             var chip = L.marker([coordinates[1], coordinates[0]], {icon: markerIcon}).addTo(self.map);
             (self.chips[country.iso_a3] || (self.chips[country.iso_a3] = [])).push(chip);
 
-            chip.on('mouseover', function() {
-              self.hoveringChip = true;
-            });
-            chip.on('mouseout', function() {
-              self.hoveringChip = false;
-            });
-
             // dataset
             var dataset = [country.human_rights_risk, country.develop_rights_risk, country.state_stability_risk, country.discrimination_risk, country.slavery_policy_risk];
             var dataset_ord = dataset.slice(0).sort(function(a,b){ return b-a });
@@ -563,7 +561,16 @@
           .innerRadius(20)
           .outerRadius(50);
 
-      var chip = d3.select('.chip_'+country.iso_a3);
+      var chip = d3.select('.chip_'+country.iso_a3)
+        .on("mouseover", function() {
+          self.hoveringChip = true;
+        })
+        .on("mousemove", function() {
+          self.hoveringChip = true;
+        })
+        .on("mouseout", function() {
+          self.hoveringChip = false;
+        });
 
       var svg = chip.append("svg")
         .attr("width", width)
