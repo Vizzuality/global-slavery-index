@@ -35,7 +35,7 @@
       this._initViews();
       this._initBindings();
 
-      var polygons_url = 'https://walkfree.cartodb.com/api/v2/sql?q=select iso_a3, ST_Simplify(the_geom, 0.1) as the_geom from gsi_geom_copy&format=geojson';
+      var polygons_url = 'https://walkfree.cartodb.com/api/v2/sql?q=select iso_a3, ST_Simplify(the_geom, 0.1) as the_geom from new_index_numbers&format=geojson';
 
       create_polygons(polygons_url, function(polygons) {
         self.countries_polygons = polygons;
@@ -247,7 +247,7 @@
           // remove batimetry
           sublayer2.remove();
 
-          sublayer.setInteractivity('cartodb_id, iso_a3, country_name');
+          sublayer.setInteractivity('cartodb_id, iso_a3, name, slavery_policy_risk');
           sublayer.setInteraction(true);
 
           slavery.AppData.CARTOCSS = sublayer.getCartoCSS().split(' ').join(' ');
@@ -270,7 +270,7 @@
             gsdata.filter({ cartodb_id: data.cartodb_id })
               .done(function(data) {
                 var country = data.rows[0],
-                    collapsed = country.country_name ? false : true;
+                    collapsed = country.slavery_policy_risk ? false : true;
 
                 if(collapsed) {
                   // infowindow error
@@ -282,7 +282,7 @@
                     hidden: false,
                     content: {
                       slavery_policy_risk: country.slavery_policy_risk,
-                      country_name: country.country_name,
+                      country_name: country.name,
                       rank: country.rank,
                       slaves_lb_rounded: country.slaves_lb_rounded,
                       slaves_ub_rounded: country.slaves_ub_rounded,
@@ -390,7 +390,7 @@
           var country = data.rows[0];
 
           self.panel.model.set({
-            'country_name': country.country_name,
+            'country_name': country.name,
             'country_iso': country.iso_a3,
             'rank': country.rank,
             'population': country.population,
@@ -584,7 +584,7 @@
             t = "Mean Risk Score";
 
         self.tooltip
-          .html(country.country_name + "<strong>" + t + "</strong>")
+          .html(country.name + "<strong>" + t + "</strong>")
           .style("visibility", "visible")
           .style("top", $(this).offset().top-40+"px")
           .style("left", l+m+"px")
@@ -619,7 +619,7 @@
             m = $(this).find("path")[0].getBoundingClientRect().width/2;
 
         self.tooltip
-          .html(country.country_name + "<strong>" + d.data['name'] + "</strong>")
+          .html(country.name + "<strong>" + d.data['name'] + "</strong>")
           .style("visibility", "visible")
           .style("top", $(this).offset().top-40+"px")
           .style("left", l+m+"px")
@@ -748,7 +748,7 @@
       // map
       // TODO: active layers
       this.out();
-      this.countries_sublayer.setCartoCSS(slavery.AppData.CARTOCSS + "#gsi_geom_copy [ iso3 != '" + this.panel.model.get('country_iso') + "'] { polygon-fill: #666; polygon-opacity: 1; line-width: 1; line-color: #333; line-opacity: 1; } #gsi_geom_copy [ iso3 = '" + this.panel.model.get('country_iso') + "'] { line-width: 3; line-color: #333; }");
+      this.countries_sublayer.setCartoCSS(slavery.AppData.CARTOCSS + "#new_index_numbers [ iso_a3 != '" + this.panel.model.get('country_iso') + "'] { polygon-fill: #666; polygon-opacity: 1; line-width: 1; line-color: #333; line-opacity: 1; } #new_index_numbers [ iso_a3 = '" + this.panel.model.get('country_iso') + "'] { line-width: 3; line-color: #333; }");
       this.map.setView(this.model.get('center'), this.model.get('zoom'));
       this._disableInteraction();
     },
@@ -769,7 +769,7 @@
       // map
       // TODO: active layers
       this._enableInteraction();
-      this.countries_sublayer.setCartoCSS(slavery.AppData.CARTOCSS + "#gsi_geom_copy [ region_name != '" + this.panel.model.get('region') + "'] { polygon-fill: #666; polygon-opacity: 1; line-width: 1; line-color: #333; line-opacity: 1; }");
+      this.countries_sublayer.setCartoCSS(slavery.AppData.CARTOCSS + "#new_index_numbers [ region != '" + this.panel.model.get('region') + "'] { polygon-fill: #666; polygon-opacity: 1; line-width: 1; line-color: #333; line-opacity: 1; }");
       this.map.setView(slavery.AppData.REGIONS[this.panel.model.get('region')].center, slavery.AppData.REGIONS[this.panel.model.get('region')].zoom);
       this._enableInteraction();
 

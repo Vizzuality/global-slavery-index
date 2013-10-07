@@ -7,7 +7,6 @@ var gs_columns = [
   //"the_geom_webmercator",
   "iso_a3",
   "name",
-  "country_name",
   "access_to_fin_services_index",
   "corruption_index",
   "develop_rights_risk",
@@ -30,7 +29,7 @@ var gs_columns = [
 ]
 
 function GSData() {
-  var table = 'gsi_geom_copy';
+  var table = 'new_index_numbers';
   var sql = new cartodb.SQL({ user: 'walkfree' });
 
   function _gsdata() {}
