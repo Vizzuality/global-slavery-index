@@ -206,12 +206,12 @@
       text-align: center;
       text-transform: uppercase;
       @include font(bold, 12px, 1.2, 'Open Sans');
-      background: url(../images/infowindow-sprite.png) no-repeat -978px 16px;
+      background: url(../images/infowindow-sprite.png) no-repeat -788px 16px;
 
       p {
         position: relative;
-        top: 18px;
-        padding: 0 10px;
+        top: 23px;
+        padding: 0 20px;
       }
     }
 

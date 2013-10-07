@@ -324,13 +324,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   text-align: center;
   text-transform: uppercase;
   font: bold 12px/1.2 "Open Sans";
-  background: url(../images/infowindow-sprite.png) no-repeat -978px 16px;
+  background: url(../images/infowindow-sprite.png) no-repeat -788px 16px;
 }
 /* line 211, ../sass/_map.scss */
 .infowindow .content.no_data p {
   position: relative;
-  top: 18px;
-  padding: 0 10px;
+  top: 23px;
+  padding: 0 20px;
 }
 /* line 218, ../sass/_map.scss */
 .infowindow .content.loading {
