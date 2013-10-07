@@ -255,17 +255,19 @@
 
 .infowindow-block {
   overflow: hidden;
-  padding: 0 20px;
+  margin: 0 20px;
   background-repeat: no-repeat;
   color: #444;
   @include font(bold, 31px, 1, 'Open Sans');
   letter-spacing: -1px;
+  background: url(../images/infowindow-sprite.png) no-repeat -1057px 0;
 }
 
 .infowindow-slaved {
   color: #F1B14C;
-  margin: 20px 0 10px;
+  margin: 20px 20px 10px;
   font-size: 21px;
+  background: url(../images/infowindow-sprite.png) no-repeat -1057px -50px;
 
   span {
     margin-top: 5px;
@@ -310,8 +312,6 @@
   background: #fff;
   @include border-radius(50px);
   @include box-shadow(0 0 0 3px rgba(#000, .2));
-
-  // &:hover span { display: block; }
 
   span { display: none; }
 
