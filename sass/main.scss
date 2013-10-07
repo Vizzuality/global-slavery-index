@@ -164,6 +164,10 @@ body,
     @include border-radius(5px);
     @include box-shadow(0 0 0 3px rgba(#000, .2));
     text-align: left;
+
+    &.countries_high {
+      right: 264px;
+    }
   }
 
   a {

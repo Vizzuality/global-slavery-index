@@ -115,7 +115,7 @@
           <p class="total-num"><%= numberWithCommas(content.slaves_lb_rounded) %> - <%= numberWithCommas(content.slaves_ub_rounded) %> <span>Est. number enslaved</span></p>
         </div>
 
-        <div class="infowindow-block infowindow-population">
+        <div class="infowindow-block">
           <p class="total-num"><%= content.rank %> <span>Index rank</span></p>
         </div>
 
@@ -128,7 +128,7 @@
 
   <script id="country_panel-template" type="text/x-underscore-template">
     <h1 class="panel-title"><%= country_name %></h1>
-    <h2 class="panel-subtitle">A country within <a href="#map/region/<%= region %>" class="back"><%= region_name %></a></h2>
+    <h2 class="panel-subtitle">A country within <a href="#map/region/<%= region %>" class="back"><%= region_name %></a> - get back to the <a href="#map" class="back">whole world</a></h2>
 
     <div class="panel-sep"></div>
 
@@ -240,15 +240,22 @@
     <ul class="selector-items"></ul>
   </script>
 
+  <script id="country_selector-template" type="text/x-underscore-template">
+    <a href="#" class="link button"><%= link_title %></a>
+
+    <ul class="selector-items countries countries_high"></ul>
+    <ul class="selector-items countries countries_low"></ul>
+  </script>
+
   <script id="graph-template" type="text/x-underscore-template">
-    <li id="<%= column %>" class="<%= column %> <%= selected ? 'selected' : '' %>">
+    <li id="<%= column %>" class="<%= column %>">
       <a href="#"><%= title %></a>
     </li>
   </script>
 
   <script id="country-template" type="text/x-underscore-template">
-    <li id="<%= iso_a3 %>" class="<%= iso_a3 %> <%= selected ? 'selected' : '' %>">
-      <a href="#map/country/<%= iso_a3 %>"><i style="background:<%= slaveryColor(parseInt(slavery_policy_risk, 10)) %>;"></i><%= country_name %></a>
+    <li id="<%= iso_a3 %>" class="<%= iso_a3 %>">
+      <a href="#map/country/<%= iso_a3 %>"><i style="background:<%= slaveryColor(parseInt(slavery_policy_risk, 10)) %>;"></i><%= name %></a>
     </li>
   </script>
 

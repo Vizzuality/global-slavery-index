@@ -146,7 +146,7 @@
             .attr("x", function() {return d3.select(d3.event.target).attr("cx");})
             .attr("y", function() {return d3.select(d3.event.target).attr("cy");})
             .style("text-anchor", "middle")
-            .text(function(d) { return e.country_name + " ("+e.slavery_policy_risk.toFixed(1)+")"; })
+            .text(function(d) { return e.name + " ("+e.slavery_policy_risk.toFixed(1)+")"; })
             .transition()
               .style("opacity","1")
               .attr("y", d3.select(d3.event.target).attr("cy")-r_scale(e.radius)-18);
@@ -174,7 +174,7 @@
       this.dataset = [];
 
       //TODO: TAKE NOTE OF THE RADIUS VARIABLE!
-      d3.json('http://walkfree.cartodb.com/api/v2/sql?q=SELECT human_development_index AS x, slavery_policy_risk AS y, slavery_policy_risk, gdppp AS radius, country_name, region FROM gsi_geom_copy WHERE gdppp IS NOT NULL', function(dataset) {
+      d3.json('http://walkfree.cartodb.com/api/v2/sql?q=SELECT human_development_index AS x, slavery_policy_risk AS y, slavery_policy_risk, gdppp AS radius, name, region FROM new_index_numbers WHERE gdppp IS NOT NULL', function(dataset) {
         var dataset = dataset.rows;
         self.dataset = dataset;
 
@@ -233,7 +233,7 @@
     _updateView: function(graph){
       var self = this;
 
-      d3.json('http://walkfree.cartodb.com/api/v2/sql?q=SELECT ' + graph.get('column') + ' AS x, slavery_policy_risk AS y, slavery_policy_risk, gdppp AS radius, country_name, region FROM gsi_geom_copy WHERE gdppp IS NOT NULL', function(dataset) {
+      d3.json('http://walkfree.cartodb.com/api/v2/sql?q=SELECT ' + graph.get('column') + ' AS x, slavery_policy_risk AS y, slavery_policy_risk, gdppp AS radius, name, region FROM new_index_numbers WHERE gdppp IS NOT NULL', function(dataset) {
         var dataset = dataset.rows;
         self.dataset = dataset;
 

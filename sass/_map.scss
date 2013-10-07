@@ -86,7 +86,6 @@
 
 
 .panel-subtitle {
-  width: 420px;
   @include font(300, 17px, 1.2, "Open Sans");
 
   a { color: #fff; }
@@ -206,12 +205,12 @@
       text-align: center;
       text-transform: uppercase;
       @include font(bold, 12px, 1.2, 'Open Sans');
-      background: url(../images/infowindow-sprite.png) no-repeat -978px 16px;
+      background: url(../images/infowindow-sprite.png) no-repeat -788px 16px;
 
       p {
         position: relative;
-        top: 18px;
-        padding: 0 10px;
+        top: 23px;
+        padding: 0 20px;
       }
     }
 
@@ -255,17 +254,19 @@
 
 .infowindow-block {
   overflow: hidden;
-  padding: 0 20px;
+  margin: 0 20px;
   background-repeat: no-repeat;
   color: #444;
   @include font(bold, 31px, 1, 'Open Sans');
   letter-spacing: -1px;
+  background: url(../images/infowindow-sprite.png) no-repeat -1057px 0;
 }
 
 .infowindow-slaved {
   color: #F1B14C;
-  margin: 20px 0 10px;
+  margin: 20px 20px 10px;
   font-size: 21px;
+  background: url(../images/infowindow-sprite.png) no-repeat -1057px -50px;
 
   span {
     margin-top: 5px;
@@ -310,8 +311,6 @@
   background: #fff;
   @include border-radius(50px);
   @include box-shadow(0 0 0 3px rgba(#000, .2));
-
-  // &:hover span { display: block; }
 
   span { display: none; }
 
