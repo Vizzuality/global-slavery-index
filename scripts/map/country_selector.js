@@ -32,7 +32,7 @@
         template: $("#country_selector-template").html()
       });
 
-      var sql = new cartodb.SQL({ user: 'walkfree' });
+      var sql = new cartodb.SQL({ user: 'globalslavery' });
 
       gsdata.featured()
         .done(function(data) {
