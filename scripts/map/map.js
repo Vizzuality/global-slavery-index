@@ -35,7 +35,7 @@
       this._initViews();
       this._initBindings();
 
-      var polygons_url = 'https://walkfree.cartodb.com/api/v2/sql?q=select iso_a3, ST_Simplify(the_geom, 0.1) as the_geom from new_index_numbers&format=geojson';
+      var polygons_url = 'https://globalslavery.cartodb.com/api/v2/sql?q=select iso_a3, ST_Simplify(the_geom, 0.1) as the_geom from new_index_numbers&format=geojson';
 
       create_polygons(polygons_url, function(polygons) {
         self.countries_polygons = polygons;
@@ -236,7 +236,7 @@
         .append('div')
         .attr('class', 'tooltip');
 
-      var layerUrl = 'http://walkfree.cartodb.com/api/v2/viz/9919ac04-1c8c-11e3-a3f4-df1f5817433c/viz.json';
+      var layerUrl = 'http://globalslavery.cartodb.com/api/v2/viz/01fa0ba2-3262-11e3-83f2-55d1af661060/viz.json';
 
       cartodb.createLayer(this.map, layerUrl, { infowindow: false })
         .addTo(this.map)

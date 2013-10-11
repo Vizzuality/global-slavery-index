@@ -30,7 +30,7 @@ var gs_columns = [
 
 function GSData() {
   var table = 'new_index_numbers';
-  var sql = new cartodb.SQL({ user: 'walkfree' });
+  var sql = new cartodb.SQL({ user: 'globalslavery' });
 
   function _gsdata() {}
 
