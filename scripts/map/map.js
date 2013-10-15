@@ -35,7 +35,7 @@
       this._initViews();
       this._initBindings();
 
-      var polygons_url = 'https://globalslavery.cartodb.com/api/v2/sql?q=select iso_a3, ST_Simplify(the_geom, 0.1) as the_geom from new_index_numbers&format=geojson';
+      var polygons_url = 'https://globalslavery.cartodb.com/api/v2/sql?q=select iso_a3, name, ST_Simplify(the_geom, 0.1) as the_geom from new_index_numbers&format=geojson';
 
       create_polygons(polygons_url, function(polygons) {
         self.countries_polygons = polygons;
@@ -43,10 +43,12 @@
       });
     },
 
-    over: function(key) {
+    over: function(key, name) {
       this.out();
 
-      if(!this.hoveringChip) {
+      var key_ = key ? key : nameToKey(name);
+
+      if(key && !this.hoveringChip) {
         d3.selectAll('.chip').filter(function() {
           var c = this.getAttribute('class');
 
@@ -65,7 +67,7 @@
         });
       }
 
-      var current_polygon = this.current_polygon = this.countries_polygons[key];
+      var current_polygon = this.current_polygon = this.countries_polygons[key_];
       var current_key = this.current_key;
 
       if(!current_polygon) return;
@@ -301,7 +303,10 @@
           });
 
           sublayer.on('featureOver', function(e, latlng, pos, data, layerNumber) {
-            self.over(data.iso_a3);
+            var iso = data.iso_a3,
+                name = nameToKey(data.name);
+
+            self.over(iso, name);
           });
 
           sublayer.on('featureOut', function(e, latlng, pos, data, layerNumber) {

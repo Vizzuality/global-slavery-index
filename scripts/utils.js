@@ -114,12 +114,16 @@ function create_polygons(url, ready) {
 
         pol.geo = geo;
         pol.prop = features[i].properties;
-        var key = features[i].properties.iso_a3;
 
-        if(polygons[key]) {
-          polygons[key].push(pol);
+        var key = features[i].properties.iso_a3,
+            name = features[i].properties.name;
+
+        var key_ = key ? key : nameToKey(name);
+
+        if(polygons[key_]) {
+          polygons[key_].push(pol);
         } else {
-          polygons[key] = [pol];
+          polygons[key_] = [pol];
         }
       }
     }
@@ -198,4 +202,8 @@ function slaveryColor(num) {
 
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function nameToKey(name) {
+  return name.toLowerCase().split(' ').join('_');
 }
