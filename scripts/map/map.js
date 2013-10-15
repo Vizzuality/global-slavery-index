@@ -342,8 +342,6 @@
       this.clickTimeout = null;
       this._bindMissingClickEvents();
 
-      this.infowindow.bind("changearea", this._changeArea, this);
-      this.panel.bind("changearea", this._changeArea, this);
       this.panel.bind("reposition", this._adjustMapHeight, this);
 
       this.country_selector.bind("closeotherselectors", this.closeSelectors, this);
