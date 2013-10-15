@@ -64,21 +64,20 @@ slavery.AppData = {
   GRAPHS: {
     'human_development_index': {
       title: 'Human Development Index',
-      column: 'human_development_index'
+      column: 'human_development_index',
+      description: '',
+      selected: true
     },
     'access_to_financial_services': {
       title: 'Access to Financial Services Index',
-      column: 'access_to_fin_services_index'
+      column: 'access_to_fin_services_index',
+      description: 'Low score indicates low access to financial services, high score indicates increased access to financial services'
     },
     'corruption': {
       title: 'Corruption Index',
-      column: 'corruption_index'
+      column: 'corruption_index',
+      description: 'Low score for corruption indicates more corruption, high score indicates less corruption'
     },
-  },
-  CONFIG: {
-    plot: {
-      graph: 'human_development_index'
-    }
   }
 }
 

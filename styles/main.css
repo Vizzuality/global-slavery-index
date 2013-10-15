@@ -599,14 +599,25 @@ circle.africa {
 
 /* line 46, ../sass/_plot.scss */
 .tipsy {
-  font: 400 15px/1.2 "Open Sans";
+  font: 400 12px/1.2 "Open Sans";
   fill: #FFF;
   pointer-events: none;
+  text-transform: uppercase;
 }
 
-/* line 52, ../sass/_plot.scss */
+/* line 53, ../sass/_plot.scss */
 .graph_selector .selector-items {
   width: 294px;
+}
+
+/* line 55, ../sass/_plot.scss */
+.chart_description {
+  position: relative;
+  top: -15px;
+  margin-left: 40px;
+  font: 400 10px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #aaa;
+  text-transform: uppercase;
 }
 
 /* line 13, ../sass/main.scss */

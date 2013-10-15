@@ -44,9 +44,19 @@ circle {
 }
 
 .tipsy{
-  @include font(400, 15px, 1.2, 'Open Sans');
+  @include font(400, 12px, 1.2, 'Open Sans');
   fill: #FFF;
   pointer-events: none;
+  text-transform: uppercase;
 }
 
 .graph_selector .selector-items { width: 294px; }
+
+.chart_description {
+  position: relative;
+  top: -15px;
+  margin-left: 40px;
+  @include font(400, 10px);
+  color: #aaa;
+  text-transform: uppercase;
+}
