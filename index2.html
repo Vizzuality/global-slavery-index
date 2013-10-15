@@ -1,0 +1,25 @@
+<script src="scripts/vendor/jquery-1.10.2.min.js"></script>
+
+<script type="text/javascript">
+  function receiveMessage(event) {
+    if (event.origin !== "http://0.0.0.0:8000") { return; }
+
+    console.log(event.data);
+  }
+
+  window.addEventListener("message", receiveMessage, false);
+
+  $(document).ready(function() {
+    var h = $(".container").height(),
+        w = $(".container").width();
+
+    $("iframe").attr({
+      "height": h,
+      "width": w
+    });
+  });
+</script>
+
+<div style="height: 600px; width: 100%;" class="container">
+  <iframe id="iframe1" name="iframe1" src="/index.html" height="423" width="627" frameborder="0" /></iframe>
+</div>

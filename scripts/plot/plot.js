@@ -170,6 +170,14 @@
         el: this.$(".graph_selector")
       });
 
+      this.addView(this.graph_selector);
+
+      this.help = new slavery.ui.view.Help({
+        el: this.$(".plot_help")
+      });
+
+      this.addView(this.help);
+
       this.dataset = [];
 
       //TODO: TAKE NOTE OF THE RADIUS VARIABLE!
