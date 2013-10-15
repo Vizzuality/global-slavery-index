@@ -206,5 +206,5 @@ function numberWithCommas(x) {
 }
 
 function nameToKey(name) {
-  return name.toLowerCase().split(' ').join('_');
+  return name.toLowerCase().split(' ').join('_').split('.').join('_');
 }
