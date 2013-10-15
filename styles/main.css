@@ -848,21 +848,7 @@ body,
   color: #00A99D;
   text-decoration: none;
 }
-/* line 178, ../sass/main.scss */
-.selector li:first-child a {
-  border-top: 0;
-  -moz-border-radius-topleft: 4px;
-  -webkit-border-top-left-radius: 4px;
-  border-top-left-radius: 4px;
-  -moz-border-radius-topright: 4px;
-  -webkit-border-top-right-radius: 4px;
-  border-top-right-radius: 4px;
-}
-/* line 182, ../sass/main.scss */
-.selector li:first-child a i {
-  height: 44px;
-}
-/* line 185, ../sass/main.scss */
+/* line 177, ../sass/main.scss */
 .selector li:last-child a {
   -moz-border-radius-bottomleft: 4px;
   -webkit-border-bottom-left-radius: 4px;
@@ -871,32 +857,48 @@ body,
   -webkit-border-bottom-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-/* line 189, ../sass/main.scss */
+/* line 181, ../sass/main.scss */
 .selector li:hover a {
   background: #f6f6f6 url("../images/selector.png") no-repeat right 0;
   color: #444;
 }
-/* line 194, ../sass/main.scss */
-.selector li a {
+/* line 187, ../sass/main.scss */
+.selector li a,
+.selector li span {
   position: relative;
   display: block;
-  height: 44px;
+  height: 34px;
   padding-left: 14px;
   border-top: 2px solid #e5e5e5;
   background: #fff;
-  font: bold 14px/44px "Open Sans";
+  font: bold 14px/35px "Open Sans";
 }
-/* line 203, ../sass/main.scss */
-.selector li a i {
+/* line 196, ../sass/main.scss */
+.selector li a i,
+.selector li span i {
   position: absolute;
   bottom: 0;
   left: 0;
   display: block;
-  height: 46px;
+  height: 36px;
   width: 4px;
   margin-right: 10px;
 }
-/* line 214, ../sass/main.scss */
+/* line 207, ../sass/main.scss */
+.selector li span, .selector li:first-child a {
+  border-top: 0;
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+/* line 212, ../sass/main.scss */
+.selector li span {
+  color: #AAA;
+}
+/* line 217, ../sass/main.scss */
 .selector .link:after {
   content: "▼";
   font-size: 6px;
@@ -905,7 +907,7 @@ body,
   margin-left: 5px;
 }
 
-/* line 223, ../sass/main.scss */
+/* line 226, ../sass/main.scss */
 .button {
   display: inline-block;
   font: bold 12px/26px "Open Sans";
@@ -921,15 +923,15 @@ body,
   background: #fff;
   color: #aaa;
 }
-/* line 234, ../sass/main.scss */
+/* line 237, ../sass/main.scss */
 .button:hover {
   background: #f8f8f8;
 }
-/* line 236, ../sass/main.scss */
+/* line 239, ../sass/main.scss */
 .button span {
   display: none;
 }
-/* line 240, ../sass/main.scss */
+/* line 243, ../sass/main.scss */
 .button .logo {
   display: inline-block;
   width: 20px;
@@ -937,11 +939,11 @@ body,
   vertical-align: bottom;
   background: url("../images/share-sprite.png") no-repeat;
 }
-/* line 247, ../sass/main.scss */
+/* line 250, ../sass/main.scss */
 .button .logo.twitter {
   background-position: -20px;
 }
-/* line 252, ../sass/main.scss */
+/* line 255, ../sass/main.scss */
 .button .sep {
   font-weight: normal;
   color: #ccc;

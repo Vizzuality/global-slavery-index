@@ -174,14 +174,6 @@ body,
   }
 
   li {
-
-    &:first-child a {
-      border-top: 0;
-      @include border-top-radius(4px);
-
-      i { height: 44px; }
-    }
-
     &:last-child a {
       @include border-bottom-radius(4px);
     }
@@ -191,23 +183,34 @@ body,
       color: #444;
     }
 
-    a {
+    a,
+    span {
       position: relative;
       display: block;
-      height: 44px;
+      height: 34px;
       padding-left: 14px;
       border-top: 2px solid #e5e5e5;
       background: #fff;
-      @include font(bold, 14px, 44px, "Open Sans");
+      @include font(bold, 14px, 35px, "Open Sans");
 
       i {
         position: absolute;
         bottom: 0; left: 0;
         display: block;
-        height: 46px;
+        height: 36px;
         width: 4px;
         margin-right: 10px;
       }
+    }
+
+    span,
+    &:first-child a {
+      border-top: 0;
+      @include border-top-radius(4px);
+    }
+
+    span {
+      color: #AAA;
     }
   }
 

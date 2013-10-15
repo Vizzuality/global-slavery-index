@@ -74,7 +74,7 @@
         self.$regions.show();
         self.$regions.animate({
           opacity: 1,
-          height: 44 * self.regions.length + 2 * (self.regions.length-1)
+          height: 34 * self.regions.length + 2 * (self.regions.length-1)
         }, 150);
       }
     },

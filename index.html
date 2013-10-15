@@ -257,8 +257,8 @@
   <script id="country_selector-template" type="text/x-underscore-template">
     <a href="#" class="link button"><%= link_title %></a>
 
-    <ul class="selector-items countries countries_high"></ul>
     <ul class="selector-items countries countries_low"></ul>
+    <ul class="selector-items countries countries_high"></ul>
   </script>
 
   <script id="graph-template" type="text/x-underscore-template">
@@ -270,6 +270,12 @@
   <script id="country-template" type="text/x-underscore-template">
     <li id="<%= iso_a3 %>" class="<%= iso_a3 %>">
       <a href="#map/country/<%= iso_a3 %>"><i style="background:<%= rankColor(parseInt(rank, 10)) %>;"></i><%= name %></a>
+    </li>
+  </script>
+
+  <script id="country_title-template" type="text/x-underscore-template">
+    <li>
+      <span><%= title %></span>
     </li>
   </script>
 
