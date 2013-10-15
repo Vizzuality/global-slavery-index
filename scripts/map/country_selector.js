@@ -56,6 +56,10 @@
         template: $("#country-template").html()
       });
 
+      var title_template = new cdb.core.Template({
+        template: $("#country_title-template").html()
+      });
+
       this.$countries_high.empty();
       this.$countries_low.empty();
 
@@ -65,6 +69,9 @@
         else
           self.$countries_low.append(template.render( country.toJSON() ));
       });
+
+      self.$countries_high.prepend(title_template.render({ title: "HIGHEST PREVALENCE" }))
+      self.$countries_low.prepend(title_template.render({ title: "LOWEST PREVALENCE" }))
     },
 
     _toggleOpen: function() {
@@ -85,7 +92,7 @@
         self.$countries.show();
         self.$countries.animate({
           opacity: 1,
-          height: (44 * self.countries.length + 2 * (self.countries.length-1))/2
+          height: 34 * (self.countries.length/2 + 1) + self.countries.length
         }, 150);
       }
     },

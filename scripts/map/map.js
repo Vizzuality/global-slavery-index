@@ -131,13 +131,13 @@
 
       this.$cartodbMap.height(mapHeight);
 
-      var top = (mapHeight-48)/2 - this.$panel.height()/2 + 48 // 48 = zoom
+      var top = mapHeight/2 - this.$panel.height()/2;
 
-      if(top > 50) {
-        this.$panel.css({
-          top: top
-        });
-      }
+      var top_ = top > 50 ? top : 50;
+
+      this.$panel.css({
+        top: top_
+      });
     },
 
     /**
