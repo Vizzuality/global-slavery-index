@@ -489,7 +489,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* line 340, ../sass/_map.scss */
 .tooltip {
   position: absolute;
-  padding: 0 10px 5px;
+  padding: 5px 10px;
   background: rgba(0, 0, 0, 0.8);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;

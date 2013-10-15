@@ -43,7 +43,9 @@
       });
     },
 
-    over: function(key, name) {
+    over: function(key, name, pos) {
+      var self = this;
+
       this.out();
 
       var key_ = key ? key : nameToKey(name);
@@ -74,10 +76,23 @@
 
       for(var i=0; i < current_polygon.length; ++i) {
         this.map.addLayer(current_polygon[i].geo);
+
+        if(self.model.get("area") === "world") {
+          self.tooltip
+            .html(name)
+            .style("visibility", "visible")
+            .style("top", pos.y-40+"px")
+            .style("left", pos.x+"px")
+            .style("margin-left", function() {
+              return -$(this).outerWidth()/2+"px"
+            });
+        }
       }
     },
 
     out: function(){
+      var self = this;
+
       if(this.current_polygon) {
         var current_polygon = this.current_polygon;
 
@@ -86,6 +101,11 @@
         }
 
         current_polygon = null;
+
+        if(self.model.get("area") === "world") {
+          self.tooltip
+            .style("visibility", "hidden");
+        }
       }
     },
 
@@ -312,9 +332,9 @@
 
           sublayer.on('featureOver', function(e, latlng, pos, data, layerNumber) {
             var iso = data.iso_a3,
-                name = nameToKey(data.name);
+                name = data.name;
 
-            self.over(iso, name);
+            self.over(iso, name, pos);
           });
 
           sublayer.on('featureOut', function(e, latlng, pos, data, layerNumber) {
