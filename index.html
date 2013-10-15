@@ -109,7 +109,7 @@
     <div class="top"></div>
     <div class="content">
       <div class="inner">
-        <h1 class="infowindow-title" style="border-bottom: 2px solid <%= slaveryColor(parseInt(content.slavery_policy_risk, 10)) %>"><%= content.country_name %></h1>
+        <h1 class="infowindow-title" style="border-bottom: 2px solid <%= rankColor(parseInt(content.rank, 10)) %>"><%= content.country_name %></h1>
 
         <div class="infowindow-block infowindow-slaved">
           <p class="total-num"><%= numberWithCommas(content.slaves_lb_rounded) %> - <%= numberWithCommas(content.slaves_ub_rounded) %> <span>Est. number enslaved</span></p>
@@ -255,7 +255,7 @@
 
   <script id="country-template" type="text/x-underscore-template">
     <li id="<%= iso_a3 %>" class="<%= iso_a3 %>">
-      <a href="#map/country/<%= iso_a3 %>"><i style="background:<%= slaveryColor(parseInt(slavery_policy_risk, 10)) %>;"></i><%= name %></a>
+      <a href="#map/country/<%= iso_a3 %>"><i style="background:<%= rankColor(parseInt(rank, 10)) %>;"></i><%= name %></a>
     </li>
   </script>
 

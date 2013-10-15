@@ -485,7 +485,7 @@
             var markerIcon = L.divIcon({
               iconSize: [100, 100],
               className: 'chip chip_'+country.iso_a3,
-              html: '<div class="mean" style="background:'+slaveryColor(parseInt(country.slavery_policy_risk, 10))+'">'+country.mean.toFixed(2)+'</div>'
+              html: '<div class="mean" style="background:'+rankColor(parseInt(country.rank, 10))+'">'+country.mean.toFixed(2)+'</div>'
             });
 
             var chip = L.marker([coordinates[1], coordinates[0]], {icon: markerIcon}).addTo(self.map);

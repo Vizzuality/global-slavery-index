@@ -132,69 +132,71 @@ function create_polygons(url, ready) {
   });
 }
 
-function slaveryColor(num) {
+function rankColor(num) {
   var color = '';
 
-  if(num <= 1 ) {
+  if(num>145) {
     color = '#fed976';
-  } else if(num > 1 && num <= 4) {
+  } else if(num > 140 && num <= 145) {
     color = '#fcd373';
-  } else if(num > 4 && num <= 7) {
+  } else if(num > 135 && num <= 140) {
     color = '#facd70';
-  } else if(num > 7 && num <= 11) {
+  } else if(num > 130 && num <= 135) {
     color = '#f8c76d';
-  } else if(num > 11 && num <= 14) {
+  } else if(num > 125 && num <= 130) {
     color = '#f6c16a';
-  } else if(num > 14 && num <= 17) {
+  } else if(num > 120 && num <= 125) {
     color = '#f4bb67';
-  } else if(num > 17 && num <= 20) {
+  } else if(num > 115 && num <= 120) {
     color = '#f1b565';
-  } else if(num > 20 && num <= 23) {
+  } else if(num > 110 && num <= 115) {
     color = '#efaf62';
-  } else if(num > 23 && num <= 26) {
+  } else if(num > 105 && num <= 110) {
     color = '#eda95f';
-  } else if(num > 26 && num <= 30) {
+  } else if(num > 100 && num <= 105) {
     color = '#eba35c';
-  } else if(num > 30 && num <= 33) {
+  } else if(num > 95 && num <= 100) {
     color = '#e89d59';
-  } else if(num > 33 && num <= 36) {
+  } else if(num > 90 && num <= 95) {
     color = '#e69756';
-  } else if(num > 36 && num <= 39) {
+  } else if(num > 85 && num <= 90) {
     color = '#e39154';
-  } else if(num > 39 && num <= 42) {
+  } else if(num > 80 && num <= 85) {
     color = '#e18b51';
-  } else if(num > 42 && num <= 46) {
+  } else if(num > 76 && num <= 80) {
     color = '#de854e';
-  } else if(num > 46 && num <= 49) {
+  } else if(num > 71 && num <= 76) {
     color = '#dc7f4b';
-  } else if(num > 49 && num <= 52) {
+  } else if(num > 66 && num <= 71) {
     color = '#d97949';
-  } else if(num > 52 && num <= 55) {
+  } else if(num > 61 && num <= 66) {
     color = '#d77346';
-  } else if(num > 55 && num <= 58) {
+  } else if(num > 56 && num <= 61) {
     color = '#d46d44';
-  } else if(num > 58 && num <= 61) {
+  } else if(num > 51 && num <= 56) {
     color = '#d16641';
-  } else if(num > 61 && num <= 65) {
+  } else if(num > 46 && num <= 51) {
     color = '#ce603e';
-  } else if(num > 65 && num <= 68) {
+  } else if(num > 41 && num <= 46) {
     color = '#cc593c';
-  } else if(num > 68 && num <= 71) {
+  } else if(num > 36 && num <= 41) {
     color = '#c95339';
-  } else if(num > 71 && num <= 74) {
+  } else if(num > 31 && num <= 36) {
     color = '#c64c37';
-  } else if(num > 74 && num <= 77) {
+  } else if(num > 26 && num <= 31) {
     color = '#c34534';
-  } else if(num > 77 && num <= 81) {
+  } else if(num > 21 && num <= 26) {
     color = '#c03d32';
-  } else if(num > 81 && num <= 84) {
+  } else if(num > 16 && num <= 21) {
     color = '#bd352f';
-  } else if(num > 84 && num <= 87) {
+  } else if(num > 11 && num <= 16) {
     color = '#ba2d2d';
-  } else if(num > 87 && num <= 90) {
+  } else if(num > 6 && num <= 11) {
     color = '#b7232b';
-  } else if(num > 90) {
-    color = '#b20727';
+  } else if(num > 1 && num <= 6) {
+    color = '#b41628';
+  } else {
+    color = '#B10026';
   }
 
   return color;
