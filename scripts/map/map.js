@@ -286,6 +286,7 @@
                       slavery_policy_risk: country.slavery_policy_risk,
                       country_name: country.name,
                       rank: country.rank,
+                      slaves: country.slaves,
                       slaves_lb_rounded: country.slaves_lb_rounded,
                       slaves_ub_rounded: country.slaves_ub_rounded,
                       iso_a3: country.iso_a3
@@ -399,6 +400,7 @@
             'country_iso': country.iso_a3,
             'rank': country.rank,
             'population': country.population,
+            'slaves': country.slaves,
             'slaves_lb_rounded': country.slaves_lb_rounded,
             'slaves_ub_rounded': country.slaves_ub_rounded,
             'gdppp': country.gdppp,
