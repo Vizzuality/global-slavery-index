@@ -28,40 +28,36 @@ body,
   width: 100%;
   min-width: 960px;
   height: 62px;
-  border-top: 1px solid rgba(#000, .5);
-  background: #fff;
-  @include box-shadow(0 0 3px rgba(#000, .3));
 }
 
 .legend {
-  display:none;
+  display: none;
   position: absolute;
-  top: 25px; right: 20px;
+  bottom: 20px; right: 20px;
   @include clearfix();
 
   strong  {
     float: left;
     position: relative;
-    top: -4px;
     margin: 0 7px 0 0;
     text-transform: uppercase;
-    @include font(bold, 10px, 21px);
+    @include font(bold, 10px, 25px);
     color: #414346;
   }
 }
 
 .legend-plot {
-  top: 24px;
-
   ul { float: left; }
 
   li {
     float:left;
     position:relative;
     margin: 0 30px 0 0;
-    @include font(bold, 10px, 21px);
+    @include font(bold, 10px, 25px);
     color: #393D3F;
     text-transform: uppercase;
+
+    &:last-child { margin-right: 0; }
 
     i {
       width: 7px; height: 7px;
@@ -78,6 +74,8 @@ body,
 
 .legend-map {
   .gradient {
+    position: relative;
+    top: 7px;
     float: left;
     width: 394px;
     height: 10px;
@@ -89,7 +87,7 @@ body,
   .left,
   .right {
     position: relative;
-    top: 12px;
+    top: -25px;
     @include font(500, 9px);
     color: #aaa;
     text-transform: uppercase;
@@ -100,11 +98,11 @@ body,
 }
 
 .switch {
-  position: relative;
-  float: left;
-  border: 1px solid #b3b3b3;
-  margin: 20px 0 0 20px;
+  position: absolute;
+  bottom: 20px; left: 20px;
   padding: 2px;
+  background: #fff;
+  border: 1px solid #444;
   @include border-radius(14px);
 
   span {
@@ -131,7 +129,7 @@ body,
     color: #00A99D;
     text-decoration: none;
     text-transform: uppercase;
-    @include font(500, 12px, 21px);
+    @include font(bold, 12px, 22px, "Open Sans");
 
     &.selected {
       color: #fff;

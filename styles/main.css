@@ -636,18 +636,13 @@ body,
   width: 100%;
   min-width: 960px;
   height: 62px;
-  border-top: 1px solid rgba(0, 0, 0, 0.5);
-  background: #fff;
-  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
-/* line 36, ../sass/main.scss */
+/* line 33, ../sass/main.scss */
 .legend {
   display: none;
   position: absolute;
-  top: 25px;
+  bottom: 20px;
   right: 20px;
 }
 /* line 8, ../sass/_helpers.scss */
@@ -663,35 +658,34 @@ body,
 .legend:after {
   clear: both;
 }
-/* line 42, ../sass/main.scss */
+/* line 39, ../sass/main.scss */
 .legend strong {
   float: left;
   position: relative;
-  top: -4px;
   margin: 0 7px 0 0;
   text-transform: uppercase;
-  font: bold 10px/21px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: bold 10px/25px "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #414346;
 }
 
-/* line 53, ../sass/main.scss */
-.legend-plot {
-  top: 24px;
-}
-/* line 56, ../sass/main.scss */
+/* line 50, ../sass/main.scss */
 .legend-plot ul {
   float: left;
 }
-/* line 58, ../sass/main.scss */
+/* line 52, ../sass/main.scss */
 .legend-plot li {
   float: left;
   position: relative;
   margin: 0 30px 0 0;
-  font: bold 10px/21px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: bold 10px/25px "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #393D3F;
   text-transform: uppercase;
 }
-/* line 66, ../sass/main.scss */
+/* line 60, ../sass/main.scss */
+.legend-plot li:last-child {
+  margin-right: 0;
+}
+/* line 62, ../sass/main.scss */
 .legend-plot li i {
   width: 7px;
   height: 7px;
@@ -714,8 +708,10 @@ body,
   opacity: 0.6;
 }
 
-/* line 80, ../sass/main.scss */
+/* line 76, ../sass/main.scss */
 .legend-map .gradient {
+  position: relative;
+  top: 7px;
   float: left;
   width: 394px;
   height: 10px;
@@ -731,38 +727,39 @@ body,
   background-image: -o-linear-gradient(left, #fed976 0%, #b20727 100%);
   background-image: linear-gradient(left, #fed976 0%, #b20727 100%);
 }
-/* line 90, ../sass/main.scss */
+/* line 88, ../sass/main.scss */
 .legend-map .left,
 .legend-map .right {
   position: relative;
-  top: 12px;
+  top: -25px;
   font: 500 9px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #aaa;
   text-transform: uppercase;
 }
-/* line 98, ../sass/main.scss */
+/* line 96, ../sass/main.scss */
 .legend-map .left {
   float: left;
 }
-/* line 99, ../sass/main.scss */
+/* line 97, ../sass/main.scss */
 .legend-map .right {
   float: right;
 }
 
-/* line 102, ../sass/main.scss */
+/* line 100, ../sass/main.scss */
 .switch {
-  position: relative;
-  float: left;
-  border: 1px solid #b3b3b3;
-  margin: 20px 0 0 20px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
   padding: 2px;
+  background: #fff;
+  border: 1px solid #444;
   -webkit-border-radius: 14px;
   -moz-border-radius: 14px;
   -ms-border-radius: 14px;
   -o-border-radius: 14px;
   border-radius: 14px;
 }
-/* line 110, ../sass/main.scss */
+/* line 108, ../sass/main.scss */
 .switch span {
   position: absolute;
   top: 2px;
@@ -777,16 +774,16 @@ body,
   border-radius: 11px;
   width: 47px;
 }
-/* line 119, ../sass/main.scss */
+/* line 117, ../sass/main.scss */
 .switch ul {
   position: relative;
   z-index: 10;
 }
-/* line 124, ../sass/main.scss */
+/* line 122, ../sass/main.scss */
 .switch li {
   float: left;
 }
-/* line 128, ../sass/main.scss */
+/* line 126, ../sass/main.scss */
 .switch a {
   display: -moz-inline-stack;
   display: inline-block;
@@ -798,19 +795,19 @@ body,
   color: #00A99D;
   text-decoration: none;
   text-transform: uppercase;
-  font: 500 12px/21px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: bold 12px/22px "Open Sans";
 }
-/* line 136, ../sass/main.scss */
+/* line 134, ../sass/main.scss */
 .switch a.selected {
   color: #fff;
 }
 
-/* line 142, ../sass/main.scss */
+/* line 140, ../sass/main.scss */
 .loader {
   position: absolute !important;
 }
 
-/* line 146, ../sass/main.scss */
+/* line 144, ../sass/main.scss */
 .selectors {
   position: absolute;
   top: 20px;
@@ -818,14 +815,14 @@ body,
   z-index: 10;
 }
 
-/* line 152, ../sass/main.scss */
+/* line 150, ../sass/main.scss */
 .selector {
   position: relative;
   float: right;
   margin-left: 10px;
   text-align: right;
 }
-/* line 158, ../sass/main.scss */
+/* line 156, ../sass/main.scss */
 .selector ul {
   position: absolute;
   right: 0;
@@ -842,16 +839,16 @@ body,
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
   text-align: left;
 }
-/* line 168, ../sass/main.scss */
+/* line 166, ../sass/main.scss */
 .selector ul.countries_high {
   right: 264px;
 }
-/* line 173, ../sass/main.scss */
+/* line 171, ../sass/main.scss */
 .selector a {
   color: #00A99D;
   text-decoration: none;
 }
-/* line 180, ../sass/main.scss */
+/* line 178, ../sass/main.scss */
 .selector li:first-child a {
   border-top: 0;
   -moz-border-radius-topleft: 4px;
@@ -861,11 +858,11 @@ body,
   -webkit-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
 }
-/* line 184, ../sass/main.scss */
+/* line 182, ../sass/main.scss */
 .selector li:first-child a i {
   height: 44px;
 }
-/* line 187, ../sass/main.scss */
+/* line 185, ../sass/main.scss */
 .selector li:last-child a {
   -moz-border-radius-bottomleft: 4px;
   -webkit-border-bottom-left-radius: 4px;
@@ -874,12 +871,12 @@ body,
   -webkit-border-bottom-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-/* line 191, ../sass/main.scss */
+/* line 189, ../sass/main.scss */
 .selector li:hover a {
   background: #f6f6f6 url("../images/selector.png") no-repeat right 0;
   color: #444;
 }
-/* line 196, ../sass/main.scss */
+/* line 194, ../sass/main.scss */
 .selector li a {
   position: relative;
   display: block;
@@ -889,7 +886,7 @@ body,
   background: #fff;
   font: bold 14px/44px "Open Sans";
 }
-/* line 205, ../sass/main.scss */
+/* line 203, ../sass/main.scss */
 .selector li a i {
   position: absolute;
   bottom: 0;
@@ -899,7 +896,7 @@ body,
   width: 4px;
   margin-right: 10px;
 }
-/* line 216, ../sass/main.scss */
+/* line 214, ../sass/main.scss */
 .selector .link:after {
   content: "▼";
   font-size: 6px;
@@ -908,7 +905,7 @@ body,
   margin-left: 5px;
 }
 
-/* line 225, ../sass/main.scss */
+/* line 223, ../sass/main.scss */
 .button {
   display: inline-block;
   font: bold 12px/26px "Open Sans";
@@ -924,15 +921,15 @@ body,
   background: #fff;
   color: #aaa;
 }
-/* line 236, ../sass/main.scss */
+/* line 234, ../sass/main.scss */
 .button:hover {
   background: #f8f8f8;
 }
-/* line 238, ../sass/main.scss */
+/* line 236, ../sass/main.scss */
 .button span {
   display: none;
 }
-/* line 242, ../sass/main.scss */
+/* line 240, ../sass/main.scss */
 .button .logo {
   display: inline-block;
   width: 20px;
@@ -940,11 +937,11 @@ body,
   vertical-align: bottom;
   background: url("../images/share-sprite.png") no-repeat;
 }
-/* line 249, ../sass/main.scss */
+/* line 247, ../sass/main.scss */
 .button .logo.twitter {
   background-position: -20px;
 }
-/* line 254, ../sass/main.scss */
+/* line 252, ../sass/main.scss */
 .button .sep {
   font-weight: normal;
   color: #ccc;

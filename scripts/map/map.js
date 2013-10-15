@@ -127,7 +127,7 @@
     },
 
     _adjustMapHeight: function() {
-      var mapHeight = $(window).height() - $("nav").outerHeight(true);
+      var mapHeight = $(window).height();
 
       this.$cartodbMap.height(mapHeight);
 
