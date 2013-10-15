@@ -19,6 +19,7 @@ var gs_columns = [
   "state_stability_risk",
   "region",
   "population",
+  "slaves",
   "slaves_lb_rounded",
   "slaves_ub_rounded",
   "featured",

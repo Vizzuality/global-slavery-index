@@ -99,7 +99,7 @@
     <div class="top"></div>
 
     <div class="content no_data">
-      <p><%= content.country_name %> was not included in this edition of the study</p>
+      <p><%= content.country_name %> was not included in this edition of the Index</p>
     </div>
 
     <div class="bottom"></div>
@@ -109,10 +109,17 @@
     <div class="top"></div>
     <div class="content">
       <div class="inner">
-        <h1 class="infowindow-title" style="border-bottom: 2px solid <%= slaveryColor(parseInt(content.slavery_policy_risk, 10)) %>"><%= content.country_name %></h1>
+        <h1 class="infowindow-title" style="border-bottom: 2px solid <%= rankColor(parseInt(content.rank, 10)) %>"><%= content.country_name %></h1>
 
         <div class="infowindow-block infowindow-slaved">
-          <p class="total-num"><%= numberWithCommas(content.slaves_lb_rounded) %> - <%= numberWithCommas(content.slaves_ub_rounded) %> <span>Est. number enslaved</span></p>
+          <p class="total-num">
+            <% if(content.slaves > 100) { %>
+              <%= numberWithCommas(content.slaves_lb_rounded) %> - <%= numberWithCommas(content.slaves_ub_rounded) %>
+            <% } else { %>
+              < 100
+            <% } %>
+            <span>Estimated number enslaved</span>
+          </p>
         </div>
 
         <div class="infowindow-block">
@@ -139,8 +146,13 @@
       </li>
 
       <li class="panel-item slaved">
-        <strong>Est. number enslaved</strong>
-        <%= numberWithCommas(slaves_lb_rounded) %> - <%= numberWithCommas(slaves_ub_rounded) %>
+        <strong>Estimated number enslaved</strong>
+
+        <% if(slaves > 100) { %>
+          <%= numberWithCommas(slaves_lb_rounded) %> - <%= numberWithCommas(slaves_ub_rounded) %>
+        <% } else { %>
+          < 100
+        <% } %>
       </li>
 
       <li class="panel-item">
@@ -255,7 +267,7 @@
 
   <script id="country-template" type="text/x-underscore-template">
     <li id="<%= iso_a3 %>" class="<%= iso_a3 %>">
-      <a href="#map/country/<%= iso_a3 %>"><i style="background:<%= slaveryColor(parseInt(slavery_policy_risk, 10)) %>;"></i><%= name %></a>
+      <a href="#map/country/<%= iso_a3 %>"><i style="background:<%= rankColor(parseInt(rank, 10)) %>;"></i><%= name %></a>
     </li>
   </script>
 

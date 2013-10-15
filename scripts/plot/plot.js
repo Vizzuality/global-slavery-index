@@ -75,8 +75,7 @@
         .attr("id", "x_label")
         .attr("x", m)
         .attr("y", h-m+20)
-        //TODO: MAKE THIS DYNAMIC
-        .text("HUMAN DEVELOPMENT INDEX");
+        .text(this.x_title);
 
       // y axis
       var y_axis = d3.svg.axis().scale(y_scale).orient("left").ticks(4);
@@ -178,8 +177,9 @@
         var dataset = dataset.rows;
         self.dataset = dataset;
 
-        var domain = [d3.min(dataset, function(d) {return d.x}), d3.max(dataset, function(d) { return d.x; })];
-        self.domain = domain;
+        self.domain = [d3.min(dataset, function(d) {return d.x}), d3.max(dataset, function(d) { return d.x; })];
+
+        self.x_title = "HUMAN DEVELOPMENT INDEX";
 
         self._drawPlot();
       });
@@ -253,8 +253,12 @@
           .transition()
             .attr("cx",function(d) { return x_scale(d.x); }) 
 
-        var x_label = d3.select("#x_label")
-          .text(graph.get('title'));
+        var x_title = graph.get('title');
+
+        d3.select("#x_label")
+          .text(x_title);
+
+        self.x_title = x_title;
       })
     }
   });
