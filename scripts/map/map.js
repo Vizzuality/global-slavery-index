@@ -232,6 +232,13 @@
 
       this.addView(this.panel);
 
+      this.help = new slavery.ui.view.Help({
+        el: this.$(".map_help"),
+        map: this
+      });
+
+      this.addView(this.help);
+
       this.$mamufas = $(".mamufas");
 
       this.tooltip = d3.select('body')
