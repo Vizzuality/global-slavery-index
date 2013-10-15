@@ -24,6 +24,10 @@
 
       this.countries = new slavery.ui.collection.SelectorItems();
 
+      this.countries.comparator = function(country) {
+        return country.get('rank');
+      }
+
       this.model = new slavery.ui.model.Selector();
 
       this.model.bind("change:closed", self._toggleOpen);
@@ -63,8 +67,10 @@
       this.$countries_high.empty();
       this.$countries_low.empty();
 
+      this.countries.sort();
+
       this.countries.each(function(country) {
-        if(country.get('rank') > 10)
+        if(country.get('rank') <= 10)
           self.$countries_high.append(template.render( country.toJSON() ));
         else
           self.$countries_low.append(template.render( country.toJSON() ));

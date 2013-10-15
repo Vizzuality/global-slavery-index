@@ -226,7 +226,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* line 123, ../sass/_map.scss */
 .panel-item.last {
   position: fixed;
-  bottom: 103px;
+  bottom: 83px;
   right: 20px;
 }
 /* line 127, ../sass/_map.scss */
