@@ -35,14 +35,14 @@
       $('.chart').empty();
 
       m = 40;
-      margin_h = 63;
+      margin_h = 63 + 60;
       w = (window.innerWidth > 960) ? window.innerWidth : 960;
       h = window.innerHeight - margin_h;
 
       var svg = d3.select(".chart")
         .append("svg")
         .attr("width", w)
-        .attr("height", h);
+        .attr("height", h+m);
 
       this.svg = svg;
 
@@ -53,8 +53,14 @@
         .range([m, w-m])
         .domain(domain);
 
+      var x_invert_scale = d3.scale.linear()
+        .range([w-m, m])
+        .domain(domain);
+
+      var x_scale_ = (this.column === 'corruption_index') ? x_invert_scale : x_scale;
+
       var y_scale = d3.scale.linear()
-        .range([h-m, m])
+        .range([h, m+m])
         .domain([0,d3.max(dataset, function(d) { return d.y; })]);
 
       this.y_scale = y_scale;
@@ -64,31 +70,31 @@
         .domain([0, d3.max(dataset, function(d) { return d.radius; })])
 
       // x axis
-      var x_axis = d3.svg.axis().scale(x_scale).ticks(8);
+      var x_axis = d3.svg.axis().scale(x_scale_).ticks(8);
       svg.append("g")
         .attr("class", "x axis")
-        .attr("transform", "translate(0," + (h-m) + ")")
+        .attr("transform", "translate(0," + (h-m+m) + ")")
         .call(x_axis);
 
       svg.append("text")
         .attr("class", "x label")
         .attr("id", "x_label")
         .attr("x", m)
-        .attr("y", h-m+20)
+        .attr("y", h+20)
         .text(this.x_title);
 
       // y axis
       var y_axis = d3.svg.axis().scale(y_scale).orient("left").ticks(4);
       svg.append("g")
         .attr("class", "y axis")
-        .attr("transform", "translate(" + m + ", 0 )").call(y_axis);
+        .attr("transform", "translate("+m+", 0 )").call(y_axis);
 
       svg.append("text")
         .attr("class", "y label")
-        .attr("x", m-h)
+        .attr("x", -h)
         .attr("y", m-10)
         .attr("transform", "rotate(-90)")
-        .text("Slavery policy risk");
+        .text("PREVALENCE RANK");
 
       // grid
       svg.selectAll("line.grid_v").data(y_scale.ticks(4)).enter()
@@ -101,21 +107,21 @@
           "y2": function(d){ return y_scale(d); }
         });
 
-      svg.selectAll("line.grid_h").data(x_scale.ticks(8)).enter()
+      svg.selectAll("line.grid_h").data(x_scale_.ticks(8)).enter()
         .append("line")
         .attr({
           "class": "grid grid_h",
           "y1": 0,
           "y2": h,
-          "x1": function(d){ return x_scale(d); },
-          "x2": function(d){ return x_scale(d); }
+          "x1": function(d){ return x_scale_(d); },
+          "x2": function(d){ return x_scale_(d); }
         });
 
-      this.linearRegressionLine(svg, dataset, x_scale, y_scale);
+      this.linearRegressionLine(svg, dataset, x_scale_, y_scale);
 
       // circles
       var circle_attr = {
-        "cx": function(d) { return x_scale(d.x); },
+        "cx": function(d) { return x_scale_(d.x); },
         "cy": function(d) { return y_scale(d.y); },
         "r": function(d) { return r_scale(d.radius) },
         "class": function(d) { return d.region ; }
@@ -145,7 +151,7 @@
             .attr("x", function() {return d3.select(d3.event.target).attr("cx");})
             .attr("y", function() {return d3.select(d3.event.target).attr("cy");})
             .style("text-anchor", "middle")
-            .text(function(d) { return e.name + " ("+e.slavery_policy_risk.toFixed(1)+")"; })
+            .text(function(d) { return e.name + " ("+e.rank.toFixed(1)+")"; })
             .transition()
               .style("opacity","1")
               .attr("y", d3.select(d3.event.target).attr("cy")-r_scale(e.radius)-18);
@@ -178,16 +184,18 @@
 
       this.addView(this.help);
 
-      this.dataset = [];
+      this.dataset = [],
+      this.column = "";
 
       //TODO: TAKE NOTE OF THE RADIUS VARIABLE!
-      d3.json('http://globalslavery.cartodb.com/api/v2/sql?q=SELECT human_development_index AS x, slavery_policy_risk AS y, slavery_policy_risk, gdppp AS radius, name, region FROM new_index_numbers WHERE gdppp IS NOT NULL', function(dataset) {
+      d3.json('http://globalslavery.cartodb.com/api/v2/sql?q=SELECT human_development_index AS x, rank AS y, rank, gdppp AS radius, name, region FROM new_index_numbers WHERE gdppp IS NOT NULL', function(dataset) {
         var dataset = dataset.rows;
         self.dataset = dataset;
 
         self.domain = [d3.min(dataset, function(d) {return d.x}), d3.max(dataset, function(d) { return d.x; })];
 
         self.x_title = "HUMAN DEVELOPMENT INDEX";
+        self.description = "HUMAN DEVELOPMENT INDEX";
 
         self._drawPlot();
       });
@@ -241,32 +249,39 @@
     _updateView: function(graph){
       var self = this;
 
-      d3.json('http://globalslavery.cartodb.com/api/v2/sql?q=SELECT ' + graph.get('column') + ' AS x, slavery_policy_risk AS y, slavery_policy_risk, gdppp AS radius, name, region FROM new_index_numbers WHERE gdppp IS NOT NULL', function(dataset) {
+      this.column = graph.get('column');
+
+      d3.json('http://globalslavery.cartodb.com/api/v2/sql?q=SELECT ' + this.column + ' AS x, rank AS y, rank, gdppp AS radius, name, region FROM new_index_numbers WHERE gdppp IS NOT NULL', function(dataset) {
         var dataset = dataset.rows;
         self.dataset = dataset;
 
-        var domain = (graph.get('column')==='corruption_index') ? [d3.max(dataset, function(d) { return d.x; }), d3.min(dataset, function(d) {return d.x}), ] : [d3.min(dataset, function(d) {return d.x}), d3.max(dataset, function(d) { return d.x; })]
+        var domain = (self.column === 'corruption_index') ? [d3.max(dataset, function(d) { return d.x; }), d3.min(dataset, function(d) {return d.x}), ] : [d3.min(dataset, function(d) {return d.x}), d3.max(dataset, function(d) { return d.x; })]
         self.domain = domain;
 
         var x_scale = d3.scale.linear()
           .range([m, w-m])
           .domain(domain);
 
-        self.x_scale = x_scale;
+        var x_invert_scale = d3.scale.linear()
+          .range([w-m, m])
+          .domain(domain);
 
-        self.linearRegressionLine(self.svg, dataset, x_scale, self.y_scale);
+        var x_scale_ = (self.column === 'corruption_index') ? x_invert_scale : x_scale;
+
+        self.x_scale = x_scale_;
+
+        self.linearRegressionLine(self.svg, dataset, x_scale_, self.y_scale);
 
         var circles = d3.selectAll('circle')
           .data(dataset)
           .transition()
-            .attr("cx",function(d) { return x_scale(d.x); }) 
-
-        var x_title = graph.get('title');
+            .attr("cx",function(d) { return x_scale_(d.x); })
 
         d3.select("#x_label")
-          .text(x_title);
+          .text(graph.get('title'));
 
-        self.x_title = x_title;
+        d3.select(".chart_description")
+          .text(graph.get('description'));
       })
     }
   });
