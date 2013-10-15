@@ -103,8 +103,7 @@
         current_polygon = null;
 
         if(self.model.get("area") === "world") {
-          self.tooltip
-            .style("visibility", "hidden");
+          self.tooltip.style("visibility", "hidden");
         }
       }
     },
@@ -378,6 +377,7 @@
       } else {
         this.region_selector.close();
         this.country_selector.close();
+        this.tooltip.style("visibility", "hidden");
       }
     },
 
