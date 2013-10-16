@@ -453,12 +453,6 @@
               lat: 0,
               lng: 0
             };
-          } else if(self.current_iso === 'FRA') {
-            zoom = 3;
-            center = {
-              lat: 0,
-              lng: 0
-            };
           } else {
             //Moves the center a bit to the right
             center.lng = center.lng - 5;
