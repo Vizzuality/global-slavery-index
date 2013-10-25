@@ -266,6 +266,8 @@
 
       var layerUrl = 'http://globalslavery.cartodb.com/api/v2/viz/01fa0ba2-3262-11e3-83f2-55d1af661060/viz.json';
 
+      this.map.attributionControl.addAttribution('Walk Free Foundation <a href="http://www.globalslaveryindex.org/" target="_blank">Global Slavery Index</a>');
+
       cartodb.createLayer(this.map, layerUrl, { infowindow: false })
         .addTo(this.map)
         .on('done', function(layer) {

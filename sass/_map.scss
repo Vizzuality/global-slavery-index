@@ -11,6 +11,10 @@
   cursor: default;
 }
 
+.leaflet-right {
+  z-index: 1000002;
+}
+
 .mamufas {
   pointer-events: none;
   position: absolute;

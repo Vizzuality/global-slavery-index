@@ -36,7 +36,7 @@
 
       m = 40;
       margin_h = 63 + 60;
-      w = (window.innerWidth > 960) ? window.innerWidth : 960;
+      w = (window.innerWidth > 940) ? window.innerWidth : 940;
       h = window.innerHeight - margin_h;
 
       var svg = d3.select(".chart")
