@@ -134,6 +134,24 @@
     <div class="bottom"></div>
   </script>
 
+  <script type="infowindow/html" id="infowindow_survey-template">
+    <div class="top"></div>
+    <div class="content">
+      <div class="inner">
+        <h1 class="infowindow-title" style="border-bottom: 2px solid <%= rankColor(parseInt(content.rank, 10)) %>"><%= content.country_name %></h1>
+
+        <div class="infowindow-block infowindow-slaved">
+          <p class="total-num">
+            <%= content.survey_conclusions %>
+          </p>
+        </div>
+        <a href="#map/country/<%= content.iso_a3 %>" class="more"><i>+</i>About this country</a>
+      </div>
+    </div>
+
+    <div class="bottom"></div>
+  </script>
+
   <script id="country_panel-template" type="text/x-underscore-template">
     <h1 class="panel-title"><%= country_name %></h1>
     <h2 class="panel-subtitle">A country within <a href="#map/region/<%= region %>" class="back"><%= region_name %></a> - get back to the <a href="#map" class="back">whole world</a></h2>
