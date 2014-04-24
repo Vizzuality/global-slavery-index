@@ -283,6 +283,7 @@
           console.log(surveyLayer);
           surveyLayer.on('featureClick', function(e, latlng, pos, data) {
               console.log(data);
+              self.water = false;
               //self.closeSelectors();
               self.infowindow.model.set({
                 coordinates: latlng
