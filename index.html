@@ -78,6 +78,7 @@
       <div class="country_selector selector"></div>
       <div class="region_selector selector"></div>
       <div class="map_help selector"></div>
+      <div class="government_toggle selector"></div>
     </div>
   </script>
 
@@ -136,16 +137,17 @@
 
   <script type="infowindow/html" id="infowindow_survey-template">
     <div class="top"></div>
-    <div class="content">
+    <div class="content infowindow-government">
       <div class="inner">
-        <h1 class="infowindow-title" style="border-bottom: 2px solid <%= rankColor(parseInt(content.rank, 10)) %>"><%= content.country_name %></h1>
+        <h1 class="infowindow-title"><%= content.country_name %></h1>
 
         <div class="infowindow-block infowindow-slaved">
-          <p class="total-num">
+          <h2>Survey conclusions</h2>
+          <p>
             <%= content.survey_conclusions %>
           </p>
         </div>
-        <a href="#map/country/<%= content.iso_a3 %>" class="more"><i>+</i>About this country</a>
+        <a href="<% content.link %>" class="more"><i>+</i>Read more about <%= content.country_name %>´s response to modern slavery</a>
       </div>
     </div>
 
@@ -310,6 +312,20 @@
     </div>
   </script>
 
+  <script id="government-template" type="text/x-underscore-template">
+    <a href="#government" class="button">Government Responses
+      <div class="mini-icon">
+        ?
+        <div class="selector-tooltip">
+          <h3>Info</h3>
+          <div class="content">
+            <p>We sent surveys to 167 governments asking them to provide information on their response to modern slavery. Select a flagged country to find out more</p>
+          </div>
+        </div>
+      </div>
+    </a>    
+  </script>
+
   <script id="help-template" type="text/x-underscore-template">
     <a href="#help" class="button">?</a>
   </script>
@@ -351,6 +367,7 @@
   <script src="scripts/map/country_selector.js"></script>
   <script src="scripts/map/region_selector.js"></script>
   <script src="scripts/map/share.js"></script>
+  <script src="scripts/map/government_toggle.js"></script>
 
   <script src="scripts/plot/plot.js"></script>
   <script src="scripts/plot/graph_selector.js"></script>

@@ -195,7 +195,7 @@
     _initViews: function() {
       var self = this;
 
-      this.$cartodbMap = this.$('.cartodb-map');
+      this.$cartodbMap = this.$('#cartodb-map');
       this.$panel = this.$(".panel");
 
       this.map = L.map('cartodb-map', {
@@ -257,6 +257,11 @@
         map: this
       });
 
+      this.government_reponses = new slavery.ui.view.GovernmentToggle({
+        el: this.$(".government_toggle"),
+        map: this
+      });
+
       this.addView(this.help);
 
       this.$mamufas = $(".mamufas");
@@ -274,39 +279,49 @@
         .on('done', function(layer) {
           var sublayer = self.countries_sublayer = layer.getSubLayer(1),
               sublayer2 = self.batimetry_sublayer = layer.getSubLayer(0);
-          
 
           //survey
           var surveyLayer=layer.getSubLayer(2);
           surveyLayer.setInteractivity('country, survey_conclusions');
-          surveyLayer.setInteraction(true);
-          console.log(surveyLayer);
-          surveyLayer.on('featureClick', function(e, latlng, pos, data) {
-              console.log(data);
-              self.water = false;
-              //self.closeSelectors();
-              self.infowindow.model.set({
-                coordinates: latlng
-              });
-              self.infowindow.model.set({
-                    hidden: false,
-                    content: {
-                      country_name: data.country,
-                      survey_conclusions: data.survey_conclusions
-                    },
-                    template_name: 'infowindow_survey',
-                    collapsed: false
-                  });
-                  //e.preventDefault();
+          surveyLayer.hide();
 
-                  //self.infowindow._center();
+          surveyLayer.on('featureClick', function(e, latlng, pos, data) {
+            self.water = false;
+            //self.closeSelectors();
+            self.infowindow.model.set({
+              coordinates: latlng
+            });
+            self.infowindow.model.set({
+              hidden: false,
+              content: {
+                country_name: data.country,
+                survey_conclusions: data.survey_conclusions
+              },
+              template_name: 'infowindow_survey',
+              collapsed: false
+            });
+            //e.preventDefault();
+
+            //self.infowindow._center();
+          });
+
+          self.government_reponses.on('toggle_layer', function() {
+            
+            if (self.government_reponses.active) {
+              self.government_reponses.active = false;
+              surveyLayer.hide();
+            } else {
+              self.government_reponses.active = true;
+              surveyLayer.show();
+            }
+
+            surveyLayer.setInteraction(self.government_reponses.active);
 
           });
           
 
           // remove batimetry
           sublayer2.remove();
-
 
           sublayer.setInteractivity('cartodb_id, iso_a3, name, slavery_policy_risk');
           sublayer.setInteraction(true);
@@ -322,7 +337,7 @@
               coordinates: latlng
             });
 
-            if(!self.infowindow.model.get("hidden") && data.iso_a3 && data.iso_a3 === self.current_iso) return;
+            if(!self.infowindow.model.get("hidden") && data.iso_a3 && data.iso_a3 === self.current_iso && !self.government_reponses.active) return;
 
             self.current_iso = data.iso_a3;
 
@@ -370,10 +385,12 @@
                 name = data.name;
 
             self.over(iso, name, pos);
+            self.$cartodbMap.css('cursor', 'pointer');
           });
 
           sublayer.on('featureOut', function(e, latlng, pos, data, layerNumber) {
             self.out();
+            self.$cartodbMap.css('cursor', '-webkit-grab');
           });
 
           if(!self.loadArea) {
