@@ -249,7 +249,7 @@ body,
 
 .selector-tooltip {
   position: absolute;
-  border: 3px solid rgba(0, 0, 0, .3);
+  border: 3px solid rgba(0, 0, 0, .2);
   top: 33px;
   display: none;
   width: 246px;
@@ -301,7 +301,7 @@ body,
   }
   &:before {
     border-color: rgba(194, 225, 245, 0);
-    border-bottom-color: rgba(0, 0, 0, .3);
+    border-bottom-color: rgba(0, 0, 0, .2);
     border-width: 14px;
     margin-left: -14px;
   }

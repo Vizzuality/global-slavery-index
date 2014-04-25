@@ -285,6 +285,10 @@
           surveyLayer.setInteractivity('country, survey_conclusions');
           surveyLayer.hide();
 
+          surveyLayer.on('featureOver', function() {
+            self.out();
+          });
+
           surveyLayer.on('featureClick', function(e, latlng, pos, data) {
             self.water = false;
             //self.closeSelectors();
@@ -385,6 +389,7 @@
                 name = data.name;
 
             self.over(iso, name, pos);
+            
             self.$cartodbMap.css('cursor', 'pointer');
           });
 

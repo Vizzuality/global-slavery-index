@@ -320,7 +320,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   z-index: 10;
   padding: 0 3px 60px 11px;
   min-height: 60px;
-  background: url(../images/infowindow-sprite.png) no-repeat 0 16px;
 }
 /* line 207, ../sass/_map.scss */
 .infowindow .content.no_data {
@@ -451,36 +450,52 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* line 317, ../sass/_map.scss */
 .infowindow-government.content {
-  padding-bottom: 80px;
+  padding: 0;
+  border: 3px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
 }
-/* line 321, ../sass/_map.scss */
+/* line 322, ../sass/_map.scss */
+.infowindow-government .inner {
+  background: #fff;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
+/* line 327, ../sass/_map.scss */
 .infowindow-government .infowindow-title {
   border-bottom: 2px solid #00A99D;
 }
-/* line 325, ../sass/_map.scss */
+/* line 331, ../sass/_map.scss */
 .infowindow-government .infowindow-slaved {
   background-image: none;
 }
-/* line 327, ../sass/_map.scss */
+/* line 333, ../sass/_map.scss */
 .infowindow-government .infowindow-slaved h2 {
   font-size: 21px;
   margin-bottom: 10px;
 }
-/* line 331, ../sass/_map.scss */
+/* line 337, ../sass/_map.scss */
 .infowindow-government .infowindow-slaved p {
   font-size: 17px;
   font-weight: normal;
   color: #444;
   line-height: 1.2;
 }
-/* line 339, ../sass/_map.scss */
+/* line 345, ../sass/_map.scss */
 .infowindow-government .more {
+  position: relative;
   line-height: 1;
   padding: 20px;
   height: 69px;
 }
 
-/* line 346, ../sass/_map.scss */
+/* line 353, ../sass/_map.scss */
 .chip {
   display: block;
   padding: 2px;
@@ -494,16 +509,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -moz-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
 }
-/* line 353, ../sass/_map.scss */
+/* line 360, ../sass/_map.scss */
 .chip span {
   display: none;
 }
-/* line 355, ../sass/_map.scss */
+/* line 362, ../sass/_map.scss */
 .chip text {
   font: bold 10px/1.4 "Open Sans";
   fill: rgba(0, 0, 0, 0.5);
 }
-/* line 360, ../sass/_map.scss */
+/* line 367, ../sass/_map.scss */
 .chip .mean {
   position: absolute;
   top: 50%;
@@ -522,7 +537,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border-radius: 19px;
 }
 
-/* line 374, ../sass/_map.scss */
+/* line 381, ../sass/_map.scss */
 .tooltip {
   position: absolute;
   padding: 5px 10px;
@@ -537,7 +552,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   text-align: center;
   pointer-events: none;
 }
-/* line 384, ../sass/_map.scss */
+/* line 391, ../sass/_map.scss */
 .tooltip:after {
   content: " ";
   position: absolute;
@@ -548,7 +563,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
 }
-/* line 394, ../sass/_map.scss */
+/* line 401, ../sass/_map.scss */
 .tooltip.w:after {
   content: " ";
   position: absolute;
@@ -559,13 +574,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border-right: 6px solid rgba(0, 0, 0, 0.8);
   border-bottom: 6px solid transparent;
 }
-/* line 406, ../sass/_map.scss */
+/* line 413, ../sass/_map.scss */
 .tooltip strong,
 .tooltip dt {
   display: block;
   font-weight: bold;
 }
-/* line 412, ../sass/_map.scss */
+/* line 419, ../sass/_map.scss */
 .tooltip dd,
 .tooltip dt {
   white-space: nowrap;
@@ -984,7 +999,7 @@ body,
 /* line 250, ../sass/main.scss */
 .selector-tooltip {
   position: absolute;
-  border: 3px solid rgba(0, 0, 0, 0.3);
+  border: 3px solid rgba(0, 0, 0, 0.2);
   top: 33px;
   display: none;
   width: 246px;
@@ -1051,7 +1066,7 @@ body,
 /* line 302, ../sass/main.scss */
 .selector-tooltip:before {
   border-color: rgba(194, 225, 245, 0);
-  border-bottom-color: rgba(0, 0, 0, 0.3);
+  border-bottom-color: rgba(0, 0, 0, 0.2);
   border-width: 14px;
   margin-left: -14px;
 }

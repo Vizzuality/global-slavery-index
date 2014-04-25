@@ -1,0 +1,3 @@
+UPDATE table_6_month_survey set the_geom=(SELECT the_geom from ne_10m_admin_0_countries
+ where table_6_month_survey.iso_code=ne_10m_admin_0_countries.iso_a2
+ )
