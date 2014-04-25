@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 @import "compass/reset";
 @import "compass/css3";
 
@@ -171,6 +173,28 @@ body,
   a {
     color: #00A99D;
     text-decoration: none;
+
+    .mini-icon {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background: #00A99D;
+      color: #fff;
+      position: relative;
+      line-height: 16px;
+      font-size: 10px;
+      text-align: center;
+      @include border-radius(16px);
+    }
+
+    &.active {
+      background-color: #00A99D;
+      color: #fff;
+      .mini-icon {
+        background: #fff;
+        color: #00A99D;
+      }
+    }
   }
 
   li {
@@ -220,6 +244,66 @@ body,
     top: -1px;
     position: relative;
     margin-left: 5px;
+  }
+}
+
+.selector-tooltip {
+  position: absolute;
+  border: 3px solid rgba(0, 0, 0, .3);
+  top: 33px;
+  display: none;
+  width: 246px;
+  left: 50%;
+  margin-left: -127px;
+  @include border-radius(4px);
+
+  &.active {
+    display: block;
+  }
+
+  h3 {
+    background: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    color: #00A99D;
+    text-transform: uppercase;
+    border-bottom: 2px solid #eee;
+    @include border-radius(2px 2px 0 0);
+    @include font(bold, 14px, 1.2, "Open Sans");
+  }
+
+  .content {
+    background: #fff;
+    color: #444;
+    padding: 10px 20px;
+    position: relative;
+    text-align: left;
+    text-transform: none;
+    @include border-radius(0 0 2px 2px);
+    @include font(normal, 17px, 1.2, "Open Sans");
+  }
+
+  &:after, &:before {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+  &:after {
+    border-color: rgba(136, 183, 213, 0);
+    border-bottom-color: #fff;
+    border-width: 10px;
+    margin-left: -10px;
+  }
+  &:before {
+    border-color: rgba(194, 225, 245, 0);
+    border-bottom-color: rgba(0, 0, 0, .3);
+    border-width: 14px;
+    margin-left: -14px;
   }
 }
 

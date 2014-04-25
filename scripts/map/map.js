@@ -36,6 +36,7 @@
       this._initBindings();
 
       var polygons_url = 'https://globalslavery.cartodb.com/api/v2/sql?q=select iso_a3, name, ST_Simplify(the_geom, 0.1) as the_geom from new_index_numbers&format=geojson';
+      var survey_points_url = 'https://globalslavery.cartodb.com/api/v2/sql?q=SELECT st_asgeojson(st_centroid(the_geom)) as the_geom, country, survey_conclusions FROM table_6_month_survey';
 
       create_polygons(polygons_url, function(polygons) {
         self.countries_polygons = polygons;
@@ -194,7 +195,7 @@
     _initViews: function() {
       var self = this;
 
-      this.$cartodbMap = this.$('.cartodb-map');
+      this.$cartodbMap = this.$('#cartodb-map');
       this.$panel = this.$(".panel");
 
       this.map = L.map('cartodb-map', {
@@ -256,6 +257,11 @@
         map: this
       });
 
+      this.government_reponses = new slavery.ui.view.GovernmentToggle({
+        el: this.$(".government_toggle"),
+        map: this
+      });
+
       this.addView(this.help);
 
       this.$mamufas = $(".mamufas");
@@ -264,7 +270,7 @@
         .append('div')
         .attr('class', 'tooltip');
 
-      var layerUrl = 'http://globalslavery.cartodb.com/api/v2/viz/01fa0ba2-3262-11e3-83f2-55d1af661060/viz.json';
+      var layerUrl = 'http://globalslavery.cartodb.com/api/v2/viz/5e870c30-cad8-11e3-9757-0e230854a1cb/viz.json';
 
       this.map.attributionControl.addAttribution('Walk Free Foundation <a href="http://www.globalslaveryindex.org/" target="_blank">Global Slavery Index</a>');
 
@@ -273,6 +279,46 @@
         .on('done', function(layer) {
           var sublayer = self.countries_sublayer = layer.getSubLayer(1),
               sublayer2 = self.batimetry_sublayer = layer.getSubLayer(0);
+
+          //survey
+          var surveyLayer=layer.getSubLayer(2);
+          surveyLayer.setInteractivity('country, survey_conclusions');
+          surveyLayer.hide();
+
+          surveyLayer.on('featureClick', function(e, latlng, pos, data) {
+            self.water = false;
+            //self.closeSelectors();
+            self.infowindow.model.set({
+              coordinates: latlng
+            });
+            self.infowindow.model.set({
+              hidden: false,
+              content: {
+                country_name: data.country,
+                survey_conclusions: data.survey_conclusions
+              },
+              template_name: 'infowindow_survey',
+              collapsed: false
+            });
+            //e.preventDefault();
+
+            //self.infowindow._center();
+          });
+
+          self.government_reponses.on('toggle_layer', function() {
+            
+            if (self.government_reponses.active) {
+              self.government_reponses.active = false;
+              surveyLayer.hide();
+            } else {
+              self.government_reponses.active = true;
+              surveyLayer.show();
+            }
+
+            surveyLayer.setInteraction(self.government_reponses.active);
+
+          });
+          
 
           // remove batimetry
           sublayer2.remove();
@@ -291,7 +337,7 @@
               coordinates: latlng
             });
 
-            if(!self.infowindow.model.get("hidden") && data.iso_a3 && data.iso_a3 === self.current_iso) return;
+            if(!self.infowindow.model.get("hidden") && data.iso_a3 && data.iso_a3 === self.current_iso && !self.government_reponses.active) return;
 
             self.current_iso = data.iso_a3;
 
@@ -329,6 +375,9 @@
               .error(function(errors) {
                 console.log("error:" + errors);
               });
+
+
+
           });
 
           sublayer.on('featureOver', function(e, latlng, pos, data, layerNumber) {
@@ -336,10 +385,12 @@
                 name = data.name;
 
             self.over(iso, name, pos);
+            self.$cartodbMap.css('cursor', 'pointer');
           });
 
           sublayer.on('featureOut', function(e, latlng, pos, data, layerNumber) {
             self.out();
+            self.$cartodbMap.css('cursor', '-webkit-grab');
           });
 
           if(!self.loadArea) {
