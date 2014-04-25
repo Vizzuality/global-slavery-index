@@ -1,0 +1,88 @@
+#new_index_numbers{
+  ::glow{
+  	line-color: #000;
+  	line-opacity: .2;
+  	line-width: 2;
+  }
+  line-color: #FFF;
+  line-opacity: 1;
+  line-width: 1;
+  polygon-opacity: 1;
+}
+
+#gsi_geom[rank>145]{polygon-fill:#fed976}
+#gsi_geom[rank<=145]{polygon-fill:#fcd373}
+#gsi_geom[rank<=140]{polygon-fill:#facd70}
+#gsi_geom[rank<=135]{polygon-fill:#f8c76d}
+#gsi_geom[rank<=130]{polygon-fill:#f6c16a}
+#gsi_geom[rank<=125]{polygon-fill:#f4bb67}
+#gsi_geom[rank<=120]{polygon-fill:#f1b565}
+#gsi_geom[rank<=115]{polygon-fill:#efaf62}
+#gsi_geom[rank<=110]{polygon-fill:#eda95f}
+#gsi_geom[rank<=105]{polygon-fill:#eba35c}
+#gsi_geom[rank<=100]{polygon-fill:#e89d59}
+#gsi_geom[rank<=95]{polygon-fill:#e69756}
+#gsi_geom[rank<=90]{polygon-fill:#e39154}
+#gsi_geom[rank<=85]{polygon-fill:#e18b51}
+#gsi_geom[rank<=80]{polygon-fill:#de854e}
+#gsi_geom[rank<=76]{polygon-fill:#dc7f4b}
+#gsi_geom[rank<=71]{polygon-fill:#d97949}
+#gsi_geom[rank<=66]{polygon-fill:#d77346}
+#gsi_geom[rank<=61]{polygon-fill:#d46d44}
+#gsi_geom[rank<=56]{polygon-fill:#d16641}
+#gsi_geom[rank<=51]{polygon-fill:#ce603e}
+#gsi_geom[rank<=46]{polygon-fill:#cc593c}
+#gsi_geom[rank<=41]{polygon-fill:#c95339}
+#gsi_geom[rank<=36]{polygon-fill:#c64c37}
+#gsi_geom[rank<=31]{polygon-fill:#c34534}
+#gsi_geom[rank<=26]{polygon-fill:#c03d32}
+#gsi_geom[rank<=21]{polygon-fill:#bd352f}
+#gsi_geom[rank<=16]{polygon-fill:#ba2d2d}
+#gsi_geom[rank<=11]{polygon-fill:#b7232b}
+#gsi_geom[rank<=6]{polygon-fill:#b41628}
+#gsi_geom[rank<=1]{polygon-fill:#b10026}
+
+#new_index_numbers[rank = null] {
+  polygon-fill: #CCCCCC;
+  polygon-pattern-file: url(https://s3.amazonaws.com/com.cartodb.users-assets.production/production/walkfree/assets/20130905165330strip1.png);
+  polygon-pattern-opacity: 0.05;
+}
+
+#new_index_numbers[zoom>=3] {
+  line-color: #404143;
+  line-opacity: 1;
+  line-width: .45;
+} 
+
+#new_index_numbers[zoom>=4] {
+  ::glow{
+  	line-color: #000;
+  	line-opacity: .3;
+  	line-width: 2.9;
+  }  
+  line-color: #404143;
+  line-opacity: 1;
+  line-width: .6;
+} 
+
+#new_index_numbers[zoom>=6] {
+  ::glow{
+  	line-color: #000;
+  	line-opacity: .3;
+  	line-width: 5;
+  }
+  line-color: #404143;
+  line-opacity: 1;
+  line-width: .9;
+} 
+
+
+
+
+----------
+
+
+#table_6_month_survey{
+  marker-file:url("http://simbiotica.bitbucket.org/slavery-marker.png");
+  
+}
