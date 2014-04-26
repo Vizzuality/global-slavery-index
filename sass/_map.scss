@@ -202,7 +202,7 @@
     z-index: 10;
     padding: 0 3px 60px 11px;
     min-height: 60px;
-    //background: url(../images/infowindow-sprite.png) no-repeat 0 16px;
+    background: url(../images/infowindow-sprite.png) no-repeat 0 16px;
 
     &.no_data {
       padding: 0 3px 0 11px;
@@ -317,6 +317,7 @@
   &.content {
     padding: 0;
     border: 3px solid rgba(0, 0, 0, .2);
+    background-image: none;
     @include border-radius(4px);
   }
   .inner {
