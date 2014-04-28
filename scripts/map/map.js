@@ -322,6 +322,8 @@
             surveyLayer.setInteraction(self.government_reponses.active);
 
           });
+
+          self.government_reponses.trigger('toggle_layer');
           
 
           // remove batimetry
