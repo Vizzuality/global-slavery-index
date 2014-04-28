@@ -51,7 +51,7 @@
 
       this.timer = setTimeout(function() {
         self._hideInfo();
-      }, 1000);
+      }, 300);
     },
 
     _onClick: function(e) {
