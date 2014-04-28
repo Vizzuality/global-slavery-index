@@ -14,9 +14,11 @@
     active: false,
 
     events: {
+      'mouseover': '_onOver',
+      'mouseout': '_onOut',
       'click a': '_onClick',
-      'mouseover .mini-icon': '_showInfo',
-      'mouseout .mini-icon': '_hideInfo'
+      'mouseover .mini-icon': '_onOver',
+      'mouseout .mini-icon': '_onOut'
     },
 
     initialize: function() {
@@ -30,6 +32,26 @@
     render: function() {
       this.$el.append(this.template.render());
       this.$info = this.$el.find('.selector-tooltip');
+    },
+
+    _onOver: function() {
+      if (this.timer) {
+        clearTimeout(this.timer);
+      }
+
+      this._showInfo();
+    },
+
+    _onOut: function() {
+      var self = this;
+
+      if (this.timer) {
+        clearTimeout(this.timer);
+      }
+
+      this.timer = setTimeout(function() {
+        self._hideInfo();
+      }, 1000);
     },
 
     _onClick: function(e) {
