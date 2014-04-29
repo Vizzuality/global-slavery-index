@@ -313,6 +313,44 @@
   }
 }
 
+.infowindow-government {
+  &.content {
+    padding: 0;
+    border: 3px solid rgba(0, 0, 0, .2);
+    background-image: none;
+    @include border-radius(4px);
+  }
+  .inner {
+    background: #fff;
+    @include border-radius(2px);
+  }
+
+  .infowindow-title {
+    border-bottom: 2px solid #00A99D;
+  }
+
+  .infowindow-slaved {
+    background-image: none;
+    h2 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 17px;
+      font-weight: normal;
+      color: #444;
+      line-height: 1.2;
+    }
+  }
+
+  .more {
+    position: relative;
+    line-height: 1;
+    padding: 20px;
+    height: 69px;
+  }
+}
+
 .chip {
   display: block;
   padding: 2px;

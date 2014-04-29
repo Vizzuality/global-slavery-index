@@ -78,6 +78,7 @@
       <div class="country_selector selector"></div>
       <div class="region_selector selector"></div>
       <div class="map_help selector"></div>
+      <div class="government_toggle selector"></div>
     </div>
   </script>
 
@@ -132,6 +133,22 @@
     </div>
 
     <div class="bottom"></div>
+  </script>
+
+  <script type="infowindow/html" id="infowindow_survey-template">
+    <div class="content infowindow-government">
+      <div class="inner">
+        <h1 class="infowindow-title"><%= content.country_name %></h1>
+
+        <div class="infowindow-block infowindow-slaved">
+          <h2>Questionnaire conclusions</h2>
+          <p>
+            <%= content.survey_conclusions %>
+          </p>
+        </div>
+        <a href="http://<%= content.link %>" class="more"><i>+</i>Read more about <%= content.country_name %>´s response to modern slavery</a>
+      </div>
+    </div>
   </script>
 
   <script id="country_panel-template" type="text/x-underscore-template">
@@ -292,6 +309,20 @@
     </div>
   </script>
 
+  <script id="government-template" type="text/x-underscore-template">
+    <a href="#government" class="button active">Government Responses
+      <div class="mini-icon">
+        ?
+        <div class="selector-tooltip">
+          <h3>Info</h3>
+          <div class="content">
+            <p>We sent questionnaires to 167 governments asking them to provide information on their response to modern slavery. <strong>Select a flagged country to find out more</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </a>    
+  </script>
+
   <script id="help-template" type="text/x-underscore-template">
     <a href="#help" class="button">?</a>
   </script>
@@ -333,6 +364,7 @@
   <script src="scripts/map/country_selector.js"></script>
   <script src="scripts/map/region_selector.js"></script>
   <script src="scripts/map/share.js"></script>
+  <script src="scripts/map/government_toggle.js"></script>
 
   <script src="scripts/plot/plot.js"></script>
   <script src="scripts/plot/graph_selector.js"></script>

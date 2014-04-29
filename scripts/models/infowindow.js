@@ -7,7 +7,8 @@ slavery.ui.model.Infowindow = Backbone.Model.extend({
       country_name: null,
       prevalence: null,
       population: null,
-      slaved: null
+      slaved: null,
+      survey_results: null
     }
   }
 });
