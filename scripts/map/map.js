@@ -36,7 +36,7 @@
       this._initBindings();
 
       var polygons_url = 'https://globalslavery.cartodb.com/api/v2/sql?q=select iso_a3, name, ST_Simplify(the_geom, 0.1) as the_geom from new_index_numbers&format=geojson';
-      var survey_points_url = 'https://globalslavery.cartodb.com/api/v2/sql?q=SELECT st_asgeojson(st_centroid(the_geom)) as the_geom, country, survey_conclusions FROM table_6_month_survey';
+      var survey_points_url = 'https://globalslavery.cartodb.com/api/v2/sql?q=SELECT st_asgeojson(st_centroid(the_geom)) as the_geom, country, survey_conclusions, link FROM table_6_month_survey';
 
       create_polygons(polygons_url, function(polygons) {
         self.countries_polygons = polygons;
@@ -282,7 +282,7 @@
 
           //survey
           var surveyLayer=layer.getSubLayer(2);
-          surveyLayer.setInteractivity('country, survey_conclusions');
+          surveyLayer.setInteractivity('country, survey_conclusions, link');
           surveyLayer.hide();
 
           surveyLayer.on('featureOver', function() {
@@ -299,7 +299,8 @@
               hidden: false,
               content: {
                 country_name: data.country,
-                survey_conclusions: data.survey_conclusions
+                survey_conclusions: data.survey_conclusions,
+                link: data.link
               },
               template_name: 'infowindow_survey',
               collapsed: false
